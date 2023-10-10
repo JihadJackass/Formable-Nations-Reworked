@@ -1,0 +1,184 @@
+country_decisions = {
+
+	dec1_tasmania_nation = {
+		major = yes
+		potential = {
+			culture = palawa
+			tag = PLW
+			NOT = {
+				has_country_flag = formed_tasmania_flag
+				exists = TSM
+				tag = TSM
+				tag = PJJ
+				tag = PAP
+				tag = HLR
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 1
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = tasmania_area
+			}
+			NOT = { owned_by = ROOT }
+			NOT = { is_core = ROOT }
+		}
+		allow = {
+			adm_tech = 5
+			NOT = { exists = TSM }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_colonial_nation = no
+			is_former_colonial_nation = no
+			is_at_war = no
+			OR = {
+				AND = {
+					adm_power = 850
+					dip_power = 850
+					mil_power = 850
+				}
+				AND = {
+					owns = 1085
+					owns = 4868
+					owns = 4869
+				}
+			}
+		}
+		effect = {
+			change_tag = TSM # Country TAG
+			set_country_flag = formed_tasmania_flag # Country Formation Flag
+			custom_tooltip = form_tasmania_tt_2 # New Missions
+			custom_tooltip = form_tasmania_tt_3 # Region/Area Claims
+			if = { # Tasmania can be formed in exchange for each mana without provinces
+				limit = {
+					NOT = {
+						AND = {
+							owns = 1080
+							owns = 4868
+							owns = 4869
+						}
+					}
+				}
+				add_adm_power = -850
+				add_dip_power = -850
+				add_mil_power = -850
+				1080 = { cede_province = ROOT }
+				4868 = { cede_province = ROOT }
+				4869 = { cede_province = ROOT }
+			}
+			custom_tooltip = dec1_decisions_blank
+			TSM = { # Capital change and bonuses
+				set_capital = 1085
+				1085 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_theocracy # Government Type Change
+				}
+				# Reform Changes
+				custom_tooltip = dec1_government_reform_change_feudal_theocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Region/Area Claims
+					southern_australia_area = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = TSM
+					}
+					illawara_area = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = TSM
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = theocracy
+								}
+							}
+						change_government = theocracy
+					}
+					add_government_reform = feudal_theocracy
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						#NOT = { has_idea_group = AUS_ideas } # TODO: ideas
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				#add_country_modifier = {
+				#	name = dec1_down_under # TODO: ability
+				#	duration = 49275
+				#}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Coloniaze Tasmania
+
+	# PATSAWAN GAINS ABILITY TO COLONIZE ALL TASMANMIA IS
+	# THEY GIAN 500 EACH MANA POINT aND 50 % CROWNLAND
+
+}

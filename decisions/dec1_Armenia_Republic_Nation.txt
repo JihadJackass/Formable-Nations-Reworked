@@ -1,0 +1,160 @@
+country_decisions = {
+
+	#######################
+	# Republic of Armenia #
+	#######################
+
+	dec1_armenia_republic_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			primary_culture = armenian
+			government = republic
+			tag = ARM
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_armenia_flag
+				primary_culture = turkish # Armenian Genocide
+				exists = ARR
+				exists = ARE
+				tag = ARR
+				tag = ARE
+				tag = ARM
+				tag = HLR
+				tag = PAP
+				tag = CAU
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 4
+				}
+			}
+	  	}
+	  	provinces_to_highlight = {
+	   		OR = {
+				# Armenia
+	      		province_id = 419
+	      		province_id = 2205
+	    	}
+	   		OR = {
+	      		NOT = { owned_by = ROOT }
+	     		NOT = { is_core = ROOT }
+	    	}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = ARR }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+
+			OR = {
+				government = theocracy
+				government = republic
+			}
+			OR = {
+				religion = catholic
+				religion = coptic
+			}
+			owns_core_province = 419
+			owns_core_province = 2205
+		}
+		effect = {
+			change_tag = ARR # Country TAG
+			set_country_flag = formed_armenia_flag # Country Formation Flag
+			custom_tooltip = form_republic_of_armenia_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			ARR = { # Capital change and bonuses
+				set_capital = 419 # Yerevan
+				419 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_republic # Government Type Change
+				}
+				custom_tooltip = dec1_government_reform_change_merchants_republic
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = republic
+								}
+							}
+						change_government = republic
+					}
+					add_government_reform = merchants_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = ARR_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_the_steppe_republic
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+}

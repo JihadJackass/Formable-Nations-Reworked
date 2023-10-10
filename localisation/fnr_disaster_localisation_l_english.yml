@@ -1,0 +1,71 @@
+﻿l_english:
+
+  # Disasters
+
+  #########################
+  # DISASTERS LOCALISATION #
+  #########################
+
+    # Commonwealth of England
+
+      dec1_rise_of_charles_i: "The Rise of Charles I"
+      dec1_rise_of_charles_i_desc: ""
+
+    # Bosnia-Serbia
+
+      dec1_balkan_uprising: "Balkan Uprising"
+      dec1_balkan_uprising_desc: "If too many Balkan cultures are oppressed after our unification of Bosnians and Serbians then it is highly likely to lead to an armed rebellion against our regime."
+
+    # Dual Monarchy
+
+      dec1_dual_monarchy_anglois_civil_war: "Anglois Civil War"
+      dec1_dual_monarchy_anglois_civil_war_desc: "The Anglois Civil War was caused due to the shift in cultural change with the foundation of the Dual Monarchy leading to an unstable situation among our populace."
+
+    # People's Republic of China
+
+      dec1_prc_democratic_socialist_revolt: "Democratic Socialist Revolt"
+      dec1_prc_democratic_socialist_revolt_desc: ""
+
+    # American Civil War - USA
+
+      dec1_usa_american_civil_war: "American Civil War"
+      dec1_usa_american_civil_war_desc: ""
+
+    # American Civil War - CSA
+
+      dec1_csa_american_civil_war: "American Civil War"
+      dec1_csa_american_civil_war_desc: ""
+
+    # Ming
+
+      dec1_taiping_rebellion: "Taiping Rebellion"
+      dec1_taiping_rebellion_desc: "With the rise of an extremely large band of Catholic followers we are forced into a civil conflict to defend our very existance as a defender of [MNG.Religion.GetName]."
+
+    # Current Shogun
+
+      dec1_tengoku_revolt: "Shimabara Rebellion"
+      dec1_tengoku_revolt_desc: ""
+
+  #################################
+  # DISASTER TOOLTIP LOCALISATION #
+  #################################
+
+    # United States of America
+
+      dec1_usa_american_civil_war_tt_1: "Owns at least §Y14§! provinces in §YSoutheast America§! or §YMississippi§! regions producing §YCotton§!"
+
+    # Confederate States of America
+
+    # Ming (Taiping Rebellion)
+
+      dec1_ended_taiping_rebellion_tt: "Has crushed the §YTaiping Rebellion§!"
+
+    # Wuu or Taiping
+
+      dec1_ended_taiping_rebellion_violence_flag: "Ended the Taiping Rebellion through Violence"
+      dec1_ended_taiping_rebellion_diplomacy_flag: "Ended the Taiping Rebellion through Diplomacy"
+      dec1_ended_taiping_rebellion_acceptance_flag: "Ended the Taiping Rebellion through Acceptance"
+
+    # Ming
+
+      dec1_ming_start_of_taiping_rebellion: ""

@@ -1,0 +1,140 @@
+country_decisions = {
+
+	tripoli_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			NOT = {
+				has_country_flag = formed_tripoli_flag
+				exists = TRP
+				tag = TRP
+				tag = MOR
+				tag = TUN
+				tag = TLC
+				tag = ALG
+				tag = PAP
+				tag = HLR
+				tag = MGH
+			}
+			OR = {
+				primary_culture = tunisian
+				primary_culture = berber
+			}
+			capital_scope = {
+				OR = {
+					area = tripolitania_area
+					area = fezzan_area
+				}
+			}
+		}
+		allow = {
+			NOT = { exists = TRP }
+			is_at_war = no
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			
+			owns_core_province = 354 #Tripoli
+			owns_core_province = 2451 #Thubaqt
+			OR = {
+				owns_core_province = 355 #Sirt
+				owns_core_province = 353 #Djerba
+			}
+		}
+		effect = {
+			change_tag = TRP # Country TAG
+			set_country_flag = formed_tripoli_flag # Country Formation Flag
+			custom_tooltip = form_tripoli_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			TRP = { # Capital change and bonuses
+				set_capital = 354
+				354 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Claims
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = berber_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_recognized_kingdom
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+}

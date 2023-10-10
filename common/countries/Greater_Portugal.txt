@@ -1,0 +1,214 @@
+# Greater Portugal
+
+graphical_culture = westerngfx
+
+color = { 57  160  101 }
+revolutionary_colors = { 9 8 5 }
+
+historical_score = 4700
+
+historical_idea_groups = {
+	exploration_ideas
+	expansion_ideas
+	offensive_ideas
+	religious_ideas
+	economic_ideas
+	maritime_ideas
+	quality_ideas
+	defensive_ideas
+}
+
+historical_units = {
+	western_medieval_infantry
+	western_medieval_knights
+	western_men_at_arms
+	spanish_tercio
+	austrian_tercio
+	austrian_grenzer
+	austrian_hussar
+	austrian_white_coat
+	austrian_jaeger
+	mixed_order_infantry
+	open_order_cavalry
+	napoleonic_square
+	napoleonic_lancers
+}
+
+monarch_names = {
+	"Joao #0" = 120
+	"Filipe #0" = 60
+	"Afonso #4" = 40
+	"Pedro #1" = 40
+	"Antonio #0" = 20
+	"Duarte #0" = 20
+	"Henrique #0" = 20
+	"Jose #0" = 20
+	"Manuel #0" = 20
+	"Sebastiao #0" = 20
+	"Miguel #0" = 10
+	"Teodesio #0" = 10
+	"Dinis #1" = 5
+	"Fernando #1" = 5
+	"Alexandre #0" = 5
+	"Carlos #0" = 5
+	"Diego #0" = 5
+	"Jaime #0" = 5
+	"Luis #0" = 5
+	"Alvaro #0" = 0
+	"Andre #0" = 0
+	"Antinio #0 Francisco" = 0
+	"Bartolomeu #0" = 0
+	"Caetano #0" = 0
+	"Damiao #0" = 0
+	"Estevao #0" = 0
+	"Francisco #0" = 0
+	"Francisco #0 Xavier" = 0
+	"Gabriel #0" = 0
+	"Garcia #0" = 0
+	"Gaspar #0" = 0
+	"Gil #0" = 0
+	"Gonzalo #0" = 0
+	"Guilherme #0" = 0
+	"Inacio #0" = 0
+	"Joaquim #0" = 0
+	"Jorge #0" = 0
+	"Jose #0 Manuel" = 0
+	"Lourenzo #0" = 0
+	"Marco #0" = 0
+	"Nicolau #0" = 0
+	"Octavio #0" = 0
+	"Paulo #0" = 0
+	"Rafael #0" = 0
+	"Rogario #0" = 0
+	"Rui #0" = 0
+	"Simao #0" = 0
+	"Uriel #0" = 0
+	"Vicente #0" = 0
+	"Maria #0" = -10
+	"Isabel #0" = -5
+	"Joana #0" = -1
+	"Beatriz #0" = -1
+	"Maria Manuela #0" = -1
+	"Filipa #0" = -1
+	"Luasa #0" = -1
+	"Catarina #0" = -1
+	"Ana #0" = -1
+	"Barbara #0" = -1
+}
+
+leader_names = {
+	"Machado"
+	Cabral
+	Coelho
+	Corte-Real
+	Coutinho
+	"da Costa"
+	"da Cunha"
+	"da Fonseca"
+	"de Albuquerque"
+	"de Almeida"
+	"de Andrade"
+	"de Aveiro"
+	"de Azevedo"
+	"de Braganca"
+	"de Brito"
+	"de Carvalho"
+	"de Castelo-Branco"
+	"de Castro"
+	"de Correia"
+	"de Faria"
+	"da Gama"
+	"de Guimaraes"
+	"de Lemos"
+	"de Magalhaes"
+	"de Marialva"
+	"de Melo"
+	"de Mendonza"
+	"de Meneses"
+	"de Noronha"
+	"de Oliveira"
+	"de Paiva"
+	"de Penamacor"
+	"de Pimentel"
+	"de Queiraz"
+	"de Si"
+	"de Sampaio"
+	"de Sequeira"
+	"de Sousa"
+	"de Souto"
+	"de Tavares"
+	"de Tavora"
+	"de Vilhena"
+	Dias
+	Eanes
+	"Ferreira Martins"
+	Gomes Gonzalves
+	"Lemos de Brito"
+	"Martins de Mascarenhas"
+	"de Vasconcelos"
+	"Mendonza Furtado"
+	"Nunes Barreto"
+	Pereira
+	Rebelo Rodrigues
+	Sarmento
+	Teixeira "Teles de Meneses"
+}
+
+ship_names = {
+	Activo
+	"Afonso de Albuquerque"
+	Aguia Albacora
+	"Almas Santas"
+	Amazona
+	Andorinha
+	Antonio
+	Arpao
+	Bazana
+	Belam
+	Benjamin
+	Boaventura
+	"Bom Jesus de Mazagao"
+	"Cabo de Sao Vicente"
+	Calipso
+	Capitania
+	Chagas
+	"Cinco Chagas"
+	Colombo
+	"Conde Dom Henrique"
+	"Condessa de Resende"
+	"Coraco de Jesus"
+	Coroa
+	"Corte Real"
+	Curiosa
+	Damao
+	Dao
+	Delfim
+	Lisboa
+}
+
+army_names = {
+	"Guarda Real"
+	"Terao de $PROVINCE$"
+	"Exercito de $PROVINCE$"
+	"Bandeira de $PROVINCE$"
+	"Terao da Armada Real da Coroa de Portugal"
+}
+
+fleet_names = {
+	"Armada Real"
+	"Armada de $PROVINCE$"
+	"Esquadra de $PROVINCE$"
+	"Frota de $PROVINCE$"
+	"Armada do Atlantico"
+	"Esquadra do Atlantico"
+	"Frota do Atlantico"
+	"Armada do Brasil"
+	"Esquadra do Brasil"
+	"Frota do Brasil"
+	"Armada da Guina"
+	"Esquadra da Guina"
+	"Frota da Guina"
+	"Armada do Cabo"
+	"Esquadra do Cabo"
+	"Frota do Cabo" "Armada do Andico" "Esquadra do Andico" "Frota do Andico" "Armada do Estreito" "Esquadra do Estreito" "Frota do Estreito" "Armada do Extremo Oriente" "Esquadra do Extremo Oriente" "Frota do Extremo Oriente""Armada do Pacifico" "Esquadra do Pacifico" "Frota do Pacifico"
+}

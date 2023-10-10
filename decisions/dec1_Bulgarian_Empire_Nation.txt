@@ -1,0 +1,184 @@
+country_decisions = {
+
+	##########################
+	# First Bulgarian Empire #
+	##########################
+
+	dec1_bulgarian_empire_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			OR = {
+				primary_culture = bulgarian
+				tag = BUL
+			}
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_bulgarian_empire_flag
+				has_reform = celestial_empire
+				exists = BBG
+				tag = BBG
+				tag = HLR
+				tag = PAP
+				tag = TUR
+				tag = MAM
+				tag = ISR
+				tag = MAC
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 6
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				# Macedonia
+				province_id = 3001
+				province_id = 4702
+				province_id = 1853
+				province_id = 4780
+				# Thrace
+				province_id = 149
+				province_id = 1764
+				# Carpathia
+				province_id = 1954
+				# Serbia
+				province_id = 1827
+				province_id = 1766
+				area = bulgaria_area
+				area = silistria_area
+				area = wallachia_area
+				area = southern_transylvania_area
+				area = serbia_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = BBG }
+			is_subject = no
+			is_at_war = no
+			# Macedonia
+			owns = 3001
+			owns = 4702
+			owns = 1853
+			owns = 4780
+			# Thrace
+			owns = 149
+			owns = 1764
+			# Carpathia
+			owns = 1954
+			# Serbia
+			owns = 1827
+			owns = 1766
+			bulgaria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			silistria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			wallachia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			southern_transylvania_area = {
+				type = all
+				owned_by = ROOT
+			}
+			serbia_area = {
+				type = all
+				owned_by = ROOT
+			} # TODO: adjust to not need ALL
+		}
+		effect = {
+			change_tag = BBG # Country TAG
+			set_country_flag = formed_bulgarian_empire_flag # Country Formation Flag
+			custom_tooltip = form_bulgarian_empire_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			BBG = { # Capital change and bonuses
+				set_capital = 1765 # Sofia
+				1765 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_bulgarian_tsardom
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = bulgarian_tsardom_reform # Changed to 1.35 reform, paradox stealing my thunder as always
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = BUL_ideas } # TODO: bulgarian empire ideas
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_sons_of_knyaz
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200 #
+	}
+
+}

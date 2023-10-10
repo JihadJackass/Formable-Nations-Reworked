@@ -1,0 +1,142 @@
+	##############################################
+	# Tengoku Revolt - Applies to current shogun #
+	##############################################
+
+		# Shimabara Rebellion
+
+			dec1_tengoku_revolt = {
+				ended_by_country_breaking_to_rebels = no
+
+				potential = {
+					ROOT = {
+						has_reform = shogunate
+					}
+					NOT = {
+						has_global_flag = dec1_started_shimabara_rebellion
+						has_global_flag = dec1_ended_shimabara_rebellion
+					}
+				}
+
+				can_start = {
+					has_any_disaster = no
+					OR = {
+						AND = {
+							isolationism = 0
+							is_incident_active = incident_spread_of_christianity
+						}
+						is_year = 1500
+						POR = { has_discovered = 1020 }
+						CAS = { has_discovered = 1020 }
+						SPA = { has_discovered = 1020 }
+						ENG = { has_discovered = 1020 }
+						GBR = { has_discovered = 1020 }
+						FRA = { has_discovered = 1020 }
+						# Add Formable Nation tags?
+					}
+				}
+
+				can_stop = {
+					has_any_disaster = yes
+					OR = {
+						# For Winning
+						AND = { # Converted all Catholic provinces
+							if = {
+								limit = {
+									has_reform = shogunate
+								}
+								japan_region = {
+									NOT = {
+										religion = catholic
+									}
+								}
+							}
+						}
+						AND = { # Defeated the Revolt
+							TGK = {
+								exists = no
+							}
+						}
+						# For Losing
+						AND = { # Is Tengoku
+							tag = TGK
+							if = {
+								limit = {
+									has_reform = shogunate
+								}
+								religion = catholic
+							}
+						}
+						AND = { # Is catholic
+							if = {
+								limit = {
+									has_reform = shogunate
+								}
+								religion = catholic
+							}
+						}
+					}
+				}
+
+				progress = {
+					modifier = { # Shogun has less than 0 stability
+						factor = 0.12
+						if = {
+							limit = {
+								has_reform = shogunate
+							}
+							NOT = { stability = 0 }
+						}
+					}
+					modifier = { # Shogun does not have at least 25 subjects (NOTE: Shogun starts with 29 in 1444)
+						factor = 0.8
+						if = {
+							limit = {
+								has_reform = shogunate
+							}
+							NOT = { num_of_subjects = 25 }
+						}
+					}
+					modifier = { # Shogun does not have at least 15 subjects (NOTE: Shogun starts with 29 in 1444)
+						factor = 0.4
+						if = {
+							limit = {
+								has_reform = shogunate
+							}
+							NOT = { num_of_subjects = 15 }
+						}
+					}
+					modifier = { # Shogun does not have at least 10 subjects (NOTE: Shogun starts with 29 in 1444)
+						factor = 0.2
+						if = {
+							limit = {
+								has_reform = shogunate
+							}
+							NOT = { num_of_subjects = 10 }
+						}
+					}
+				}
+
+				modifier = {
+					global_unrest = 2
+					missionary_maintenance_cost = 0.20
+				}
+
+				can_end = {
+					custom_trigger_tooltip = {
+						tooltip = dec1_ended_taiping_rebellion_tt
+						has_global_flag = dec1_ended_shimabara_rebellion
+					}
+				}
+
+				on_start = dec1_disaster_events.7
+				on_end = dec1_disaster_events.8
+
+				on_monthly = {
+					events = { }
+					random_events = {
+						1000 = 0
+						# 100 = dec1_disaster_events.4 #
+					}
+				}
+			}
+

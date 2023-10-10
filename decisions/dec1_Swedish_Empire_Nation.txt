@@ -1,0 +1,235 @@
+country_decisions = {
+
+	dec1_swedish_empire_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			primary_culture = swedish
+			NOT = {
+				has_country_flag = formed_scandinavia_flag
+				exists = SSE
+				tag = SSE
+				tag = SCA
+				tag = PAP
+				tag = PRU
+				tag = GER
+				tag = KGG
+				tag = HLR
+				tag = NSE
+				tag = SNO
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 6
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+					# Swedish Empire Cores
+				area = norrland_area
+				area = svealand_area
+				area = ostra_svealand_area
+				area = vastra_gotaland_area
+				area = gotaland_area
+				area = skaneland_area
+				province_id = 10 # Jemtland
+				province_id = 20 # Trendelag
+				province_id = 1981 # Bornholm
+					# Eastern Colonies
+				area = bothnia_area
+				area = finland_area
+				area = estonia_ingria_area
+				area = livonia_area
+				province_id = 4151 # Enare
+				province_id = 4124 # Karelia
+				province_id = 32 # Priozersk
+				province_id = 30 # Viborg
+				province_id = 33 # Neva
+				province_id = 34 # Ingermanland
+				province_id = 35 # Osel
+					# German Colonies
+				area = vorpommern_area
+				province_id = 2996 # Wismar
+				province_id = 54 # Stade
+				province_id = 4771 # Verden
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 15
+			NOT = { exists = SSE }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			custom_trigger_tooltip = { # Swedish Empire cores
+				tooltip = form_swedish_empire_tt_1
+				norrland_area = {
+					type = all
+					owned_by = ROOT
+				}
+				svealand_area = {
+					type = all
+					owned_by = ROOT
+				}
+				ostra_svealand_area = {
+					type = all
+					owned_by = ROOT
+				}
+				vastra_gotaland_area = {
+					type = all
+					owned_by = ROOT
+				}
+				gotaland_area = {
+					type = all
+					owned_by = ROOT
+				}
+				skaneland_area = {
+					type = all
+					owned_by = ROOT
+				}
+				owns = 10 # Jemtland
+				owns = 20 # Trendelag
+				owns = 1981 # Bornholm
+			}
+			custom_trigger_tooltip = { # Swedish Empire eastern territory
+				tooltip = form_swedish_empire_tt_2
+				bothnia_area = {
+					type = all
+					owned_by = ROOT
+				}
+				finland_area = {
+					type = all
+					owned_by = ROOT
+				}
+				estonia_ingria_area = {
+					type = all
+					owned_by = ROOT
+				}
+				livonia_area = {
+					type = all
+					owned_by = ROOT
+				}
+				owns = 4151 # Enare
+				owns = 4124 # Karelia
+				owns = 32 # Priozersk
+				owns = 30 # Viborg
+				owns = 33 # Neva
+				owns = 34 # Ingermanland
+				owns = 35 # Osel
+			}
+			custom_trigger_tooltip = { # Swedish Empire german territory
+				tooltip = form_swedish_empire_tt_3
+				vorpommern_area = {
+					type = all
+					owned_by = ROOT
+				}
+				owns = 2996 # Wismar
+				owns = 54 # Stade
+				owns = 4771 # Verden
+			}
+		}
+		effect = {
+			change_tag = SSE # Country TAG
+			set_country_flag = formed_swedish_empire_flag # Country Formation Flag
+			custom_tooltip = form_swedish_empire_tt_4 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			SSE = { # Capital change and bonuses
+				set_capital = 1 # Stockholm
+				1 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Claims
+					# New Missions
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+			#			NOT = { has_idea_group = SSE_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+			#	add_country_modifier = {
+			#		name = dec1_great_swedish_power
+			#		duration = 49275
+			#	}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+}

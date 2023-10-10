@@ -1,0 +1,144 @@
+﻿l_english:
+
+  ####################
+  # UNIQUE DECISIONS #
+  ####################
+
+    # Startup Historical Settings
+
+      # Enable
+
+        dec1_startup_historical_settings_enable_title: "Historical Mode - §RDisabled§!"
+        dec1_startup_historical_settings_enable_desc: "If you wish to only see nations that would historically exist between 1444-1821 then enable this within the first month of the game, otherwise all nations will be active.\n\n§YThis decision will no longer show after December 1444§!"
+
+      # Disable
+
+        dec1_startup_historical_settings_disable_title: "Historical Mode - §GEnabled§!"
+        dec1_startup_historical_settings_disable_desc: "If you've changed your mind, this will enable all formable nations again.\n\n§YThis decision will no longer show after December 1444§!"
+
+    # Startup Subject Settings
+
+        # Enable
+
+          dec1_startup_subject_settings_enable_title: "Subject Formable Mode - §RDisabled§!"
+          dec1_startup_subject_settings_enable_desc: "If you wish for your subjects to be able to create Formables, then enable this.\n\n§YThis decision will no longer show after December 1444§!"
+
+        # Disable
+
+          dec1_startup_subject_settings_disable_title: "Subject Formable Mode - §GEnabled§!"
+          dec1_startup_subject_settings_disable_desc: "If you wish for your subjects to be able to create Formables, then enable this. Otherwise it will be left Disabled as it is in vanilla.\n\n§YThis decision will no longer show after December 1444§!"
+
+  ###########################
+  # NON-FORMATION DECISIONS #
+  ###########################
+
+    # Armenian Empire
+
+      dec1_proclaim_greater_armenia_title: "Proclaim Greater Armenia"
+      dec1_proclaim_greater_armenia_desc: ""
+
+    # Kalmar Union
+
+      dec1_establish_kalmar_council_title: "Establish the Kalmar Council"
+      dec1_establish_kalmar_council_desc: ""
+
+      dec1_establish_swedish_norway_title: "Foundation of Swedish Norway"
+      dec1_establish_swedish_norway_desc: "We have long dominated the Norwegians and attempted to integrate them through various methods, but our advisors have pondered a new plan for the realm as a new march under the Swedish crown; by giving the Norwegians some autonomy we can profit greatly."
+
+    # Commonwealth of England
+
+      dec1_rise_of_charles_i_title: "Rise of Charles I"
+      dec1_rise_of_charles_i_desc: ""
+
+    # Hungarian Empire
+
+      dec1_claim_on_austria_title: "Claim the Austrian Throne"
+      dec1_claim_on_austria_desc: "We spent many years under Personal Union with Austria, but this is no longer the case as we are the dominant empire in the region which gives us the ability to claim the throne of Austria as ours considering they have fallen from grace and lost the title of Emperor."
+
+    # Bosnia-Serbia
+
+      dec1_unify_serbs_and_bosnians_title: "Unify Bosnians and Serbians"
+      dec1_unify_serbs_and_bosnians_desc: "We have a unique oportunity to merge the Serbian and Bosnian cultures into a unified §YBosno-Serbian Culture Group§!, which will become dominant in the §YBalkan§! region and allow our nation to control vast sums of prestige and wealth.\nThough we must keep in mind that by doing this it inherently oppresses all other §YSouth Slavic§! cultures, which could lead to negative consequences."
+
+    # Aksumite Empire
+
+      dec1_establish_great_city_of_aksum_title: "Re-establish the Great City of Aksum"
+      dec1_establish_great_city_of_aksum_desc: ""
+
+    # Incan Empire
+
+      dec1_proclaim_inca_empire_title: "@INC Proclaim the Incan Empire"
+      dec1_proclaim_inca_empire_desc: "We have dominated our neighbors and conqured lands we could have never dreamed of, and thus we are rightfully able to declare ourselves a true Empire and bestow an imperial crown upon our leader [Root.Monarch.GetName]."
+
+    # Crusader States
+
+      dec1_create_county_of_edessa_crusader_state_title: "@COD Establish the County of Edessa"
+      dec1_create_county_of_edessa_crusader_state_desc: "Through war and diplomacy we have secured the Levant from the heratics giving us a unique opportunity to re-establish the Crusader State of the §YCounty of Edessa§!."
+
+      dec1_create_principality_of_antioch_crusader_state_title: "@POA Establish the Principality of Antioch"
+      dec1_create_principality_of_antioch_crusader_state_desc: "Through war and diplomacy we have secured the Levant from the heratics giving us a unique opportunity to re-establish the Crusader State of the §YPrincipality of Antioch§!."
+
+      dec1_create_county_of_tripoli_crusader_state_title: "@CTR Establish the County of Tripoli"
+      dec1_create_county_of_tripoli_crusader_state_desc: "Through war and diplomacy we have secured the Levant from the heratics giving us a unique opportunity to re-establish the Crusader State of the §YCounty of Tripoli§!."
+
+      dec1_create_kingdom_of_jerusalem_crusader_state_title: "@KOJ Establish the Kingdom of Jerusalem"
+      dec1_create_kingdom_of_jerusalem_crusader_state_desc: "Through war and diplomacy we have secured the Holy City of Jerusalem from the heratics giving us a unique opportunity to re-establish the §YKingdom of Jerusalem§!."
+
+    # Relocate Capital to Ningbo (for Taiping)
+
+      dec1_relocate_capital_to_ningbo_title: "Relocate Capital to Ningbo"
+      dec1_relocate_capital_to_ningbo_desc: "We can relocate our current capital to Ningbo in an effort to prolong any war against Ming or other forces threatening our existance."
+
+    # American Civil War
+
+      # Restore the Union (Decision for victor of the American Civil War)
+
+      dec1_restore_the_american_union_title: "Restore the American Union"
+      dec1_restore_the_american_union_desc: "We must restore the American Union"
+
+    # Dual Monarchy
+
+      anglois_cultural_icon_title: "Anglois Cultural Icon"
+      anglois_cultural_icon_desc: ""
+
+    # Czechoslovakia
+
+      dec1_unite_czech_culture_title: "Unite Czech Cultures"
+      dec1_unite_czech_culture_desc: "With the equality of our brothers in culture we are able to unite our people into one polity allowing grand ambitions."
+
+    # Sri Lanka
+
+      dec1_proclaim_sri_lanka_title: "Proclaim Sri Lanka"
+      dec1_proclaim_sri_lanka_desc: "We have developed our island nation into a truly spectacular nation, so we shall proclaim a name for our homeland that is fitting of such a grand status!"
+
+    # German Empire
+
+      dec1_proclaim_greater_german_empire_title: "Proclaim the Greater German Reich"
+      dec1_proclaim_greater_german_empire_desc: "Through German bloodshed and masterful diplomacy we have secured soil far past the polish lands we coveted and as such are entitled to a far superior title than we currently hold.\n\nWith that stated, it is time for us to officially declare the formation of the 'Greater German Reich'."
+
+    # Iberian Union
+
+      dec1_proclaim_iberian_empire_title: "Proclaim the Iberian Empire"
+      dec1_proclaim_iberian_empire_desc: "It is time to abolish this nonsense of a union and proclaim and Empire for Iberia!\n\n With an Emperor and his grand armies to lead Iberia to glory no one in Europe will be able to stop us!\n\nFor it is time.."
+
+    # Mingrelia
+
+      dec1_mingrelia_russia_patronage_treaty_title: "Mingrelian-Russian Patronage Treaty"
+      dec1_mingrelia_russia_patronage_treaty_desc: "We must accept our position in the Caucasus as the inferior nation to save our people from suffering under Russian occupation."
+
+    # Carolingian Empire
+
+      dec1_restoration_of_francia_title: "Restoration of Francia"
+      dec1_restoration_of_francia_desc: "We have secured the borders that were once Francian allowing us to restore to the truest extent the Francian Realm."
+
+    # Gallic Empire
+
+      # Terraconesis
+      dec1_establish_terraconensis_title: "@TRC Establish Terraconensis Loyalists"
+      dec1_establish_terraconensis_desc: ""
+
+    # Aksumite
+
+      dec1_proclaim_aksumite_empire_title: "Proclaim the Aksumite Empire"
+      dec1_proclaim_aksumite_empire_desc: "We have conquered the Horn of Africa under our regime allowing us to finally establish ourselves as a true Empire of Aksumite which shall be a great threat to those so-called Great Powers of Europe."
+

@@ -1,0 +1,54 @@
+namespace = dec1_american_civil_war_events
+
+#############################
+# American Civil War Events #
+#############################
+
+	# Election of Jefferson Davis
+
+	country_event = {
+		id = dec1_american_civil_war_events.1
+		title = "dec1_american_civil_war_events.1.t"
+		desc = "dec1_american_civil_war_events.1.d"
+		picture = USA_CONGRESS_eventPicture
+
+		trigger = {
+			exists = CSA
+		}
+
+		mean_time_to_happen = {
+			months = 1
+		}
+
+		option = {
+			name = "dec1_american_civil_war_events.1.a"
+			ai_chance = { factor = 100 }
+			define_ruler = {
+				name = "Jefferson Finis Davis"
+				dynasty = ROOT
+				culture = ROOT
+				religion = ROOT
+			}
+		}
+	}
+
+	# The Confederacy Stands Down
+
+	country_event = {
+		id = dec1_american_civil_war_events.2
+		title = "dec1_american_civil_war_events.2.t"
+		desc = "dec1_american_civil_war_events.2.d"
+		picture = USA_CONGRESS_eventPicture
+
+		trigger = {
+			has_country_flag = dec1_american_civil_war_confederacy_surrender
+		}
+
+		option = {
+			name = "dec1_american_civil_war_events.2.a"
+			ai_chance = { factor = 100 }
+			USA = { inherit = CSA }
+		}
+	}
+
+	# Bleeding Kansas

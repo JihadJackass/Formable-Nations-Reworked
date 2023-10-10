@@ -1,0 +1,193 @@
+country_decisions = {
+
+	###########
+	# Romania #
+	###########
+
+	dec1_romanian_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			primary_culture = romanian
+			NOT = {
+				has_country_flag = formed_romanian_flag
+				exists = RMN
+				tag = RMN
+				tag = DCA
+				tag = HLR
+				tag = PAP
+				tag = SBG
+				tag = PAP
+				tag = ROM
+				tag = HUN
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = wallachia_area
+				area = moldavia_area
+				province_id = 4706
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 5
+			
+			is_at_war = no
+			NOT = { exists = RMN }
+			AND = { # Can NOT do both, to prevent Romania not forming
+				custom_trigger_tooltip = { # Roman Successors Handler
+					tooltip = form_romania_tt_4
+					OR =  {
+						NOT = { # Roman Successors cannot exist
+							exists = BYZ
+							exists = ROM
+							exists = ROP
+							exists = ERP
+							exists = WRE
+						}
+						OR = { # Roman Successors are vassals
+							AND = {
+								BYZ = { is_subject_of = ROOT } # Byzantium is a subject of ROOT
+							}
+							AND = {
+								ROP = { is_subject_of = ROOT } # Roman Republic is a subject of ROOT
+							}
+						}
+					}
+				}
+				custom_trigger_tooltip = { # Conquer all of Romania
+					tooltip = form_romania_tt_1
+					wallachia_area = {
+						type = all
+						owned_by = ROOT
+					}
+					moldavia_area = {
+						type = all
+						owned_by = ROOT
+					}
+					owns_core_province = 4706
+				}
+			}
+		}
+		effect = {
+			change_tag = RMN # Country TAG
+			set_country_flag = formed_romanian_flag # Country Formation Flag
+			custom_tooltip = form_romania_tt_2 # New Missions
+			custom_tooltip = form_romania_tt_3 # Region/Area Claims
+			custom_tooltip = dec1_decisions_blank
+			RMN = { # Capital change and bonuses
+				set_capital = 4531 # Bucuresti
+				4531 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Region/Area Claims
+					carpathia_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = RMN
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = RMN_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_legacy_of_rome
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 5
+			modifier = { # Romanian desire to unite Romania
+			 	factor = 20
+				OR = {
+					primary_culture = romanian
+					OR = {
+						tag = WAL
+						tag = MOL
+					}
+				}
+			}
+			modifier = { # other Carpatian nations desire to unite Romania
+				factor = 10
+				culture_group = carpathian
+				NOT = {
+					primary_culture = romanian
+					tag = WAL
+					tag = MOL
+				}
+			}
+		}
+		ai_importance = 200
+	}
+
+}

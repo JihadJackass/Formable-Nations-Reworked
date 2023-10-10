@@ -1,0 +1,5 @@
+government = monarchy
+primary_culture = serbian
+religion = orthodox
+technology_group = eastern
+capital = 141

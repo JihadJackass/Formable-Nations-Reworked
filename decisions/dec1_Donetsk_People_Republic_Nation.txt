@@ -1,0 +1,149 @@
+country_decisions = {
+
+	dec1_donetsk_people_republic_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			NOT = {
+				num_of_cities = 5 # Cannot be larger than 5 cities
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_donetsk_flag
+				exists = DPR
+				tag = DPR
+				tag = LPR
+				tag = DAL
+				tag = CRO
+				tag = LVE
+				tag = PAP
+				tag = HAB
+				tag = HLR
+				tag = SPI
+				tag = BLR
+				tag = UKE
+				tag = KRV
+				tag = UKR
+				tag = PAP
+				tag = HLR
+				tag = EUR
+				tag = SOV
+				tag = MOS
+				tag = NOV
+			}
+			OR = {
+				primary_culture = russian
+				primary_culture = ruthenian
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 1
+				}
+			}
+		}
+		provinces_to_highlight = {
+			AND = {
+				OR = {
+					province_id = 2412 # Donetsk
+					province_id = 2411
+				}
+				ROOT = {
+					NOT = { owns_core_province = 2412 }
+				}
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = {
+				exists = DPR
+				num_of_cities = 5
+		 	}
+			is_subject = no
+			
+			is_at_war = no
+			owns_core_province = 2412
+		}
+		effect = {
+			change_tag = DPR # Country TAG
+			set_country_flag = formed_donetsk_flag # Country Formation Flag
+			custom_tooltip = form_donetsk_people_republic_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			DPR = { # Capital change and bonuses
+				set_capital = 2412
+				2412 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Region/Area Claims
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 1
+								}
+							}
+						set_government_rank = 1
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = SPA_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_seperatist_regime_d
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

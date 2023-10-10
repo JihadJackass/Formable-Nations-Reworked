@@ -1,0 +1,60 @@
+# Danubian Federation (United States of Greater Austria)
+
+graphical_culture = westerngfx
+
+color = { 153 40 37 }
+
+historical_idea_groups = {
+	influence_ideas
+	diplomatic_ideas
+	economic_ideas
+	defensive_ideas
+	religious_ideas
+	offensive_ideas
+	administrative_ideas
+	quality_ideas
+}
+
+historical_units = {
+	western_medieval_infantry
+	western_medieval_knights
+	western_men_at_arms
+	swiss_landsknechten
+	dutch_maurician
+	austrian_tercio
+	austrian_grenzer
+	austrian_hussar
+	austrian_white_coat
+	austrian_jaeger
+	mixed_order_infantry
+	open_order_cavalry
+	napoleonic_square
+	napoleonic_lancers
+}
+
+monarch_names = {
+	"Leopold #7 Wilhelm" = 10
+	"Rudolf #4" = 10
+	"Alexander #0" = 10
+	"Anton #0" = 10
+	"Franz Karl #0" = 10
+	"Johann #0" = 10
+	"Ludwig #0" = 10
+	"Rainer #0" = 10
+	"Adolf #0" = 0
+	"Alfred #0" = 0
+	"Benno #0" = 0
+	"Bruno #0" = 0
+	"Cristoph #0" = 0
+
+	"Thamina #0" = -1
+}
+
+leader_names = {
+	"von Quadt" Ketterer "von Stubenrauch" "von Hatzfeldt"
+	"von Neippberg" Lobkowitz Mittelbach "von Laudon"
+}
+
+ship_names = {
+	Eagle Tiger Panther Leopard Trabant Satellit
+}

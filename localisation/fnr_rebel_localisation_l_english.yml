@@ -1,0 +1,137 @@
+﻿l_english:
+
+# Rebels
+
+ ##################
+ # REBEL TOOLTIPS #
+ ##################
+
+  # Confederate States
+
+    dec1_confederate_loyalists_rebels_title: "Confederate Loyalists"
+    dec1_confederate_loyalists_rebels_name: "Confederate Loyalists"
+    dec1_confederate_loyalists_rebels_desc: "Confederate Loyalists"
+    dec1_confederate_loyalists_rebels_army: "Confederate Loyalist Militia"
+
+    dec1_weaken_the_united_states: "Weaken the [USA.GetName]"
+    dec1_weaken_the_united_states_desc: "Confederate Loyalists have risen up due to the conflict with [CSA.GetName] and seek to weaken the power of America allowing Confederates to fight on equal terms."
+
+  # Dual Monarchy
+
+    dec1_anglois_rebels: "Anglois Rebels"
+    dec1_anglois_rebels_title: "Anglois Rebels"
+    dec1_anglois_rebels_desc: "Rebel Army Supporting The Anglois"
+    dec1_anglois_rebels_name: "Anglois Rebels"
+    dec1_anglois_rebels_army: "Anglois Militia"
+
+    dec1_weaken_the_dual_monarchy: "Weaken the [DUM.GovernmentName]"
+    dec1_weaken_the_dual_monarchy_desc: ""
+
+# Casus Belli
+
+ ############################
+ # CASUS BELLI LOCALISATION #
+ ############################
+
+  # American Civil War
+
+    cb_american_civil_war: "American Civil War"
+    cb_american_civil_war_desc: "The American Union has been shattered and we must restore it no matter the cost!"
+
+    american_civil_war: "American Civil War"
+    american_civil_war_desc: ""
+
+  # Shimabaura Rebellion
+
+    dec1_war_goal_shimabara_rebellion: "Shimabara Rebellion"
+    dec1_war_goal_shimabara_rebellion_desc: "An alliance of local ronin and mostly Catholic peasants led by Amakusa Shiro rebelled against the shogunate due to discontent over oppressive policies"
+
+    cb_shimabara_rebellion: "Shimabara Rebellion"
+    cb_shimabara_rebellion_desc: ""
+
+    dec1_shimabara_rebellion: "Shimabara Rebellion"
+    dec1_shimabara_rebellion_desc: ""
+
+  #########################
+  # WAR GOAL LOCALISATION #
+  #########################
+
+  dec1_american_civil_war: "American Civil War"
+
+  #############################
+  # COUNTRY FLAG LOCALIZATION #
+  #############################
+
+    dec1_democratic_socialism_enforced_tt: "Democratic Socialism Enforced"
+
+    dec1_ming_wins_tpp_rebellion_tt: "§YMing§! won Taiping Rebellion"
+
+    dec1_proclaim_aksumite_empire_flag: "Proclaimed the Aksumite Empire"
+
+
+  ####################
+  # AI Personalities #
+  ####################
+
+    dec1_anglois_icon_personality: "Anglois Icon"
+    desc_dec1_anglois_icon_personality: "This ruler has become a true icon for the Anglois religion."
+    dec1_anglois_icon_personality_die_desc: "A great loss!"
+
+  #############################
+  # Country Name Localisation #
+  #############################
+
+    # Francia
+
+      dec1_carolingian_empire_francia_name: "Francia"
+      dec1_carolingian_empire_francia_short_name: "Francia"
+
+    # Taiping Heavenly Kingdom
+
+      dec1_taiping_heavenly_kingdom_name: "Heavenly Kingdom"
+      dec1_taiping_heavenly_kingdom_short_name: "Heavenly Kingdom"
+
+    # Greater German Reich
+
+      dec1_greater_german_reich_name: "Greater German Reich"
+      dec1_greater_german_reich_short_name: "Greater German Reich"
+
+    # Iberian Empire
+
+      dec1_iberian_empire_name: "Iberian Empire"
+      dec1_iberian_empire_name_short: "Iberia"
+
+    # Sri Lanka
+
+      dec1_proclaim_sri_lanka_name: "Sri Lanka"
+
+    # Incan Empire
+
+      dec1_inca_empire_name: "Incan Empire"
+
+    # Francia
+
+      dec1_aksumite_empire_name: "Aksumite Empire"
+
+    #
+
+  ######################
+  # Other Localisation #
+  ######################
+
+    tribe_mechanic: "Tribal"
+
+
+#####################
+# DISASTER TOOLTIPS #
+#####################
+
+  # Wuu or Taiping
+
+    dec1_ended_taiping_rebellion_violence_flag: "Ended the Taiping Rebellion through Violence"
+    dec1_ended_taiping_rebellion_diplomacy_flag: "Ended the Taiping Rebellion through Diplomacy"
+    dec1_ended_taiping_rebellion_acceptance_flag: "Ended the Taiping Rebellion through Acceptance"
+
+  # Ming
+
+    dec1_ming_start_of_taiping_rebellion: ""

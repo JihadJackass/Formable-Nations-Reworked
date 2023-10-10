@@ -1,0 +1,163 @@
+	####################
+	# GOVERNMENT NAMES #
+	####################
+
+		#################################
+		# Confederate States of America #
+		#################################
+
+			dec1_confederacy = {
+				rank = {
+					1 = DEC1_CONFEDERATE_CONGRESS_RANK_1
+					2 = DEC1_CONFEDERATE_CONGRESS_RANK_2
+					3 = DEC1_CONFEDERATE_CONGRESS_RANK_3
+				}
+
+				ruler_male = {
+					1 = DEC1_CONFEDERATE_CONGRESS_RULER_MALE_1
+					2 = DEC1_CONFEDERATE_CONGRESS_RULER_MALE_2
+					3 = DEC1_CONFEDERATE_CONGRESS_RULER_MALE_3
+				}
+
+				ruler_female = {
+					1 = DEC1_CONFEDERATE_CONGRESS_RULER_FEMALE_1
+					2 = DEC1_CONFEDERATE_CONGRESS_RULER_FEMALE_2
+					3 = DEC1_CONFEDERATE_CONGRESS_RULER_FEMALE_3
+				}
+
+				trigger = {
+					tag = CSA
+					#always = no
+				}
+			}
+
+		#################
+		# Dual Monarchy #
+		#################
+
+			dec1_dual_monarchy_government = {
+				rank = {
+					3 = DEC1_DUAL_MONARCHY_GRAND_DUCHY
+					3 = DEC1_DUAL_MONARCHY_GRAND_KINGDOM
+					3 = DEC1_DUAL_MONARCHY_GRAND_PROTECTORATE
+				}
+
+				ruler_male = {
+					1 = DEC1_GRAND_PROTECTOR
+					2 = DEC1_GRAND_PROTECTOR
+					3 = DEC1_GRAND_PROTECTOR
+				}
+
+				ruler_female = {
+					1 = DEC1_GRAND_PROTECTRESS
+					2 = DEC1_GRAND_PROTECTRESS
+					3 = DEC1_GRAND_PROTECTRESS
+				}
+
+				heir_male = {
+					1 = DEC1_HEIR_APPARENT
+					2 = DEC1_HEIR_APPARENT
+					3 = DEC1_HEIR_APPARENT
+				}
+
+				heir_female = {
+					1 = DEC1_HEIRESS_APPARENT
+					2 = DEC1_HEIRESS_APPARENT
+					3 = DEC1_HEIRESS_APPARENT
+				}
+
+				trigger = {
+					tag = DUM
+				}
+			}
+
+		##############################
+		# People's Republic of China #
+		##############################
+
+			dec1_chinese_communism_government = {
+				rank = {
+					3 = DEC1_PEOPLES_REPUBLIC
+				}
+
+				ruler_male = {
+					3 = DEC1_SUPREME_LEADER
+				}
+
+				ruler_female = {
+					3 = DEC1_MADAM_SUPREME_LEADER
+				}
+
+				heir_male = {
+					3 = DEC1_CENTRAL_GUARD
+				}
+
+				heir_female = {
+					3 = DEC1_CENTRAL_GUARD
+				}
+
+				trigger = {
+					tag = PRC
+				}
+			}
+
+		########################
+		# Eastern Roman Empire #
+		########################
+
+			dec1_byzantine_bureaucracy_government = {
+				rank = {
+					3 = DEC1_ROMAN_REPUBLIC
+				}
+
+				ruler_male = {
+					3 = DEC1_EASTERN_ROMAN_EMPEROR
+				}
+
+				ruler_female = {
+					3 = DEC1_EASTERN_ROMAN_EMPRESS
+				}
+
+				heir_male = {
+					3 = DEC1_SUCCESSOR
+				}
+
+				heir_female = {
+					3 = DEC1_SUCCESSOR
+				}
+
+				trigger = {
+					tag = ERP
+				}
+			}
+
+		###################
+		# Catholic Russia #
+		###################
+
+			dec1_theocratic_tsardom_government = {
+				rank = {
+					3 = DEC1_RUSSIAN_THEOCRACY_GOVERNMENT
+				}
+
+				ruler_male = {
+					3 = DEC1_THEOCRATIC_TSARDOM_PATRIARCHATE_3
+				}
+
+				ruler_female = {
+					3 = DEC1_THEOCRATIC_TSARDOM_MATRIARCH_FEMALE
+				}
+
+				heir_male = {
+					3 = DEC1_THEOCRATIC_TSARDOM_HEIR_MALE
+				}
+
+				heir_female = {
+					3 = DEC1_THEOCRATIC_TSARDOM_HEIR_FEMALE
+				}
+
+				trigger = {
+					tag = RSC
+				}
+			}
+

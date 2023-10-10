@@ -1,0 +1,214 @@
+country_decisions = {
+
+	dec1_restore_roman_empire_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			OR = {
+				owns = 118
+				OR = {
+					tag = PON # Pontus Roman Desires
+					tag = ROP # Roman Republic -> Roman Empire
+					tag = ERP # Eastern Roman Empire -> Roman Empire
+					tag = TRE # Roman Successor
+					tag = ATH # Greek Potential
+					tag = EPI # Greek Potential
+				}
+			}
+			NOT = {
+				has_country_flag = restored_roman_empire_flag
+				exists = ROM
+				tag = ROM
+				tag = HLR
+				tag = PAP
+				tag = EUR
+				tag = KOG
+			}
+			OR = {
+				religion_group = christian
+				religion_group = pagan
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 10
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				region = italy_region
+				region = france_region
+				region = iberia_region
+				region = balkan_region
+				region = anatolia_region
+				region = mashriq_region
+				province_id = 343 # Fez
+				province_id = 341 # Tunis
+				province_id = 361 # Cairo
+				province_id = 236 # London
+				province_id = 245 # Yorkshire
+				#province_id = 96 # Zeeland - REMOVED, Not historical
+				province_id = 134 # Vienna
+			}
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			adm_tech = 15
+			NOT = { exists = ROM }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			owns = 118 # Rome
+			owns = 236 # London
+			owns = 183 # Paris
+			owns = 96 # Zeeland
+			owns = 219 # Toledo
+			owns = 245 # Yorkshire
+			owns = 134 # Vienna
+			owns = 343 # Fez
+			owns = 341 # Tunis
+			owns = 361 # Cairo
+			italy_region = {
+				type = all
+				owned_by = ROOT
+			}
+			france_region = {
+				type = all
+				owned_by = ROOT
+			}
+			iberia_region = {
+				type = all
+				owned_by = ROOT
+			}
+			balkan_region = {
+				type = all
+				owned_by = ROOT
+			}
+			anatolia_region = {
+				type = all
+				owned_by = ROOT
+			}
+			mashriq_region = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			change_tag = ROM # Country TAG
+			set_country_flag = restored_roman_empire_flag # Country Formation Flag
+			custom_tooltip = form_roman_empire_tt_2 # New Missions
+			custom_tooltip = roman_culture_provinces_tooltip
+			custom_tooltip = dec1_decisions_blank
+			ROM = { # Capital change and bonuses
+				set_capital = 118 # Rome
+				118 = {
+					add_base_tax = 4
+					add_base_production = 4
+					add_base_manpower = 4
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				custom_tooltip = dec1_government_reform_change_autocracy # TODO: special government
+				custom_tooltip = dec1_decisions_blank
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Culture Handler
+					if = { # Convert to Roman
+						limit = {
+							NOT = { primary_culture = roman }
+						}
+						change_primary_culture = roman
+					}
+					every_owned_province = { # Convert all provinces with ROOT culture to Roman Culture
+						limit = {
+							has_owner_culture = yes
+						}
+						change_culture = roman
+					}
+					add_stability = 3
+					# Max Government bonus
+					if = {
+						limit = {
+							government = monarchy
+						}
+						add_legitimacy = 100
+					}
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+							}
+						}
+						add_republican_tradition = 100
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = ROM_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_true_roman_successor
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+	}
+
+}

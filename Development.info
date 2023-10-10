@@ -1,0 +1,88 @@
+--------- REFERENCE INFORMATION ---------
+
+FOR NON-HISTORICAL 1444-1821 NATIONS:
+has_global_flag = dec1_historical_nations_only
+
+------------TODO List------------
+
+Anglo-Dutch union needs to be reworked, and is missing a dutch province
+
+
+
+
+
+
+
+
+--- OLD LIST ----
+
+restore_old_nation_on_formation_effect = yes Should be added to all colonial nations
+
+fix armenia decisions
+
+North Sea Empire trade boosts when forming
+-add trade steering?
+
+Subject Formables needs to be applied to all colonies
+
+Change all _nation_title to remove nation part
+
+Rework Jerusalem
+
+French Empire unique content, forming the sister republics and client states
+
+French Empire ability to overthrow republics for the historical kingdoms with accurate rulers of Bonoparte
+
+Historical Coallition wars? just an idea!
+
+Ottomans and Venice, and other unique reform countries have no reform if you convert religion
+
+OVERHAUL ALL HISTORY FILES
+
+make brandenburg prussia ideas based on reform passing and defense/morale
+
+german empire event to unite the empire - can inherit all cultures except for swiss, austrian, and czech
+
+South Russia
+
+Dual Monarchy Random Events
+
+North and South Korea
+
+Government Reform Type fix
+
+Bosnia Serbia custom government "United Kingdom"
+
+Spain should be able to form if it is in union with navarra
+
+Italian Merhcant Alliance / Maritime Republics split into two seperate decisions
+https://en.wikipedia.org/wiki/Maritime_republics
+
+Eastern Hungarian Kingdom formable by Sienburgen
+
+The Horde province highlight
+
+Third Rome
+
+Qing gets autocracy reform? should it check for celestial empire
+
+remove_non_electors_emperors_from_empire_effect = yes
+should be included in most decisions, not sure what it does
+must be tested
+
+must be included with new countries????? TEST
+			if = {
+				limit = { has_dlc = "Origins" }
+				swap_non_generic_missions = yes
+			}
+
+Our Place in The Empire should also require nation to have capital in HRE
+
+Mongolia tooltip issue
+
+Stateless Society issue (should only be for specific tags)
+Great Yuan Issue
+
+Make most formables require a capital in the area
+
+mexico can form all french formables

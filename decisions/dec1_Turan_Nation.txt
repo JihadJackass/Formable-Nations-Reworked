@@ -1,0 +1,199 @@
+country_decisions = {
+
+	#########################################
+	# Turan - Turkish Culture & Zoroastrian #
+	#########################################
+
+	dec1_turan_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			culture_group = altaic
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_turan_flag
+				exists = TRN
+				tag = TRN
+				tag = TRR
+				tag = TUR
+				tag = PAP
+				tag = HLR
+				tag = EUR
+				tag = PON
+				tag = ISI
+				tag = TLB
+				tag = YUA
+				tag = MGE
+			}
+			OR = {
+				central_asia_region = {
+					owned_by = ROOT
+				}
+				khorasan_region = {
+					owned_by = ROOT
+				}
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 8
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = { # Turan Historical Region - based on https://upload.wikimedia.org/wikipedia/commons/0/0e/Iran_Turan_map_1843.jpg
+				area = transcaspia_area
+				area = nogai_area
+				area = khiva_area
+				area = merv_area
+				area = kyzylkum_area
+				area = transoxiana_area
+				area = kazakhstan_area
+				area = syr_darya_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = TRN }
+			is_at_war = no
+			custom_trigger_tooltip = {
+				tooltip = form_turan_tt_1
+				transcaspia_area = {
+					type = all
+					owned_by = ROOT
+				}
+				nogai_area = {
+					type = all
+					owned_by = ROOT
+				}
+				khiva_area = {
+					type = all
+					owned_by = ROOT
+				}
+				merv_area = {
+					type = all
+					owned_by = ROOT
+				}
+				kyzylkum_area = {
+					type = all
+					owned_by = ROOT
+				}
+				transoxiana_area = {
+					type = all
+					owned_by = ROOT
+				}
+				kazakhstan_area = {
+					type = all
+					owned_by = ROOT
+				}
+				syr_darya_area = {
+					type = all
+					owned_by = ROOT
+				}
+			}
+		}
+	 	effect = {
+			change_tag = TRN # Country TAG
+			set_country_flag = formed_turan_flag # Country Formation Flag
+			custom_tooltip = form_turan_tt_2 # New Missions
+			change_religion = zoroastrian
+			set_ruler_religion = zoroastrian
+			transoxiana_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				change_religion = zoroastrian
+			}
+			khiva_area = {
+				limit = {
+					owned_by = ROOT
+				}
+				change_religion = zoroastrian
+			}
+			custom_tooltip = dec1_decisions_blank
+			TRN = { # Capital change and bonuses
+				set_capital = 442 # Bukhara
+				442 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+			#			NOT = { has_idea_group = TRN_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+			#	add_country_modifier = {
+			#		name = dec1_fire_of_zoroastrianism
+			#		duration = 49275
+			#	}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+		factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Embrace Zoroastrianism (if not Zoroastrian)
+
+
+}

@@ -1,0 +1,212 @@
+country_decisions = {
+
+	# Srivijaya
+
+	dec1_srivijaya_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			culture = sumatran
+			NOT = {
+				has_country_flag = formed_srivijaya_flag
+				exists = MSA
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 11 # Unique req - balances some stuff
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 622
+				# Home region
+				area = south_sumatra_area
+				area = jambi_area
+				area = central_sumatra_area
+				area = north_sumatra_area
+				# Brunei
+				area = kalimantan_area
+				# Malaya
+				area = johor_area
+				area = malacca_area
+				area = malaya_area
+				area = north_malaya_area
+				area = tenasserim_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = MSA }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			owns = 622
+			south_sumatra_area = {
+				type = all
+				owned_by = ROOT
+			}
+			jambi_area = {
+				type = all
+				owned_by = ROOT
+			}
+			central_sumatra_area = {
+				type = all
+				owned_by = ROOT
+			}
+			north_sumatra_area = {
+				type = all
+				owned_by = ROOT
+			}
+			# brunei
+			kalimantan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			# Malaya
+			johor_area = {
+				type = all
+				owned_by = ROOT
+			}
+			malacca_area = {
+				type = all
+				owned_by = ROOT
+			}
+			malaya_area = {
+				type = all
+				owned_by = ROOT
+			}
+			north_malaya_area = {
+				type = all
+				owned_by = ROOT
+			}
+			tenasserim_area = {
+				type = all
+				owned_by = ROOT
+			}
+
+		}
+		effect = {
+			change_tag = SVY # Country TAG
+			set_country_flag = formed_srivijaya_flag # Country Formation Flag
+			custom_tooltip = form_srivijaya_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			SVY = { # Capital change and bonuses
+				set_capital = 622
+				622 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_plutocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+				# Claims
+					every_province ={
+						limit = {
+							OR = {
+								area = kutai_area
+								area = brunei_area
+								area = kalimantan_area
+								area = north_sumatra_area
+								area = central_sumatra_area
+								area = batak_area
+								area = minangkabau_area
+								area = south_sumatra_area
+								area = malaya_area
+								area = malacca_area
+							}
+						}
+						add_permanent_claim = SVY
+					}
+					# New Missions
+
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+				#		NOT = { has_idea_group = SVY_ideas } # TODO
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+		#		add_country_modifier = {
+		#			name = dec1_eastern_trade_route # TODO
+		#			duration = 49275
+		#		}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+}

@@ -1,0 +1,222 @@
+country_decisions = {
+
+	####################################################################
+	# 						Jagiellonian Empire                        #
+	#						West Slavic Culture						   #
+	# 			Union with Hungary, Bohemia, and Lithuania             #
+	####################################################################
+
+	dec1_jagiellonian_empire_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			culture_group = west_slavic
+			NOT = {
+				has_country_flag = formed_jagiellonian_empire_flag
+				exists = JGE
+				tag = JGE
+				tag = HUN
+				tag = LIT
+				tag = PAP
+				tag = RUS
+				tag = HLR
+				tag = EUR
+				tag = TUR
+				tag = CZE
+				tag = BOH
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 8
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 153
+				province_id = 262
+				province_id = 272
+				province_id = 266
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 15
+			NOT = { exists = JGE }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			AND = {
+				OR = {
+					NOT = { exists = HUN }
+					HUN = {
+						OR = {
+							junior_union_with = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				OR = {
+					NOT = { exists = BOH }
+					BOH = {
+						OR = {
+							junior_union_with = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				OR = {
+					NOT = { exists = LIT }
+					LIT = {
+						OR = {
+							junior_union_with = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+			}
+		}
+	 	effect = {
+			change_tag = JGE # Country TAG
+			set_country_flag = formed_jagiellonian_empire_flag # Country Formation Flag
+			custom_tooltip = form_jagiellonian_empire_tt_4 # New Missions
+			custom_tooltip = form_jagiellonian_empire_tt_7 # Region/Area Claims
+			if = {
+				limit = {
+					HUN = {
+						OR = {
+							junior_union_with = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				inherit = HUN
+			}
+			if = {
+				limit = {
+					BOH = {
+						OR = {
+							junior_union_with = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				inherit = BOH
+			}
+			if = {
+				limit = {
+					LIT = {
+						OR = {
+							junior_union_with = ROOT
+							is_subject_of = ROOT
+						}
+					}
+				}
+				inherit = LIT
+			}
+			custom_tooltip = dec1_decisions_blank
+			JGE = { # Capital change and bonuses
+				set_capital = 134 # Wien
+				134 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Region/Area Claims
+					carpathia_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = JGE
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = JGE_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_union_of_persistence
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+}

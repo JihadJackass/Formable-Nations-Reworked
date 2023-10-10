@@ -1,0 +1,255 @@
+country_decisions = {
+
+	dec1_czechoslovakia_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_czechoslovakia_flag
+				exists = CZE
+				tag = CZE
+				tag = PAP
+				tag = HLR
+				tag = EUR
+			}
+			OR = {
+				primary_culture = czech
+				primary_culture = slovak
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 6
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+					# Bohemia
+				province_id = 4237
+				province_id = 265
+				province_id = 2970
+				province_id = 2968
+				province_id = 266
+				province_id = 1771
+				province_id = 2967
+				province_id = 267
+					# Slovakia
+				province_id = 1772
+				province_id = 154
+				province_id = 4236
+				province_id = 1318
+				province_id = 162
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = CZE }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+				# Bohemia
+			owns_core_province = 4237
+			owns_core_province = 265
+			owns_core_province = 2970
+			owns_core_province = 2968
+			owns_core_province = 266
+			owns_core_province = 1771
+			owns_core_province = 2967
+			owns_core_province = 267
+				# Slovakia
+			owns_core_province = 1772
+			owns_core_province = 154
+			owns_core_province = 4236
+			owns_core_province = 1318
+			owns_core_province = 162
+		}
+	 	effect = {
+			change_tag = CZE # Country TAG
+			set_country_flag = formed_czechoslovakia_flag # Country Formation Flag
+			custom_tooltip = form_czechoslovakia_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			CZE = { # Capital change and bonuses
+				set_capital = 266 # Praha
+				266 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = CZE_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+					custom_tooltip = dec1_decisions_blank
+				}
+                country_event = { id = dec1_events.3 }
+                custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_czech_legions
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	dec1_unite_czech_culture = {
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			tag = CZE
+			OR = {
+				primary_culture = czech
+				primary_culture = slovak
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 6
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+					# Bohemia
+				province_id = 4237
+				province_id = 265
+				province_id = 2970
+				province_id = 2968
+				province_id = 266
+				province_id = 1771
+				province_id = 2967
+				province_id = 267
+					# Slovakia
+				province_id = 1772
+				province_id = 154
+				province_id = 4236
+				province_id = 1318
+				province_id = 162
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			tag = CZE
+			AND = {
+				num_of_owned_provinces_with = {
+					value = 8
+					culture = czech
+				}
+				num_of_owned_provinces_with = {
+					value = 6
+					culture = slovak
+				}
+			}
+		}
+	 	effect = {
+			add_prestige = 10
+			SLO = {
+				every_core_province = {
+					remove_core = SLO
+					add_unrest = 2
+				}
+			}
+			GLG = {
+				every_core_province = {
+					remove_core = GLG
+					add_unrest = 2
+				}
+			}
+			OPL = {
+				every_core_province = {
+					remove_core = OPL
+					add_unrest = 2
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Hungarian Revolt (you have 20 years to convert hungarian provinces if you have at least 4 of them otherwies hungarian revolts)
+
+	# Polish independence war of some sort
+
+}

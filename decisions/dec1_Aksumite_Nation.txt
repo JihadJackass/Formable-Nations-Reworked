@@ -1,0 +1,250 @@
+country_decisions = {
+
+	# Restore Aksumite
+
+	dec1_aksumite_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			OR = {
+				primary_culture = tigray
+				primary_culture = beja
+			}
+			OR = {
+				religion = coptic
+				religion = jewish
+				religion = shamanism
+			}
+			NOT = {
+				has_country_flag = formed_aksumite_flag
+				tag = HLR
+				tag = PAP
+				tag = AKS
+				tag = ABY
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1230
+				province_id = 2787
+				province_id = 2766
+				province_id = 1227
+				province_id = 2767
+				province_id = 2765
+				province_id = 2771
+				province_id = 2769
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			NOT = { exists = AKS }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			owns_core_province = 1230
+			owns_core_province = 2787
+			owns_core_province = 2766
+			owns_core_province = 1227
+			owns_core_province = 2767
+			owns_core_province = 2765
+			owns_core_province = 2771
+			owns_core_province = 2769
+		}
+		effect = {
+			change_tag = AKS # Country TAG
+			set_country_flag = formed_aksumite_flag # Country Formation Flag
+			custom_tooltip = form_aksumite_tt_2 # New Missions
+			clr_country_flag = eth_can_form_aksumite
+			custom_tooltip = dec1_decisions_blank
+			AKS = { # Capital change and bonuses
+				set_capital = 1227 # Aksum
+				1227 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Claims
+					horn_of_africa_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = AKS
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = AKS_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_early_human_legacy
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Proclaim Aksumite Empire - MAKE SPECIAL COLOR
+
+	dec1_proclaim_aksumite_empire = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			tag = AKS
+			NOT = { has_country_flag = proclaim_aksumite_empire_flag }
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1230
+				province_id = 2787
+				province_id = 2766
+				province_id = 1227
+				province_id = 2767
+				province_id = 2765
+				province_id = 2771
+				province_id = 2769
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			exists = AKS
+			is_at_war = no
+			is_subject = no
+			num_of_owned_provinces_with = {
+				region = horn_of_africa_region
+				value = 26
+			}
+		}
+		effect = {
+			set_country_flag = proclaim_aksumite_empire_flag # Country Formation Flag
+			custom_tooltip = dec1_decisions_blank
+			AKS = {
+				override_country_name = dec1_aksumite_empire_name
+				# National Ability
+				add_country_modifier = {
+					name = dec1_the_aksumite_empire
+					duration = 24637 # Half
+				}
+				add_prestige = 10
+				hidden_effect = {
+					change_country_color = { color = { 104 91 140 } }
+					set_country_flag = has_overriden_color_flag
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Re-establish the Great City of Aksum
+
+	dec1_establish_great_city_of_aksum = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			tag = AKS
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2771
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			exists = AKS
+			is_at_war = no
+			is_subject = no
+			NOT = { has_country_flag = dec1_proclaim_aksumite_empire_flag }
+		}
+		effect = {
+			set_country_flag = dec1_proclaim_aksumite_empire_flag
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+}

@@ -1,0 +1,82 @@
+# Scythians
+
+graphical_culture = muslimgfx
+
+color = { 186 160 87 }
+
+historical_idea_groups = {
+	maritime_ideas
+	humanist_ideas
+	offensive_ideas
+	administrative_ideas
+	quantity_ideas
+	influence_ideas
+	quality_ideas
+	innovativeness_ideas
+}
+
+historical_units = {
+	ottoman_yaya
+	ottoman_musellem
+	ottoman_azab
+	ottoman_timariot
+	ottoman_janissary
+	ottoman_spahi
+	ottoman_sekban
+	ottoman_reformed_spahi
+	ottoman_reformed_janissary
+	ottoman_toprakli_hit_and_run
+	ottoman_nizami_cedid
+	ottoman_toprakli_dragoon
+	eastern_skirmisher
+	eastern_uhlan
+	eastern_carabinier
+	ottoman_new_model
+	ottoman_lancer
+}
+
+monarch_names = {
+	"Maues" = 80
+	"Moga" = 80
+	"Hajatria" = 80
+	"Agbarjin #0" = 20
+	"Adai #0" = 20
+	"Altan #0" = 20
+	"Biligtü #1" = 10
+	"Dayan #0" = 20
+	"Darayisung #0" = 20
+	"Temür #1" = 10
+	"Toghun #1" = 10
+	"Tümen #0" = 10
+	"Tolui #1" = 10
+	"Toq #1" = 10
+	"Uskhal #1" = 10
+	"Yesün #1" = 10
+	"Ariq #0" = 0
+	"Batu #0" = 0
+	"Eljigidei #0" = 0
+	"Joichi #0" = 0
+}
+
+leader_names = {
+	Alemdar
+	Yingchang Karakorum Hohhot Chagaan
+	Noyan Darqan Wang Khorchin Onriut Abaga Abaganar Ast Kharachin
+}
+
+ship_names = {
+	Osmaniye Orhaniye Konstantiniyye
+	Yingchang Karakorum Hohhot Chagaan
+	"Ghengis Khan" Jöchi Ögödei Tolui
+	Möngke Qubilai Hülegü Böke
+	Jinggim Kamala Dharmapala "Örüg Temür"
+	Adai Elbeg Batu Mugali "Bo'orchu" Borokhula Chilaun
+}
+
+army_names = {
+	"Anadolu Ordusu" "Balkan Ordusu" "Msar Ordusu" "Koram Ordusu" "$PROVINCE$ Ordusu"
+}
+
+fleet_names = {
+	"Karadeniz Balkan"
+}

@@ -1,0 +1,16 @@
+government = monarchy
+add_government_reform = mandala_reform
+primary_culture = bornean
+religion = sunni
+technology_group = chinese
+capital = 636 # Brunei Town
+
+1810.1.1 = {
+	monarch = {
+		name = "Adhul Alam"
+		dynasty = "Bolkiah"
+		adm = 3
+		dip = 2
+		mil = 3
+	}
+}

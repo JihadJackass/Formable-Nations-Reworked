@@ -1,0 +1,386 @@
+country_decisions = {
+
+	############################
+	# Italian Empire - General #
+	############################
+
+		dec1_italian_empire_nation = {
+			major = yes
+			potential = {
+				is_former_colonial_nation = no
+				is_colonial_nation = no
+				culture_group = latin
+				num_of_cities = 30
+				NOT = {
+					has_global_flag = dec1_historical_nations_only
+					has_country_flag = formed_italian_empire_flag
+					government = republic
+					exists = ITE
+					tag = PAP
+					tag = ITE
+					tag = ITA
+					tag = HLR
+					tag = IMA
+					tag = LVE
+					tag = TTS
+					tag = ALP
+					tag = CIS
+					tag = EUR
+					tag = ADR
+					tag = ROP
+					tag = KOG
+				}
+				OR = {
+					ai = no
+					AND = {
+						ai = yes
+						num_of_cities = 50
+						grown_by_development = 100
+						adm_tech = 10
+					}
+				}
+			}
+			provinces_to_highlight = {
+				OR = {
+						# Liguria
+					province_id = 102
+					province_id = 2992
+					province_id = 101
+						# Piedmont
+					province_id = 1875
+					province_id = 103
+					province_id = 2981
+					province_id = 2979
+						# Lombardy
+					province_id = 104
+					province_id = 107
+					province_id = 1862
+					province_id = 109
+						# Venetia
+					province_id = 108
+					province_id = 1774
+					province_id = 111
+					province_id = 112
+						# Emilia-Romagna
+					province_id = 113
+					province_id = 114
+					province_id = 106
+					province_id = 105
+						# Tuscany
+					province_id = 2980
+					province_id = 115
+					province_id = 117
+					province_id = 116
+					province_id = 2978
+						# Central Italy
+					province_id = 2977
+					province_id = 119
+					province_id = 120
+					province_id = 2976
+						# Lazio Campania
+					province_id = 118
+					province_id = 121
+					province_id = 2983
+						# Apulia
+					province_id = 2985
+					province_id = 1933
+					province_id = 122
+						# Calabria
+					province_id = 1934
+					province_id = 2984
+					province_id = 123
+						# Sicily
+					province_id = 124
+					province_id = 2982
+					province_id = 125
+					province_id = 126
+						# Italian isles
+					province_id = 1247
+					province_id = 127
+					province_id = 2986
+						# Albania
+					province_id = 4174
+					province_id = 143
+					province_id = 4175
+						# Aegean Archipelago
+					province_id = 320
+						# Crete
+					province_id = 163
+						# Cyrenaica
+					province_id = 356
+					province_id = 357
+					province_id = 2326
+					province_id = 2325
+						# Triplitania
+					province_id = 355
+					province_id = 2451
+					province_id = 354
+					province_id = 2452
+						# Djerba
+					province_id = 353
+					province_id = 2453
+					province_id = 2954
+						# Tunisia
+					province_id = 2473
+					province_id = 341
+					province_id = 4566
+					province_id = 2454
+					province_id = 2455
+						# Fezzan
+					province_id = 4567
+					province_id = 2449
+					province_id = 2448
+					province_id = 2474
+				}
+				OR = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+			}
+			allow = {
+				adm_tech = 20
+				NOT = { exists = ITE }
+				if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+					limit = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+					OR = {
+						is_subject = yes
+						is_subject = no
+					}
+				}
+				if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+					limit = {
+						NOT = {
+							has_global_flag = dec1_subject_formable_nations_enabled
+						}
+					}
+					is_subject = no
+				}
+				is_at_war = no
+				num_of_cities = 30
+				custom_trigger_tooltip = {
+					tooltip = form_italian_empire_tt_1
+						# Italian isles
+					owns_core_province = 1247
+					owns_core_province = 127
+					owns_core_province = 2986
+						# Albania
+					owns_core_province = 4174
+					owns_core_province = 143
+					owns_core_province = 4175
+						# Aegean Archipelago
+					owns_core_province = 320
+						# Crete
+					owns_core_province = 163
+						# Cyrenaica
+					owns_core_province = 356
+					owns_core_province = 357
+					owns_core_province = 2326
+					owns_core_province = 2325
+						# Triplitania
+					owns_core_province = 335
+					owns_core_province = 2451
+					owns_core_province = 354
+					owns_core_province = 2452
+						# Djerba
+					owns_core_province = 353
+					owns_core_province = 2453
+					owns_core_province = 2954
+						# Tunisia
+					owns_core_province = 2473
+					owns_core_province = 341
+					owns_core_province = 4566
+					owns_core_province = 2454
+					owns_core_province = 2455
+						# Fezzan
+					owns_core_province = 4567
+					owns_core_province = 2449
+					owns_core_province = 2448
+					owns_core_province = 2474
+				}
+			}
+			effect = {
+				change_tag = ITE # Country TAG
+				set_country_flag = formed_italian_empire_flag # Country Formation Flag
+				custom_tooltip = form_italian_empire_tt_2 # New Missions
+				custom_tooltip = form_italian_empire_tt_3 # Region/Area Claims
+				custom_tooltip = dec1_decisions_blank
+				ITE = { # Capital change and bonuses
+					set_capital = 118
+					118 = {
+						add_base_tax = 1
+						add_base_production = 1
+						add_base_manpower = 1
+					}
+					# Government Rank Change
+					custom_tooltip = dec1_decisions_blank
+					custom_tooltip = dec1_government_rank_3
+					# Dharma DLC check to prevent ugly tooltip
+					if = {
+						limit = {
+							has_dlc = "Dharma"
+						}
+						custom_tooltip = dec1_government_change_monarchy # Government Type Change
+					}
+					# Reform Change
+					custom_tooltip = dec1_government_reform_change_autocracy
+					custom_tooltip = dec1_decisions_blank
+					# Our Place in the Empire Custom Event
+					if = {
+						limit = {
+							is_part_of_hre = yes
+						}
+						country_event = { id = dec1_events.1 }
+					}
+					hidden_effect = { # Hidden Effects to fix bad tooltips
+						# Region/Area Claims
+						italy_region = {
+							limit = {
+								NOT = { owned_by = ROOT }
+							}
+							add_permanent_claim = ITE
+						}
+						# Italy
+						provence_area = {
+							limit = {
+								NOT = { owned_by = ROOT }
+							}
+							add_permanent_claim = ITE
+						}
+						savoy_dauphine_area = {
+							limit = {
+								NOT = { owned_by = ROOT }
+							}
+							add_permanent_claim = ITE
+						}
+						# North Africa
+						tunisia_area = {
+							limit = {
+								NOT = { owned_by = ROOT }
+							}
+							add_permanent_claim = ITE
+						}
+						djerba_area = {
+							limit = {
+								NOT = { owned_by = ROOT }
+							}
+							add_permanent_claim = ITE
+						}
+						tripolitania_area = {
+							limit = {
+								NOT = { owned_by = ROOT }
+							}
+							add_permanent_claim = ITE
+						}
+						fezzan_area = {
+							limit = {
+								NOT = { owned_by = ROOT }
+							}
+							add_permanent_claim = ITE
+						}
+						# Ethiopia
+						somaliland_area = {
+							limit = {
+								NOT = { owned_by = ROOT }
+							}
+							add_permanent_claim = ITE
+						}
+						majarteen_area = {
+							limit = {
+								NOT = { owned_by = ROOT }
+							}
+							add_permanent_claim = ITE
+						}
+						ogaden_area = {
+							limit = {
+								NOT = { owned_by = ROOT }
+							}
+							add_permanent_claim = ITE
+						}
+						ajuuran_area = {
+							limit = {
+								NOT = { owned_by = ROOT }
+							}
+							add_permanent_claim = ITE
+						}
+						mogadishu_area = {
+							limit = {
+								NOT = { owned_by = ROOT }
+							}
+							add_permanent_claim = ITE
+						}
+						ifat_area = {
+							limit = {
+								NOT = { owned_by = ROOT }
+							}
+							add_permanent_claim = ITE
+						}
+						aussa_area = {
+							limit = {
+								NOT = { owned_by = ROOT }
+							}
+							add_permanent_claim = ITE
+						}
+						shewa_area = {
+							limit = {
+								NOT = { owned_by = ROOT }
+							}
+							add_permanent_claim = ITE
+						}
+						# Dodecanese
+						320 = {
+							add_permanent_claim = ITE
+						}
+						# Government Rank change
+						if = {
+							limit = {
+								NOT = {
+									government_rank = 3
+									}
+								}
+							set_government_rank = 3
+						}
+						# Government Type Change
+						if = {
+							limit = {
+								NOT = {
+									government = monarchy
+									}
+								}
+							change_government = monarchy
+						}
+						add_government_reform = autocracy_reform
+					}
+					# Custom Ideas check and change
+					if = {
+						limit = {
+							has_custom_ideas = no
+							NOT = { has_idea_group = ITE_ideas }
+						}
+						country_event = { id = ideagroups.1 }
+					}
+					# Custom Missions check and change
+					country_event = { id = dec1_events.3 }
+					custom_tooltip = dec1_decisions_blank
+					# National Ability
+					add_country_modifier = {
+						name = dec1_rebirth_of_the_renaissance
+						duration = 49275
+					}
+					# Increased Centralization
+					add_country_modifier = {
+						name = dec1_increased_centralization
+						duration = -1
+					}
+				}
+			}
+			ai_will_do = {
+				factor = 1
+			}
+			ai_importance = 200
+		}
+
+	#
+
+}

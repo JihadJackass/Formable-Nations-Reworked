@@ -1,0 +1,271 @@
+country_decisions = {
+
+	# Ostrogoths
+
+	dec1_ostrogoths_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			culture_group = latin
+			religion_group = pagan # TODO: unique event that can convert people to pagan and give cores
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_ostrogoths_flag
+				exists = OKG
+				tag = OKG
+				tag = VSG
+				tag = CTG
+				tag = NMD
+				tag = PAP
+				tag = SPA
+				tag = LSE
+				tag = HLR
+				tag = IMA
+				tag = LVE
+				tag = TTS
+				tag = ALP
+				tag = CIS
+				tag = EUR
+				tag = ADR
+				tag = BSQ
+				tag = IBE
+				tag = MGH
+				tag = ALG
+				tag = ADU
+				tag = ROP
+				tag = MEX
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 40
+					grown_by_development = 100
+					adm_tech = 10
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				# Italy
+				area = lazio_area
+				area = apulia_area
+				area = naples_area
+				area = calabria_area
+				area = central_italy_area
+				area = tuscany_area
+				area = emilia_romagna_area
+				area = liguria_area
+				area = piedmont_area
+				area = po_valley_area
+				area = venetia_area
+				# Sicily
+				province_id = 124
+				province_id = 125
+				province_id = 2982
+				province_id = 4737
+				# Germany
+				province_id = 110
+				province_id = 1768
+				province_id = 4758
+				area = inner_austria_area
+				# Balkans
+				area = croatia_area
+				area = bosnia_area
+				area = east_adriatic_coast_area
+				area = rascia_area
+				# France
+				area = provence_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = OKG }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			# Italy
+			lazio_area = {
+				type = all
+				owned_by = ROOT
+			}
+			apulia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			naples_area = {
+				type = all
+				owned_by = ROOT
+			}
+			calabria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			central_italy_area = {
+				type = all
+				owned_by = ROOT
+			}
+			tuscany_area = {
+				type = all
+				owned_by = ROOT
+			}
+			emilia_romagna_area = {
+				type = all
+				owned_by = ROOT
+			}
+			liguria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			piedmont_area = {
+				type = all
+				owned_by = ROOT
+			}
+			po_valley_area = {
+				type = all
+				owned_by = ROOT
+			}
+			venetia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			# Sicily
+			owns = 124
+			owns = 125
+			owns = 2982
+			owns = 4737
+			# Germany
+			inner_austria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			owns = 110
+			owns = 1768
+			owns = 4758
+			# Balkans
+			croatia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			bosnia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			east_adriatic_coast_area = {
+				type = all
+				owned_by = ROOT
+			}
+			rascia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			# France
+			provence_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+	 	effect = {
+			change_tag = OKG # Country TAG
+			set_country_flag = formed_ostrogoths_flag # Country Formation Flag
+			custom_tooltip = form_ostrogoths_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			OKG = { # Capital change and bonuses
+				set_capital = 114 # Ravenna
+				114 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Region/Area Claims
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+			#	 		NOT = { has_idea_group = OKG_ideas } TODO: okg_ideas
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_sack_of_italy
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Proclaim the Ostrogoths Kingdom
+}

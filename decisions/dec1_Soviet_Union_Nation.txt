@@ -1,0 +1,218 @@
+country_decisions = {
+
+	dec1_soviet_union_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			culture = russian
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_soviet_union_flag
+				exists = SOV
+				tag = SOV
+				tag = MOS
+				tag = NOV
+				tag = PAP
+				tag = HLR
+				tag = SOV
+				tag = EUR
+				tag = KRV
+				tag = RSC
+				tag = RSF
+				tag = URL
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 8
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				# Russia
+				province_id = 295	# Moskva
+				province_id = 310	# Novgorod
+				region = russia_region
+				region = ural_region
+				region = crimea_region
+				region = ruthenia_region
+				region = west_siberia_region
+				region = east_siberia_region
+				region = central_asia_region
+				area = ilan_hala_area
+				area = east_heilongjiang_area
+				# South Ilan Area
+				province_id = 4215
+				province_id = 2105
+				province_id = 729
+				province_id = 4217
+				# Ningguta
+				province_id = 2186
+				province_id = 2106
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 15
+			NOT = { exists = SOV }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+				# Russia
+			russia_region = {
+				type = all
+				owned_by = ROOT
+			}
+				# Urals
+			ural_region = {
+				type = all
+				owned_by = ROOT
+			}
+				# Ruthenia
+			ruthenia_region = {
+				type = all
+				owned_by = ROOT
+			}
+				# Crimea
+			central_asia_region = {
+				type = all
+				owned_by = ROOT
+			}
+				# Asia
+			west_siberia_region = {
+				type = all
+				owned_by = ROOT
+			}
+			east_siberia_region = {
+				type = all
+				owned_by = ROOT
+			}
+			east_heilongjiang_area = {
+				type = all
+				owned_by = ROOT
+			}
+			ilan_hala_area = {
+				type = all
+				owned_by = ROOT
+			}
+			# subject owning of ruthenia_region ???
+			owns_or_subject_of = 280	# Kiev
+			owns_or_subject_of = 293	# Smolensk
+			owns_or_subject_of = 276	# Minsk
+			owns_or_subject_of = 284	# Crimea
+				# Russia
+			owns_core_province = 295	# Moskva
+			owns_core_province = 310	# Novgorod
+				# South Ilan Area
+			owns_core_province = 4215
+			owns_core_province = 2105
+			owns_core_province = 729
+			owns_core_province = 4217
+				# Ningguta
+			owns_core_province = 2186
+			owns_core_province = 2106
+		}
+		effect = {
+			change_tag = SOV # Country TAG
+			set_country_flag = formed_soviet_union_flag # Country Formation Flag
+			custom_tooltip = form_soviet_union_tt_2 # New Missions
+			custom_tooltip = form_soviet_union_tt_3 # Claims
+			custom_tooltip = dec1_decisions_blank
+			SOV = { # Capital change and bonuses
+				set_capital = 295 # Moskva
+				295 = {
+					rename_capital = "Moscow"
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_soviet_socialist_state # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_soviet_union
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = republic
+								}
+							}
+						change_government = republic
+					}
+					add_government_reform = dec1_communist_party_of_russia_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = SOV_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_soviet_socialist_republics
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+}

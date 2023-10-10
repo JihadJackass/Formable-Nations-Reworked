@@ -1,0 +1,223 @@
+country_decisions = {
+
+	#####################################
+	# Russian Empire as Russian Tsardom #
+	#####################################
+
+	dec1_russian_empire_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			primary_culture = russian # Muscovite
+			tag = RUS
+			NOT = {
+				has_country_flag = formed_russian_empire_flag
+				exists = RSE
+				tag = RSE
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 8
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+					# Russia
+				region = russia_region
+				province_id = 33
+				province_id = 295
+					# Urals
+				region = ural_region
+					# Ruthenia
+				region = ruthenia_region
+					# West Siberia
+				region = west_siberia_region
+					# East Siberia
+				region = east_siberia_region
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = RSE }
+			
+			is_at_war = no
+			owns_core_province = 295 # Moskva
+			owns_core_province = 310 # Novgorod
+			russia_region = {
+				type = all
+				owned_by = ROOT
+			}
+			ural_region = {
+				type = all
+				owned_by = ROOT
+			}
+			crimea_region = {
+				type = all
+				owned_by = ROOT
+			}
+			ruthenia_region = {
+				type = all
+				owned_by = ROOT
+			}
+			west_siberia_region = {
+				type = all
+				owned_by = ROOT
+			}
+			east_siberia_region = {
+				type = all
+				owned_by = ROOT
+			}
+			# Central Asian Subjects/Cores
+			nogai_area = {
+				type = all
+				owned_by = ROOT
+			}
+			transcaspia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kazakhstan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			syr_darya_area = {
+				type = all
+				owned_by = ROOT
+			}
+			khiva_area = {
+				type = all
+				owned_by = ROOT
+			}
+			merv_area = {
+				type = all
+				owned_by = ROOT
+			}
+			transoxiana_area = {
+				type = all
+				owned_by = ROOT
+			}
+			ferghana_area = {
+				type = all
+				owned_by = ROOT
+			}
+			owns_or_non_sovereign_subject_of = 2118
+		}
+		effect = {
+			change_tag = RSE # Country TAG
+			set_country_flag = formed_russian_empire_flag # Country Formation Flag
+			custom_tooltip = form_russian_empire_tt_2 # New Missions
+			custom_tooltip = form_russian_empire_tt_3 # Historical Russian Empire cores
+			custom_tooltip = dec1_decisions_blank
+			RUS = { # Capital change and bonuses
+				set_capital = 295 # Moskva
+				295 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform
+				custom_tooltip = dec1_government_reform_change_tsardom
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					if = {
+						limit = {
+							NOT = { primary_culture = russian }
+						}
+						change_primary_culture = russian
+					}
+					russia_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = RUS
+					}
+					crimea_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = RUS
+					}
+					ural_region = {
+						limit = {
+							NOT = {
+								owned_by = ROOT
+							}
+							is_empty = no
+						}
+						add_permanent_claim = RUS
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = RUS_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_third_rome
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+}

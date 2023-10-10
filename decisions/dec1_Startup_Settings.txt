@@ -1,0 +1,135 @@
+country_decisions = {
+
+	######################
+	# Historical Nations #
+	######################
+
+		# Enable
+
+		dec1_startup_historical_settings_enable = {
+			major = yes
+			potential = {
+				NOT = { has_global_flag = dec1_historical_nations_only } # Has been enabled
+				ai = no # Must be a player
+				AND = {
+					NOT = { is_year = 1445 }
+					NOT = { is_month = 11 } # November
+				}
+			}
+			allow = {
+				custom_trigger_tooltip = {
+					tooltip = dec1_must_be_first_month_historical_setting
+					ai = no # Must be a player
+					AND = {
+						is_year = 1444
+						is_month = 10 # November
+					}
+				}
+			}
+			effect = {
+				set_global_flag = dec1_historical_nations_only # has_global_flag = dec1_historical_nations_only
+				custom_tooltip = dec1_historical_nations_enable
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+
+		# Disable
+
+		dec1_startup_historical_settings_disable = {
+			major = yes
+			potential = {
+				has_global_flag = dec1_historical_nations_only # Has been disabled
+				ai = no # Must be a player
+				AND = {
+					NOT = { is_year = 1445 }
+					NOT = { is_month = 11 } # November
+				}
+			}
+			allow = {
+				custom_trigger_tooltip = {
+					tooltip = dec1_must_be_first_month_historical_setting
+					ai = no # Must be a player
+					AND = {
+						is_year = 1444
+						is_month = 10 # November
+					}
+				}
+			}
+			effect = {
+				clr_global_flag = dec1_historical_nations_only # has_global_flag = dec1_historical_nations_only
+				custom_tooltip = dec1_historical_nations_disable
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+
+	#####################
+	# Subject Formables #
+	#####################
+
+		# Enable
+
+		dec1_startup_subject_settings_enable = {
+			major = yes
+			potential = {
+				NOT = { has_global_flag = dec1_subject_formable_nations_enabled } # Has been enabled
+				ai = no # Must be a player
+				AND = {
+					NOT = { is_year = 1445 }
+					NOT = { is_month = 11 } # November
+				}
+			}
+			allow = {
+				custom_trigger_tooltip = {
+					tooltip = dec1_must_be_first_month_subject_setting
+					ai = no # Must be a player
+					AND = {
+						is_year = 1444
+						is_month = 10 # November
+					}
+				}
+			}
+			effect = {
+				set_global_flag = dec1_subject_formable_nations_enabled # has_global_flag = dec1_subject_formable_nations_enabled
+				custom_tooltip = dec1_subject_formable_nations_enable
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+
+		# Disable
+
+		dec1_startup_subject_settings_disable = {
+			major = yes
+			potential = {
+				has_global_flag = dec1_subject_formable_nations_enabled # Has been disabled
+				ai = no # Must be a player
+				AND = {
+					NOT = { is_year = 1445 }
+					NOT = { is_month = 11 } # November
+				}
+			}
+			allow = {
+				custom_trigger_tooltip = {
+					tooltip = dec1_must_be_first_month_subject_setting
+					ai = no # Must be a player
+					AND = {
+						is_year = 1444
+						is_month = 10 # November
+					}
+				}
+			}
+			effect = {
+				clr_global_flag = dec1_subject_formable_nations_enabled # has_global_flag = dec1_subject_formable_nations_enabled
+				custom_tooltip = dec1_subject_formable_nations_disable
+			}
+			ai_will_do = {
+				factor = 0
+			}
+		}
+
+}

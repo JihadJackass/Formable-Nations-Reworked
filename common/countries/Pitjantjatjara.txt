@@ -1,0 +1,166 @@
+# Pitjantjatjara
+
+graphical_culture = westerngfx
+
+color = { 140 83 93 }
+
+historical_idea_groups = {
+	defensive_ideas
+	religious_ideas
+	trade_ideas
+	economic_ideas
+	plutocracy_ideas
+	diplomatic_ideas
+	offensive_ideas
+	spy_ideas
+}
+
+historical_units = {
+	aboriginal_boomerang
+	aboriginal_reformed_boomerang
+	aboriginal_horseman
+	aboriginal_outback_warriors
+	aboriginal_cavalry
+	aboriginal_arquebusier
+	aboriginal_hussar
+	aboriginal_swarm_cav
+	aboriginal_riflemen
+	aboriginal_dragoon
+	aboriginal_guerrillas
+}
+
+monarch_names = {
+	"Bennelong #0" = 1
+	"Arabanoo #0" = 1
+	"Pemulwuy #0" = 1
+	"Yemmerrawanne #0" = 1
+	"Adoni #0" = 1
+	"Akama #0" = 1
+	"Allambee #0" = 1
+	"Amaroo #0" = 1
+	"Apari #0" = 1
+	"Araluen #0" = 1
+	"Araluen #0" = 1
+	"Arunta #0" = 1
+	"Balun #0" = 1
+	"Balunn #0" = 1
+	"Dural #0" = 1
+	"Ganan #0" = 1
+	"Gelar #0" = 1
+	"Girra #0" = 1
+	"Jarra #0" = 1
+	"Jarrah #0" = 1
+	"Jarrah #0" = 1
+	"Frederick #0" = 0
+	"Gerard #0" = 0
+	"Gregory #0" = 0
+	"George #0" = 0
+	"Homer #0" = 0
+	"Joseph #0" = 0
+	"Julius #0" = 0
+	"Kevin #0" = 0
+	"Laurence #0" = 0
+	"Leroy #0" = 0
+	"Lewis #0" = 0
+	"Matthew #0" = 0
+	"Michael #0" = 0
+	"Montgomery #0" = 0
+	"Nicholas #0" = 0
+	"Peter #0" = 0
+	"Rowan #0" = 0
+	"Scott #0" = 0
+	"Silvester #0" = 0
+	"Spencer #0" = 0
+	"Ulysses #0" = 0
+	"Victor #0" = 0
+
+	"Wyla #0" = -1
+	"Wyuna #0" = -1
+	"Yani #0" = -1
+	"Yara #0" = -1
+	"Yaralla#0" = -1
+	"Victoria #0" = -1
+	"Ambrosia #0" = -1
+	"Charlotte #0" = -1
+}
+
+leader_names = {
+	Bourke
+	Darling
+	Brisbane
+	Macquarie
+	Robinson
+	Loftus
+	Carrington
+	Duff
+	Hampden
+	Beauchamp
+	Rawson
+	Chelmsford
+	Yagan
+	Strickland
+	Davidson
+	Grey
+	Flinders
+	Bass
+	Curtin
+	Adoni
+	Akama
+	Allambee
+	Amaroo
+	Apari
+	Araluen
+	Araluen
+	Arunta
+	Balun
+	Balunn
+	Dural
+	Ganan
+	Gelar
+	Girra
+	Jarra
+	Jarrah
+	Jarrah
+	Jerara
+	Jirra
+	Kalti
+	Maka
+	Mallee
+	Mandu
+	Marron
+	Matari
+	Mearann
+	Minar
+	Miro
+	Mogo
+	Monti
+	Mowan
+	Odern
+	Orad
+	Parri
+	Pindan
+	Pindari
+	Taree
+	Tewart
+	Tuart
+	Uwan
+	Warra
+	Warrain
+}
+
+ship_names = {
+	Sidney Coromandel
+	Yarra Dumbarton
+	Gascoyne Perth
+	Huon Stuart
+	Hawkesbury Toowoomba
+	Maryborough Norman
+	Warramunga Parramatta
+	Karakoa Drua Patorani
+	Owong Panineman
+	Peland Pajala
+	Lanong Perahupayang
+	Sandeq Batavia
+	Falua Lisi
+	Zuytdorp Xantho
+}

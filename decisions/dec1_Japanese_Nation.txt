@@ -1,0 +1,603 @@
+country_decisions = {
+
+	######################################################
+	# Unite Japan as the ruling shogun through diplomacy #
+	######################################################
+
+		dec1_japanese_nation_shogun_diplomatic = {
+			major = yes
+			potential = {
+				is_former_colonial_nation = no
+				is_colonial_nation = no
+				has_reform = shogunate
+				NOT = {
+					has_country_flag = formed_japanese_flag_shogun_diplo
+					has_country_flag = formed_japanese_flag_shogun_war
+					has_country_flag = formed_japanese_flag_daimyo
+					has_country_flag = formed_japanese_flag_other
+					tag = JAP
+					tag = JAE
+					tag = TGK
+				}
+				OR = {
+					ai = no
+					AND = {
+						ai = yes
+						num_of_cities = 10
+					}
+				}
+			}
+			provinces_to_highlight = {
+				OR = {
+					region = japan_region # Shows the whole region of Japan
+				}
+				NOT = { owned_by = ROOT }
+			}
+			allow = {
+				NOT = { exists = JAP }
+				is_at_war = no
+				japan_region = { # Must own provinces in Japan for formation to count
+					ROOT = {
+						num_of_cities = 25 # Reduced from 30 for balance
+					}
+				}
+				owns = 1020
+				owns = 1028
+			}
+			effect = {
+				change_tag = JAP # Country TAG
+				set_country_flag = formed_japan_flag # Formed Japan
+				set_country_flag = formed_japanese_flag_shogun # Formed Japan - Shogun
+				custom_tooltip = form_japan_tt_2 # New Missions
+				custom_tooltip = dec1_decisions_blank
+				JAP = { # Capital change and bonuses
+					set_capital = 1020 #
+					1020 = {
+						add_base_tax = 3
+						add_base_production = 3
+						add_base_manpower = 3
+					}
+					custom_tooltip = dec1_decisions_blank
+					custom_tooltip = dec1_government_rank_2 # Government Rank Change
+					# Dharma DLC check to prevent ugly tooltip
+					if = {
+						limit = {
+							has_dlc = "Dharma"
+						}
+						custom_tooltip = dec1_government_change_monarchy # Government Type Change
+					}
+					# Reform Change
+					remove_government_reform = shogunate
+					custom_tooltip = dec1_government_reform_change_autocracy
+					custom_tooltip = dec1_decisions_blank
+					# Our Place in the Empire Custom Event
+					if = {
+						limit = {
+							is_part_of_hre = yes
+						}
+						country_event = { id = dec1_events.1 }
+					}
+					hidden_effect = { # Hidden Effects to fix bad tooltips
+						# Government Rank change
+						if = {
+							limit = {
+								NOT = {
+									government_rank = 2
+									}
+								}
+							set_government_rank = 2
+						}
+						# Government Type Change
+						if = {
+							limit = {
+								NOT = {
+									government = monarchy
+									}
+								}
+							change_government = monarchy
+						}
+						add_government_reform = autocracy_reform
+					}
+					# Custom Ideas check and change
+					if = {
+						limit = {
+							has_custom_ideas = no
+							NOT = { has_idea_group = JAP_ideas }
+						}
+						country_event = { id = ideagroups.1 }
+						custom_tooltip = dec1_decisions_blank
+					}
+					country_event = { id = dec1_events.3 }
+					custom_tooltip = dec1_decisions_blank
+					# National Ability
+					add_country_modifier = {
+						name = dec1_japanese_era_diplo
+						duration = 49275
+					}
+					# Increased Centralization
+					add_country_modifier = {
+						name = dec1_increased_centralization
+						duration = -1
+					}
+				}
+			}
+			ai_will_do = {
+				factor = 1
+				modifier = { # Japan AI will not form unless they have at least 25 cities
+					factor = 0
+					NOT = { num_of_cities = 25 }
+				}
+			}
+			ai_importance = 200
+		}
+
+	#####################################################
+	# Unite Japan as the ruling shogun through conquest #
+	#####################################################
+
+		dec1_japanese_nation_shogun_conquest = {
+			major = yes
+			potential = {
+				is_former_colonial_nation = no
+				is_colonial_nation = no
+				has_reform = shogunate
+				NOT = {
+					has_country_flag = formed_japanese_flag_shogun_diplo
+					has_country_flag = formed_japanese_flag_shogun_war
+					has_country_flag = formed_japanese_flag_daimyo
+					has_country_flag = formed_japanese_flag_other
+					exists = JAP
+					tag = JAP
+					tag = JAE
+					tag = TGK
+				}
+				OR = {
+					ai = no
+					AND = {
+						ai = yes
+						num_of_cities = 10
+					}
+				}
+			}
+			provinces_to_highlight = {
+				OR = {
+					area = kinai_area
+					area = hokuriku_area
+				}
+				AND = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+			}
+			allow = {
+				NOT = { exists = JAP }
+				is_at_war = no
+				japan_region = { # Must own 10 provinces in Japan
+					ROOT = {
+						num_of_cities = 15
+					}
+				}
+				owns = 1020
+				owns = 1028
+				custom_trigger_tooltip = {
+					tooltip = form_japan_tt_6 # Core Japanese areas
+					kinai_area = {
+						type = all
+						owned_by = ROOT
+					}
+					hokuriku_area = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+			}
+			effect = {
+				change_tag = JAP # Country TAG
+				set_country_flag = formed_japan_flag # Formed Japan
+				set_country_flag = formed_japanese_flag_shogun # Formed Japan - Shogun
+				custom_tooltip = form_japan_tt_2 # New Missions
+				custom_tooltip = form_japan_tt_4 # Japan core loss on Daimyos
+				custom_tooltip = form_japan_tt_5 # Daimyo Government Reforms
+				hidden_effect = { # The Dissolution of the Daimyo System
+					every_subject_country = {
+						limit = {
+							has_reform = daimyo
+						}
+						ROOT = {
+							free_vassal = PREV
+						}
+						remove_government_reform = daimyo
+						set_legacy_government = despotic_monarchy
+						every_owned_province = {
+							remove_core = JAP
+						}
+					}
+				}
+				custom_tooltip = dec1_decisions_blank
+				JAP = { # Capital change and bonuses
+					set_capital = 1020 # Kyoto
+					1020 = {
+						add_base_tax = 1
+						add_base_production = 1
+						add_base_manpower = 1
+					}
+					custom_tooltip = dec1_decisions_blank
+					custom_tooltip = dec1_government_rank_2 # Government Rank Change
+					# Dharma DLC check to prevent ugly tooltip
+					if = {
+						limit = {
+							has_dlc = "Dharma"
+						}
+						custom_tooltip = dec1_government_change_monarchy # Government Type Change
+					}
+					# Reform Change
+					remove_government_reform = shogunate
+					custom_tooltip = dec1_government_reform_change_autocracy
+					custom_tooltip = dec1_decisions_blank
+					# Our Place in the Empire Custom Event
+					if = {
+						limit = {
+							is_part_of_hre = yes
+						}
+						country_event = { id = dec1_events.1 }
+					}
+					hidden_effect = { # Hidden Effects to fix bad tooltips
+						# Government Rank change
+						if = {
+							limit = {
+								NOT = {
+									government_rank = 2
+									}
+								}
+							set_government_rank = 2
+						}
+						# Government Type Change
+						if = {
+							limit = {
+								NOT = {
+									government = monarchy
+									}
+								}
+							change_government = monarchy
+						}
+						add_government_reform = autocracy_reform
+					}
+					# Custom Ideas check and change
+					if = {
+						limit = {
+							has_custom_ideas = no
+							NOT = { has_idea_group = JAP_ideas }
+						}
+						country_event = { id = ideagroups.1 }
+						custom_tooltip = dec1_decisions_blank
+					}
+					country_event = { id = dec1_events.3 }
+					custom_tooltip = dec1_decisions_blank
+					# National Ability
+					add_country_modifier = {
+						name = dec1_japanese_era_conquest
+						duration = 49275
+					}
+					# Increased Centralization
+					add_country_modifier = {
+						name = dec1_increased_centralization
+						duration = -1
+					}
+				}
+			}
+			ai_will_do = {
+				factor = 1
+				modifier = { # Japan AI will not form unless they have at least 25 cities
+					factor = 0
+					NOT = { num_of_cities = 25 }
+				}
+			}
+			ai_importance = 200
+		}
+
+	############################################
+	# Unite Japan as a daimyo through conquest #
+	############################################
+
+		dec1_japanese_nation_daimyo_conquest = {
+			major = yes
+			potential = {
+				is_former_colonial_nation = no
+				is_colonial_nation = no
+				NOT = {
+					has_country_flag = formed_japanese_flag_shogun_diplo
+					has_country_flag = formed_japanese_flag_shogun_war
+					has_country_flag = formed_japanese_flag_daimyo
+					has_country_flag = formed_japanese_flag_other
+					exists = JAP
+					tag = JAE
+					tag = TGK
+				}
+				OR = {
+					has_reform = daimyo
+					has_reform = indep_daimyo
+				}
+				OR = {
+					ai = no
+					AND = {
+						ai = yes
+						num_of_cities = 1
+					}
+				}
+			}
+			provinces_to_highlight = {
+				OR = {
+					area = hokuriku_area
+					area = chubu_area
+				}
+				AND = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+			}
+			allow = {
+				adm_tech = 10
+				NOT = { exists = JAP }
+				if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+					limit = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+					OR = {
+						is_subject = yes
+						is_subject = no
+					}
+				}
+				if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+					limit = {
+						NOT = {
+							has_global_flag = dec1_subject_formable_nations_enabled
+						}
+					}
+					is_subject = no
+				}
+				is_at_war = no
+				custom_trigger_tooltip = {
+					tooltip = form_japan_tt_6 # Core Japanese areas
+					hokuriku_area = {
+						type = all
+						owned_by = ROOT
+					}
+					chubu_area = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+				# japan_region = { num_of_cities = 12 }
+			}
+			effect = {
+				change_tag = JAP # Country TAG
+				set_country_flag = formed_japan_flag # Formed Japan
+				set_country_flag = formed_japanese_flag_daimyo # Formed Japan - Daimyo
+				custom_tooltip = form_japan_tt_2 # New Missions
+				custom_tooltip = dec1_decisions_blank
+				JAP = { # Capital change and bonuses
+					set_capital = 1028 # Mushashi
+					1028 = {
+						add_base_tax = 1
+						add_base_production = 1
+						add_base_manpower = 1
+					}
+					# Government Rank Change
+					custom_tooltip = dec1_decisions_blank
+					custom_tooltip = dec1_government_rank_2
+					# Dharma DLC check to prevent ugly tooltip
+					if = {
+						limit = {
+							has_dlc = "Dharma"
+						}
+						custom_tooltip = dec1_government_change_monarchy # Government Type Change
+					}
+					# Reform Change
+					remove_government_reform = daimyo
+					remove_government_reform = indep_daimyo
+					set_legacy_government = despotic_monarchy
+					custom_tooltip = dec1_decisions_blank
+					# Our Place in the Empire Custom Event
+					if = {
+						limit = {
+							is_part_of_hre = yes
+						}
+						country_event = { id = dec1_events.1 }
+					}
+					hidden_effect = { # Hidden Effects to fix bad tooltips
+						# Government Rank change
+						if = {
+							limit = {
+								NOT = {
+									government_rank = 2
+									}
+								}
+							set_government_rank = 2
+						}
+						# Government Type Change
+						if = {
+							limit = {
+								NOT = {
+									government = monarchy
+									}
+								}
+							change_government = monarchy
+						}
+						add_government_reform = autocracy_reform
+					}
+					# Custom Ideas check and change
+					if = {
+						limit = {
+							has_custom_ideas = no
+							NOT = { has_idea_group = JAP_ideas }
+						}
+						country_event = { id = ideagroups.1 }
+						custom_tooltip = dec1_decisions_blank
+					}
+					country_event = { id = dec1_events.3 }
+					custom_tooltip = dec1_decisions_blank
+					# National Ability
+					add_country_modifier = {
+						name = dec1_japanese_era_conquest
+						duration = 49275
+					}
+					# Increased Centralization
+					add_country_modifier = {
+						name = dec1_increased_centralization
+						duration = -1
+					}
+				}
+			}
+			ai_will_do = {
+				factor = 1
+			}
+			ai_importance = 200
+		}
+
+	######################################################
+	# Unite Japan with Japanese Culture through conquest #
+	######################################################
+
+		dec1_japanese_nation_general = {
+			major = yes
+			potential = {
+				is_former_colonial_nation = no
+				is_colonial_nation = no
+				culture_group = japanese_g
+				NOT = {
+					has_country_flag = formed_japanese_flag_shogun_diplo
+					has_country_flag = formed_japanese_flag_shogun_war
+					has_country_flag = formed_japanese_flag_daimyo
+					has_country_flag = formed_japanese_flag_other
+					has_reform = shogunate
+					has_reform = daimyo
+					has_reform = indep_daimyo
+					exists = JAP
+					tag = JAP
+					tag = JAE
+					tag = TGK
+				}
+				OR = {
+					ai = no
+					AND = {
+						ai = yes
+						num_of_cities = 1
+					}
+				}
+			}
+			provinces_to_highlight = {
+				OR = {
+					region = japan_region
+				}
+				OR = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+			}
+			allow = {
+				adm_tech = 10
+				NOT = { exists = JAP }
+				if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+					limit = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+					OR = {
+						is_subject = yes
+						is_subject = no
+					}
+				}
+				if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+					limit = {
+						NOT = {
+							has_global_flag = dec1_subject_formable_nations_enabled
+						}
+					}
+					is_subject = no
+				}
+				is_at_war = no
+				num_of_owned_provinces_with = {
+					value = 30
+					region = japan_region
+					culture = root
+					has_owner_accepted_culture = yes
+					is_overseas = no
+				}
+			}
+			effect = {
+				change_tag = JAP # Country TAG
+				set_country_flag = formed_japan_flag # Formed Japan
+				set_country_flag = formed_japanese_flag_other # Formed Japan - Other
+				custom_tooltip = form_japan_tt_2 # New Missions
+				custom_tooltip = dec1_decisions_blank
+				JAP = { # Capital change and bonuses
+					set_capital = 1028 # Kyoto
+					1028 = {
+						add_base_tax = 1
+						add_base_production = 1
+						add_base_manpower = 1
+					}
+					# Government Rank Change
+					custom_tooltip = dec1_decisions_blank
+					custom_tooltip = dec1_government_rank_2
+					# Dharma DLC check to prevent ugly tooltip
+					if = {
+						limit = {
+							has_dlc = "Dharma"
+						}
+						custom_tooltip = dec1_government_change_monarchy # Government Type Change
+					}
+					# Reform Change
+					remove_government_reform = daimyo
+					remove_government_reform = indep_daimyo
+					set_legacy_government = despotic_monarchy
+					custom_tooltip = dec1_decisions_blank
+					# Our Place in the Empire Custom Event
+					if = {
+						limit = {
+							is_part_of_hre = yes
+						}
+						country_event = { id = dec1_events.1 }
+					}
+					hidden_effect = { # Hidden Effects to fix bad tooltips
+						# Government Rank change
+						if = {
+							limit = {
+								NOT = {
+									government_rank = 2
+									}
+								}
+							set_government_rank = 2
+						}
+						# Government Type Change
+						country_event = { id = dec1_country_events.8 } # The Japanese Government
+					}
+					# Custom Ideas check and change
+					if = {
+						limit = {
+							has_custom_ideas = no
+							NOT = { has_idea_group = JAP_ideas }
+						}
+						country_event = { id = ideagroups.1 }
+						custom_tooltip = dec1_decisions_blank
+					}
+					country_event = { id = dec1_events.3 }
+					custom_tooltip = dec1_decisions_blank
+					# National Ability
+					add_country_modifier = {
+						name = dec1_japanese_era_conquest
+						duration = 49275
+					}
+					# Increased Centralization
+					add_country_modifier = {
+						name = dec1_increased_centralization
+						duration = -1
+					}
+				}
+			}
+			ai_will_do = {
+				factor = 1
+			}
+			ai_importance = 200
+		}
+
+}

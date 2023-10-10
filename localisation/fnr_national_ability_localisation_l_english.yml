@@ -1,0 +1,917 @@
+﻿l_english:
+
+# National Ability Localisation
+
+ ######################
+ # National Abilities #
+ ######################
+
+  # Increased Centralization
+
+  dec1_increased_centralization: "Increased Centralization"
+  dec1_increased_centralization_desc: "With the foundation of a new state we have increased our authority over local polities; with this comes great benifit of reducing the autonomy of our subjects."
+
+  # Aquitaine
+
+  dec1_anti_french_policy: "Anti-French Policy"
+  dec1_anti_french_policy_desc: ""
+
+  # Aksumite Empire
+
+  dec1_the_aksumite_empire: "The Aksumite Empire"
+  dec1_the_aksumite_empire_desc: ""
+
+  # Abyssinia
+
+  dec1_house_of_solomon: "Royal House of Solomon"
+  dec1_house_of_solomon_desc: ""
+
+  # Adriatic Empire
+
+  dec1_mare_superum: "Mare Superum"
+  dec1_mare_superum_desc: ""
+
+  # Alpland
+
+  dec1_tough_terrain_castles: "Tough Terrain Castles"
+  dec1_tough_terrain_castles_desc: ""
+
+  # Alscase-Lorraine
+
+  dec1_german_french_influences: "Franco-Germanic Influences"
+  dec1_german_french_influences_desc: ""
+
+  # Angevin Empire
+
+  dec1_legacy_of_the_angevins: "Legacy of the Angevins"
+  dec1_legacy_of_the_angevins_desc: ""
+
+  # Anglo-Dutch Union
+
+  dec1_symbiotic_empire: "Symbiotic Empire"
+  dec1_symbiotic_empire_desc: ""
+
+  # Arabian Kingdom
+
+  dec1_legacy_of_muhammad: "Legacy of Muhammad"
+  dec1_legacy_of_muhammad_desc: ""
+
+  # Armenian Empire
+
+  dec1_cultural_warfare: "Cultural Warfare"
+  dec1_cultural_warfare_desc: ""
+
+  # Republic of Armenia
+
+  dec1_the_steppe_republic: "The Steppe Republic"
+  dec1_the_steppe_republic_desc: ""
+
+  # Austrian Empire
+
+  dec1_habsburg_dynasty: "Habsburg Dynasty"
+  dec1_habsburg_dynasty_desc: ""
+
+  # Austro-Hungarian Empire
+
+  dec1_multinational_empire: "Multi-National Empire"
+  dec1_multinational_empire_desc: ""
+
+  # Balkan League
+
+  dec1_powder_keg_kingdom: "Powder Keg Kingdom"
+
+  # Baltic Union
+
+  dec1_baltic_trade: "Baltic Traders"
+
+  # Basque Kingdom
+
+  dec1_ducal_kingdom: "Ducal-Kingdom"
+
+  # Belgium
+
+  dec1_congo_colonies: "Congo Colonies"
+
+  # Benelux
+
+  dec1_trade_traditions: "Trade Traditions"
+
+  # Bosnia-Serbia
+
+  dec1_union_of_two: "Union of Two"
+
+  # Brandenburg-Prussia
+
+  dec1_electorate_of_brandenburg_prussia: "Brandenburg-Prussia Electorate"
+
+  # Bremen-Verden
+
+  dec1_german_nationalism: "German Nationalism"
+
+  # Bulgaria
+
+  dec1_restored_bulgaria: "Restored Bulgaria"
+
+  # Bulgarian Empire
+
+  dec1_sons_of_knyaz: "Sons of Knyaz"
+
+  # Burma
+
+  dec1_indian_chinese_relations: "Sino-Indian Relations"
+
+  # Carthage
+
+  dec1_phoenician_spirit: "Phoenician Spirit"
+
+  # Caucasia
+
+  dec1_rough_lives: "Rough Lives"
+
+  # Celtic Union
+
+  dec1_celtic_lifestyle: "Celtic Lifestyle"
+
+  # Central African Empire
+
+  dec1_legacy_of_bokassa: "Legacy of Bokassa"
+
+  # Ceylon
+
+  dec1_union_of_ceylon: "Union of Ceylon"
+
+  # China
+
+  dec1_the_middle_kingdom: "The Middle Kingdom"
+
+  # People's Republic of China
+
+  dec1_foundation_chinese_communist_party: "Foundation of the Chinese Communist Party (CCP)"
+
+  # Confederate States
+
+  dec1_slave_income: "Slave Income"
+
+  # Cordoba
+
+  dec1_restored_christian_relics: "Restored Christian Relics"
+
+  # Cisalpina
+
+  dec1_italian_republic: "Italian Republic"
+
+  # Czechoslovakia
+
+  dec1_czech_legions: "Czech Legions"
+
+  # Dacia
+
+  dec1_dacian_tribal_legacy: "Dacian Tribal Legacy"
+
+  # Dual Monarchy
+
+  dec1_franco_british_union: "Franco-British Union"
+
+  # Ducal Prussia
+
+  dec1_the_rise_of_prussia: "The Rise of Prussia"
+
+  # East Prussia
+
+  dec1_prussian_legacy: "Prussian Legacy"
+
+  # East Germany
+
+  dec1_combloc_formations: "Combloc Formations"
+
+  # Eastern Roman Empire
+
+  dec1_wealth_trade_empire: "Wealth, Trade, Empire!"
+
+  # Emilia-Romagna
+
+  dec1_italian_strength: "Italian Strength"
+
+  # Empire of Japan
+
+  dec1_the_meiji_era: "The Meiji Era"
+
+  # European Union
+
+  dec1_the_union: "The Union"
+
+  # Franco-Iberian Empire
+
+  dec1_castilian_franco_cultural_unity: "Castilian-Franco Cultural Unity"
+
+  # Franconia
+
+  dec1_german_kings_of_the_reich: "German Kings of the Reich"
+
+  # French Empire
+
+  dec1_the_emperor_general: "The Emperor-General"
+
+  # Frieslande
+
+  dec1_frisian_legacy: "Frisian Legacy"
+
+  # German Empire
+
+  dec1_the_german_union: "The German Union"
+
+  # German Federation
+
+  dec1_federalization_of_germany: "Federalization of Germany"
+
+  # Goguryeo
+
+  dec1_korean_kingdom: "Korean Kingdom"
+
+  # Hansa
+
+  dec1_germanic_hansa_kingdom: "Germanic Hansa Kingdom"
+
+  # Hanseatic League
+
+  dec1_the_hansa: "The Hansa"
+
+  # Hesse-Nassau
+
+  dec1_legacy_of_nassau: "Legacy of Nassau"
+
+  # Himalayan Empire
+
+  dec1_empire_in_the_mountains: "Empire in the Mountains"
+
+  # Iberian Empire
+
+  dec1_christian_empire_in_iberia: "Christian Empire in Iberia"
+
+  # Islamic State
+
+  dec1_the_new_caliphate: "The New Caliphate"
+
+  # Italian Empire
+
+  dec1_rebirth_of_the_renaissance: "Rebirth of the Renaissance"
+
+  # Italian Merchant Alliance
+
+  dec1_trade_empire: "Trade Empire"
+
+  # Jagiellonian Empire
+
+  dec1_union_of_persistence: "Union of Persistence"
+
+  # Kievan Rus
+
+  dec1_kievan_kingdom: "Kievan Kingdom"
+
+  # Belarus
+
+  dec1_stongman_authority: "Strongman Authority"
+
+  # Kingdom of God
+
+  dec1_the_messenger_of_god: "Messenger of God"
+
+  # Korea
+
+  dec1_korean_restoration: "Korean Restoration"
+
+  # Lombardy-Venitia
+
+  dec1_french_warfare: "French Warfare"
+
+  # Lower Saxony
+
+  dec1_southern_saxon_warriors: "Southern Saxon Warriors"
+
+  # Lusitanian Empire
+
+  dec1_the_spice_empire: "The Spice Empire"
+
+  # Macedon
+
+  dec1_alexanders_kingdom: "Alexander's Kingdom"
+
+  # Maghrebia
+
+  dec1_muslim_superiority: "Muslim Superiority"
+
+  # North German Confederation
+
+  dec1_prussian_influences: "Prussian Influences"
+
+  # North Sea Empire
+
+  dec1_empire_of_trade: "Empire of Trade"
+
+  # Ostrogoths
+
+  dec1_sack_of_italy: "Sack of Italy"
+
+  # Palmyrene Empire
+
+  dec1_zenobian_legacy: "Zenobian Legacy"
+
+  # Pontus
+
+  dec1_roman_dreams: "Roman Dreams"
+
+  # Rhine Confederation
+
+  dec1_legacy_of_bonaparte: "Legacy of Bonaparte"
+
+  # Roman Republic
+
+  dec1_the_rebirth_of_the_republic: "Rebirth of the Republic"
+
+  # Saudi Arabia
+
+  dec1_house_of_saud: "House of Saud"
+
+  # Serbian Empire
+
+  dec1_the_mighty_serbia: "The Mighty Serbia"
+
+  # Siebenbuergen
+
+  dec1_twenty_castles: "20 Castle Doctrine"
+
+  # South German Ferderation
+
+  dec1_austrian_influences: "Austrian Influences"
+
+  # Soviet Union
+
+  dec1_soviet_socialist_republics: "Soviet Socialist Republics"
+
+  # Sweden-Norway
+
+  dec1_union_of_grace: "Union of Grace"
+
+  # Tatarstan
+
+  dec1_tatar_qualities: "Tatar Qualities"
+
+  # Tibetan Empire
+
+  dec1_legacy_of_the_dali_lama: "Legacy of the Dali Lama"
+
+  # Turkey
+
+  dec1_turkish_nationalism: "Turkish Nationalism"
+
+  # Tonga Empire
+
+  dec1_the_emperor_of_tonga: "The Emperor of Tonga"
+
+  # United Kingdom
+
+  dec1_rule_britannia: "Rule Britannia"
+
+  # West Germany
+
+  dec1_western_german_rights: "Western German Rights"
+
+  # Western Roman Empire
+
+  dec1_the_birth_of_empire: "The Birth of Empire"
+
+  # Yugoslavia
+
+  dec1_yugoslavs: "Yugoslavs"
+
+  # Spanish Empire
+
+  dec1_habsburg_spain: "Habsburg Spain"
+
+  # Russian Federation
+
+  dec1_the_ruso_republic: "The Ruso Republic"
+
+  # British Empire
+
+  dec1_the_sunset_empire: "The Sunset Empire"
+
+  # Mingrelia
+
+  dec1_georgian_legacy: "Georgian Legacy"
+
+  # Aksumite
+
+  dec1_early_human_legacy: "Early Human Legacy"
+
+  # Almoravid
+
+  dec1_north_african_domination: "North African Domination"
+
+  # Pomerania
+
+  dec1_house_of_griffin: "House of Griffin"
+
+  # Langobards
+
+  dec1_germanic_horselords: "Germanic Horselords"
+
+  #####################
+  # Vanilla Countries #
+  #####################
+
+    # Algiers
+
+    dec1_noble_amirs: "Noble Amirs"
+
+    # Andalusia
+
+    dec1_caliphate_of_cordoba: "Caliphate of Cordoba"
+
+    # Arabia
+
+    dec1_muhammads_conquests: "Muhammad's Conquests"
+
+    # Armenia
+
+    dec1_classical_antiquity: "Classical Antiquity"
+
+    # Bharat
+
+    dec1_foundation_of_an_indian_state: "Foundation of an Indian State"
+
+    # Bukhara
+
+    dec1_sunni_uzbeks: "Sunni Uzbeks"
+
+    # Commonwealth
+
+    dec1_the_commonwealth_union: "The Commonwealth Union"
+
+    # Croatia
+
+    dec1_croats_and_slovenes: "Croats and Slovenes"
+
+    # Deccan
+
+    dec1_sultans_of_india: "Sultans of India"
+
+    # Egypt
+
+    dec1_kingdom_of_pharaohs: "Kingdom of Pharaohs"
+
+    # Germany
+
+    dec1_germany_proper: "Germany Proper"
+
+    # Golden Horde
+
+      dec1_remnants_of_the_mongols: "Remnants of the Mongols"
+
+    # Great Britain
+
+    dec1_the_british_commonwealth: "The British Commonwealth"
+
+    # Greater Wiradjuri
+
+    dec1_path_to_australia: "Path to Australia"
+
+    # Greece
+
+    dec1_greek_hegemony: "Greek Hegemony"
+
+    # Hanover
+
+    dec1_british_influences: "British Influences"
+
+    # Hindustan
+
+    dec1_hindu_union: "Hindu Union"
+
+    # Holy Roman Empire
+
+    dec1_legacy_of_the_holy_roman_empire: "The Holy Roman Empire"
+
+    # Iceland
+
+    dec1_reykjavik_imports: "Reykjavik Imports"
+
+    # Ilkhanate
+
+    dec1_muslim_mongols: "Muslim Mongols"
+
+    # Inca
+
+    dec1_native_empire: "Native Empire"
+
+    # Ireland
+
+    dec1_irish_spirit: "Irish Spirit"
+
+    # Italy
+
+    dec1_the_crown_of_lombardy: "The Crown of Lombardy"
+
+    # Japan
+
+    dec1_dissolution_of_the_shogunate_diplo: "Peaceful Dissolution of the Shogunate"
+
+    dec1_dissolution_of_the_shogunate_war: "Hostile Dissolution of the Shogunate"
+
+    # Jerusalem
+
+    dec1_united_christianity: "United Christianity"
+
+    # Kurland
+
+    dec1_battle_memoirs: "Battle Memoirs"
+
+    # Malaya
+
+    dec1_eastern_trade_route: "Eastern Trade Route"
+
+    # Manchu
+
+    dec1_manchu_banner_camps: "Manchu Banner Camps"
+
+    # Marathas
+
+    dec1_maratha_warriors: "Maratha Warriors"
+
+    # Maya
+
+    dec1_league_of_mayapan: "League of Mayapan"
+
+    # Mongol Empire
+
+    dec1_temujins_legacy_reborn: "Temujins Legacy Reborn"
+
+    # Mughals
+
+    dec1_empire_of_the_mughal_tribe: "Empire of the Mughal Tribes"
+
+    # Nagpur
+
+    dec1_transcend_tribal_loyalties: "Transcend Tribal Loyalties"
+
+    # Nepal
+
+    dec1_dalai_lama_of_tibet: "Dalai Lama of Tibet"
+
+    # Netherlands
+
+    dec1_dutch_trade_empire: "Dutch Trade Empire"
+
+    # Persia
+
+    dec1_the_empire_of_ages: "The Empire of Ages"
+
+    # Punjab
+
+    dec1_gem_of_india: "Gem of India"
+
+    # Prussia
+
+    dec1_prussian_greatness: "Prussian Greatness"
+
+    # Qing
+
+    dec1_qings_of_china: "Qings of China"
+
+    # Rajputana
+
+    dec1_unite_the_princes: "Unite the Princes"
+
+    # Romania
+
+    dec1_legacy_of_rome: "Legacy of Rome"
+
+    # Roman Empire
+
+    dec1_true_roman_successor: "True Roman Successor"
+
+    # Rum
+
+    dec1_anatolian_islam: "Anatolian Islam" # Previously 'Who Stole The Rum?'
+
+    # Russia
+
+    dec1_third_rome: "Third Rome"
+
+    # Ruthenia
+
+    dec1_the_rus_people: "The Rus People"
+
+    # Sardinia-Piedmont
+
+    dec1_kingdom_of_italy: "Kingdom of Italy"
+
+    # Scandinavia
+
+    dec1_viking_spirit: "Viking Spirit"
+
+    # Shan
+
+    dec1_confederation_of_the_shan: "Confederation of the Shan"
+
+    # Sokoto
+
+    dec1_the_sokoto_caliphate: "The Sokoto Caliphate"
+
+    # Spain
+
+    dec1_castilian_heritage: "Castilian Heritage"
+
+    # Swabia
+
+    dec1_great_kingdom_of_germany: "Great Kingdom of Germany"
+
+    # Tibet
+
+    dec1_legacy_of_the_tibetan_empire: "Legacy of the Tibetan Empire"
+
+    # Tripoli
+
+    dec1_recognized_kingdom: "Recognized Kingdom"
+
+    # Tuscany
+
+    dec1_tuscan_raiders: "Tuscan Raiders"
+
+    # Two Sicilies
+
+    dec1_italian_spirit: "Italian Spirit"
+
+    # Westphalia
+
+    dec1_german_spirit: "German Spirit"
+
+    # Yuan
+
+    dec1_the_yuan_dynasty: "The Yuan Dynasty"
+
+    # Bhutan
+
+    dec1_dragon_kingdom: "Dragon Kingdom"
+
+    # Hungary
+
+    dec1_hungarian_nobility: "Hungarian Nobility"
+
+    # Chad
+
+    dec1_united_chad: "United Chad"
+
+    # Ghana Empire
+
+    dec1_african_nationalism: "African Nationalism"
+
+    # Hausa
+
+    dec1_united_the_hausa: "United the Hausa"
+
+    # Hawaii
+
+    dec1_united_hawaii: "United Hawaii"
+
+    # Kenya
+
+    dec1_the_nation_of_kenya: "The Nation of Kenya"
+
+    # Puntland
+
+    dec1_the_puntland_of_somalia: "The Puntland of Somalia"
+
+    # Rhodesia
+
+    dec1_united_rhodesians: "United Rhodesia"
+
+    # Somalia
+
+    dec1_united_somaliland: "United Somaliland"
+
+  ####################
+  # Colonial Nations #
+  ####################
+
+    # Alaska
+
+    dec1_chilling_kingdom: "Kingdom of Alaska"
+
+    # Australia
+
+    dec1_down_under: "Australian Pride"
+
+    # Brazil
+
+    dec1_imperial_ambitions: "Imperial Ambitions"
+
+    # California
+
+    dec1_the_golden_state: "The Golden State"
+
+    # Canada <3
+
+    dec1_great_white_north: "Great White North"
+
+    # Cascadia
+
+    dec1_beauty_in_cascadia: "Beaty in Cascadia"
+
+    # Chile
+
+    dec1_chilean_pride: "Chilean Pride"
+
+    # Columbia
+
+    dec1_dreams_of_gran_colombia: "Dreams of Gran Colombia"
+
+    # Cuba
+
+      dec1_cuban_hostilities: "Cuban Hostilities"
+
+    # Florida
+
+      dec1_the_heat_of_florida: "The Heat of Flordia"
+
+    # Haiti
+
+      dec1_independence_movement: "Independence Movement"
+
+    # Illinois
+
+      dec1_chicago_river: "Chicago River"
+
+    # La Plata
+
+      dec1_kingdom_of_la_plata: "Kingdom of La Plata"
+
+    # Louisiana
+
+      dec1_louisiana_purchase: "Louisiana Purchase"
+
+    # Mexico
+
+      dec1_legacy_of_the_empire: "Legacy of the Empire"
+
+    # Paraguay
+
+      dec1_national_pride_of_paraguay: "National Pride of Paraguay"
+
+    # Peru
+
+      dec1_peruvian_unity: "Peruvian Unity"
+
+    # Quebec
+
+      dec1_northern_republic: "Northern Republic"
+
+    # Sonora
+
+      dec1_mexican_opposition: "Mexican Opposition"
+
+    # Texas
+
+      dec1_lone_star: "Lone Star"
+
+    # United Central America
+
+      dec1_republic_of_hispania: "Republic of Hispania"
+
+    # United States
+
+      dec1_the_land_of_freedom: "The Land of Freedom"
+
+    # Venezuela
+
+      dec1_oil_research: "Oil Research"
+
+    # Vermont
+
+      dec1_english_success: "English Success"
+
+    # Zeelandia
+
+      dec1_new_identity: "New Identity"
+
+  ########################
+  # Reformable Countries #
+  ########################
+
+    # Dai Viet
+
+      dec1_restore_dai_viet: "Restore Dai Viet"
+
+    # Israel
+
+      dec1_jewish_revival: "Jewish Revival"
+
+    # Austria
+
+      dec1_restore_the_habsburgs: "Restore the Habsburgs"
+
+    # Bavaria
+
+      dec1_unification_of_bavaria: "Unification of Bavaria"
+
+    # Byzantium
+
+      dec1_eastern_roman_successor: "Eastern Roman Successor"
+
+    # Delhi
+
+      dec1_indian_empire: "Indian Empire"
+
+    # England
+
+      dec1_english_restoration: "English Restoration"
+
+    # France
+
+      dec1_french_restoration: "French Restoration"
+
+    # Georgia
+
+      dec1_united_georgians: "United Georgians"
+
+    # Mamluks
+
+      dec1_restoration_of_the_mamluks: "Restoration of the Mamluks"
+
+    # Morocco
+
+      dec1_moroccan_unity: "Moroccan Unity"
+
+    # Orissa
+
+      dec1_trade_control: "Trade Control"
+
+    # Papal States
+
+      dec1_the_pope: "The Pope"
+
+    # Poland
+
+      dec1_polish_uprising: "Polish Uprising"
+
+    # Scotland
+
+      dec1_restoration_of_scotland: "Restoration of Scotland"
+
+    # Timurids
+
+      dec1_restore_the_timurids: "Restore the Timurids"
+
+    # Tunis
+
+      dec1_tunisian_nationalism: "Tunisian Nationalism"
+
+    # Yemen
+
+      dec1_restore_yemeni_freedom: "Restore Yemeni Freedom"
+
+  # Catholica Russica
+
+  dec1_conversion_of_slavic_legacy: "Conversion of Slavic Legacy"
+
+  # Nubia
+
+  dec1_nubian_archers: "Nubian Archers"
+
+  # Dalmatia
+
+  dec1_oppressed_kingdom: "Oppressed Kingdom"
+
+  # Lotharinigia
+
+  dec1_the_restoration_of_lotharingia: "Restoration of Lotharingia"
+
+  # Silesia
+
+  dec1_silesian_nobility: "Silesian Nobility"
+
+  # Scotland
+
+  dec1_scottish_spirit: "Scottish Spirit"
+
+  # Luhansk
+
+  dec1_seperatist_regime_l: "Luhansk Seperatists"
+
+  # Donestsk
+
+  dec1_seperatist_regime_d: "Donetsk Seperatists"
+
+  # Lombardy
+
+  dec1_kingdom_of_lombardy: "Kingdom of Lombardy"
+
+  # Visigoths
+
+  dec1_iberian_theft: "Iberian Theft"
+
+  # West Indies
+
+  dec1_carribean_control: "Carribean Control"
+
+# End

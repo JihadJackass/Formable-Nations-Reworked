@@ -1,0 +1,73 @@
+# The Rif
+
+graphical_culture = muslimgfx
+
+color = { 153 40 37 }
+
+historical_idea_groups = {
+	maritime_ideas
+	defensive_ideas
+	religious_ideas
+	expansion_ideas
+	administrative_ideas
+	offensive_ideas
+	trade_ideas
+	economic_ideas
+}
+
+historical_units = {
+	mamluk_archer
+	mamluk_cavalry_charge
+	mamluk_duel
+	mamluk_musket_charge
+	muslim_mass_infantry
+	muslim_dragoon
+	ali_bey_reformed_infantry
+}
+
+monarch_names = {
+	"al-Rif #0" = 200
+	"Ahmad #0" = 80
+	"al-Mustadî #0" = 20
+	"al-Rashîd #0" = 20
+	"Hishâm #0" = 20
+	"Idrîsid #0" = 20
+	"Sulaymân #0" = 20
+	"Sulaymân #0" = 20
+	"Said #0" = 10
+	"Umar #0" = 10
+	"Yûsuf #0" = 10
+	"Ataullah #0" = 0
+	"Jabril #0" = 0
+	"Rasul #0" = 0
+	"Zulfiqar #0" = 0
+
+	"Thamina #0" = -1
+	"Widad #0" = -1
+	"Aisha #0" = -1
+	"Zaidana #0" = -5
+	"Khnata #0" = -5
+	"Bilqis #0" = -1
+	"Halima #0" = -1
+	"Alwa #0" = -1
+}
+
+leader_names = {
+	Sahiri
+	Haida
+	Sellami
+	Arazi
+	Berui
+	Lahsini
+	Skah
+	Barek
+	Alami
+	Behar
+}
+
+ship_names = {
+	Tawwab Muntaqim Afuww Fa'uf "Malik Mulk"
+	"Jalal Ikram" Muqsit Jami Ghani Mughni
+	Mani Darr Nafi Nur Hadi Badi Baqi Warith
+	Rashid Sabur "Fazl Azim"
+}

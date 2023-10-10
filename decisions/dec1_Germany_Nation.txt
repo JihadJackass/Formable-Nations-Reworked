@@ -1,0 +1,152 @@
+country_decisions = {
+
+	######################################
+	# Modern Federal Republic of Germany #
+	######################################
+
+	dec1_germany_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			culture_group = germanic
+			government = republic
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_german_republic_flag
+				has_reform = celestial_empire
+				exists = GEP
+				exists = KGG
+				exists = GRP
+				tag = GEP
+				tag = GER
+				tag = KGG
+				tag = PAP
+				tag = HLR
+				tag = ROM
+				tag = BEL
+				tag = BNL
+				tag = BRP
+				tag = BVE
+				tag = FRL
+				tag = HNS
+				tag = HEN
+				tag = LSX
+				tag = RHE
+				tag = DCP
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 50
+					grown_by_development = 125
+					adm_tech = 10
+					OR = {
+						NOT = { is_emperor = yes } # Prevent Austria being an asshole
+						adm_tech = 15
+					}
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				region = north_german_region
+				region = south_german_region
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 15
+			NOT = { exists = GRP }
+			is_at_war = no
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_emperor = no
+			owns_core_province = 50	# Berlin
+			owns_core_province = 57	# Brunswick
+			owns_core_province = 65	# München
+			num_of_owned_provinces_with = {
+				is_core = ROOT
+				OR = {
+					region = north_german_region
+					region = south_german_region
+				}
+				value = 40
+			}
+		}
+		effect = {
+			change_tag = GRP # Country TAG
+			set_country_flag = formed_german_republic_flag # Country Formation Flag
+			custom_tooltip = form_german_republic_nation_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			GRP = { # Capital change and bonuses
+				set_capital = 50 # Berlin
+				50 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3 # Government Rank Change
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					country_event = { id = dec1_country_events.7 } # The German Government
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = GEP_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_federalization_of_germany
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+}

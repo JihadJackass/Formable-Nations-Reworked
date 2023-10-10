@@ -1,0 +1,174 @@
+country_decisions = {
+
+	# Great Brunei AKA Abode of Peace
+
+	dec1_abode_of_peace_nation = {
+		major = yes
+		potential = {
+			primary_culture = bornean
+			NOT = {
+				has_country_flag = formed_abode_of_peace_flag
+				exists = AOP
+				tag = AOP
+				tag = SWW
+				tag = WJJ
+				tag = PJJ
+				tag = AUS
+				tag = PAP
+				tag = HLR
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 1 # Unique since tribal
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = brunei_area
+				area = sabah_area
+				area = kutai_area
+				area = kalimantan_area
+				area = banjar_area
+			}
+			NOT = { owned_by = ROOT }
+			NOT = { is_core = ROOT }
+		}
+		allow = {
+			adm_tech = 5
+			NOT = { exists = AOP }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_colonial_nation = no
+			is_former_colonial_nation = no
+			is_at_war = no
+			brunei_area = {
+				type = all
+				owned_by = ROOT
+			}
+			sabah_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kutai_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kalimantan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			banjar_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			change_tag = AOP # Country TAG
+			set_country_flag = formed_abode_of_peace_flag # Country Formation Flag
+			custom_tooltip = form_abode_of_peace_tt_2 # New Missions
+			custom_tooltip = form_abode_of_peace_tt_3 # Region/Area Claims
+			custom_tooltip = dec1_decisions_blank
+			AOP = { # Capital change and bonuses
+				set_capital = 4801
+				4801 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_reform_change_autocracy # Government Type Change
+				}
+				# Reform Changes
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Region/Area Claims
+					indonesia_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = AOP
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+		#				NOT = { has_idea_group = AUS_ideas } # TODO: ideas
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+	#			add_country_modifier = {
+	#				name = dec1_path_to_australia TODO: ability
+	#				duration = 49275
+	#			}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Rename from Abode of Peace to Great / Greater Brunei
+
+}

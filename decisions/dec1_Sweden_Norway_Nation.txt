@@ -1,0 +1,223 @@
+country_decisions = {
+
+	##########################
+	# Sweden-Norway - Sweden #
+	##########################
+
+	dec1_sweden_norway_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			tag = SWE
+			NOT = {
+				has_country_flag = formed_sweden_norway_flag
+				exists = SNO
+				tag = SNO
+				tag = NOR
+				tag = PAP
+				tag = SCA
+				tag = NSE
+				tag = EUR
+				tag = GBR
+				tag = DAN
+			}
+			OR = {
+				primary_culture = swedish
+				primary_culture = norwegian
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+					# Denmark
+				province_id = 6
+				province_id = 4165
+				province_id = 4165
+				province_id = 1982
+				province_id = 26
+					# Sweden
+				province_id = 3
+				province_id = 2
+				province_id = 7
+				province_id = 4164
+				province_id = 4163
+				province_id = 4166
+				province_id = 4
+				province_id = 5
+				province_id = 1985
+				province_id = 8
+				province_id = 9
+					# Norway
+				province_id = 16
+				province_id = 4143
+				province_id = 17
+				province_id = 4144
+				province_id = 4145
+				province_id = 24
+				province_id = 23
+				province_id = 2752
+				province_id = 20
+				province_id = 22
+				province_id = 10
+				province_id = 21
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = SNO }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			custom_trigger_tooltip = {
+				tooltip = form_sweden_norway_tt_1
+					# Denmark
+				owns_core_province = 6
+				owns_core_province = 4165
+				owns_core_province = 4165
+				owns_core_province = 1982
+				owns_core_province = 26
+					# Sweden
+				owns_core_province = 3
+				owns_core_province = 7
+				owns_core_province = 4164
+				owns_core_province = 4163
+				owns_core_province = 4166
+				owns_core_province = 2
+				owns_core_province = 4
+				owns_core_province = 5
+				owns_core_province = 1985
+				owns_core_province = 8
+				owns_core_province = 9
+					# Norway
+				owns_core_province = 16
+				owns_core_province = 4143
+				owns_core_province = 17
+				owns_core_province = 4144
+				owns_core_province = 4145
+				owns_core_province = 24
+				owns_core_province = 23
+				owns_core_province = 2752
+				owns_core_province = 20
+				owns_core_province = 22
+				owns_core_province = 10
+				owns_core_province = 21
+			}
+		}
+		effect = {
+			change_tag = SNO # Country TAG
+			set_country_flag = formed_sweden_norway_flag # Country Formation Flag
+			custom_tooltip = form_sweden_norway_tt_2 # New Missions
+			inherit = NOR
+			custom_tooltip = dec1_decisions_blank
+			SNO = { # Capital change and bonuses
+				set_capital = 2
+				2 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_republic # Government Type Change
+				}
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Region/Area Claims
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = SNO_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_union_of_grace
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	#########################################
+	# Sweden-Norway Norway Unique Formation #
+	#########################################
+
+	##########################################
+	# Sweden-Norway Denmark Unique Formation #
+	##########################################
+
+}

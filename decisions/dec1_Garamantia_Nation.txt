@@ -1,0 +1,121 @@
+country_decisions = {
+
+	dec1_garamantia_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			OR = {
+				primary_culture = algerian
+				primary_culture = berber
+				primary_culture = tunisian
+			}
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_garamantia_flag
+				exists = GMA
+				tag = GMA
+				tag = NMD
+				tag = PAP
+				tag = HLR
+				tag = MGH
+				tag = TUN
+			}
+		}
+		provinces_to_highlight = {
+			area = north_saharan_area
+		}
+		allow = {
+			north_saharan_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			change_tag = GMA # Country TAG
+			set_country_flag = formed_garamantia_flag # Country Formation Flag
+			custom_tooltip = form_garamantia_tt_2 # New Missions
+			#custom_tooltip = form_numidia_tt_3 # Region/Area Claims
+			change_religion = catholic
+			set_ruler_religion = catholic
+			north_saharan_area = { change_religion = catholic }
+			high_plains_area = { change_religion = catholic }
+			custom_tooltip = dec1_decisions_blank
+			GMA = { # Capital change and bonuses
+				set_capital = 2472
+				2472 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				custom_tooltip = dec1_decisions_blank
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Region/Area Claims
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+			}
+			# Custom Ideas check and change
+			if = {
+				limit = {
+					has_custom_ideas = no
+		#			NOT = { has_idea_group = GMA_ideas }
+				}
+				country_event = { id = ideagroups.1 }
+			}
+			# Custom Missions check and change
+			country_event = { id = dec1_events.3 }
+			custom_tooltip = dec1_decisions_blank
+			# National Ability
+		#	add_country_modifier = {
+		#		name = dec1_restore_numidia
+		#		duration = 49275
+		#	}
+			# Increased Centralization
+			add_country_modifier = {
+				name = dec1_increased_centralization
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200 # Ancient Kingdom, Less Desirable
+	}
+}

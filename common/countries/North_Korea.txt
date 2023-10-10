@@ -1,0 +1,78 @@
+# North Korea
+
+graphical_culture = asiangfx
+
+color = { 102 51 153 }
+
+historical_idea_groups = {
+	defensive_ideas
+	offensive_ideas
+	spy_ideas
+	trade_ideas
+	diplomatic_ideas
+	economic_ideas
+	innovativeness_ideas
+	quality_ideas
+}
+
+historical_units = {
+	chinese_longspear
+	eastern_bow
+	chinese_footsoldier
+	chinese_steppe
+	asian_arquebusier
+	asian_charge_cavalry
+	asian_mass_infantry
+	manchu_banner
+	han_banner
+	asian_musketeer
+	chinese_dragoon
+	reformed_asian_musketeer
+	reformed_asian_cavalry
+	reformed_manchu_rifle
+}
+
+monarch_names = {
+	"Kim Jong-un #0" = 100
+	"Kim Jong-il #0" = 60
+	"Kim Jong #0" = 50
+	"Cho #0" = 20
+	"Hyon #0" = 20
+	"Hwang #0" = 20
+	"Jang #0" = 20
+	"Kang #0" = 20
+	"Kim #0" = 20
+	"Lee #0" = 20
+	"Yun #0" = 20
+	"Nam #0" = 20
+	"Thea #0" = 20
+
+	"Bong Cha #0" = -1
+	"Chul #0" = -1
+}
+
+leader_names = {
+	Gampo
+	Srong
+	Sregs
+	Thekchen
+	Sonam
+	Tashi
+	Tsewang
+	Wangdue
+	Wangdak
+	Phuntsok
+}
+
+ship_names = {
+	Barkam
+	Dartsendo
+	Gyantse Gartse
+	Lhasa Lhotse
+	Makalu
+	Nagqu Nyingchi Nedong
+	Pelbar
+	Qamdo
+	Shigatse Sakya
+	Tinggri
+}

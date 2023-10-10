@@ -1,0 +1,325 @@
+country_decisions = {
+
+	# Pontus - General
+
+	dec1_pontus_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_pontus_flag
+				exists = PON
+				tag = PON
+				tag = PAP
+				tag = HLR
+				tag = TUR
+				tag = EUR
+				tag = ISI
+				tag = BKL
+				tag = BSK
+				tag = CND
+				tag = RUM
+				tag = GRE
+				tag = MAC
+				tag = FEO
+			}
+			OR = {
+				primary_culture = pontic_greek
+				primary_culture = goths
+				primary_culture = turkish
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 328 # Sinop
+				province_id = 330 # Trebizond
+				province_id = 285 # Caffa
+				province_id = 2410 # Theodoro
+				province_id = 2447 # Mantrega
+				province_id = 325 # Kastamounu
+				province_id = 2304 # Canik
+				province_id = 2195 # Adyghe
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = PON }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			owns_core_province = 328 # Sinop
+			owns_core_province = 330 # Trebizond
+			owns_core_province = 285 # Caffa
+			owns_core_province = 2410 # Theodoro
+            owns_core_province = 2447 # Mantrega
+			owns_core_province = 325 # Kastamounu
+			owns_core_province = 2304 # Canik
+			owns_core_province = 2195 # Adyghe
+		}
+	 	effect = {
+			change_tag = PON # Country TAG
+			set_country_flag = formed_pontus_flag # Country Formation Flag
+			custom_tooltip = form_byzantium_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			PON = { # Capital change and bonuses
+				set_capital = 2410 # Theodoro
+				2410 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = BYZ_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_roman_dreams
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Pontus - Theodoro Unique
+
+	dec1_pontus_candar_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			tag = FEO
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_pontus_flag
+				exists = PON
+				tag = PON
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 1
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 2410 # Theodoro
+				province_id = 325
+				province_id = 328
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			328 = { grown_by_development = 3 }
+			325 = { grown_by_development = 3 }
+			OR = { # Can form by controller either - handler
+				if = {
+					limit = {
+						owns = 2410
+					}
+					2410 = { grown_by_development = 1 }
+				}
+				if = {
+					limit = {
+						owns = 151
+					}
+					151 = { grown_by_development = 2 }
+				}
+			}
+			NOT = { exists = PON }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			OR = {
+				owns_core_province = 2410
+				owns_core_province = 151
+			}
+		}
+	 	effect = {
+			change_tag = PON # Country TAG
+			set_country_flag = formed_pontus_flag # Country Formation Flag
+			custom_tooltip = form_byzantium_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			PON = { # Capital change and bonuses
+				set_capital = 2410 # Theodoro
+				2410 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = BYZ_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_roman_dreams
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# TODO: Candar Unique
+
+}

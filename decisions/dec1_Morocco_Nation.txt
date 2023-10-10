@@ -1,0 +1,175 @@
+country_decisions = {
+
+	dec1_moroccan_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			NOT = {
+				has_country_flag = formed_morocco_flag
+				exists = MOR
+				tag = MOR
+				tag = TUN
+				tag = TLC
+				tag = ALG
+				tag = PAP
+				tag = HLR
+				tag = MGH
+			}
+			OR = {
+				primary_culture = moroccan
+				AND = {
+					primary_culture = berber
+					capital_scope = { area = northern_morocco_area }
+				}
+				AND = {
+					primary_culture = berber
+					capital_scope = { area = fezzan_area }
+				}
+				AND = {
+					primary_culture = berber
+					capital_scope = { area = marrekesh_area }
+				}
+				AND = {
+					primary_culture = berber
+					capital_scope = { area = sus_area }
+				}
+				AND = {
+					primary_culture = berber
+					capital_scope = { area = tafilalt_area }
+				}
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 5
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 343
+				province_id = 344
+				province_id = 348
+				province_id = 346
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 5
+			NOT = { exists = MOR }
+			is_at_war = no
+			
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_free_or_tributary_trigger = no
+			#todo areas (either both north morocco and south - or north/south - or just south
+			owns_core_province = 343 #Fez
+			owns_core_province = 344 #Marrekech
+			OR = {
+				owns_core_province = 348 #Sus
+				owns_core_province = 346 #Tafilalt
+			}
+		}
+		effect = {
+			change_tag = MOR # Country TAG
+			set_country_flag = formed_morocco_flag # Country Formation Flag
+			custom_tooltip = form_morocco_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			MOR = { # Capital change and bonuses
+				set_capital = 344
+				344 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Claims
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = MOR_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_moroccan_unity
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+}

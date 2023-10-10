@@ -1,0 +1,148 @@
+# American Civil War
+
+dec1_usa_american_civil_war = {
+	ended_by_country_breaking_to_rebels = no
+
+	potential = {
+		tag = USA
+		has_any_disaster = no
+		is_lesser_in_union = no
+		is_subject = no
+	}
+
+	can_start = {
+		has_any_disaster = no
+		is_year = 1785
+		is_subject = no
+		is_at_war = no
+		#total_development = 1000
+		OR = {
+			AND = {
+				num_of_owned_provinces_with = {
+					value = 5
+					trade_goods = cotton
+					continent = north_america
+				}
+				trading_part = {
+					trade_goods = cotton
+					value = 0.05
+				}
+			}
+			AND = {
+				num_of_owned_provinces_with = {
+					value = 5
+					trade_goods = tobacco
+					continent = north_america
+				}
+				trading_part = {
+					trade_goods = tobacco
+					value = 0.15
+				}
+			}
+		}
+	}
+
+	can_stop = {
+		has_any_disaster = yes
+	}
+
+	progress = {
+		# Lack of control over Major american cores
+		# Lack of control over all cotton in american east coast, and mississipi (meaning you must defeat CSA)
+		# change all provinces to Slaves allowing you to end the civil war, and integrate (or become) CSA)
+		modifier = { # Stability not at least 1
+			factor = 100
+			NOT = { stability = 1 }
+		}
+	}
+
+	modifier = {
+		global_unrest = 5
+		land_forcelimit_modifier = -0.10
+	}
+
+	can_end = {
+		OR = {
+			CSA = { exists = no }
+			senior_union_with = CSA
+		}
+	}
+
+	on_start_effect = {
+		change_price = { # Massive increase in the value of slaves
+			trade_goods = slaves
+			key = dec1_american_slavery
+			value = 1.0
+			duration = -1
+		}
+		# Southeast America slaves
+		southeast_america_region = {
+			if = {
+				limit = {
+					AND = {
+						trade_goods = cotton
+						owned_by = USA
+					}
+					AND = {
+						trade_goods = cotton
+						owned_by = CSA
+					}
+				}
+				change_trade_goods = slaves
+			}
+			if = {
+				limit = {
+					AND = {
+						trade_goods = tobacco
+						owned_by = USA
+					}
+				}
+				change_trade_goods = slaves
+			}
+		}
+		# Mississippi slaves
+		mississippi_region = {
+			if = {
+				limit = {
+					AND = {
+						trade_goods = cotton
+						owned_by = USA
+					}
+					AND = {
+						trade_goods = cotton
+						owned_by = CSA
+					}
+				}
+				change_trade_goods = slaves
+			}
+			if = {
+				limit = {
+					AND = {
+						trade_goods = tobacco
+						owned_by = USA
+					}
+					AND = {
+						trade_goods = tobacco
+						owned_by = CSA
+					}
+				}
+				change_trade_goods = slaves
+			}
+		}
+	}
+
+	on_start = dec1_disaster_events.2 # USA startup of American Civil War, CSA version is dec1_disaster_events.3
+	#on_end = dec1_disaster_events.100
+
+	on_monthly = {
+		events = { }
+		random_events = {
+			1000 = 0
+			# TODO: Unique Random Events
+		}
+	}
+}
+
+#
+
+#

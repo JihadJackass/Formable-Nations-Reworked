@@ -1,0 +1,219 @@
+# Carolingian Empire
+
+graphical_culture = westerngfx
+
+color = { 222 134 87 }
+
+revolutionary_colors = { 15  0  16 }
+
+historical_idea_groups = {
+	economic_ideas
+	offensive_ideas
+	exploration_ideas
+	defensive_ideas
+	administrative_ideas
+	maritime_ideas
+	quality_ideas
+	innovativeness_ideas
+}
+
+historical_units = {
+	western_medieval_infantry
+	chevauchee
+	western_men_at_arms
+	swiss_landsknechten
+	dutch_maurician
+	french_caracolle
+	anglofrench_line
+	french_dragoon
+	french_bluecoat
+	french_cuirassier
+	french_impulse
+	mixed_order_infantry
+	open_order_cavalry
+	napoleonic_square
+	napoleonic_lancers
+}
+
+monarch_names = {
+	"Carloman" = 160
+	"Charlemagne" = 80
+	"Charles" = 70
+	"Pippin" = 60
+}
+
+leader_names = {
+	"d'Ambleteuse d'Aulnay"
+	"de Beauharnais"
+	"de Bercy"
+	"de Bathune"
+	"de Boissieu"
+	"de Bonnefoy"
+	"de Bonneuil"
+	"du Bosquet"
+	"de la Bretonniore"
+	"de Broglie"
+	"de Castaing"
+	"de Caumartin"
+	"de Chambly"
+	"de Chambronne"
+	"de Champmartin"
+	"de Chevigny"
+	"des Coulons"
+	"de Croveceur"
+	"de Crussol"
+	"de Dampierre"
+	"Desgouttes Duquesne"
+	"des Acures"
+	"d'Entraigues d'Estroes"
+	"du Fournay"
+	"de Galard"
+	"des Herbiers"
+	"de La Barthe"
+	"de La Ferrandie"
+	"de La Galissoniore"
+	"de La Mothe"
+	"de La Motte d'Airan"
+	"de La Porte"
+	"Le Tellier"
+	"de Lhary"
+	"de Luynes"
+	"de Marguerye"
+	"de Maurepas"
+	"de Neufchatel"
+	"d'Ornano"
+	"de Pellefort"
+	"de Richemont"
+	"de Rochechouart"
+	"de Rochemaure"
+	"de Rieu"
+	"de Saint-Chamond"
+	"de Saint-Esprit"
+	"de Saint-Germain"
+	"de Saint-Omer"
+	"de Siorac"
+	"de Tocqueville"
+	"de La Tour d'Auvergne"
+	"de Troville"
+	"d'Usson"
+	"du Valentinois"
+	"de Vergennes"
+	"de Vibien"
+	"de Vigny"
+	"de Villeneuve"
+}
+
+ship_names = {
+	"Amiral de Biscaye"
+	"Amiral de Galice"
+	"Arc-en-Ciel"
+	"Belle Poule"
+	"Bien-Aima"
+	"Charles II"
+	"Cheval Marin"
+	"Commerce de Bordeaux"
+	"Commerce de Marseille"
+	"Commerce de Paris"
+	"Commerce du Lyon"
+	"Couronne Ottomane"
+	"Croissant d'Afrique"
+	"Dauphin Royal"
+	"Deux Frores"
+	"Don de Dieu"
+	"Dragon d'Or"
+	"Duc d'Angoulame"
+	"Duc d'Aquitaine"
+	"Duc de Berry"
+	"Duc de Bourgogne"
+	"asperance d'Angleterre"
+	"asperance de Dieu"
+	"asperance en Dieu"
+	"atats de Bourgogne"
+	"atoile de Diane"
+	"Faucon Anglais"
+	"Fleur de Lys"
+	"Fragate Royale"
+	"Galion de Guise"
+	"Grand Anglais"
+	"Grand Chalain"
+	"Grand Danois"
+	"Grand Henry"
+	"Grand Saint Louis"
+	"Grand Vainqueur"
+	"Grand Vasseau du Roi"
+	"Grande Galion de Malte"
+	"Grande Nef d'Acosse"
+	"Grande Saint Jean"
+	"Ile de France"
+	"Le Beau Parterre"
+	"Lion Couronna"
+	"Lion d'Or" "Madeleine de Brest" "Marguerite du Ponant" "Marie la Cordeliare" "Marie-Elisabeth" "Mont Saint-Bernard" "Navire-du-Roi" "Noire Galare"
+	"Notre Dame de la Victoire" "Notre Dame des Martyres" "Notre Dame du Peuple" "Notre Dame" "Ours Blanc" "Ours d'Or" "Petit Saint Jean" "Petit Saint Louis"
+	"Prince Henri" "Quatre Frores" "Roi de Rome" "Royal Duc" "Royal Hollandais" "Royal Italien" "Royal Louis" "Royale Tharise" "Saint Andre" "Saint Antoine de Ganes"
+	"Saint Antoine" "Saint Augustin" "Saint Basile" "Saint Catherine" "Saint Charles" "Saint Cosme" "Saint Dominique" "Saint Edma" "Saint Esprit" "Saint Francois"
+	"Saint Georges de Londres" "Saint Ignace" "Saint Jacques du Portugal" "Saint Jacques" "Saint Jean de Bordeaux" "Saint Jean de Hollande" "Saint Jean" "Saint Joseph"
+	"Saint Louis de Brest" "Saint Louis de Nevers" "Saint Louis de Saint-Malo" "Saint Louis" "Saint Michel" "Saint Paul" "Saint Philippe" "Saint Pierre" "Saint Sabastien"
+	"Saint Thomas d'Aquin" "Saint Vincent" "Sainte Croix" "Sainte Geneviave" "Sainte Marie" "Saint-Malo" "Saint-Sacrement" "Sans Pareil" "Soleil d'Afrique"
+	"Soleil d'Alger" "Soleil Royal" "Trois Fanaux" "Trois Rois"
+	"Vaisseau de Torais"
+	"Vaisseau du Roi"
+	"Ville-de-Marseille"
+	"Ville-de-Paris"
+	"Ville-de-Rouen"
+	Achille
+	Actif
+	Actionnaire
+	Adelarde Admirable Adroit Africain Agamemnon Aigle Aigrette
+	Aimable Ajax Alcide Alcyon Alexandre Alliance Alsace Altier Amarante
+	Amazone Ambitieux America Amiral
+	Amphion Amphitrite Andromaque Anglais Anna
+	Annibal Anonyme Anversois Apollon Aquilon Arcole
+	Ardent Arathuse Argonaute Artasien
+	Asie Assura
+	Astrae Astrolabe Athanien Atlante Audacieux Auguste Aurore Avenant Aventurier Badine Banel Basque Beaufort Belliqueux Bellone Bienfaisant Bizarre Bon
+	Bonne Bordelais Borae Boudeuse Bouffonne Bourbon Boussole Brave Brala Bretagne Breton Brillant Brutal Bucentaure Calypso Capable Capricieux Caraquon Cardinal
+	Caribou Cassard Castiglione Catholique Caton Censeur Centaure Casar Chalain Charente Charlemagne Charmante Chasseur Choquante Christine Citoyen Claopatre Clorinde
+	Colosse Comate Comte Concorde Conquarant Consolante Content Coq Corail Courageux Couronne Courtisan Croissant Curieux Cygne Dalmate Dansa Dantzig Dauphin Dadaigneuse
+	Dafenseur Dego Desaix Destin Diadame Diamant Dictateur Dragon Dryade Dubois Duc Duguesclin Dunkerquois Duperre Duquesne Dur aclatant acueil acureuil aglise Elbeuf
+	Embuscade amerillon aminent Empereur Emporte Engageante Enjouree Entendu Entreprenant aole asperance Europe aveilla Excellent Facheux Fantasque Faucon Favori Fae
+	Falicita Fendant Ferroniare Fidale Fier Fiesque Flamand Fleuron Florissant Formidable Fort Fortune Foudroyant Fougueux Franaais Fradaric Friponne Fulminant Gaillard
+	Galant Galathae Gaulois Gazelle Ganareux Ganois Gentille Gerze Gloire Gracieuse Grand Griffon Guerrier Guirlande Hardi Hasardeux Havre Haba Henri Hercule Hermione
+	Haroane Haros Heureux Hippopotame Hirondelle Hymen Inconstante Indien Indomptable Infante Inflexible Intrapide Invincible Iphighanie Isabelle Jason Jemmapes Jeux
+	Joli Jules Junon Jupiter Juste Languedoc Laurier Lager Laopard Licorne Ligourois Lion Lionne Lune Lutine Lys Madame Madeleine Magicienne Magnanime Magnifique
+	Maistresse Majestueux Maquedo Marabout Marguerite Marin Marquise Mars Maure Maurepas Mazarin Maduse Mercaur Mercure Merveilleux Mignonne Minotaure Modara Monarque
+	Montebello Montenotte Montmorency Montolieu Mutine Nassau Navarrais Neptune Naraide Nieuport Normand Ocaan Oiseau Opiniatre Orgueilleux Orient Oriflamme Orion Orphae
+	Ours Pacificateur Palmier Parfait Paris Patriote Pagase Palican Palicorne Perle Persae Persavarante Plaiade Poli Polonais Polyphame Pompae Pompeux Pourvoyeuse Prince
+	Princesse Prompt Prosalyte Protae Provenaal Prudent Pucelle Puissant Pyrrhus Railleuse Raisonnable Redoutable Raflachi Raganarateur Regina Regulus Reine Renommae
+	Rasistance Robuste Rochefort Roland Rouen Royal Rubis Sage Sagittaire Salamandre Sceptre Scipion Saduisant Seine Samillante Sarieux Sirane Soleil Solide Sophie
+	Sorlingue Sourdis Souverain Sphinx Subtile Suffisant Suffren Superbe Surveillante Suzanne Sylvie Tamaraire Tempate Terpsichore Terreur Terrible Thamistocle Tharase
+	Thasae Thatis Tigre Tonnant Topaze Toulon Tourbillon Tourville Trajan Trident Triomphe Triton Trocadero Trompeuse Uranie Utile Vaillant Vainqueur Valeur Vendame
+	Vengeur Vanus Vertu Vestale Vataran Victoire Victorieux Vierge Volage Volontaire Wallon Zalandais Zala Zodiaque
+}
+
+army_names = {
+	"Armae royale"
+	"Armae des Flandres"
+	"Armae du Nord"
+	"Armae de l'Est"
+	"Armae du Jura"
+	"Armae du Lyonnais"
+	"Armae des Alpes"
+	"Armae du Midi"
+	"Armae des Pyranaes"
+	"Armae de l'Atlantique"
+	"Armae de Bretagne"
+	"Armae d'Italie"
+	"Armae de $PROVINCE$"
+}
+
+fleet_names = {
+	"Escadre de la Manche"
+	"Escadre de l'Atlantique"
+	"Escadre de Maditerranae"
+	"Escadre de Gascogne"
+	"Escadre Bleue"
+	"Escadre Rouge"
+	"Escadre Blanche"
+}
+
+

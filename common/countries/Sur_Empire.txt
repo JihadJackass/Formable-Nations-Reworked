@@ -1,0 +1,94 @@
+# Sur Empire
+
+graphical_culture = indiangfx
+
+color = { 135 21 18 }
+
+historical_idea_groups = {
+	quantity_ideas
+	offensive_ideas
+	trade_ideas
+	defensive_ideas
+	diplomatic_ideas
+	spy_ideas
+	economic_ideas
+	innovativeness_ideas
+}
+
+historical_units = {
+	indian_footsoldier
+	rajput_hill_fighters
+	indian_arquebusier
+	mughal_musketeer
+	rajput_musketeer
+	mughal_mansabdar
+	indian_elephant
+	sikh_hit_and_run
+	bhonsle_cavalry
+	indian_rifle
+	tipu_sultan_rocket
+}
+
+monarch_names = {
+	"Shîr Shâh #0" = 20
+	"Ibrâhim #2 Shâh" = 10
+	"Azim-ash Shan #0" = 10
+	"A'zam Shâh #0" = 10
+	"Dârâ Shikûh #0" = 10
+	"Muhammad #0" = 10
+	"Makhdumah Jahan #0" = -1
+	"Ghiyas-ud-din #0" = 10
+	"Shams-ud-din #0" = 10
+	"Dilawar Khan #0" = 0
+	"Khwaja Hasan #0" = 0
+	"Khwaja -i Jahan #0" = 0
+	"Khalaf Hasan #0" = 0
+	"Mir Farrukh #0" = 0
+	"Sayid Husain #0" = 0
+	"Jalal Khan #0" = 0
+	"Majnun Sultan #0" = 0
+	"Quli Sultan #0" = 0
+	"Mahmud Gawan #0" = 0
+	"Sayid Hanif #0" = 0
+	"Imad al-Mulk #0" = 0
+	"Saif Allah #0" = 0
+	"Iftikhar al-Mulk #0" = 0
+	"Mir Abu'l-Qasim #0" = 0
+	"Ubbaid Allah #0" = 0
+	"Sayid Nasir al-Din #0" = 0
+	"Shah Khalil Allah #0" = 0
+	"Mullah Qutb al-Din #0" = 0
+	"Abd Allah #0" = 0
+	"Rustam Khan #0" = 0
+	"Mir Shams al-Din #0" = 0
+	"Qasim Beg #0" = 0
+
+	"Kamala #0" = -1
+	"Indira #0" = -1
+}
+
+leader_names = {
+	Gampo
+	Srong
+	Sregs
+	Thekchen
+	Sonam
+	Tashi
+	Tsewang
+	Wangdue
+	Wangdak
+	Phuntsok
+}
+
+ship_names = {
+	Barkam
+	Dartsendo
+	Gyantse Gartse
+	Lhasa Lhotse
+	Makalu 
+	Nagqu Nyingchi Nedong
+	Pelbar
+	Qamdo
+	Shigatse Sakya
+	Tinggri
+}

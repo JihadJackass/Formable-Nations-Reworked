@@ -1,0 +1,278 @@
+country_decisions = {
+
+	dec1_bosnia_serbia_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+		  	NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_bosnia_serbia_flag
+				exists = BSK
+				tag = BSK
+				tag = YUG
+				tag = PAP
+				tag = YUG
+				tag = HLR
+				tag = SWI
+				tag = EUR
+				tag = BKL
+			}
+			OR = {
+				primary_culture = serbian
+				primary_culture = bosnian
+				tag = BOS
+				tag = SER
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+					# Balkans
+				province_id = 141 # Serbia
+				province_id = 3002 # Visoki
+				province_id = 140 # Bosna
+				province_id = 139 # Hum
+				province_id = 138 # Zeta
+				province_id = 1827 # Raska
+				province_id = 1831 # Travunia
+				province_id = 1828 # Donji Kraiji
+				province_id = 4239 # Nandorfehervar
+				province_id = 3002 # Nis
+				province_id = 1766 # Kosovo
+				province_id = 3001 # Uskup
+				province_id = 3000 # Nis
+				province_id = 4239 # Belgrade
+				province_id = 4173 # Syrmien
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = BSK }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			owns_core_province = 141 # Serbia
+			owns_core_province = 3002 # Visoki
+			owns_core_province = 140 # Bosna
+			owns_core_province = 139 # Hum
+			owns_core_province = 138 # Zeta
+			owns_core_province = 1827 # Raska
+			owns_core_province = 1831 # Travunia
+			owns_core_province = 1828 # Donji Kraiji
+			owns_core_province = 4239 # Nandorfehervar
+			owns_core_province = 3002 # Nis
+			owns_core_province = 1766 # Kosovo
+			owns_core_province = 3001 # Uskup
+			owns_core_province = 3000 # Nis
+			owns_core_province = 4239 # Belgrade
+			owns_core_province = 4173 # Syrmien
+		}
+	 	effect = {
+			change_tag = BSK # Country TAG
+			set_country_flag = formed_bosnia_serbia_flag # Country Formation Flag
+			custom_tooltip = form_bosnia_serbia_tt_2 # New Missions
+			add_accepted_culture = BSK_bosnian_new
+			add_accepted_culture = BSK_serbian_new
+			add_accepted_culture = BSK_albanian_new
+			custom_tooltip = dec1_decisions_blank
+			BSK = { # Capital change and bonuses
+				set_capital = 3002 # Visoki
+				3002 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = BSK_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_union_of_two
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Unification of Bosnians and Serbs
+	# Creates a unique culture group of just Bosniaks and Serbs
+
+	dec1_unify_serbs_and_bosnians = {
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			tag = BSK
+			OR = {
+				primary_culture = serbian
+				primary_culture = bosnian
+			}
+		  	NOT = { has_country_flag = dec1_unified_bosnians_serbians }
+		}
+		provinces_to_highlight = {
+			OR = {
+				culture = bosnian
+				culture = serbian
+				culture = albanian
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			tag = BSK
+			any_province = {
+				culture = bosnian
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			any_province = {
+				culture = serbian
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			any_province = {
+				culture = albanian
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			# Controls every province with Serbian, Bosnian, and Albanian culture
+		}
+	 	effect = {
+			set_country_flag = dec1_unified_bosnians_serbians
+			add_prestige = 10
+			add_stability = -1
+			# Unify Culture
+			custom_tooltip = form_bosnia_serbia_tt_3 # Culture
+			hidden_effect = {
+				if = { limit = { accepted_culture = noculture } remove_accepted_culture = noculture }
+				if = { limit = { accepted_culture = bosnian } remove_accepted_culture = bosnian }
+				if = { limit = { accepted_culture = serbian } remove_accepted_culture = serbian }
+				if = { limit = { accepted_culture = albanian } remove_accepted_culture = albanian }
+				create_new_culture_group = {
+					culture_group = dec1_bosnian_serbian
+					culture = BSK_bosnian_new
+					culture2 = BSK_serbian_new
+					culture3 = BSK_albanian_new
+				}
+				add_accepted_culture = BSK_bosnian_new
+				add_accepted_culture = BSK_serbian_new
+				add_accepted_culture = BSK_albanian_new
+				change_primary_culture = BSK_bosnian_new
+				every_owned_province = {
+					limit = {
+						culture = bosnian
+					}
+					change_culture = BSK_bosnian_new
+				}
+				every_owned_province = {
+					limit = {
+						culture = serbian
+					}
+					change_culture = BSK_serbian_new
+				}
+				every_owned_province = { # Integration of the Albanians
+					limit = {
+						culture = albanian
+					}
+					random_list = {
+						50 = {
+							change_culture = BSK_bosnian_new
+						}
+						50 = {
+							change_culture = BSK_serbian_new
+						}
+					}
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Choose dominant culture - Serbian or Bosnian (adds a faction mechanic)
+
+}

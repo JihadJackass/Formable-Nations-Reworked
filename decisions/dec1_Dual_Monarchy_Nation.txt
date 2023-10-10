@@ -1,0 +1,330 @@
+country_decisions = {
+
+	#################################
+	# Dual Monarchy - Great Britain #
+	#################################
+
+	dec1_dual_monarchy_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			tag = GBR
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_dual_monarchy_flag
+				has_reform = celestial_empire
+				exists = DUM
+				tag = DUM
+				tag = USA
+				tag = CSA
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 8
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+					# English Cores
+				area = scottish_marches_area
+				area = yorkshire_area
+				area = west_midlands_area
+				area = east_midlands_area
+				area = wessex_area
+				area = home_counties_area
+				area = east_anglia_area
+				province_id = 4365
+					# Ireland
+				area = munster_area
+				area = connacht_area
+				area = leinster_area
+				area = ulster_area
+					# France
+				area = pyrenees_area
+				area = languedoc_area
+				area = guyenne_area
+				area = orleans_area
+				area = loire_area
+				area = brittany_area
+				area = normandy_area
+				area = ile_de_france_area
+				area = massif_central_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 15 # Empire Rank requires 15 tech
+			NOT = { exists = DUM }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			OR = {
+				AND = { # Owns france in a union
+					owns_core_province = 178
+					senior_union_with = FRA
+					FRA = {
+						is_lesser_in_union = yes
+						years_in_union_under = {
+							who = GBR
+							years = 50
+						}
+						NOT = { liberty_desire = 40 }
+					}
+				}
+				AND = { # Owns england proper, ireland, and French lands (NOT burgundy)
+					custom_trigger_tooltip = { # English Cores
+						tooltip = form_dual_monarchy_tt_5
+						scottish_marches_area = {
+							type = all
+							owned_by = ROOT
+						}
+						yorkshire_area = {
+							type = all
+							owned_by = ROOT
+						}
+						west_midlands_area = {
+							type = all
+							owned_by = ROOT
+						}
+						east_midlands_area = {
+							type = all
+							owned_by = ROOT
+						}
+						wessex_area = {
+							type = all
+							owned_by = ROOT
+						}
+						home_counties_area = {
+							type = all
+							owned_by = ROOT
+						}
+						east_anglia_area = {
+							type = all
+							owned_by = ROOT
+						}
+						owns_core_province = 4365 # Isle of Mann
+					}
+					custom_trigger_tooltip = { # Irish Cores
+						tooltip = form_dual_monarchy_tt_4
+						munster_area = {
+							type = all
+							owned_by = ROOT
+						}
+						connacht_area = {
+							type = all
+							owned_by = ROOT
+						}
+						leinster_area = {
+							type = all
+							owned_by = ROOT
+						}
+						ulster_area = {
+							type = all
+							owned_by = ROOT
+						}
+					}
+					custom_trigger_tooltip = { # French Cores
+						tooltip = form_dual_monarchy_tt_3
+						pyrenees_area = {
+							type = all
+							owned_by = ROOT
+						}
+						languedoc_area = {
+							type = all
+							owned_by = ROOT
+						}
+						guyenne_area = {
+							type = all
+							owned_by = ROOT
+						}
+						poitou_area = {
+							type = all
+							owned_by = ROOT
+						}
+						orleans_area = {
+							type = all
+							owned_by = ROOT
+						}
+						loire_area = {
+							type = all
+							owned_by = ROOT
+						}
+						brittany_area = {
+							type = all
+							owned_by = ROOT
+						}
+						normandy_area = {
+							type = all
+							owned_by = ROOT
+						}
+						ile_de_france_area = {
+							type = all
+							owned_by = ROOT
+						}
+						massif_central_area = {
+							type = all
+							owned_by = ROOT
+						}
+					}
+				}
+			}
+		}
+	 	effect = {
+			change_tag = DUM # Country TAG
+			set_country_flag = formed_dual_monarchy_flag # Country Formation Flag
+			custom_tooltip = form_dual_monarchy_tt_6 # New Missions
+			custom_tooltip = form_dual_monarchy_tt_7 # Region/Area Claims
+			custom_tooltip = form_dual_monarchy_tt_8 # Region/Area Claims
+			change_primary_culture = dec1_anglois
+			custom_tooltip = dec1_decisions_blank
+			DUM = { # Capital change and bonuses
+				set_capital = 183 # Paris
+				183 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				change_government = monarchy
+				custom_tooltip = dec1_government_reform_change_dual_monarchy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Culture changes
+					set_ruler_culture = dec1_anglois
+					183 = { change_culture = dec1_anglois }
+					236 = { change_culture = dec1_anglois }
+					add_accepted_culture = dec1_anglois
+					add_accepted_culture = english
+					add_accepted_culture = cosmopolitan_french
+					# Region/Area Claims
+					british_isles_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = DUM
+					}
+					france_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = DUM
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = dec1_parliament_of_the_lords_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = DUM_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_franco_british_union
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+################### Unique Dual Monarchy Decisions ###################
+
+	anglois_cultural_icon = {
+		potential = {
+			NOT = { has_country_flag = became_anglois_cultural_icon }
+			primary_culture = dec1_anglois
+			num_of_owned_provinces_with = {
+				value = 30
+				NOT = { culture = root }
+				is_overseas = no
+			}
+		}
+		allow = {
+			num_of_owned_provinces_with = {
+				value = 5
+				culture = root
+				is_overseas = yes
+			}
+			prestige = 80
+			adm = 3
+			dip = 3
+		}
+		effect = {
+			set_country_flag = became_anglois_cultural_icon
+			add_prestige = -5
+			random_core_province = { change_culture = dec1_anglois }
+			add_country_modifier = {
+				name = dec1_anglois_icon
+				duration = 1460
+			}
+		}
+	}
+}

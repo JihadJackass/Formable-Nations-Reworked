@@ -1,0 +1,43 @@
+﻿l_english:
+
+  #############################
+  # Country Name Localisation #
+  #############################
+
+    # Armenian Empire - Greater Armenia
+
+      dec1_greater_armenia_name: "Greater Armenia"
+      dec1_greater_armenia_short_name: "Greater Armenia"
+
+    # Carolingian Empire - Francia
+
+      dec1_carolingian_empire_francia_name: "Francia"
+      dec1_carolingian_empire_francia_short_name: "Francia"
+
+    # Taiping - Heavenly Kingdom
+
+      dec1_taiping_heavenly_kingdom_name: "Heavenly Kingdom"
+      dec1_taiping_heavenly_kingdom_short_name: "Heavenly Kingdom"
+
+    # Greater German Reich
+
+      dec1_greater_german_reich_name: "Greater German Reich"
+      dec1_greater_german_reich_short_name: "Greater German Reich"
+
+    # Iberian Union - Iberian Empire
+
+      dec1_iberian_empire_name: "Iberian Empire"
+      dec1_iberian_empire_name_short: "Iberia"
+
+    # Sri Lanka
+
+      dec1_proclaim_sri_lanka_name: "Sri Lanka"
+
+    # Incan Empire
+
+      dec1_inca_empire_name: "Incan Empire"
+
+    # Aksumite
+
+      dec1_aksumite_empire_name: "Aksumite Empire"
+

@@ -1,0 +1,389 @@
+country_decisions = {
+
+	#################
+	# German Empire #
+	#################
+
+	dec1_german_empire_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			OR = {
+				tag = BRP
+				culture_group = germanic
+			}
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_german_empire_flag
+				# primary_culture = prussian # Prussians must form Prussia first
+				has_reform = celestial_empire
+				exists = GEP
+				exists = KGG
+				tag = GEP
+				tag = KGG
+				tag = PAP
+				tag = HLR
+				tag = ROM
+				tag = BEL
+				tag = BNL
+				#tag = BRP # Brandenburg-Prussia
+				tag = BVE
+				tag = FRL
+				tag = HNS
+				tag = HEN
+				tag = LSX
+				tag = RHE
+				tag = DCP
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 60
+					grown_by_development = 200
+					adm_tech = 10
+					OR = {
+						NOT = { is_emperor = yes } # Prevent Austria being an asshole
+						adm_tech = 15
+					}
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = wielkopolska_area
+				area = silesia_area
+				area = kuyavia_area
+				area = west_prussia_area
+				area = east_prussia_area
+				area = holstein_area
+				area = mecklenburg_area
+				area = lower_saxony_area
+				area = weser_area
+				area = vorpommern_area
+				area = mittelmark_area
+				area = northern_saxony_area
+				area = braunschweig_area
+				area = westphalia_area
+				area = hesse_area
+				area = north_rhine_area
+				area = lower_rhineland_area
+				area = south_saxony_area
+				area = palatinate_area
+				area = franconia_area
+				area = upper_rhineland_area
+				area = lower_swabia_area
+				area = lower_bavaria_area
+				area = upper_swabia_area
+				area = thuringia_area
+				province_id = 1763
+				province_id = 1931
+				province_id = 188
+				province_id = 2955
+				province_id = 65
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 15
+			NOT = { exists = GEP }
+			is_at_war = no
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			NOT = {
+				government = theocracy
+				government = republic
+			}
+			OR = { # Holy Roman Emperor handler
+				is_emperor = no
+				AND = {
+					is_emperor = yes
+					hre_reform_passed = emperor_reichstag_collegia
+				}
+			}
+			owns_core_province = 50 # Berlin
+			OR = { # Land Requirements
+				AND = { # German Empire all provinces
+					custom_trigger_tooltip = {
+						tooltip = form_german_empire_nation_tt_1
+						east_prussia_area = {
+							type = all
+							owned_by = ROOT
+						}
+						west_prussia_area = {
+							type = all
+							owned_by = ROOT
+						}
+						kuyavia_area = {
+							type = all
+							owned_by = ROOT
+						}
+						silesia_area = {
+							type = all
+							owned_by = ROOT
+						}
+						wielkopolska_area = {
+							type = all
+							owned_by = ROOT
+						}
+						holstein_area = {
+							type = all
+							owned_by = ROOT
+						}
+						mecklenburg_area = {
+							type = all
+							owned_by = ROOT
+						}
+						lower_saxony_area = {
+							type = all
+							owned_by = ROOT
+						}
+						weser_area = {
+							type = all
+							owned_by = ROOT
+						}
+						vorpommern_area = {
+							type = all
+							owned_by = ROOT
+						}
+						mittelmark_area = {
+							type = all
+							owned_by = ROOT
+						}
+						northern_saxony_area = {
+							type = all
+							owned_by = ROOT
+						}
+						braunschweig_area = {
+							type = all
+							owned_by = ROOT
+						}
+						westphalia_area = {
+							type = all
+							owned_by = ROOT
+						}
+						hesse_area = {
+							type = all
+							owned_by = ROOT
+						}
+						north_rhine_area = {
+							type = all
+							owned_by = ROOT
+						}
+						lower_rhineland_area = {
+							type = all
+							owned_by = ROOT
+						}
+						south_saxony_area = {
+							type = all
+							owned_by = ROOT
+						}
+						palatinate_area = {
+							type = all
+							owned_by = ROOT
+						}
+						franconia_area = {
+							type = all
+							owned_by = ROOT
+						}
+						upper_rhineland_area = {
+							type = all
+							owned_by = ROOT
+						}
+						lower_swabia_area = {
+							type = all
+							owned_by = ROOT
+						}
+						lower_bavaria_area = {
+							type = all
+							owned_by = ROOT
+						}
+					}
+				}
+				AND = { # 20 provinces in north germany, 10 in baltics, 10 in south germany, collegia & 50 members
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						value = 20
+						region = north_german_region
+						is_city = yes
+					}
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						value = 10
+						region = south_german_region
+						is_city = yes
+					}
+					num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+						value = 10
+						region = baltic_region
+						is_city = yes
+					}
+					hre_reform_passed = emperor_reichstag_collegia
+					hre_size = 50
+				}
+			}
+		}
+		effect = {
+			change_tag = GEP # Country TAG
+			set_country_flag = formed_german_empire_flag # Country Formation Flag
+			custom_tooltip = form_german_empire_nation_tt_2 # New Missions
+			custom_tooltip = form_german_empire_nation_tt_3 # Claims
+			custom_tooltip = form_german_empire_nation_tt_4 # Claims
+			custom_tooltip = dec1_decisions_blank
+			GEP = { # Capital change and bonuses
+				set_capital = 50 # Berlin
+				50 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3 # Government Rank Change
+				custom_tooltip = form_german_empire_nation_tt_5 # German Government Event
+				custom_tooltip = dec1_decisions_blank
+				country_event = { id = dec1_country_events.5 } # German Unification Event
+				# Dissolve the Holy Roman Empire Event
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Claims
+					north_german_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = GEP
+					}
+					south_german_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = GEP
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					country_event = { id = dec1_country_events.7 } # The German Government
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = GEP_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_the_german_union
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Proclaim Greater German Reich
+
+	dec1_proclaim_greater_german_empire = {
+		major = yes
+		potential = {
+			tag = GEP
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_greater_german_reich_flag
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 30
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				region = north_german_region
+				region = south_german_region
+				region = poland_region
+				region = baltic_region
+				region = ruthenia_region
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			tag = GEP
+			culture_group = germanic
+			north_german_region = {
+				type = all
+				owned_by = ROOT
+			}
+			south_german_region = {
+				type = all
+				owned_by = ROOT
+			}
+			poland_region = {
+				type = all
+				owned_by = ROOT
+			}
+			baltic_region = {
+				type = all
+				owned_by = ROOT
+			}
+			ruthenia_region = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			set_country_flag = formed_greater_german_reich_flag
+			override_country_name = dec1_greater_german_reich_name
+			add_prestige = 25
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Embrace German Nationalism (TAG switches to German Reich and starts a disaster
+
+	# CHOOSE PATH: LIBERLISM (LEADS TO GERMAN FEDERAL REPUBLIC)
+			# 	   NATIONALISM (LEADS TO GREATER GERMAN REICH)
+
+}

@@ -1,0 +1,166 @@
+country_decisions = {
+
+	dec1_commonwealth_of_england_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			primary_culture = english
+			tag = ENG
+			is_date = 1450.1.1
+			NOT = { is_date = 1460.1.1 } # Cannot be formed after 1460
+			NOT = {
+				has_country_flag = formed_commonwealth_of_england_flag
+				exists = ENR
+				tag = ENR
+				tag = GBR
+				tag = UKI
+				tag = PAP
+				tag = NSE
+				tag = HLR
+				tag = AVE
+				tag = EUR
+				tag = DUM
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 20
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = home_counties_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			NOT = { exists = ENR }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			custom_trigger_tooltip = {
+				tooltip = dec1_commonwealth_of_england_tt_1
+				AND = { # Must not control any land outside of British Isles
+					num_of_owned_provinces_with = {
+						value = 20
+						region = british_isles_region
+					}
+					NOT = {
+						num_of_owned_provinces_with = {
+							value = 1
+							region = iberia_region
+						}
+						num_of_owned_provinces_with = {
+							value = 1
+							region = france_region
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			change_tag = ENR # Country TAG
+			set_country_flag = formed_commonwealth_of_england_flag # Country Formation Flag
+			custom_tooltip = form_commonwealth_of_england_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			ENR = { # Capital change and bonuses
+				set_capital = 236 # London
+				236 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				country_event = { id = dec1_country_events.11 } # The Government of the Commonwealth
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = ENG_ideas } # TODO: custom
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability - TODO
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Federalize the Union
+	# - Requires to have chosen the Republic during the government crisis event, and allows you to establish
+
+	# Establish Duchy of Scotland
+	# - Creates a powerful vassal for England to abuse (kek get rekt scots)
+
+}

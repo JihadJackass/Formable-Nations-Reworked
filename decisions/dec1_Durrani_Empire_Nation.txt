@@ -1,0 +1,146 @@
+country_decisions = {
+
+	dec1_durrani_empire_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			OR = {
+				primary_culture = afghani
+				primary_culture = baluchi
+			}
+			NOT = {
+				has_country_flag = formed_durrani_empire_flag
+				tag = DRN
+				exists = DRN
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 2
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 447 # Kandahar
+				area = makran_area
+				area = kalat_area
+				area = ghor_area
+				area = kabulistan_area
+				area = sind_sagar_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = DRN }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			owns_core_province = 447 # Kandahar
+			makran_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kalat_area = {
+				type = all
+				owned_by = ROOT
+			}
+			ghor_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kabulistan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			sind_sagar_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			change_tag = DRN # Country TAG
+			set_country_flag = formed_durrani_empire_flag # Country Formation Flag
+			custom_tooltip = form_durrani_empire_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			PUN = { # Capital change and bonuses
+				set_capital = 507
+				507 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Claims
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+			#			NOT = { has_idea_group = DRN_ideas } # TODO
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+		#		add_country_modifier = {
+		#			name = dec1_gem_of_india # TODO
+		#			duration = 49275
+		#		}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

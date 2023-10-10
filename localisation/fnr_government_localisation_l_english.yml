@@ -1,0 +1,382 @@
+﻿l_english:
+
+# Government
+
+  ####################
+  # GOVERNMENT TYPES #
+  ####################
+
+    # Dual Monarchy
+
+      dec1_dual_monarchy_government_name: "Dual Monarchy"
+      dec1_dual_monarchy_government_desc: "The kingdoms of both France and England are technically separate, though in practice they are without a doubt one as their monarch and ruling Parliaments (Parliament of the lords and Parliament of the People) are the same."
+
+    # People's Republic of China
+
+      dec1_chinese_communism_government: "Chinese Communism"
+      dec1_chinese_communism_government_name: "Chinese Communism"
+      dec1_chinese_communism_government_desc: "The Chinese Communist Party is the founding and sole governing political party of the People's Republic of China leading eight other legally permitted subordinate minor parties together as the United Front."
+
+    # Eastern Roman Empire
+
+      dec1_byzantine_bureaucracy_government_name: "Byzantine Bureaucracy"
+      dec1_byzantine_bureaucracy_government_desc: "The Eastern Roman Empire had a complex system of aristocracy and bureaucracy, which was inherited from the Roman Empire. At the apex of the hierarchy stood the emperor, yet Byzantium was a republican absolute monarchy and not primarily a monarchy by divine right'"
+
+    # Soviet Socialist Republics
+
+      dec1_soviet_socialist_republics_government_name: "Soviet Socialist Republics"
+      dec1_soviet_socialist_republics_government_desc: ""
+
+    # Confederate States
+
+      dec1_confederacy_name: "Confederacy"
+      dec1_confederacy_desc: "The Confederate States of America was a confederate union of 11 secessionist from the United States in 1860 following the election of President Abraham Lincoln and Led by Jefferson Davis which existed from 1861 to 1865."
+
+      dec1_confederate_state_congress_government_name: "Confederate State Congress"
+      dec1_confederate_state_congress_government_desc: "The Confederate States of America was a confederate union of 11 secessionist from the United States in 1860 following the election of President Abraham Lincoln and Led by Jefferson Davis which existed from 1861 to 1865."
+
+      dec1_confederate_state_congress_name: "Confederacy"
+      dec1_confederate_state_congress_desc: "The Confederate States of America was a confederate union of 11 secessionist from the United States in 1860 following the election of President Abraham Lincoln and Led by Jefferson Davis which existed from 1861 to 1865."
+
+    # Catholic Russia
+
+      dec1_russian_theocracy_government_name: "Russian Theocracy"
+      dec1_russian_theocracy_government_desc: ""
+
+    # German Empire
+
+      dec1_german_prussian_monarchy_government_name: "German-Prussian Monarchy"
+      dec1_german_prussian_monarchy_government_desc: ""
+
+    # Japan
+
+      dec1_imperial_shogunate_japan_government_name: "Imperial Shogunate of Japan"
+      dec1_imperial_shogunate_japan_government_desc: ""
+
+
+  ######################
+  # GOVERNMENT REFORMS #
+  ######################
+
+    # Bulgarian Empire
+
+      # Tier 1
+
+        dec1_bulgarian_tsardom_reform: "Bulgarian Tsardom"
+        dec1_bulgarian_tsardom_reform_desc: "The title Tsar meaning Emperor, the Bulgarian form of the Latin Caesar, was adopted and used in Bulgaria by Simeon I the Great (son of Knyaz Boris I) following a decisive victory over the Byzantines in the year 913. Simeon I's successors continued the usage of this title until the fall of Bulgaria which after Bulgaria's liberation, its first monarch Alexander I adopted the title knyaz, or prince."
+
+    # Dual Monarchy
+
+      # Tier 1
+
+        dec1_parliament_of_the_lords_reform: "Grand Parliament of Lords and People"
+        dec1_parliament_of_the_lords_reform_desc: "The Grand Parliament is the branching governing body over the Dual Monarchy. Both Britain and France having their own national parliament which allows it to stand as the political bond between both members of this union."
+
+    # Soviet Union
+
+      # Tier 1
+
+        dec1_communist_party_of_russia_reform: "Communist Party of Russia"
+        dec1_communist_party_of_russia_reform_desc: ""
+
+    # People's Republic of China
+
+      # Tier 1
+
+        dec1_communist_party_of_china_reform: "Chinese Communist Party"
+        dec1_communist_party_of_china_reform_desc: ""
+
+        dec1_democratic_socialists_reform: "Democratic Socialist Party of China"
+        dec1_democratic_socialists_reform_desc: ""
+
+      # Tier 2
+
+        # None yet
+
+      # Tier 3
+
+        dec1_abolish_term_limits_reform: "Abolish Term Limits"
+        dec1_abolish_term_limits_reform_desc: ""
+
+        dec1_reduced_term_limits_reform:  "Reform and Reduction"
+        dec1_reduced_term_limits_reform_desc:  ""
+
+    # Japan and Empire of Japan
+
+      dec1_imperial_shogunate_japan_reform: "Imperial Shogunate of Japan"
+      dec1_imperial_shogunate_japan_reform_desc: "The Imperial Shogunate rejects the idea of an autocratic leader in favor of keeping the Shogun as the head of politics, diplomacy, and the nation itself."
+
+      dec1_imperial_shogunate_empire_of_japan_reform: "Imperial Shogunate of Japan"
+      dec1_imperial_shogunate_empire_of_japan_reform_desc: "The Imperial Shogunate rejects the idea of an autocratic leader in favor of keeping the Shogun as the head of politics, diplomacy, and the nation itself."
+
+    # German Empire
+
+      # Tier 1
+
+        dec1_german_monarchy_reform: "German-Prussian Monarchy"
+        dec1_german_monarchy_reform_desc: ""
+
+    # Eastern Roman Empire
+
+      # Tier 1
+
+        dec1_eastern_roman_senate_reform: "Eastern Roman Senate"
+        dec1_eastern_roman_senate_reform_desc: ""
+
+    # Confederate States of America
+
+      # Government Reform - Tier 1
+
+        dec1_confederate_state_congress_reform: "Confederate States Congress"
+        dec1_confederate_state_congress_reform_desc: ""
+
+    # Catholic Russia
+
+      # Tier 1
+
+        dec1_theocratic_tsardom_reform: "Theocratic Tsardom"
+        dec1_theocratic_tsardom_reform_desc: ""
+
+
+      # Unsorted
+
+        dec1_state_administration: "Administration"
+        dec1_cultural_values: "Cultural Values"
+        dec1_religion: "Religious Debate"
+        dec1_modernization: "Modernization"
+        dec1_reformation: "Reformation"
+
+
+  ####################
+  # GOVERNMENT NAMES #
+  ####################
+
+    # Dual Monarchy
+
+          # Rank
+      DEC1_GRAND_PROTECTORATE: "Grand Protectorate"  # Rank 3
+
+          # Male
+      DEC1_GRAND_PROTECTOR: "Grand Protector"  # Rank 3
+
+          # Female
+      DEC1_GRAND_PROTECTRESS: "Grand Protectress"  # Rank 3
+
+          # Consort Male
+
+          # Consort Female
+
+          # Heir Male
+      DEC1_HEIR_APPARENT: "Heir Apparent"  # Rank 3
+
+          # Heir Female
+      DEC1_HEIRESS_APPARENT: "Heiress Apparent"  # Rank 3
+
+    # People's Republic of China
+
+          # Rank
+      DEC1_PEOPLES_REPUBLIC: "People's Republic"  # Rank 3
+
+          # Male
+      DEC1_SUPREME_LEADER: "Supreme Leader"  # Rank 3
+
+          # Female
+      DEC1_MADAM_SUPREME_LEADER: "Madam Supreme Leader"  # Rank 3
+
+          # Consort Male
+
+          # Consort Female
+
+          # Heir Male
+      DEC1_CENTRAL_GUARD: "Central Guard"  # Rank 3
+
+          # Heir Female
+
+    # Eastern Roman Empire
+
+          # Rank
+      DEC1_ROMAN_REPUBLIC: "Roman Republic"  # Rank 3
+
+          # Male
+      DEC1_EASTERN_ROMAN_EMPEROR: "Eastern Roman Emperor"  # Rank 3
+
+          # Female
+      DEC1_EASTERN_ROMAN_EMPRESS: "Eastern Roman Empress"  # Rank 3
+
+          # Consort Male
+
+          # Consort Female
+
+          # Heir Male
+      DEC1_SUCCESSOR: "Successor"  # Rank 3
+
+          # Heir Female
+
+    # Confederate States of America
+
+          # Rank
+      DEC1_CONFEDERATE_CONGRESS_RANK_1: "Confederacy"  # Rank 1
+      DEC1_CONFEDERATE_CONGRESS_RANK_2: "Confederacy"  # Rank 2
+      DEC1_CONFEDERATE_CONGRESS_RANK_3: "Confederacy"  # Rank 3
+
+          # Male
+      DEC1_CONFEDERATE_CONGRESS_RULER_MALE_1: "President"  # Rank 1
+      DEC1_CONFEDERATE_CONGRESS_RULER_MALE_2: "President"  # Rank 2
+      DEC1_CONFEDERATE_CONGRESS_RULER_MALE_3: "President"  # Rank 3
+
+          # Female
+      DEC1_CONFEDERATE_CONGRESS_RULER_FEMALE_1: "Madam President"  # Rank 3
+      DEC1_CONFEDERATE_CONGRESS_RULER_FEMALE_2: "Madam President"  # Rank 3
+      DEC1_CONFEDERATE_CONGRESS_RULER_FEMALE_3: "Madam President"  # Rank 3
+
+          # Consort Male
+
+          # Consort Female
+
+          # Heir Male
+
+          # Heir Female
+
+    # Catholica Russica
+
+          # Name
+      DEC1_RUSSIAN_THEOCRACY_GOVERNMENT: "Russian Theocracy"  # Rank 3
+
+          # Rank
+      DEC1_THEOCRATIC_TSARDOM_BISHOP_1: "Russian Bishop"  # Rank 1
+      DEC1_THEOCRATIC_TSARDOM_ARCHBISHOPRIC_2: "Russian Archbishopric"   # Rank 2
+      DEC1_THEOCRATIC_TSARDOM_PATRIARCHATE_3: "Russian Patriarchate"  # Rank 3
+
+          # Male
+      DEC1_THEOCRATIC_TSARDOM_BISHOP_MALE: "Russian Bishop"  # Rank 1
+      DEC1_THEOCRATIC_TSARDOM_ARCHBISHOP_MALE: "Russian Archbishopric"   # Rank 2
+      DEC1_THEOCRATIC_TSARDOM_PATRIARCH_MALE: "Russian Patriarch"  # Rank 3
+
+          # Female
+      DEC1_THEOCRATIC_TSARDOM_BISHOP_FEMALE: "Russian Bishop"  # Rank 1
+      DEC1_THEOCRATIC_TSARDOM_ARCHBISHOP_FEMALE: "Russian Archbishop"   # Rank 2
+      DEC1_THEOCRATIC_TSARDOM_MATRIARCH_FEMALE: "Russian Matriarch"  # Rank 3
+
+          # Heir Male
+      DEC1_THEOCRATIC_TSARDOM_HEIR_MALE: "Heir" # Rank 3
+
+          # Heir Female
+      DEC1_THEOCRATIC_TSARDOM_HEIR_FEMALE: "Heiress" # Rank 3
+
+    # German Empire
+
+          # Name
+      DEC1_GERMAN_PRUSSIAN_MONARCHY_GOVERNMENT: "German-Prussian Monarchy"  # Rank 3
+
+          # Rank
+      DEC1_GERMAN_PRUSSIAN_DUKE_1: "Duke"  # Rank 1
+      DEC1_GERMAN_PRUSSIAN_KING_2: "King"   # Rank 2
+      DEC1_GERMAN_PRUSSIAN_EMPIRE_3: "Emperor"  # Rank 3
+
+          # Male
+      DEC1_GERMAN_PRUSSIAN_DUKE_MALE: "Duke"  # Rank 1
+      DEC1_GERMAN_PRUSSIAN_KING_MALE: "King"   # Rank 2
+      DEC1_GERMAN_PRUSSIAN_EMPIRE_MALE: "Empire"  # Rank 3
+
+          # Female
+      DEC1_GERMAN_PRUSSIAN_DUCHESS_FEMALE: "Duchess"  # Rank 1
+      DEC1_GERMAN_PRUSSIAN_QUEEN_FEMALE: "Queen"   # Rank 2
+      DEC1_GERMAN_PRUSSIAN_EMPRESS_FEMALE: "Empress"  # Rank 3
+
+          # Heir Male
+      DEC1_GERMAN_PRUSSIAN_HEIR_MALE: "Heir" # Rank 3
+
+          # Heir Female
+      DEC1_GERMAN_PRUSSIAN_HEIR_FEMALE: "Heiress" # Rank 3
+
+    # Japan
+
+          # Name
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_GOVERNMENT: "Imperial Shogunate of Japan"  # Rank 3
+
+          # Rank
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_DUKE: "Shogunate"  # Rank 1
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_KING: "Shogunate"   # Rank 2
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_EMPIRE: "Shogunate"  # Rank 3
+
+          # Male
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_DUKE_MALE: "Shogun"  # Rank 1
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_KING_MALE: "Shogun"   # Rank 2
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_EMPIRE_MALE: "Shogun"  # Rank 3
+
+          # Female
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_DUCHESS: "Shogun"  # Rank 1
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_QUEEN: "Shogun"   # Rank 2
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_EMPRESS: "Shogun"  # Rank 3
+
+          # Heir Male
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_HEIR_MALE: "" # Rank 3
+
+          # Heir Female
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_HEIR_FEMALE: "" # Rank 3
+
+
+  #############################################
+  # GOVERNMENT CHANGES LOCALISED FOR TEMPLATE #
+  #############################################
+
+      dec1_government_reform_change_autocracy: "Enact §YAutocracy§! Government Reform"
+      dec1_government_reform_change_oligarchy: "Enact §YOligarchy§! Government Reform"
+      dec1_government_reform_change_republicanism: "Enact §YRepublicanism§! Government Reform"
+      dec1_government_reform_change_prc: "Enact §YChinese Communist Party§! Government Reform"
+      dec1_government_reform_change_federal_republic: "Enact §YFederal Republic§! Government Reform"
+      dec1_government_reform_change_great_mongol_state: "Enact §YGreat Mongol State§! Government Reform"
+      dec1_government_reform_change_merchants_republic: "Enact §YMerchants Republic§! Government Reform"
+      dec1_government_reform_change_dutch_republic: "Enact §YDutch Republic§! Government Reform"
+      dec1_government_reform_change_russian_theocracy: "Enact §YRussian Theocracy§! Government Reform"
+      dec1_government_reform_change_prussian_monarchy: "Enact §YPrussian Monarchy§! Government Reform"
+      dec1_government_reform_change_dual_monarchy: "Enact §YGrand Parliament of Lords and People§! Government Reform"
+      dec1_government_reform_change_iqta: "Enact §YIqta§! Government Reform"
+      dec1_government_reform_change_soviet_union: "Enact §YCommunist Party of Russia§! Government Reform"
+      dec1_government_reform_change_bulgarian_tsardom: "Enact §YBulgarian Tsardom§! Government Reform"
+      dec1_government_reform_change_plutocracy: "Enact §YPlutocracy§! Government Reform"
+      dec1_government_reform_change_nayankara: "Enact §YNayankara System§! Government Reform"
+      dec1_government_reform_change_grand_duchy: "Enact §YGrand Duchy§! Government Reform"
+      dec1_government_reform_change_presidential_system: "Enact §YPresidential System§! Government Reform"
+      dec1_government_reform_change_monastic_order: "Enact §YMonastic Order§! Government Reform"
+      dec1_government_reform_change_mandala: "Enact §YMandala System§! Government Reform"
+      dec1_government_reform_change_confederate_state_congress: "Confederate State Congress"
+      dec1_government_reform_change_tsardom: "Enact §YTsardom§! Government Reform"
+      dec1_government_reform_change_feudal_theocracy: "Enact §YFeudal Theocracy§! Government Reform"
+      dec1_government_reform_change_english_monarchy: "Enact §YEnglish Monarchy§! Government Reform"
+      dec1_government_reform_change_presidential_despot: "Enact §YPresidential Dictator§! Government Reform"
+      dec1_government_reform_change_american_republic: "Enact §YAmerican Republic§! Government Reform"
+      dec1_government_reform_change_confucian_bureaucracy: "Enact §YConfucian Bureaucracy§! Government Reform"
+      dec1_government_reform_change_celestial_empire: "Enact §YCelestial Empire§! Government Reform"
+      dec1_government_reform_change_elective_monarchy: "Enact §YElective Monarchy§! Government Reform"
+
+
+      dec1_government_change_monarchy: "The type of Government changes to §YMonarchy§!."
+      dec1_government_change_tribal: "The type of Government changes to §YTribal§!."
+      dec1_government_change_english_monarchy: "The type of Government changes to §YEnglish Monarchy§!."
+      dec1_government_change_monarchy_of_dual_monarchy: "The type of Government changes to §YDual Monarchy§!."
+      dec1_government_change_chinese_communism_government: "The type of Government changes to §YChinese Communism§!."
+      dec1_government_change_prussian_monarchy: "The type of Government changes to §YMonarchy§!."
+      dec1_government_change_tribal_monarchy: "The type of Government changes to §YTribal Monarchy§!."
+      dec1_government_change_dutch_republic: "The type of Government changes to §YDutch Republic§!."
+      dec1_government_change_republic: "The type of Government changes to §YRepublic§!."
+      dec1_government_change_theocracy: "The type of Government changes to §YTheocracy§!."
+      dec1_government_change_russian_theocracy: "The type of Government changes to §YRussian Theocracy§!."
+      dec1_government_change_tsardom: "The type of Government changes to §YTsardom§!."
+      dec1_government_change_stateless_society: "The type of Government changes to §YStateless Society§!."
+      dec1_government_change_all_union_government: "The type of Government changes to §YAll-Union Government§!."
+      dec1_government_change_prc: "The type of Government changes to §YSocialist Republic§!."
+      dec1_government_change_soviet_socialist_state: "The type of Government changes to §YSoviet Socialist Republics§!."
+      dec1_government_change_american_republic: "The type of Government changes to §YAmerican Republic§!."
+      dec1_government_change_confederacy: "The type of Government changes to §YConfederacy§!."
+
+
+      dec1_government_rank_1: "The Government Rank changes to §YDuchy§!."
+      dec1_government_rank_2: "The Government Rank changes to §YKingdom§!."
+      dec1_government_rank_3: "The Government Rank changes to §YEmpire§!."
+
+
+
+  # Unique
+
+  tribe_mechanic: "Tribal"

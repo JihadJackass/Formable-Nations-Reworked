@@ -1,0 +1,128 @@
+country_decisions = {
+
+	##############################################################
+	# Settle into the Silk Roads - Form Bukharan Kingdom - Uzbek #
+	##############################################################
+
+	dec1_bukhara_nation = {
+		major = yes
+		potential = {
+			is_colonial_nation = no
+			is_former_colonial_nation = no
+			tag = SHY
+			NOT = {
+				has_country_flag = formed_bukhara_flag
+				has_reform = celestial_empire
+				exists = BUK
+				tag = BUK
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 6
+				}
+			}
+		}
+		provinces_to_highlight = {
+			province_id = 442
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 5
+			NOT = { exists = BUK }
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			has_institution = feudalism
+			owns_core_province = 442 # Bukhara
+			NOT = {
+				OR = {
+					overlord_of = SIB
+					exists = SIB
+				}
+			}
+		}
+		effect = {
+			change_tag = BUK # Country TAG
+			set_country_flag = formed_bukhara_flag # Country Formation Flag
+			custom_tooltip = form_bukhara_nation_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			BHA = { # Capital change and bonuses
+				set_capital = 522 # Delhi
+				522 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_1 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+				# New Missions
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 1
+								}
+							}
+						set_government_rank = 1
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = horde_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_sunni_uzbeks
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+}

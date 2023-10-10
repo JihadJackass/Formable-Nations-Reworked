@@ -1,0 +1,252 @@
+﻿l_english:
+
+  ###############
+  # Base Events #
+  ###############
+
+    # Holy Roman Empire - Our Place in the Empire Event
+
+      dec1_events.1.t: "Our place in the Empire"
+      dec1_events.1.d: "As we place ourselves higher we begin to question the rights of our so called Emperor.. Should we not forge our own path and take our place in the sun?"
+      dec1_events.1.a: "Remain loyal to the Emperor."
+      dec1_events.1.b: "We must forge our own path!"
+      dec1_events.1.c: "We are the rightful Emperor!"
+
+    # Holy Roman Empire - Our Place in the Empire - [From.GetName] remains loyal to the empire
+
+      dec1_events.2.t: "[From.GetName] remains loyal to the Empire"
+      dec1_events.2.d: "The Holy Roman Empire has been strengthened by the formation of the new state of [From.GetName] which has remained loyal to our Empire and supported Emperor $EMPERORNAME$. We have gained much prestige and stability within the empire due to the strengthening of our Empire!"
+      dec1_events.2.a: "Excellent!"
+
+    # Holy Roman Empire - Our Place in the Empire - [From.GetName] has left the empire
+
+      dec1_events.4.t: "[From.GetName] has left the Empire!"
+      dec1_events.4.d: "The Holy Roman Empire has been weakened by the formation of the new state of [From.GetName] which has announced disloyalty to Emperor $EMPERORNAME$. We have lost the respect and authority that we had before this nonsense!"
+      dec1_events.4.a: "Traitors aren't our problem."
+      dec1_events.4.b: "This cannot stand! To War!"
+
+    # Customs Missions - New Missions and Objectives Event
+
+      dec1_events.3.t: "New Missions & Objectives"
+      dec1_events.3.d: "Our state is going through a range of changes that is rapidly reforming our government and political objectives. Unless we invest our time in these goals; they will remain the same without any progress to our power projection.\n\nDeveloper Note: §RNew Missions are not included yet!§!"
+      dec1_events.3.a: "Yes, Please!"
+      dec1_events.3.b: "No, we cannot abandon our roots."
+
+  ################################
+  # DISASTER EVENTS LOCALISATION #
+  ################################
+
+    # Dual Monarchy
+
+      dec1_disaster_events.1.t: "The Anglois Civil War"
+      dec1_disaster_events.1.d: "With the foundation of the Dual Monarchy came the cultural mix of British and French cultures known as the 'Anglois'. Many French and English populace have yet to embrace this new natural evolution of our Grand Protectorate and many have even begun openly resisting this change, leading to an armed conflict between the Anglois dominated peoples against what remains of English and French cultural holdouts.\n\nWe must crush this resistance if we wish for this Dual Monarchy to not become a simple footnote in history!"
+      dec1_disaster_events.1.a: "Suppress the Rebels"
+      dec1_disaster_events.1.b: "Appease the British and French"
+      dec1_disaster_events.1.c: "Surrender the Anglois Culture"
+
+    # United States of America
+
+      dec1_disaster_events.2.t: "The American Civil War"
+      dec1_disaster_events.2.d: "'Those who deny freedom to others, deserve it not for themselves; and, under a just God, can not long retain it.'\n\nThe American Civil War has come upon us and we are now a fractured nation.."
+      dec1_disaster_events.2.a: "An unjust world."
+      dec1_disaster_events.2.b: "Perhaps they are right."
+      dec1_disaster_events.2.c: "Confederacy for me!"
+
+    # Confederate States of America
+
+      dec1_disaster_events.3.t: "The American Civil War"
+      dec1_disaster_events.3.d: "'Our country demands all our strength, all our energies. To resist the powerful combination now forming against us will require every man at his place. If victorious, we will have everything to hope for in the future. If defeated, nothing will be left for us to live for.'\n\nThe American Civil War has come upon us and we are now a fractured nation.."
+      dec1_disaster_events.3.a: "An unjust world."
+      dec1_disaster_events.3.b: "The union will obviously win this war."
+
+      dec1_american_civil_war_events.1: "Election of Jefferson Davis"
+      dec1_american_civil_war_events.1.t: "Election of Jefferson Davis"
+      dec1_american_civil_war_events.1.d: "With the Union Government upholding unconstitutional laws, and attempting to repeal slavery is the last straw for the people of the South, and so it is that the American Civil War has begun!"
+      dec1_american_civil_war_events.1.a: "The Confederacy shall persevere!"
+
+    # People's Republic of China
+
+    # Ming
+
+      dec1_disaster_events.4: "The Taiping Rebellion"
+      dec1_disaster_events.4.t: "The Taiping Rebellion"
+      dec1_disaster_events.4.d: ""
+      dec1_disaster_events.4.a: "Crush these peasants."
+      dec1_disaster_events.4.b: "Jesus is the way."
+
+    # Wu
+
+      dec1_disaster_events.5: "Taiping Catholicism"
+      dec1_disaster_events.5.t: "Embrace Catholicism"
+      dec1_disaster_events.5.d: "The Taiping were run as a cult-like group called the God Worshipping Society by self-proclaimed prophet Hong Xiuquan."
+      dec1_disaster_events.5.a: "For our Prophet!"
+
+      dec1_disaster_events.6: "End of the Taiping Rebellion"
+      dec1_disaster_events.6.t: "End of he Taiping Rebellion!"
+      dec1_disaster_events.6.d: "After defeating the rebel armies and converting the heathenous catholics and removing their presence from our country we have achieved peace."
+      dec1_disaster_events.6.a: "Victory!"
+
+      dec1_disaster_events.9: "Victory for Wu"
+      dec1_disaster_events.9.t: "Victory for Wu"
+      dec1_disaster_events.9.d: ""
+      dec1_disaster_events.9.a: "Victory for Christianity!"
+
+      dec1_disaster_events.10: "Blessed by Papal Support"
+      dec1_disaster_events.10.t: "Blessed by Papal Support"
+      dec1_disaster_events.10.d: ""
+      dec1_disaster_events.10.a: "Glorious day!"
+
+      dec1_disaster_events.11: "Backed by Great Power"
+      dec1_disaster_events.11.t: "Backed by Great Power"
+      dec1_disaster_events.11.d: ""
+      dec1_disaster_events.11.a: "In the name of God!"
+      dec1_disaster_events.11.b: "We have other concerns."
+
+      dec1_disaster_events.13: "Rise of Taiping"
+      dec1_disaster_events.13.t: "Rise of Taiping"
+      dec1_disaster_events.13.d: "The Rebellious Taiping have risen against us and are now claiming to be the rulers of core Chinese territories, we must not allow this!"
+      dec1_disaster_events.13.a: "The Mandate will not allow this."
+
+    # Tengoku
+
+        dec1_disaster_events.7: "Shimabara Rebellion"
+        dec1_disaster_events.7.t: "Shimabara Rebellion"
+        dec1_disaster_events.7.d: "an alliance of local ronin and mostly Catholic peasants led by Amakusa Shiro have rebelled against the shogunate due to discontent over oppressive policies!"
+        dec1_disaster_events.7.a: "We will crush these peasants."
+
+        dec1_disaster_events.8: "End of the Shimabara Rebellion"
+        dec1_disaster_events.8.t: "End of the Shimabara Rebellion!"
+        dec1_disaster_events.8.d: "We have crushed all remains of the Shimabara Rebellion and have achieved a lasting peace for our realm. Let this be a lesson to all peasants and lords alike that such nonsense will not be tolerated."
+        dec1_disaster_events.8.a: "Victory!"
+
+  ###############################
+  # COUNTRY EVENTS LOCALISATION #
+  ###############################
+
+    # Mamluks
+
+      # Embrace Egyptian Cultures
+
+        dec1_country_events.10: "Embrace Egyptian Cultures"
+        dec1_country_events.10.t: "Embrace Egyptian Cultures"
+        dec1_country_events.10.d: "We have been given an opportunity through skilled advisors to accept some ancient cultures into our realm both through linages of locals and establishing into law these nobles as true successors.\n\nThis can lead to various nations rebelling against us in the future should we not provide these new people with what they desire as their rights.\n\nShould we allow this presented path?"
+        dec1_country_events.10.a: "Nonsense! There will be no reconciliation."
+        dec1_country_events.10.b: "This could provide us great wealth."
+
+    # Taiping
+
+      # Great Catholic Revolt
+
+        dec1_country_events.9: "Great Catholic Revolt"
+        dec1_country_events.9.t: "Great Catholic Revolt"
+        dec1_country_events.9.d: "With the rise of Taiping comes a wave of catholic fervor among Greater China and a shift towards the Holy Church of Rome, leading to an uprising among the masses of our populace due to the current regime refusing to accept Catholisism as the sole legal religion."
+        dec1_country_events.9.a: "These rebels will die."
+        dec1_country_events.9.b: "Concede in the name of God."
+
+      # Taiping Loss to Ming Handler
+
+        dec1_disaster_events.12: "The Fall of Taiping"
+        dec1_disaster_events.12.t: "The Fall of Taiping"
+        dec1_disaster_events.12.d: "We have crushed the Taiping rebels, and are ready to announce total victory though we must first establish the path forward due to the shift in court politics."
+        dec1_disaster_events.12.a: "Down with rebels."
+
+    # End Taiping
+
+    # The Iberian Union
+
+      dec1_country_events.1: "The Iberian Union"
+      dec1_country_events.1.t: "The Iberian Union"
+      dec1_country_events.1.d: "We have united the Iberian region under our Great [Root.Monarch.GetTitle] [Root.Monarch.GetName], and with Iberia fully centralized under our control we are able to focus our efforts on much larger goals.\n\nThough we now are forced to contend with balancing the three dominant factions in the new Iberian Union; those being the Castilians, the Aragonese, and the Portugese.\n\nThis is a new age for Europe!"
+      dec1_country_events.1.a: "Hurrah! For Iberia!"
+
+    # Brazil Declares Independence
+
+      dec1_country_events.2: "Brazil Declares Independence"
+      dec1_country_events.2.t: "Brazil Declares Independence"
+      dec1_country_events.2.d: ""
+      dec1_country_events.2.a: "To War!"
+      dec1_country_events.2.b: "We must concede."
+
+    # Portugal Concedes
+
+      dec1_country_events.3: "Portugal Concedes"
+      dec1_country_events.3.t: "Portugal Concedes"
+      dec1_country_events.3.d: ""
+      dec1_country_events.3.a: "God is with us."
+
+    # The Confederatos
+
+      dec1_country_events.4: "The Confederatos Migration"
+      dec1_country_events.4.t: "The Confederatos Migration"
+      dec1_country_events.4.d: ""
+      dec1_country_events.4.a: "Give them Citizenship"
+      dec1_country_events.4.b: "Create a Confederatos Vassal State"
+      dec1_country_events.4.c: "Turn them away."
+
+    # German Empire
+
+      # Unification of the German Empire
+
+        dec1_country_events.5: "Unification of the German Empire"
+        dec1_country_events.5.t: "Unification of the German Empire"
+        dec1_country_events.5.d: ""
+        dec1_country_events.5.a: "Hurrah! Hurrah! Hurrah!"
+
+      # Unification of German Empire - Reciever Event
+
+        dec1_country_events.6: "German Unification"
+        dec1_country_events.6.t: "German Unification"
+        dec1_country_events.6.d: ""
+        dec1_country_events.6.a: "Join the German Empire"
+        dec1_country_events.6.b: "Treachery!"
+
+      # The German Government
+
+        dec1_country_events.7: "The German Government"
+        dec1_country_events.7.t: "The German Government"
+        dec1_country_events.7.d: ""
+        dec1_country_events.7.a: "Enact German Autocracy"
+        dec1_country_events.7.b: "Retain Prussian Monarchy"
+
+    # Japan
+
+      # The Japanese Government
+
+        dec1_country_events.8: "The Japanese Government"
+        dec1_country_events.8.t: "The Japanese Government"
+        dec1_country_events.8.d: ""
+        dec1_country_events.8.a: "Enact Japanese Autocracy"
+        dec1_country_events.8.b: "Retain Imperial Shogunate"
+
+
+    # English Commonwealth
+
+      dec1_country_events.11: "Governmental Crisis of [GetYear]"
+      dec1_country_events.11.t: "Governmental Crisis of [GetYear]"
+      dec1_country_events.11.d: "The English Governmental Crisis of [GetYear] caused by our continous civil strife has imposed upon us dire consequences leading to the collapse of our Government. Our previous ruler "
+      dec1_country_events.11.a: "Republicanism will restore the peace."
+      dec1_country_events.11.b: "We cannot allow the many to rule the few."
+
+  ###############################
+  # FACTION EVENTS LOCALISATION #
+  ###############################
+
+    dec1_faction_events.1: "British Naval Concessions"
+    dec1_faction_events.1.t: "British Naval Concessions"
+    dec1_faction_events.1.d: ""
+    dec1_faction_events.1.a: "Refuse such nonsense!"
+    dec1_faction_events.1.b: "We support this."
+
+    dec1_faction_events.2: "British Naval Intergration"
+    dec1_faction_events.2.t: "British Naval Intergration"
+    dec1_faction_events.2.d: ""
+    dec1_faction_events.2.a: "Refuse British demands."
+    dec1_faction_events.2.b: "This is reasonable."
+
+    dec1_faction_events.3: "French Autonomy Demands"
+    dec1_faction_events.3.t: "French Demand Increased Autonomy"
+    dec1_faction_events.3.d: "The French have issued a string of demands to the Parliment and demands that the British are severely reduced in their autonomy rights while France itself recieves greater autonomy rights.. a clear indiciation of the friction in our multi-cultural union, and the solution to this is not an easy one it would seem."
+    dec1_faction_events.3.a: "The French Demands are rediculous."
+    dec1_faction_events.3.b: "British rebels are indeed a threat!"
+
+  # End Localisation

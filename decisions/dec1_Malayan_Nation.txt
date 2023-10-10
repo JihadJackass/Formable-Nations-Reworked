@@ -1,0 +1,266 @@
+country_decisions = {
+
+	# Malaya Kingdom - via conquest
+
+	dec1_malayan_nation_conquest = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			culture_group = malay
+			NOT = {
+				has_country_flag = formed_malaya_flag
+				exists = MSA
+				tag = SWW
+				tag = AOP
+				tag = PAP
+				tag = HLR
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 11 # Unique req - balances some stuff
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 624
+				province_id = 2687
+				province_id = 629
+				province_id = 630
+				area = malacca_area
+				area = malaya_area
+				area = kalimantan_area
+				area = brunei_area
+				area = kutai_area
+				area = north_sumatra_area
+				area = batak_area
+				area = central_sumatra_area
+				area = minangkabau_area
+				area = south_sumatra_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 5
+			NOT = { exists = MSA }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			owns = 624 #Banten
+			owns = 2687 #Pakuan
+			owns = 629 #Demak
+			owns = 630 #Kalapa
+			OR = {
+				custom_trigger_tooltip = {
+					tooltip = malay_nation_malaya_borneo_tooltip
+					AND = { #Malay Peninsula and Borneo
+						malaya_area = {
+							type = all
+							owned_by = ROOT
+						}
+						malacca_area = {
+							type = all
+							owned_by = ROOT
+						}
+						kalimantan_area = {
+							type = all
+							owned_by = ROOT
+						}
+						brunei_area = {
+							type = all
+							owned_by = ROOT
+						}
+						kutai_area = {
+							type = all
+							owned_by = ROOT
+						}
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = malay_nation_malaya_sumatra_tooltip
+					AND = { #Malay Peninsula and Sumatra
+						malaya_area = {
+							type = all
+							owned_by = ROOT
+						}
+						malacca_area = {
+							type = all
+							owned_by = ROOT
+						}
+						north_sumatra_area = {
+							type = all
+							owned_by = ROOT
+						}
+						batak_area = {
+							type = all
+							owned_by = ROOT
+						}
+						central_sumatra_area = {
+							type = all
+							owned_by = ROOT
+						}
+						minangkabau_area = {
+							type = all
+							owned_by = ROOT
+						}
+						south_sumatra_area = {
+							type = all
+							owned_by = ROOT
+						}
+					}
+				}
+				custom_trigger_tooltip = {
+					tooltip = malay_nation_borneo_sumatra_tooltip
+					AND = { #Borneo and Sumatra
+						kalimantan_area = {
+							type = all
+							owned_by = ROOT
+						}
+						brunei_area = {
+							type = all
+							owned_by = ROOT
+						}
+						kutai_area = {
+							type = all
+							owned_by = ROOT
+						}
+						north_sumatra_area = {
+							type = all
+							owned_by = ROOT
+						}
+						central_sumatra_area = {
+							type = all
+							owned_by = ROOT
+						}
+						south_sumatra_area = {
+							type = all
+							owned_by = ROOT
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			change_tag = MSA # Country TAG
+			set_country_flag = formed_malaya_flag # Country Formation Flag
+			custom_tooltip = form_malaya_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			MSA = { # Capital change and bonuses
+				set_capital = 596 # Malacca
+				596 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+				# Claims
+					every_province ={
+						limit = {
+							OR = {
+								area = kutai_area
+								area = brunei_area
+								area = kalimantan_area
+								area = north_sumatra_area
+								area = central_sumatra_area
+								area = batak_area
+								area = minangkabau_area
+								area = south_sumatra_area
+								area = malaya_area
+								area = malacca_area
+							}
+						}
+						add_permanent_claim = MSA
+					}
+					# New Missions
+
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = malayan_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_eastern_trade_route
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Unique Mayala Formation?
+}

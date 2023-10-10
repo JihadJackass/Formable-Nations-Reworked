@@ -1,0 +1,30 @@
+﻿l_english:
+
+# Aquitaine
+
+  # Economy
+
+    dec1_expand_wine_fields_title: "Expand Wine Fields"
+    dec1_expand_wine_fields_desc: "The region of Gascony is well known for producing great wine for the people of France and England, but we must focus on investing in this great region to expand and protect our control of the wine trade."
+
+  # Military
+
+    dec1_establish_landed_army_title: "Establish Landed Army"
+    dec1_establish_landed_army_desc: ""
+
+  # Navy
+
+    dec1_restoration_of_the_naval_corps_title: "Restore Naval Corps"
+    dec1_restoration_of_the_naval_corps_desc: "If we are able to establish a small navy and decimate an enemy fleet this would prove to many that we are to be feared and respected among the seas."
+
+    dec1_blockade_english_and_french_title: "Blockade Vessels"
+    dec1_blockade_english_and_french_desc: ""
+
+  # Union with England (Gain Bonuses by being a English Vassal)
+
+    dec1_vassalge_under_england_title: "Vassalage Under England"
+    dec1_vassalge_under_england_desc: ""
+
+# Price change localisation
+
+  dec1_expanded_wine: "Expanded Wine in Aquitaine"

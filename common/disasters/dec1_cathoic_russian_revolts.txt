@@ -1,0 +1,56 @@
+	###########################################################################
+	# Catholic Revolt - Applies to Catholica Russica if they are not Catholic #
+	###########################################################################
+
+		# Catholic Revolt
+
+			dec1_tengoku_revolt = {
+
+				potential = {
+					tag = RSC
+				}
+
+				can_start = {
+					has_any_disaster = no
+					NOT = {
+						religion = catholic
+					}
+				}
+
+				can_stop = {
+					has_any_disaster = yes
+					RSC = {
+						religion = catholic
+					}
+				}
+
+				progress = {
+					modifier = { # Catholic Russia is NOT Catholic
+						factor = 0.15
+						NOT = {
+							religion = catholic
+						}
+					}
+				}
+
+				modifier = {
+					global_unrest = 2
+					missionary_maintenance_cost = 0.20
+				}
+
+				can_end = {
+
+				}
+
+				#on_start = dec1_disaster_events.4
+				#on_end = dec1_disaster_events_anglois_civil_war.100
+
+				on_monthly = {
+					events = { }
+					random_events = {
+						1000 = 0
+						# 100 = dec1_disaster_events.4 #
+					}
+				}
+			}
+

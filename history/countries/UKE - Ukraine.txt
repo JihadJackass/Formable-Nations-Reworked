@@ -1,0 +1,8 @@
+government = republic
+add_government_reform = republicanism_reform
+government_rank = 2
+technology_group = eastern
+religion = orthodox
+primary_culture = dec1_ukrainian
+capital = 280	# Kiev
+fixed_capital = 280 # Cannot move capital away from this province & no power cost to move to it

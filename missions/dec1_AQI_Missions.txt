@@ -1,0 +1,154 @@
+# Aquitaine Mission Tree
+
+dec1_aqi_economy_branch = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = AQI
+	}
+	has_country_shield = yes
+
+	dec1_expand_wine_fields = {
+		icon = mission_wine_monopolies
+		required_missions = { }
+		completed_by = 1450.1.1
+		provinces_to_highlight = {
+		}
+		trigger = {
+			adm_power = 100
+			any_owned_province = {
+				trade_goods = wine
+			}
+			num_of_owned_provinces_with = {
+				value = 10
+				trade_goods = wine
+			}
+		}
+		effect = {
+			add_adm_power = -100
+			add_prestige = 5
+			change_price = {
+				trade_goods = wine
+				key = dec1_expanded_wine
+				value = 0.15
+				duration = -1
+			}
+		}
+		ai_weight = {
+			factor = 500
+		}
+	}
+}
+
+dec1_aqi_vassalage_branch = {
+	slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = AQI
+	}
+	has_country_shield = yes
+
+	dec1_appeal_english_vassalage = {
+		icon = mission_mansure_army
+		trigger = {
+			any_owned_province = {
+				unit_in_battle = yes
+			}
+		}
+		effect = {
+			# TODO
+		}
+		ai_weight = {
+			factor = 500
+		}
+	}
+}
+
+dec1_aqi_military_branch = {
+	slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = AQI
+	}
+	has_country_shield = yes
+
+	dec1_establish_landed_army = {
+		icon = mission_mansure_army
+		required_missions = { unite_home_region }
+		completed_by = 1450.1.1
+		provinces_to_highlight = {
+		}
+		trigger = {
+			any_owned_province = {
+				unit_in_battle = yes
+			}
+		}
+		effect = {
+			# TODO
+		}
+		ai_weight = {
+			factor = 500
+		}
+	}
+}
+
+dec1_aqi_navy_branch = {
+	slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = AQI
+	}
+	has_country_shield = yes
+
+	dec1_restoration_of_the_naval_corps = {
+		icon = build_a_roman_navy
+		trigger = {
+			OR = {
+				num_of_galley = 5
+				num_of_heavy_ship = 3
+			}
+		}
+		effect = {
+			# TODO
+		}
+		ai_weight = {
+			factor = 500
+		}
+	}
+
+	dec1_blockade_english_and_french = {
+		icon = mission_conquer_50_development
+		required_missions = { dec1_restoration_of_the_naval_corps }
+		provinces_to_highlight = {
+			province_id = 1276
+			province_id = 1275
+			province_id = 1296
+		}
+		trigger = {
+			AND = {
+				1276 = {
+					heavy_ships_in_province = 1
+					light_ships_in_province = 4
+				}
+				1275 = {
+					heavy_ships_in_province = 1
+					light_ships_in_province = 4
+				}
+				1296 = {
+					heavy_ships_in_province = 1
+					light_ships_in_province = 4
+				}
+			}
+		}
+		effect = {
+
+		}
+		ai_weight = {
+			factor = 500
+		}
+	}
+}

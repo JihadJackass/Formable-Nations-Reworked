@@ -1,0 +1,550 @@
+	##########################################################
+	# Formable Nations: Reworked - Custom Government Reforms #
+	##########################################################
+
+####################
+# Bulgarian Empire #
+####################
+
+	# Tier 1
+
+		dec1_bulgarian_tsardom_reform = {
+			icon = "king"
+		#	valid_for_nation_designer = no
+			fixed_rank = 3
+
+			potential = {
+				tag = BBG
+			}
+
+			nation_designer_trigger = {
+				tag = BBG
+			}
+
+			modifiers = {
+				global_manpower_modifier = 0.20
+				yearly_absolutism = 0.5
+				global_autonomy = -0.05
+				governing_capacity = 250
+			}
+		}
+
+	# End
+
+#################
+# Dual Monarchy #
+#################
+
+	# tier 1
+
+		dec1_parliament_of_the_lords_reform = {
+			icon = "constitution"
+			valid_for_nation_designer = no
+			fixed_rank = 3
+
+			nation_designer_trigger = { always = no }
+
+			potential = {
+				tag = DUM
+			}
+
+			states_general_mechanic = {
+				dec1_nationalist_influence = {
+					discipline = 0.05
+					global_naval_barrage_cost = -0.5
+					warscore_cost_vs_other_religion = -0.10
+				}
+				dec1_union_influence = {
+					same_culture_advisor_cost = -0.5
+					diplomatic_reputation = 1
+					yearly_absolutism = 0.1
+					culture_conversion_cost = -0.1
+				}
+			}
+
+			modifiers = {
+				legitimacy = 1
+				global_unrest = -2
+				min_autonomy_in_territories = -0.2
+			}
+
+			factions = {
+				dec1_french_parliament
+				dec1_british_parliament
+			}
+
+			custom_attributes = {
+				# Government Type
+				monarchy = yes
+				# Government Mechanics
+				has_parliament = yes
+				maintain_dynasty = yes
+				royal_marriage = no
+				# Ruler, Heir, Queen
+				heir = yes
+				queen = yes
+				# Locked Reform
+				allow_normal_conversion = no
+			}
+
+			fixed_rank = 3
+		}
+
+	# End
+
+################
+# Soviet Union #
+################
+
+	# tier 1
+
+		dec1_communist_party_of_russia_reform = {
+			icon = "become_rev_republic_reform"
+			valid_for_nation_designer = no
+			fixed_rank = 3
+
+			nation_designer_trigger = { always = no }
+
+			potential = {
+				tag = SOV
+			}
+
+			conditional = {
+				allow = { has_dlc = "Common Sense" }
+			}
+
+			modifiers = {
+				global_autonomy = -0.05
+				yearly_corruption = 0.05
+			}
+
+			custom_attributes = {
+				enables_nepotism = yes
+			}
+
+			custom_attributes = {
+				# Government Type
+				republic = yes
+				# Government Mechanics
+				has_parliament = yes
+				maintain_dynasty = yes
+				heirs_can_be_generals = yes
+				rulers_can_be_generals = yes
+				royal_marriage = no
+				has_meritocracy = no
+				# Ruler, Heir, Queen
+				heir = yes
+				queen = no
+				# Locked Reform
+				allow_normal_conversion = no
+			}
+		}
+
+	# End
+
+##############################
+# People's Republic of China #
+##############################
+
+	# tier 1
+
+		dec1_communist_party_of_china_reform = {
+			icon = "become_rev_republic_reform"
+			valid_for_nation_designer = no
+			fixed_rank = 3
+
+			potential = {
+				tag = PRC
+			}
+
+			conditional = {
+				allow = { has_dlc = "Common Sense" }
+			}
+
+			modifiers = {
+				global_autonomy = -0.10
+				yearly_corruption = 0.1
+			}
+
+			custom_attributes = {
+				enables_nepotism = yes
+			}
+
+			factions = {
+				dec1_hardline_communists
+				dec1_democratic_socialists
+			}
+
+			effect = {
+				hidden_effect = { # IDK why this isn't adding via factions = {} but whatever, adding it here. fk u paradox
+					add_faction = dec1_hardline_communists
+					add_faction = dec1_democratic_socialists
+				}
+			}
+
+			custom_attributes = {
+				# Government Type
+				republic = yes
+				# Government Mechanics
+				has_parliament = yes
+				rulers_can_be_generals = no
+				royal_marriage = no
+				has_meritocracy = no
+				# Ruler, Heir, Queen
+				queen = no
+				# Locked Reform
+				allow_normal_conversion = no
+			}
+		}
+
+		dec1_democratic_socialists_reform = {
+			icon = "parliament_highlighted"
+			valid_for_nation_designer = no
+			fixed_rank = 3
+
+			potential = {
+				tag = PRC
+			}
+
+			trigger = {
+				custom_trigger_tooltip = {
+					tooltip = dec1_democratic_socialism_enforced_tt
+				}
+			}
+
+			conditional = {
+				allow = { has_dlc = "Common Sense" }
+			}
+
+			modifiers = {
+				yearly_corruption = 0.2
+				production_efficiency = 0.10
+				global_tax_modifier = 0.10
+			}
+
+			custom_attributes = {
+				# Government Type
+				republic = yes
+				# Government Mechanics
+				has_parliament = yes
+				has_meritocracy = yes
+				royal_marriage = yes
+				maintain_dynasty = no
+				has_meritocracy = no
+				# Ruler, Heir, Queen
+				queen = yes
+				republic = yes
+				# Locked Reform
+				allow_normal_conversion = no
+			}
+		}
+
+	 # tier 2
+
+	 # tier 3
+
+		dec1_reduced_term_limits_reform = {
+			icon = "legislative_assembly_reform"
+			valid_for_nation_designer = no
+
+			potential = {
+				tag = PRC
+			}
+
+			conditional = {
+				allow = { has_dlc = "Common Sense" }
+			}
+
+			modifiers = {
+				election_cycle = -1 # 10 year elections
+				global_tax_modifier = 0.10
+				max_absolutism = -20
+				yearly_absolutism = -0.1
+			}
+		}
+
+		dec1_abolish_term_limits_reform = {
+			icon = "paper_with_seal"
+			valid_for_nation_designer = no
+
+			potential = {
+				tag = PRC
+			}
+
+			conditional = {
+				allow = { has_dlc = "Common Sense" }
+			}
+
+			modifiers = {
+				election_cycle = 84 # 100 year election.. fake republic
+				max_absolutism = 10
+				yearly_absolutism = 0.1
+				interest = 1
+			}
+		}
+
+########################
+# Eastern Roman Empire #
+########################
+
+	# tier 1
+
+		dec1_eastern_roman_senate_reform = {
+			icon = "united_cantons_reform"
+			valid_for_nation_designer = no
+
+			nation_designer_trigger = { always = no }
+
+			potential = {
+				tag = ERP
+			}
+
+			conditional = {
+				allow = { has_dlc = "Common Sense" }
+			}
+
+			modifiers = {
+				global_autonomy = -0.05
+			}
+
+			custom_attributes = {
+				enables_nepotism = yes
+				has_meritocracy = yes
+				has_parliament = yes
+			}
+
+			republic = yes
+			fixed_rank = 3
+			maintain_dynasty = yes
+			royal_marriage = yes
+			queen = no
+			heir = yes
+			rulers_can_be_generals = yes
+			heirs_can_be_generals = yes
+		}
+
+
+#################################
+# Confederate States of America #
+#################################
+
+	# tier 1
+
+		dec1_confederate_state_congress_reform = {
+			icon = "paper_with_seal"
+			valid_for_nation_designer = no
+
+			potential = {
+				tag = CSA
+			}
+
+			conditional = {
+				allow = { has_dlc = "Common Sense" }
+			}
+
+			modifiers = {
+				land_forcelimit_modifier = 0.75
+				fort_maintenance_modifier = -0.50
+				war_exhaustion = -0.25
+				reelection_cost = -0.25
+				election_cycle = 4
+				global_autonomy = -100
+				min_autonomy_in_territories = 0
+			}
+
+			custom_attributes = {
+				#republic = yes
+				enables_nepotism = yes
+				has_parliament = yes
+				royal_marriage = no
+				rulers_can_be_generals = no
+			}
+		}
+
+	#
+
+#########
+# Japan #
+#########
+
+	# tier 1
+
+		dec1_imperial_shogunate_japan_reform = {
+			icon = "shogunate"
+			valid_for_nation_designer = no
+
+			potential = {
+				tag = JAP
+			}
+
+			fixed_rank = 2
+			maintain_dynasty = yes
+			allow_vassal_war = no # Bans Vassal Wars
+			allow_vassal_alliance = no # Bans Vassal Alliances
+			lock_level_when_selected = yes
+			can_change_primary_culture = no
+
+			modifiers = {
+				# Buffs
+				diplomats = 1
+				envoy_travel_time = -0.25
+				max_absolutism = 5
+				# Debuffs
+				governing_capacity_modifier = -0.05
+				ae_impact = 0.02
+			}
+
+			custom_attributes = {
+				locked_government_type = yes
+			}
+		}
+
+	#
+
+###################
+# Empire of Japan #
+###################
+
+	# tier 1
+
+		dec1_imperial_shogunate_empire_of_japan_reform = {
+			icon = "shogunate"
+			valid_for_nation_designer = no
+
+			potential = {
+				tag = JAE
+			}
+
+			fixed_rank = 3
+			maintain_dynasty = yes
+			allow_vassal_war = no
+			allow_vassal_alliance = no
+			lock_level_when_selected = yes
+			can_change_primary_culture = no
+
+			modifiers = {
+				diplomats = 1
+				envoy_travel_time = -0.25
+				max_absolutism = 5
+			}
+
+			custom_attributes = {
+				locked_government_type = yes
+			}
+		}
+
+	#
+
+###################
+# Catholic Russia #
+###################
+
+	# tier 1
+
+		dec1_theocratic_tsardom_reform = {
+			icon = "russian_principality"
+			valid_for_nation_designer = no
+			fixed_rank = 3
+
+			potential = {
+				tag = RSC
+			}
+
+			conditional = {
+				allow = { has_dlc = "Common Sense" }
+				government_abilities = {
+					russian_mechanic
+				}
+			}
+
+			modifiers = {
+				land_forcelimit_modifier = 0.10
+				reelection_cost = -0.50
+			}
+
+			custom_attributes = {
+				royal_marriage = yes
+				rulers_can_be_generals = yes
+				claim_states = yes
+			}
+		}
+
+	#
+
+#############
+# Makhnovia #
+#############
+
+	# tier 1
+
+		dec1_anarcho_communist_reform = {
+			icon = "russian_principality"
+			valid_for_nation_designer = no
+			fixed_rank = 1
+
+			potential = {
+				tag = MKX
+			}
+
+			conditional = {
+				allow = { has_dlc = "Common Sense" }
+			}
+
+			modifiers = {
+				governing_capacity_modifier = -0.65
+				min_autonomy = 70
+				defensiveness = 0.10
+			}
+
+			custom_attributes = {
+				heir = no
+				maintain_dynasty = no
+				allow_normal_conversion = no
+				queen = no
+				royal_marriage = no
+				rulers_can_be_generals = no
+			}
+		}
+
+	#
+
+#################
+# German Empire #
+#################
+
+	# tier 1
+
+		dec1_german_monarchy_reform = {
+			icon = "prussian_monarchy"
+			valid_for_nation_designer = no
+			allow_normal_conversion = no
+			fixed_rank = 3
+
+			potential = {
+				tag = GEP
+			}
+
+			conditional = {
+				allow = { has_dlc = "Common Sense" }
+			}
+
+			modifiers = {
+				war_exhaustion = -0.02
+				global_unrest = -3
+				global_autonomy = -0.080
+				max_absolutism = 15
+				monarch_military_power = 3
+				nobles_loyalty_modifier = 0.1
+				governing_capacity_modifier = -0.5
+			}
+
+			conditional = {
+				allow = { has_dlc = "Rights of Man" }
+				# militarised_society = yes
+			}
+		}
+
+	#
+
+
+

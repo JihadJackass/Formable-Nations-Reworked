@@ -1,0 +1,22 @@
+government = monarchy
+add_government_reform = tsardom
+primary_culture = kazani
+add_accepted_culture = uzbehk
+add_accepted_culture = turkmeni
+add_accepted_culture = uyghur
+religion = orthodox
+technology_group = eastern
+capital = 1082	# Kazan
+historical_rival = MOS
+historical_rival = RUS
+historical_rival = GOL
+
+1438.1.1 = {
+	monarch = {
+		name = "Ulugha"
+		dynasty = "Uralic"
+		adm = 4
+		dip = 1
+		mil = 5
+	}
+}

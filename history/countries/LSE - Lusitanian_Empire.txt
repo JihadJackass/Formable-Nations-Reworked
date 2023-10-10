@@ -1,0 +1,8 @@
+government = monarchy
+add_government_reform = autocracy_reform
+primary_culture = portugese
+religion = catholic
+technology_group = western
+historical_rival = SPA
+capital = 227 # Lisboa
+national_focus = DIP

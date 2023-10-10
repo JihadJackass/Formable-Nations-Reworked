@@ -1,0 +1,8 @@
+spriteTypes = {
+	# Government Reform
+	spriteType = {
+		name = "dec1_confederate_state_congress_reform_tribal_civil_society"
+		texturefile = "gfx//interface//government_reform_icons//tribal_civil_society.dds"
+	}
+
+}

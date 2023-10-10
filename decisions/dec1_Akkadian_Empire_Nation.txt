@@ -1,0 +1,195 @@
+country_decisions = {
+
+	# Restore the Akkadian Empire
+
+	dec1_akkadian_empire_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			AND = {
+				primary_culture = al_iraqiya_arabic
+				any_owned_province = {
+					region = mashriq_region
+				}
+			}
+			NOT = {
+				has_country_flag = formed_akkadian_empire
+				has_reform = celestial_empire
+				exists = AKD
+				tag = AKD
+				tag = HLR
+				tag = PAP
+				tag = TUR
+				tag = ARB
+				tag = EGY
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 8
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = basra_area
+				area = khuzestan_area
+				area = iraq_arabi_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = MAC }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			basra_area = {
+				type = all
+				owned_by = ROOT
+			}
+			khuzestan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			iraq_arabi_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			change_tag = AKD # Country TAG
+			set_country_flag = formed_akkadian_empire # Country Formation Flag
+			custom_tooltip = formed_akkadian_empire_tt_2 # New Missions
+			custom_tooltip = formed_akkadian_empire_tt_3 # Claims
+			custom_tooltip = formed_akkadian_empire_tt_4 # Historical City Naming
+			custom_tooltip = dec1_decisions_blank
+			AKD = { # Capital change and bonuses
+				set_capital = 415 # Akkad
+				415 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Historical City Names
+				hidden_effect = {
+					4288 = {
+						change_province_name = "Eridu"
+						rename_capital = "Eridu"
+					}
+					2312 = {
+						change_province_name = "Uruk"
+						rename_capital = "Uruk"
+					}
+					410 = {
+						change_province_name = "Kish"
+						rename_capital = "Kish"
+					}
+					2310 = {
+						change_province_name = "Sippar"
+						rename_capital = "Sippar"
+					}
+					415 = {
+						change_province_name = "Akkad" # ;)
+						rename_capital = "Akkad"
+					}
+					412 = {
+						change_province_name = "Golfe"  # defs not accurate, but w/e
+						rename_capital = "Golfe"
+					}
+					4291 = {
+						change_province_name = "Tutub"
+						rename_capital = "Tutub"
+					}
+				}
+				#
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Claims
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+		#				NOT = { has_idea_group = MAM_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+	#			add_country_modifier = {
+	#				name = dec1_restoration_of_the_mamluks
+	#				duration = 49275
+	#			}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Establish the City of Akkad
+
+	# Sargon of Akkad
+
+	# Proclaim Empire of Akkadia (Renames country from Akkadia to Akkadian Empire)
+
+}

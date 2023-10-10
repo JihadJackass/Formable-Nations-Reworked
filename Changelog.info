@@ -1,0 +1,503 @@
+Github Changelog
+
+-TODO
+-Added Visigoths (Can be centralized into Visigothic Kingdom)
+-Added Ostrogoths (Can be centralized into Ostrogothic Kingdom)
+-Added Slovenia - TODO
+-Added Latvia - TODO
+-Added Middle Francia - TODO
+-Added Danubian Federation - TODO
+-Added Illyria - TODO
+-Added Gallo-Roman Empire - TODO
+-Added Nazi Germany - TODO
+
+4.2.7
+
+-updated version to 4.2.7
+-Fixed missing Mingrelia flag
+-Fixed Mingrelia issue
+-Fixed Armenia Empire issue
+-Fixed Armenia Kingdom issue
+-Fixed Poland issue
+-Fixed Roman Republic issue
+-Fixed Scandinavia issue
+-Fixed Kalmar Union issue
+-Fixed Carolingian Empire issue
+-Fixed Deccan issue
+-Fixed Delhi issue
+-Fixed Orissa issue
+-Fixed Sweden-Norway AI issue
+-Fixed Ghana Empire
+-Fixed Qing formable, added Manchus, and Korchin
+-Added Vietnam
+-Adjusted ai_importance to 350 from 400 to test AI response
+
+4.2.3
+
+-Fixed 85+ improper government reform tooltips
+-Fixed missing government reform localizations for tooltips
+-Fixed various missing Subject Formables checks
+-Fixed Yuan decision
+-Fixed Siam decision
+-Fixed Tatarstan decision
+-Fixed Dual Monarchy issue
+-Fixed Visigoths decision
+-Fixed Ostrogoths decision
+
+4.2.2
+
+-Adjusted South German Federation
+-Added missing presidential reform custom tooltip
+-Fixed government reform tooltip for Austrian Empire
+-Fixed government reform tooltip for South German Federation
+
+4.2.1
+
+-Alpland tag and culture fixes
+
+4.2.0
+
+-Adjusted commit version to 4.2.0 to reflect major changes from 4.1.8
+-Fixed Austria-Bavaria issues
+-Fixed Austria tag issues
+-Fixed Bavaria tag issues
+-Fixed Austrian Empire tag issues
+-Fixed Austro-Hungarian Empire tag issues
+
+4.1.9
+
+-Fixed missing version change
+-Fixed missing Austria-Bavaria
+-Fixed localization issue
+-Fixed Donetsk/Luhansk issue
+
+4.1.8
+
+-Updated to Europa Universalis 1.34
+-Added South Africa
+-Added Macedonian Empire
+-Added Gupta Empire
+-Added East Slavia
+-Added Austria-Bavaria
+-Added Bulgarian Empire
+-Added Lombardy
+-Added Langobards
+-Added Dacia
+-Added Ceylon
+-Added Visigoths
+-Added Ostrogoths
+-Added Empire of China
+-Added missing Islamic Emirate of Afghanistan Formable
+-Added missing Illinois Formable
+-Added missing Bulgaria vanilla decision
+-Added Aquitaine Ideas
+-Added Almoravid Ideas
+-Added Bhutan Ideas
+-Added Nubia National Ability
+-Added Aksumite National Ability
+-Added Catholica Russica National Ability
+-Added Almoravid National Ability
+-Added Bulgarian Empire National Ability
+-Added Bulgarian Empire National Ability
+-Added Ceylon National Ability
+-Added Dacia National Ability
+-Added Dalmatia National Ability
+-Added Donetsk National Ability
+-Added Luhansk National Ability
+-Added Lombardy National Ability
+-Added Lotharingia National Ability
+-Added Silesia National Ability
+-Added Ostrogoths National Ability
+-Added Visigoths National Ability
+-Added Langobards National Ability
+-Added Rugii National Ability
+-Added Bulgaria National Ability
+-Added Pomerania National Ability
+-Added Scotland National Ability
+-Added West Indies National Ability
+-Added Ceylon/Sri Lanka unique content
+-Added Hungarian Empire Ideas (Will be improved in the next update, simply Hungarian Ideas improved.)
+-Added Palmyrene Empire
+-Added Palmyrene Empire National Ability
+-Added Palmyrene Empire ideas
+-Added Iberian Union Unique Formation event
+-Added Iberian Union Factions (Castilian Nobility, Aragonese Nobility, and Portuguese Nobility)
+-Added 'Proclaim Greater German Reich' decision to German Empire
+-Added 'Proclaim Iberian Empire' decision to Iberian Union
+-Added Historical North Korea information
+-Added Historical South Korea information
+-Added Lack of Anglois Culture modifier to Dual Monarchy
+-Added Iberian Faction System to Iberian Union (Removed unusable extras)
+-Added Decision to proclaim Iberian Empire for the Iberian Union
+-Added Bulgarian Tsardom Government Reform
+-Added Inca Empire unique decision for Inca
+-Added Mingrelia-Russia Patronage Treaty
+-Fixed Dual Monarchy government issue
+-Fixed missing LRP and DPR flags
+-Fixed Vanilla Bulgaria decision
+-Fixed Taliban formation issue
+-Fixed Italian Empire historical claims
+-Fixed Greater Portugal localization issues
+-Fixed Lusitanian Empire localization issues
+-Fixed duplicate British Empire tag (Removed GBE tag)
+-Fixed Aksumite issue
+-Fixed Almoravid issue
+-Fixed Belarus issue
+-Fixed Dalmatia issues
+-Fixed Inca issues
+-Fixed Lotharingia
+-Fixed Mercia issue
+-Fixed Mossi issues
+-Fixed Nagpur issues
+-Fixed Netherlands government reform issue
+-Fixed PLC-Poland issue
+-Fixed Pomerania issues
+-Adjusted PRC information
+-Adjusted PRC socialist revolt (still WIP)
+-Adjusted Eastern Roman Empire information
+-Adjusted Macedon information
+-Adjusted Taiping Rebellion
+-Adjusted all custom government reforms (PRC, Soviet Union, Japan, etc)
+-Adjusted Aquitaine formable (Locked to Grand Duchy)\
+-Adjusted Armenia Republic
+-Adjusted Balkan League
+-Adjusted Bosnia-Serbia
+-Adjusted British Empire
+-Adjusted California
+-Adjusted Carthage
+-Adjusted Chicago
+-Adjusted China
+-Adjusted PRC
+-Adjusted Cuba
+-Adjusted Donestsk People's Republic
+-Adjusted East Prussia
+-Adjusted Eastern Roman Empire
+-Adjusted Empire of Japan
+-Adjusted Franco-Iberian Empire
+-Adjusted Germany
+-Adjusted Iberian Union
+-Adjusted Inca
+-Adjusted Italian Empire
+-Adjusted Latin Empire
+-Adjusted Jagiellonian Empire
+-Adjusted Lombardy-Venetia
+-Adjusted Luhansk People's Republic
+-Adjusted Macedon
+-Adjusted Makhnovia
+-Adjusted North Sea Empire
+-Adjusted Oklahoma
+-Adjusted Romania
+-Adjusted Shan
+-Adjusted Siam
+-Adjusted Silesia
+-Adjusted South German Federation
+-Adjusted Soviet Union
+-Adjusted Tonga Empire
+-Adjusted UPCA
+-Changed Lombardy-Venetia colour
+-Removed Ming tag from Qing Formable
+-Removed Alexanders Empire (For Macedonian Empire)
+-Various other fixes, changes, and changes
+
+4.1.7
+
+-Rewrote Taiping Disaster
+-Fixed missing Dual Monarchy unique events localisation
+-Fixed North German Confederation formation issue
+-Fixed Catholic Control of Rome triggered modifier for logical tags (Kingdom of Rome, Eastern Rome, Western Rome, Carolingian Empire, etc)
+-Fixed Occupation of Rome Triggered Modifier issue
+-Added Germany (Modern Day)
+-Added Kingdom of Germany
+-Added Unique Decision for Czechoslovakia
+-Improved Anglo-Dutch Union decision
+-Improved British Empire decision
+-Improved Muskogee decision
+-Removed Ming from Qing formable
+-Adjusted various nations to no longer use GER tag, as GER tag is not used.
+
+4.1.6
+
+-Added Mercia
+-Added Muskogee (credit to @The Scarlet Pimpernel)
+-Added British Empire
+-Added Mingrelia
+-Added Central African Empire
+-Added Tu'i Tonga Empire
+-various fixes
+-various code improvements
+
+4.1.5
+
+-Fixed Soviet Union issue
+-Fixed Turkey issue
+-Fixed Startup Settings issue
+-Improved and overhauled the Startup Historical Settings localisation
+
+4.1.4
+
+-Fixed Turkey localisation issue
+-Fixed Great Britain issues
+-Fixed Luhansk issue
+-Various fixes
+
+4.1.3
+
+-Fixed localization issue
+-Fixed Rhodesia ideas issue
+-Reorganized Idea Localisation file
+
+4.1.2
+
+-Fixed various issues
+-Added Oklahoma
+-Added Chicago
+-Added Soviet Union Government and Reform
+-Fixed Soviet Union ideas issue
+-Fixed Armenia Kingdom issue
+-Fixed Belarus-Soviet Tag issue
+-Fixed Jagiellonian Empire issue
+-Fixed Jerusalem issue
+-Fixed Lan Xang issue
+-Fixed Madagascar issue
+-Fixed Malaya issue
+-Fixed Mali issue
+-Fixed Malta issue
+-Fixed Occitania issue
+-Fixed Persia issue
+-Fixed Rajput issue
+-Fixed Taiping issue
+-Fixed Soviet Union issue
+-Fixed Roman Empire issue
+-Fixed Russian Empire issue
+-Fixed Portugal decision issues
+-Fixed North German Confederation issue
+-Fixed Anglois Icon localisastion issue
+-Improved Donetsk and Luhansk
+-Some event fixes, but lots to be done for events
+
+4.1.1
+
+-Fixed Arabian Empire issue
+-Fixed Deccan issues
+-Fixed Tunis issues
+-Fixed Puntland Issues
+-Fixed Austria issues
+-Fixed Delhi issues
+-Fixed Westphalia issues
+-Fixed Italian issue
+-Fixed Greece issue
+-Fixed Hausa issue
+-Fixed European Union issue
+-Fixed Celtic Union issue
+-Fixed Ruthenia issue
+-Fixed Yuan issue
+-Fixed Westfalen issue
+-Fixed Two Sicilies issue
+-Fixed Spanish Empire issue
+-Fixed Texas issue
+-Fixed Orissa issue
+-Fixed Tatarstan issue
+-Fixed Brazil issue
+-Fixed Bhutan issue
+-Fixed Historical Mode issue
+-Fixed Latin Empire issue
+-Fixed Byzantium issue
+-Fixed Dalmatian issue
+-Fixed Islamic State issue
+-Fixed Great Britain issue
+-Fixed Roman Republic issue
+-Fixed Papal State Government Reform issue
+-Fixed Kingdom of God localisation issue
+-Fixed misssing Qing Celestial Empire reform - TODO
+-Fixed missing The Horde flag
+-Fixed missing TAGs for some formables
+-Fixed missing National Ability localisation
+-Fixed and improved Mongol Empire decision
+-Fixed Axumite issues
+-Fixed Almoravid issues
+-Fixed Bukhara issues
+-Fixed LOTS of various unlisted issues that I forgot to track while editing (1)
+-Changed Arabian Kingdom to Arabian Kingdom of Syria
+-Added Unique Decisions to Latin Empire and all historical crusader nations allowing you to restore the Crusader States
+-Added County of Edessa
+-Added Principality of Antioch
+-Added County of Tripoli
+-Added Ukraine
+-Added Unique Content for Ukraine - TODO
+-Added Donetsk People's Republic -TODO
+-Added Luhansk People's Republic -TODO
+-Added Western Roman Empire
+-Added Ukranian Culture
+-Added Rhodesia Unique Ideas (Courtesy of InternationalHistorian)
+-Added Startup Formable Nations setting
+-Eastern Roman Empire improvements
+-Kurland improvements
+-Taiping improvements - TODO
+-Roman Republic improvments - TODO
+-Spanish Empire improvements - TODO
+-Syrian Kingdom of Arabia improvements - TODO
+-Ethiopia and Abyssinia can no longer form Puntland
+-Removed Taiping Heavenly Kingdom [You will instead have unique decision for Taiping to declare the Heavenly Kingdom]
+-Removed Islamic Emirate of Afganistan [You will isntead have unique decision for Taliban to declare Islamic Emirate of Afghanistan]
+-Removed Great Britain General Formation
+-Our Place in the Empire improved, you will now be notified when a country leaves the Empire
+-Crusader States already added, but improved just now with correct reforms
+
+4.1.0
+
+-Major compatability overhaul [Will now be compatible with other formable mods]
+-Major update containing multiple commits [4.0.30, 4.0.31, 4.0.32, 4.0.33, 4.0.34, 4.0.35, and 4.0.36]
+-Massive localisation overhaul to prevent localisation issues
+-Changed idea description update to 4.2.0, this is time consuming but will be done soon and has been pushed back for bug fixes
+-Fixed various issues such as westfalian nation being unformable due to typo
+-Fixed over 800+ localisation issues
+-Fixed random ship names and leader names issues
+-Github folders will no longer be included in the download, this decreases the download size significantly. [53.4MB less to download]
+
+4.0.36
+
+-Bug Fixes
+
+4.0.35
+
+-Bug Fixes
+
+4.0.34
+
+-Italian Empire improvements
+-Saluzzo can now form Sardinia-Piedmont
+-Added Latin Empire
+-Added Missing Dalmatia formable
+-Improved Dalmatia
+
+4.0.33
+
+-Tuscan and Italian nations will not show if you are a republic, instead of being hidden from view
+-Fixed Omani Empire formation issue
+
+4.0.32
+
+-European Union Improvements
+-Omani Empire fixes
+
+4.0.31
+
+-Japan can now be formed by Japanese Culture nations that are not Daimyo or Shogun
+-Japan Improvements
+-Added Omani Empire
+-Fixed Islamic Emirate of Afghanistan not included but should be
+-Fixed Russian Tsardom Issues
+-Fixed Russian Empire Issues
+-Added monthly_militarized_society Debuff to German Empire custom government
+-Fixed tengoku issue
+-Fixed Mexico & USCA issues
+-Various bugfixes and localisation fixes
+
+4.0.30
+
+-Fixed Canada Issues
+-Fixed Quebec Issues
+-Fixed German Empire Event issue
+-Changed Canada flag to Modern flag
+
+4.0.29
+
+-Added the Langobards and seperated Lombardy and Langobards into two different decisions
+-German Empire Fixes
+-German Empire Improved
+-German Empire +3 New Custom Events
+-Baltic Union Improved
+-Our Place in the Empire Event Improved
+-Various bugfixes
+
+4.0.28
+
+-Fixed Startup Historical Settings date issue
+-Fixed Mexico being able to form Iberian nations
+-Fixed Anarcho-Communist Government bug
+-Fixed Prussian Monarchy localisation issue
+-Fixed Extra Spacing Issues
+-Fixed Various government reform tooltip issues
+-Fixed missing shimabara event localisation
+-Fixed Great Britain formation issue
+-Fixed Mongol Empire issues
+-Fixed Yuan Issues
+-Improved German Empire decision
+-Improved Brandenburg-Prussia decision
+-Improved Prussia decision
+-Improved Dual Monarchy decision
+-Improved European Union decision
+-Improved Great Britain decision
+-Improved Mongol Empire decision
+-Improved Flee to Brazil decision
+-Added the Langobards and seperated Lombardy and Langobards into two different decisions
+-Removed Prussian_Nation_Brandenburg for Prussian_Nation_Brandenburg_Prussia to correct prussia formation line
+-Removed Carpathian culture group from Romanian decision
+-Changed United Kingdom of Bosnia-Serbia Name to Bosnia-Serbia; it will have a unique government soon to replace this.
+-Prussia decisions fixes
+-Prussia decisions Improvements
+-German Empire decision Improvements
+-United Kingdom Ideas Adjusted
+-Brandenburg-Prussia Ideas Adjusted
+-Serbian Empire Ideas Adjusted
+-Serbian Empire Idea localisation fixes
+
+4.0.27
+
+-Updated and Improved Prussian formations
+-Updated Brandenburg-Prussia flag
+-Fixed Maknovia formation bug
+-Fixed Lombardy decision
+-Improved flee to brazil decision
+-various other fixes
+
+4.0.26
+
+-Fixed Startup Historical Setting issue
+-Fixed Makhnovia Government Issue
+-Fixed Makhnovia Ruler Issue
+-various other fixes
+
+4.0.25
+
+-Almoravid added
+-Shimabura Rebellion now functional
+-Tengoku Revolt now functional
+-various events and decisions improved
+-Changed Carolingian Empire Colour
+-Added Historical Mode decision
+-Iberian Union AI Importance reduced from 400 to 300
+-North Africa formables changed from 10 to 15 tech req
+
+
+4.0.24
+
+-Carolingian Empire added
+-Scythians Added
+-Somalia Added
+-Chad Added
+-Ghana Empire Added
+-Hawaii Added
+-Isreal Added
+-Aksumite Added
+-Kenya Added
+-Rhodesia Added
+-Kanem Bornu Empire Added
+-Puntland Added
+-Makhnovia Added
+-Egypt Updated with unique Mamluks decision
+-Turan and Catholica Russica fixed
+-PRC Reforms fixed
+-Tengoku Disaster Improved and now functional
+-Romania no longer too limited in formation reqs
+-Kingdom of God / Gods Kingdom Fixed and Improved
+-Wendish Empire no longer can be formed by Germanic culture
+-New Custom Government [Type Stateless Society] for special countries
+-New Custom Reform [Anarcho-Communist] for special countries
+-Kalmar Union Flag Fixed
+-Armenian Empire Flag Fixed
+-Compatibility improvements
+-monarch_names fixes
+-Lots of Bugfixes
+-Lots of changes I forgot to log
+-Added github changes file

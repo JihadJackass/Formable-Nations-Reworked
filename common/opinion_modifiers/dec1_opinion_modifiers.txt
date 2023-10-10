@@ -1,0 +1,7 @@
+##################################################
+# Formable Nations: Reworked - Opinion Modifiers #
+##################################################
+
+dec1_taiping_rebellion_leader = {
+	opinion = -1000
+}

@@ -1,0 +1,392 @@
+country_decisions = {
+
+	############################
+	# Taiping Heavenly Kingdom #
+	############################
+
+	dec1_taiping_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_taiping_flag
+				exists = TPP
+				tag = TPP
+				tag = MNG
+				tag = PRC
+				tag = PAP
+			}
+			OR = {
+				primary_culture = jianghuai
+				primary_culture = wu
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 1 # Taiping Rebellion will fire it mainly
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = zhejiang_area
+				area = south_jiangsu_area
+			}
+			NOT = { owned_by = ROOT }
+			NOT = { is_core = ROOT }
+		}
+		allow = {
+			AND = { # Is WUU at war with Ming in the Taiping Rebellion
+				tag = WUU
+				war_with = MNG
+				MNG = { has_disaster = dec1_taiping_rebellion }
+			}
+			zhejiang_area = {
+				type = all
+				owned_by = ROOT
+			}
+			south_jiangsu_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+	 	effect = {
+			change_tag = TPP # Country TAG
+			set_country_flag = formed_taiping_flag # Country Formation Flag
+			custom_tooltip = form_taiping_tt_2 # New Missions
+			custom_tooltip = form_taiping_tt_3 # Claims
+			if = {
+				limit = {
+					TPP = {
+						is_subject_of = MNG
+					}
+				}
+				MNG = { release = TPP }
+			}
+			change_religion = catholic
+			zhejiang_area = { change_religion = catholic }
+			south_jiangsu_area = { change_religion = catholic }
+			# instead of conversion an Event to asian countries, unique event to CHINAEMPEROR & Taiping
+			custom_tooltip = dec1_decisions_blank
+			TPP = { # Capital change and bonuses
+				set_capital = 1821 # Nanjing
+				1821 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+			#			NOT = { has_idea_group = TPP_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+			#	add_country_modifier = {
+			#		name = dec1_christian_bulwark_of_christianaty
+			#		duration = 49275
+			#	}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	####################################
+	# Taiping Heavenly Kingdom as Ming #
+	####################################
+
+	dec1_breakaway_as_taiping_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			tag = QNG
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_taiping_flag
+				exists = TPP
+				tag = TPP
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = zhejiang_area
+				area = south_jiangsu_area
+			}
+			NOT = { owned_by = ROOT }
+			NOT = { is_core = ROOT }
+		}
+		allow = {
+			AND = { # Is WUU at war with Ming in the Taiping Rebellion
+				tag = WUU
+				war_with = MNG
+				MNG = { has_disaster = dec1_taiping_rebellion }
+			}
+			zhejiang_area = {
+				type = all
+				owned_by = ROOT
+			}
+			south_jiangsu_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+	 	effect = {
+			change_tag = TPP # Country TAG
+			set_country_flag = formed_taiping_flag # Country Formation Flag
+			custom_tooltip = form_taiping_tt_2 # New Missions
+			custom_tooltip = form_taiping_tt_3 # Claims
+			if = {
+				limit = {
+					TPP = {
+						is_subject_of = MNG
+					}
+				}
+				MNG = { release = TPP }
+			}
+			change_religion = catholic
+			zhejiang_area = { change_religion = catholic }
+			south_jiangsu_area = { change_religion = catholic }
+			# instead of conversion an Event to asian countries, unique event to CHINAEMPEROR & Taiping
+			custom_tooltip = dec1_decisions_blank
+			TPP = { # Capital change and bonuses
+				set_capital = 1821 # Nanjing
+				1821 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+			#			NOT = { has_idea_group = TPP_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+			#	add_country_modifier = {
+			#		name = dec1_christian_bulwark_of_christianaty
+			#		duration = 49275
+			#	}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Relocate Capital to Ningbo for Defense
+
+	dec1_relocate_capital_to_ningbo = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			OR = {
+				tag = TPP
+				tag = WUU
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = zhejiang_area
+			}
+			NOT = { owned_by = ROOT }
+			NOT = { is_core = ROOT }
+		}
+		allow = {
+			zhejiang_area = {
+				type = all
+				owned_by = ROOT
+				religion = catholic
+			}
+		}
+	 	effect = {
+			set_capital = 2149
+			2149 = {
+				change_trade_goods = salt
+				add_building = fort_15th
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	###############################################################################################
+	# Can Change Name from Taiping to Heavenly Kingdom upon full conversion of China to Catholic) #
+	###############################################################################################
+
+	dec1_taiping_heavenly_kingdom = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			tag = TPP
+		}
+		provinces_to_highlight = {
+			OR = {
+				region = north_china_region
+				region = south_china_region
+				region = xinan_region
+			}
+			NOT = { owned_by = ROOT }
+			NOT = { is_core = ROOT }
+		}
+		allow = {
+			OR = {
+				AND = { # Conversion
+					north_china_region = {
+						type = all
+						religion = catholic
+					}
+					south_china_region = {
+						type = all
+						religion = catholic
+					}
+					xinan_region = {
+						type = all
+						religion = catholic
+					}
+				}
+				AND = { # Conquest
+					north_china_region = {
+						type = all
+						owned_by = ROOT
+					}
+					south_china_region = {
+						type = all
+						owned_by = ROOT
+					}
+					xinan_region = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+			}
+		}
+	 	effect = {
+			override_country_name = dec1_taiping_heavenly_kingdom_name # Heavenly Kingdom
+			add_prestige = 20
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Shorten and Formalize name to Heavenly Kingdom
+
+}

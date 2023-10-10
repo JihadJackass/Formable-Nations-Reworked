@@ -1,0 +1,144 @@
+country_decisions = {
+
+	dec1_restore_dai_viet = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			primary_culture = vietnamese
+			NOT = {
+				has_country_flag = formed_dai_viet_flag
+				exists = DAI
+				tag = DAI
+				tag = PAP
+				tag = HLR
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					OR = {
+						area = vietnam_area
+						area = red_river_delta_area
+					}
+					OR = {
+						NOT = { owned_by = ROOT }
+						NOT = { is_core = ROOT }
+					}
+				}
+				AND = {
+					ROOT = { NOT = { tag = TOK } }
+					owned_by = TOK
+				}
+				AND = {
+					ROOT = { NOT = { tag = ANN } }
+					owned_by = ANN
+				}
+			}
+		}
+		allow = {
+			NOT = { exists = DAI }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			
+			vietnam_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			red_river_delta_area = {
+				type = all
+				owned_by = ROOT
+				is_core = ROOT
+			}
+			OR = {
+				tag = TOK
+				NOT = { exists = TOK }
+			}
+			OR = {
+				tag = ANN
+				NOT = { exists = ANN }
+			}
+		}
+		effect = {
+			change_tag = DAI # Country TAG
+			set_country_flag = formed_dai_viet_flag # Country Formation Flag
+			custom_tooltip = form_dai_viet_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			DAI = { # Capital change and bonuses
+				set_capital = 134 # Wien
+				134 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Claims
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = DAI_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_restore_dai_viet
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200 #
+	}
+}

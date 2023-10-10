@@ -1,0 +1,201 @@
+country_decisions = {
+
+	dec1_restore_mongol_empire = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			NOT = {
+				has_country_flag = mongol_empire_flag
+				exists = MGE
+				tag = MGE
+				tag = HLR
+				tag = ROM
+				tag = PAP
+			}
+			OR = {
+				OR = {
+					tag = YUA
+					tag = GLH
+					tag = ILK
+				}
+				OR = {
+					AND = {
+						culture_group = altaic
+						total_development = 500
+					}
+					AND = {
+						culture_group = tartar
+						total_development = 500
+					}
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					OR = {
+						AND = {
+							region = mongolia_region
+							is_empty = no
+						}
+						region = central_asia_region
+						region = crimea_region
+						province_id = 1816
+						province_id = 1821
+						province_id = 667
+					}
+					NOT = { owned_by = ROOT }
+				}
+				AND = {
+					OR = {
+						region = khorasan_region
+						region = persia_region
+						province_id = 295
+						province_id = 280
+					}
+					NOT = {
+						country_or_non_sovereign_subject_holds = ROOT
+					}
+				}
+			}
+		}
+		allow = {
+			OR = {
+				OR = {
+					tag = YUA
+					tag = GLH
+					tag = ILK
+				}
+				OR = {
+					AND = {
+						culture_group = altaic
+						total_development = 500
+					}
+					AND = {
+						culture_group = tartar
+						total_development = 500
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = mongolia_decision_tooltip
+				mongolia_region = {
+					type = all
+					OR = {
+						is_empty = yes
+						owned_by = ROOT
+					}
+				}
+			}
+			central_asia_region = {
+				type = all
+				owned_by = ROOT
+			}
+			crimea_region = {
+				type = all
+				owned_by = ROOT
+			}
+			1816 = { owned_by = ROOT } # beijing
+			1821 = { owned_by = ROOT }
+			667 = { owned_by = ROOT }
+			khorasan_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			persia_region = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			295 = { country_or_non_sovereign_subject_holds = ROOT }
+			280 = { country_or_non_sovereign_subject_holds = ROOT }
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+		}
+		effect = {
+			change_tag = MGE # Country TAG
+			set_country_flag = mongol_empire_flag # Country Formation Flag
+			custom_tooltip = form_mongol_empire_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			if = { # Remove the Empire of China if ROOT is current emperor
+				limit = {
+					is_emperor_of_china = yes
+				}
+				dismantle_empire_of_china = yes
+			}
+			MGE = { # Capital change and bonuses
+				set_capital = 2190 #
+				2190 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_tribal # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_great_mongol_state
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = great_mongol_state_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = horde_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+					custom_tooltip = dec1_decisions_blank
+				}
+                country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_temujins_legacy_reborn
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

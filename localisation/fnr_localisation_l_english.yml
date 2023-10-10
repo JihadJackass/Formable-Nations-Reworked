@@ -1,0 +1,26 @@
+﻿l_english:
+
+# Unique
+
+    dec1_embrace_our_culture_title: "Embrace Ukrainian Culture"
+    dec1_embrace_our_culture_desc: "Embrace Ukrainian Culture"
+
+  #############################
+  # COUNTRY FLAG LOCALIZATION #
+  #############################
+
+    dec1_democratic_socialism_enforced_tt: "Democratic Socialism Enforced"
+
+    dec1_ming_wins_tpp_rebellion_tt: "§YMing§! won Taiping Rebellion"
+
+    dec1_proclaim_aksumite_empire_flag: "Proclaimed the Aksumite Empire"
+
+
+  ####################
+  # AI Personalities #
+  ####################
+
+    dec1_anglois_icon_personality: "Anglois Icon"
+    desc_dec1_anglois_icon_personality: "This ruler has become a true icon for the Anglois religion."
+    dec1_anglois_icon_personality_die_desc: "A great loss!"
+

@@ -1,0 +1,272 @@
+country_decisions = {
+
+	dec1_mingrelia_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			OR = { # Can either be Georgian or Caucasian Group if grown by 35 dev
+				primary_culture = georgian
+				AND = {
+					culture_group = caucasian
+					NOT = { primary_culture = georgian }
+					grown_by_development = 35
+				}
+			}
+			NOT = {
+				has_country_flag = formed_mingrelia_flag
+				exists = MGN
+				tag = MGN
+				tag = CAU
+				tag = PAP
+				tag = EUR
+				tag = ARE
+				tag = ARM
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 6
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = imereti_area
+				area = kartli_kakheti_area
+				area = samtskhe_area
+				area = armenia_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 15
+			NOT = { exists = MGN }
+			is_at_war = no
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			imereti_area = {
+				type = all
+				owned_by = ROOT
+			}
+			kartli_kakheti_area = {
+				type = all
+				owned_by = ROOT
+			}
+			samtskhe_area = {
+				type = all
+				owned_by = ROOT
+			}
+			armenia_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+	 	effect = {
+			change_tag = MGN # Country TAG
+			set_country_flag = formed_mingrelia_flag # Country Formation Flag
+			custom_tooltip = form_mingrelia_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			MGN = { # Capital change and bonuses
+				set_capital = 2204 # Zugdidi
+				2204 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# New Missions
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = MGN_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_georgian_legacy
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Sign Patronage Treaty with Russia (Mingrelia becomes a vassal of Russia)
+
+	dec1_mingrelia_russia_patronage_treaty = {
+		potential = {
+			tag = MGN
+			any_neighbor_country = {
+				OR = {
+					tag = RUS
+					tag = RSE
+					tag = RSP
+					tag = RSF
+					tag = RSC
+				}
+			}
+		}
+		allow = {
+			tag = MNG
+			NOT = {
+				is_subject = no
+				OR = {
+					war_with = RUS
+					war_with = RSE
+					war_with = RSP
+					war_with = RSF
+					war_with = RSC
+				}
+			}
+			any_neighbor_country = {
+				OR = {
+					tag = RUS
+					tag = RSE
+					tag = RSP
+					tag = RSF
+					tag = RSC
+				}
+			}
+		}
+		effect = {
+			add_prestige = 5
+			if = {
+				limit = {
+					any_neighbor_country = {
+						tag = RUS
+					}
+				}
+				RUS = {
+					create_subject = {
+						subject_type = vassal
+						subject = MNG
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_neighbor_country = {
+						tag = RSE
+					}
+				}
+				RSE = {
+					create_subject = {
+						subject_type = vassal
+						subject = MNG
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_neighbor_country = {
+						tag = RSP
+					}
+				}
+				RSP = {
+					create_subject = {
+						subject_type = vassal
+						subject = MNG
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_neighbor_country = {
+						tag = RSF
+					}
+				}
+				RSF = {
+					create_subject = {
+						subject_type = vassal
+						subject = MNG
+					}
+				}
+			}
+			if = {
+				limit = {
+					any_neighbor_country = {
+						tag = RSC
+					}
+				}
+				RSC = {
+					create_subject = {
+						subject_type = vassal
+						subject = MNG
+					}
+				}
+			}
+		}
+	}
+}

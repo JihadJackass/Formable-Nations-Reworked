@@ -1,0 +1,158 @@
+country_decisions = {
+
+	#############
+	# Makhnovia #
+	#############
+
+	dec1_makhnovia_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			primary_culture = mishary
+			NOT = {
+				num_of_cities = 15 # does NOT have more than 9 cities
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_makhnovia_flag
+				exists = MKX
+				tag = MKX
+				tag = POL
+				tag = PAP
+				tag = PLC
+				tag = HLR
+				tag = TUR
+				tag = TRR
+				tag = SOV
+				tag = GOL
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1974
+				province_id = 2412
+				province_id = 283
+				province_id = 2411
+				province_id = 2413
+				province_id = 291
+				province_id = 290
+				province_id = 286
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = MKX }
+
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			owns = 1974
+			owns = 2412
+			owns = 283
+			owns = 2411
+			owns = 2413
+			owns = 291
+			owns = 290
+			owns = 286
+		}
+		effect = {
+			change_tag = MKX # Country TAG
+			set_country_flag = formed_makhnovia_flag # Country Formation Flag
+			custom_tooltip = form_makhnovia_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			MKX = { # Capital change and bonuses
+				set_capital = 2412 # Kyzyl-Yar
+				2412 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_1
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_stateless_society # Government Type Change
+				}
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 1
+								}
+							}
+						set_government_rank = 1
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = tribal
+								}
+							}
+						change_government = tribal
+					}
+					add_government_reform = stateless_society
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+			#			NOT = { has_idea_group = MKX_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+			#	add_country_modifier = {
+			#		name = dec1_revolutionary_anarchism
+			#		duration = 49275
+			#	}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+}

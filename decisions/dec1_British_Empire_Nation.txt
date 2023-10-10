@@ -1,0 +1,473 @@
+country_decisions = {
+
+	######################
+	# The British Empire #
+	######################
+
+	dec1_british_empire_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			tag = GBR
+			NOT = {
+				has_country_flag = formed_british_empire_flag
+				exists = BEM
+				exists = ENG
+				tag = BEM
+				tag = ENG
+				tag = PAP
+				tag = HLR
+				tag = EUR
+				tag = AVE
+				tag = DUM
+				tag = USA
+				tag = CSA
+			}
+			OR = {
+				culture_group = british
+				primary_culture = welsh
+				primary_culture = irish
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 6
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				# Core Regions
+				region = british_isles_region
+				region = northeast_america_region
+				region = southeast_america_region
+				region = canada_region
+				region = hudson_bay_region
+				region = australia_region
+				# British Guyana
+				province_id = 745
+				province_id = 2937
+				# British Mexico
+				province_id = 4589
+				province_id = 843
+				# British Jamaica
+				province_id = 487
+				# British Bahamas
+				province_id = 483
+				province_id = 482
+				# Wayward Islands
+				province_id = 502
+				province_id = 500
+				province_id = 501
+				province_id = 499
+				province_id = 497
+				province_id = 495
+				province_id = 1881
+				province_id = 493
+				# Bermuda
+				province_id = 481
+				# Falklands
+				province_id = 1095
+				province_id = 2025
+				# St. Halena
+				province_id = 1098
+				# African Possessions
+				province_id = 2239
+				province_id = 1118
+				province_id = 1138
+				province_id = 1139
+				area = benin_area
+				area = lower_niger_area
+				area = zazzau_area
+				area = upper_zambezi_area
+				area = buha_area
+				area = tanzania_area
+				area = mombasa_area
+				area = kenya_area
+				area = jubba_area
+				area = somaliland_area
+				# South Africa
+				area = cape_of_good_hope_area
+				area = south_african_plateau_area
+				area = transvaal_area
+				province_id = 1181
+				province_id = 789
+				province_id = 1184
+				# Eastern Africa
+				area = butua_area
+				province_id = 1190
+				# India
+				region = deccan_region
+				region = coromandel_region
+				region = bengal_region
+				region = hindusthan_region
+				region = west_india_region
+				# Indochina
+				region = bengal_region
+				province_id = 591
+				province_id = 2404
+				area = johor_area
+				area = malaya_area
+				area = malacca_area
+				province_id = 4812
+				province_id = 4813
+				province_id = 2394
+				# Indian Ocean Isles
+				province_id = 1347
+				province_id = 1101
+				province_id = 1248
+				province_id = 1102
+				province_id = 1099
+				# New Zealand
+				# Oceania
+				province_id = 1236
+				province_id = 1238
+				province_id = 1239
+				area = polynesia_area
+				area = fiji_area
+				# Indonesia
+				# Brunei
+				province_id = 4804
+				province_id = 640
+				area = brunei_area
+				province_id = 637
+				province_id = 2703
+				# Papau
+				area = papua_area
+				# Gibraltar
+				province_id = 226
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = BEM }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			OR = {
+				AND = {
+					num_of_cities = 150
+				}
+				AND = {
+					# London
+					owns = 236
+					owns = 235
+					owns = 4371
+					owns = 237
+						# East Anglia
+					owns = 238
+					owns = 1860
+					owns = 4370
+						# Wessex
+					owns = 234
+					owns = 4374
+					owns = 4130
+					owns = 4373
+					owns = 233
+						# West Midlands
+					owns = 239
+					owns = 240
+					owns = 4372
+					owns = 4375
+					owns = 244
+						# East Midlands
+					owns = 243
+					owns = 4376
+					owns = 1861
+						# Yorkshire
+					owns = 245
+					owns = 4367
+					owns = 4368
+						# Wales
+					owns = 241
+					owns = 4366
+					owns = 4369
+					owns = 242
+						# Scottish Marches
+					owns = 246
+					owns = 247
+						# Mann
+					owns = 4365
+						# Scotland
+					owns = 248
+					owns = 249
+					owns = 251
+					owns = 4361
+					owns = 4362
+					# Core Regions
+					british_isles_region = {
+						type = all
+						owned_by = ROOT
+					}
+					northeast_america_region = {
+						type = all
+						owned_by = ROOT
+					}
+					southeast_america_region = {
+						type = all
+						owned_by = ROOT
+					}
+					canada_region = {
+						type = all
+						owned_by = ROOT
+					}
+					hudson_bay_region = {
+						type = all
+						owned_by = ROOT
+					}
+					australia_region = {
+						type = all
+						owned_by = ROOT
+					}
+					# British Guyana
+					owns = 745
+					owns = 2937
+					# British Mexico
+					owns = 4589
+					owns = 843
+					# British Jamaica
+					owns = 487
+					# British Bahamas
+					owns = 483
+					owns = 482
+					# Wayward Islands
+					owns = 502
+					owns = 500
+					owns = 501
+					owns = 499
+					owns = 497
+					owns = 495
+					owns = 1881
+					owns = 493
+					# Bermuda
+					owns = 481
+					# Falklands
+					owns = 1095
+					owns = 2025
+					# St. Halena
+					owns = 1098
+					# African Possessions
+					owns = 2239
+					owns = 1118
+					owns = 1138
+					owns = 1139
+					benin_area = {
+						type = all
+						owned_by = ROOT
+					}
+					lower_niger_area = {
+						type = all
+						owned_by = ROOT
+					}
+					zazzau_area = {
+						type = all
+						owned_by = ROOT
+					}
+					# South Africa
+					cape_of_good_hope_area = {
+						type = all
+						owned_by = ROOT
+					}
+					south_african_plateau_area = {
+						type = all
+						owned_by = ROOT
+					}
+					transvaal_area = {
+						type = all
+						owned_by = ROOT
+					}
+					owns = 1181
+					owns = 789
+					owns = 1184
+					# Eastern Africa
+					butua_area = {
+						type = all
+						owned_by = ROOT
+					}
+					owns = 1190
+					# India
+					deccan_region = {
+						type = all
+						owned_by = ROOT
+					}
+					coromandel_region = {
+						type = all
+						owned_by = ROOT
+					}
+					bengal_region = {
+						type = all
+						owned_by = ROOT
+					}
+					hindusthan_region = {
+						type = all
+						owned_by = ROOT
+					}
+					west_india_region = {
+						type = all
+						owned_by = ROOT
+					}
+					# Indochina
+					bengal_region = {
+						type = all
+						owned_by = ROOT
+					}
+					owns = 591
+					owns = 2404
+					johor_area = {
+						type = all
+						owned_by = ROOT
+					}
+					malaya_area = {
+						type = all
+						owned_by = ROOT
+					}
+					malacca_area = {
+						type = all
+						owned_by = ROOT
+					}
+					owns = 4812
+					owns = 4813
+					owns = 2394
+					# Indian Ocean Isles
+					owns = 1347
+					owns = 1101
+					owns = 1248
+					owns = 1102
+					owns = 1099
+					# New Zealand - TODO
+					# Oceania
+					owns = 1236
+					owns = 1238
+					owns = 1239
+					polynesia_area = {
+						type = all
+						owned_by = ROOT
+					}
+					fiji_area = {
+						type = all
+						owned_by = ROOT
+					}
+					# Indonesia - TODO
+					# Brunei
+					owns = 4804
+					owns = 640
+					brunei_area = {
+						type = all
+						owned_by = ROOT
+					}
+					owns = 637
+					owns = 2703
+					# Papau
+					papua_area = {
+						type = all
+						owned_by = ROOT
+					}
+					# Gibraltar
+					owns = 226
+				}
+			}
+		}
+		effect = {
+			change_tag = BEM # Country TAG
+			set_country_flag = formed_british_empire_flag # Country Formation Flag
+			custom_tooltip = form_british_empire_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			BEM = { # Capital change and bonuses
+				set_capital = 236 # London
+				236 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = english_monarchy
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = GBR_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_the_sunset_empire
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+}

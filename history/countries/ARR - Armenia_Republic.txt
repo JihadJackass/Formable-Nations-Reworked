@@ -1,0 +1,5 @@
+government = republic
+primary_culture = armenian
+religion = coptic
+technology_group = eastern
+capital = 419	# Yerevan

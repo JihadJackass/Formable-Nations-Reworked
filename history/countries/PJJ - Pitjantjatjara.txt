@@ -1,0 +1,5 @@
+government = monarchy
+technology_group = western
+religion = dreamtime
+primary_culture = gunwinyguan
+capital = 2728

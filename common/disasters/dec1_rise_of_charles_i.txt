@@ -1,0 +1,50 @@
+
+	# Rise of Charles I
+
+	# This event can fire if you take the Republic option during government crisis, and will lead to the Republic of England with custom government
+	# Can lead to the execution of charles I and the rise of Oliver Cromwell
+
+	dec1_rise_of_charles_i = {
+
+		potential = {
+			tag = ENR
+		}
+
+		can_start = {
+			has_any_disaster = no
+			NOT = { stability = 1 }
+		}
+
+		can_stop = {
+			has_any_disaster = yes
+		}
+
+		progress = {
+			modifier = { # Stability not at least 1
+				factor = 0.5
+				NOT = { stability = 1 }
+			}
+		}
+
+		modifier = {
+			global_unrest = 5
+		}
+
+		can_end = {
+			OR = {
+				has_ruler = "Charles I"
+				has_ruler = "Oliver Cromwell"
+			}
+		}
+
+		#on_start = dec1_disaster_events.1
+		#on_end = dec1_disaster_events_anglois_civil_war.100
+
+		on_monthly = {
+			events = { }
+			random_events = {
+				1000 = 0
+			}
+		}
+	}
+

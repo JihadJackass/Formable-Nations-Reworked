@@ -1,0 +1,193 @@
+country_decisions = {
+
+#  	  O  O  O  O  O         _
+#                          | |
+#  ___ __ _ _ __   __ _  __| | __ _
+# / __/ _` | '_ \ / _` |/ _` |/ _` | !
+#| (_| (_| | | | | (_| | (_| | (_| | !
+# \___\__,_|_| |_|\__,_|\__,_|\__,_| !
+#
+#	I S  T H E  G R E A T E S T  !
+#
+#####->Quebec shall never be free... sorry eh? ):
+#
+
+	dec1_canada_nation = {
+		major = yes
+		potential = {
+			NOT = {
+				has_country_flag = changed_from_colonial_nation
+				has_country_flag = formed_canada_flag
+				exists = CAN
+				tag = CAN
+				tag = PAP
+			}
+			capital_scope = { # Has a capital in Colonial Region
+				colonial_region = colonial_canada
+				is_core = ROOT
+			}
+			OR = {
+				AND = { # Natives have reformed religion, and has at least 10 provinces
+					is_religion_reformed = yes
+					num_of_cities = 10
+				}
+				# is former colonial nation
+				is_former_colonial_nation = yes
+				# is current colonial nation
+				is_colonial_nation = yes
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 12 # Colonial Nation owns at least 12 provinces
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				colonial_region = colonial_canada
+			}
+			NOT = { owned_by = ROOT }
+			NOT = { is_core = ROOT }
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = CAN }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_colonial_nation = no
+			is_former_colonial_nation = yes
+			is_at_war = no
+			OR = {
+				AND = { # Unique Formation for 🇨🇦 !
+					# > subject of England, or Great Britain, or an English tag
+					# > has a capital in ontario region
+				}
+				AND = { # Normal formation
+					owns = 991
+					num_of_cities = 12 # Colonial nations need 12
+				}
+			}
+		}
+		effect = {
+			change_tag = CAN # Country TAG
+			set_country_flag = formed_canada_flag # Country Formation Flag
+			set_country_flag = changed_from_colonial_nation # Colonial Nation flag
+			custom_tooltip = form_canada_tt_2 # New Missions
+			custom_tooltip = form_canada_tt_3 # Region/Area Claims
+			custom_tooltip = dec1_decisions_blank
+			CAN = { # Capital change and bonuses
+				set_capital = 991
+				991 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Changes
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Region/Area Claims
+					colonial_canada = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = CAN
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = colonial_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_great_white_north
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Expulsion of the Acadians
+	# https://en.wikipedia.org/wiki/Expulsion_of_the_Acadians
+
+	# Establish Provincial System
+	# Allows you to establish the historical provinces of Canada, and allows modifiers for each province
+	# will force a parliament system
+
+	# Queen Anne's War - A war can fire between Canada and France over Canadian
+	# Lands, can also work against other great powers
+	# https://en.wikipedia.org/wiki/Queen_Anne%27s_War
+
+	# War against Quebec - Can fire via various events that fire more often the longer canada exists, and forces high autonomy in Quebec, that forces a disaster which spawns quebec and creates a decent chance for them to become independent
+
+	# War of 1812 - Time to take revenge
+
+}

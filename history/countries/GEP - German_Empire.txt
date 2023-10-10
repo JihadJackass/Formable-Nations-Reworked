@@ -1,0 +1,5 @@
+government = monarchy
+technology_group = western
+primary_culture = saxon
+religion = protestant
+capital = 50 # Berlin

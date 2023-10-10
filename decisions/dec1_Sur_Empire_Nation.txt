@@ -1,0 +1,284 @@
+country_decisions = {
+
+	dec1_sur_empire_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			OR = {
+				culture_group = western_aryan
+				primary_culture = afghani
+			}
+			NOT = {
+				has_country_flag = formed_sur_empire_flag
+				exists = SUR
+				exists = MUG
+				exists = BHA
+				exists = HIN
+				tag = SUR
+				tag = DLH
+				tag = MUG
+				tag = BHA
+				tag = HIN
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 25
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 504 
+				province_id = 4504 
+				province_id = 4503
+				province_id = 2068
+				province_id = 4511
+				province_id = 2087
+				province_id = 4501
+				province_id = 526
+				province_id = 4461
+				province_id = 2057
+				province_id = 550
+				province_id = 2043
+				province_id = 2038
+				province_id = 4487
+				province_id = 4488
+				province_id = 2047
+				province_id = 4486
+				province_id = 2045
+				province_id = 2046
+				province_id = 568
+				province_id = 579
+				province_id = 573
+				area = northern_sindh_area
+				area = multan_area
+				area = jangladesh_area
+				area = lahore_area
+				area = sirhind_area
+				area = upper_doab_area
+				area = gird_area
+				area = bundelkhand_area
+				area = baghelkhand_area
+				area = jharkhand_area
+				area = katehar_area 
+				area = oudh_area
+				area = purvanchal_area
+				area = bihar_area
+				area = west_bengal_area
+				area = gaur_area
+				area = east_bengal_area
+				area = tripura_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = SUR }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			owns_core_province = 504 
+			owns_core_province = 4504 
+			owns_core_province = 4503
+			owns_core_province = 2068
+			owns_core_province = 4511
+			owns_core_province = 2087
+			owns_core_province = 4501
+			owns_core_province = 526
+			owns_core_province = 4461
+			owns_core_province = 2057
+			owns_core_province = 550
+			owns_core_province = 2043
+			owns_core_province = 2038
+			owns_core_province = 4487
+			owns_core_province = 4488
+			owns_core_province = 2047
+			owns_core_province = 4486
+			owns_core_province = 2045
+			owns_core_province = 2046
+			owns_core_province = 568
+			owns_core_province = 579
+			owns_core_province = 573
+			northern_sindh_area = {
+				type = all
+				owned_by = ROOT
+			}
+			multan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			jangladesh_area = {
+				type = all
+				owned_by = ROOT
+			}
+			lahore_area = {
+				type = all
+				owned_by = ROOT
+			}
+			upper_doab_area = {
+				type = all
+				owned_by = ROOT
+			}
+			gird_area = {
+				type = all
+				owned_by = ROOT
+			}
+			bundelkhand_area = {
+				type = all
+				owned_by = ROOT
+			}
+			baghelkhand_area = {
+				type = all
+				owned_by = ROOT
+			}
+			jharkhand_area = {
+				type = all
+				owned_by = ROOT
+			}
+			katehar_area = {
+				type = all
+				owned_by = ROOT
+			}
+			oudh_area = {
+				type = all
+				owned_by = ROOT
+			}
+			purvanchal_area = {
+				type = all
+				owned_by = ROOT
+			}
+			bihar_area = {
+				type = all
+				owned_by = ROOT
+			}
+			west_bengal_area = {
+				type = all
+				owned_by = ROOT
+			}
+			gaur_area = {
+				type = all
+				owned_by = ROOT
+			}
+			east_bengal_area = {
+				type = all
+				owned_by = ROOT
+			}
+			tripura_area = {
+				type = all
+				owned_by = ROOT
+			}
+
+		}
+		effect = {
+			change_tag = SUR # Country TAG
+			set_country_flag = formed_sur_empire_flag # Country Formation Flag
+			custom_tooltip = form_sur_empire_tt_1 # New Missions
+			custom_tooltip = form_sur_empire_tt_2 # Claims
+			custom_tooltip = dec1_decisions_blank
+			SUR = { # Capital change and bonuses
+				set_capital = 2044 
+				2044 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# TODO: rename capital to historical afgani name
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Claims
+					every_province = {
+						limit = {
+							culture = afghani
+							NOT = {
+								is_core = SUR
+							}
+						}
+						add_permanent_claim = SUR
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+			#			NOT = { has_idea_group = shan_ideas } TODO: SUR ideas
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+		#		add_country_modifier = {
+		#			name = dec1_confederation_of_the_shan # TODO: sur ability
+		#			duration = 49275
+		#		}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

@@ -1,0 +1,203 @@
+country_decisions = {
+
+	###################################################################
+	# French First Empire (French Empire- Napoleon's Empire & Dynasty #
+	###################################################################
+
+		dec1_french_empire_nation = {
+			major = yes
+			potential = {
+				is_former_colonial_nation = no
+				is_colonial_nation = no
+				tag = FRA
+				NOT = {
+					has_country_flag = formed_french_empire_flag
+					exists = FRE
+					tag = FRE
+					tag = HLR
+					tag = PAP
+					tag = SPA
+					tag = FIB
+					tag = IBE
+					tag = AVE
+					tag = KOJ
+					tag = BSQ
+					tag = CEU
+					tag = LOT
+				}
+				OR = {
+					culture_group = french
+					primary_culture = basque
+					primary_culture = breton
+				}
+				OR = {
+					ai = no
+					AND = {
+						ai = yes
+						num_of_cities = 60
+						grown_by_development = 100
+						adm_tech = 10
+					}
+				}
+			}
+			provinces_to_highlight = {
+				OR = {
+					region = france_region
+				}
+				AND = {
+					NOT = { owned_by = ROOT }
+					NOT = { is_core = ROOT }
+				}
+			}
+			allow = {
+				adm_tech = 15
+				NOT = { exists = FRE }
+				if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+					limit = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+					OR = {
+						is_subject = yes
+						is_subject = no
+					}
+				}
+				if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+					limit = {
+						NOT = {
+							has_global_flag = dec1_subject_formable_nations_enabled
+						}
+					}
+					is_subject = no
+				}
+				is_at_war = no
+				owns = 183 # Paris
+				owns = 197 # Rousillon
+				owns = 1247 # Corsica
+				owns = 102 # Nice
+				OR = {
+					AND = { # Historical
+						is_year = 1804
+						num_of_cities = 70
+					}
+					france_region = { # User-Friendly
+						type = all
+						owned_by = ROOT
+					}
+				}
+			}
+			effect = {
+				change_tag = FRE # Country TAG
+				set_country_flag = formed_french_empire_flag # Country Formation Flag
+				custom_tooltip = form_french_empire_tt_2 # New Missions
+				custom_tooltip = form_french_empire_tt_3 # Claims
+				custom_tooltip = dec1_decisions_blank
+				define_ruler = {
+					name = "Napoleon I"
+					dynasty = "Bonaparte"
+					claim = 100
+					adm = 6
+					dip = 6
+					mil = 6
+					age = 35
+				}
+				define_heir = {
+					name = "Napoleon II"
+					dynasty = "Bonaparte"
+					claim = 100
+					adm = 5
+					dip = 4
+					mil = 5
+					age = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				FRE = { # Capital change and bonuses
+					set_capital = 183 # Paris
+					183 = {
+						add_base_tax = 1
+						add_base_production = 1
+						add_base_manpower = 1
+					}
+					custom_tooltip = dec1_decisions_blank
+					custom_tooltip = dec1_government_rank_3 # Government Rank Change
+					# Dharma DLC check to prevent ugly tooltip
+					if = {
+						limit = {
+							has_dlc = "Dharma"
+						}
+						custom_tooltip = dec1_government_change_monarchy # Government Type Change
+					}
+					# Reform Change
+					custom_tooltip = dec1_government_reform_change_autocracy
+					custom_tooltip = dec1_decisions_blank
+					# Our Place in the Empire Custom Event
+					if = {
+						limit = {
+							is_part_of_hre = yes
+						}
+						country_event = { id = dec1_events.1 }
+					}
+					hidden_effect = { # Hidden Effects to fix bad tooltips
+						# Government Rank change
+						if = {
+							limit = {
+								NOT = {
+									government_rank = 3
+									}
+								}
+							set_government_rank = 3
+						}
+						# Government Type Change
+						if = {
+							limit = {
+								NOT = {
+									government = monarchy
+									}
+								}
+							change_government = monarchy
+						}
+						add_government_reform = autocracy_reform
+					}
+					# Custom Ideas check and change
+					if = {
+						limit = {
+							has_custom_ideas = no
+							NOT = { has_idea_group = FRE_ideas }
+						}
+						country_event = { id = ideagroups.1 }
+					}
+					# Custom Missions check and change
+					country_event = { id = dec1_events.3 }
+					custom_tooltip = dec1_decisions_blank
+					# National Ability
+					add_country_modifier = {
+						name = dec1_the_emperor_general
+						duration = 49275
+					}
+					# Increased Centralization
+					add_country_modifier = {
+						name = dec1_increased_centralization
+						duration = -1
+					}
+				}
+			}
+			ai_will_do = {
+				factor = 1
+			}
+			ai_importance = 200
+		}
+
+	# Proclaim the French Empire (Can lead to Austrian Empire forming)
+
+	##########################
+	# The Continental System #
+	##########################
+
+	##############################
+	# Confederation of the Rhine #
+	##############################
+
+	###########################
+	# Press Historical Claims #
+	###########################
+
+}

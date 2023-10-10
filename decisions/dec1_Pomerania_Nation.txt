@@ -1,0 +1,291 @@
+country_decisions = {
+
+	# Pomerania
+
+	dec1_pomerania_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			primary_culture = pommeranian
+			NOT = {
+				has_country_flag = formed_pomerania_flag
+				exists = POM
+				tag = POM
+				tag = SIL
+				tag = BOH
+				tag = CZE
+				tag = PNT
+				tag = RHO
+				tag = SOM
+				tag = PAP
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					OR = {
+						area = vorpommern_area
+						area = hinter_pommern_area
+					}
+					OR = {
+						NOT = { owned_by = root }
+						NOT = { is_core = root }
+					}
+				}
+				AND = {
+					ROOT = { NOT = { tag = WOL } }
+					WOL = {
+						OR = {
+							num_of_cities = 5
+							NOT = { is_subject_of = ROOT }
+						}
+					}
+					owned_by = WOL
+				}
+				AND = {
+					ROOT = { NOT = { tag = STE } }
+					STE = {
+						OR = {
+							num_of_cities = 5
+							NOT = { is_subject_of = ROOT }
+						}
+					}
+					owned_by = STE
+				}
+				AND = {
+					ROOT = { NOT = { tag = RUG } }
+					RUG = {
+						OR = {
+							num_of_cities = 5
+							NOT = { is_subject_of = ROOT }
+						}
+					}
+					owned_by = RUG
+				}
+			}
+		}
+		allow = {
+			adm_tech = 5
+			NOT = { exists = POM }
+			is_at_war = no
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			if = {
+				limit = { NOT = { tag = WOL } }
+				OR = {
+					NOT = { exists = WOL }
+					WOL = {
+						NOT = { num_of_cities = 5 }
+						is_subject_of = ROOT
+					}
+				}
+			}
+			if = {
+				limit = { NOT = { tag = STE } }
+				OR = {
+					NOT = { exists = STE }
+					STE = {
+						NOT = { num_of_cities = 5 }
+						is_subject_of = ROOT
+					}
+				}
+			}
+			if = {
+				limit = { NOT = { tag = RUG } }
+				OR = {
+					NOT = { exists = RUG }
+					RUG = {
+						NOT = { num_of_cities = 5 }
+						is_subject_of = ROOT
+					}
+				}
+			}
+			vorpommern_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = root
+			}
+			hinter_pommern_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = root
+			}
+		}
+		effect = {
+			change_tag = POM # Country TAG
+			set_country_flag = formed_pomerania_flag # Country Formation Flag
+			custom_tooltip = form_pomerania_tt_2 # New Missions
+			custom_tooltip = form_pomerania_tt_3 # Region/Area Claims
+			if = {
+				limit = {
+					NOT = { tag = WOL }
+					NOT = { tag = STE }
+					NOT = { tag = RUG }
+					NOT = { was_tag = WOL }
+					NOT = { was_tag = STE }
+					NOT = { was_tag = RUG }
+				}
+				swap_non_generic_missions = yes
+			}
+			if = {
+				limit = {
+					WOL = { is_subject_of = ROOT }
+				}
+				inherit = WOL
+			}
+			if = {
+				limit = {
+					STE = { is_subject_of = ROOT }
+				}
+				inherit = STE
+			}
+			if = {
+				limit = {
+					RUG = {
+						is_subject_of = ROOT
+						NOT = { has_reform = pirate_republic_reform }
+					}
+				}
+				inherit = RUG
+			}
+			if = {
+				limit = {
+					any_owned_province = {
+						OR = {
+							area = vorpommern_area
+							area = hinter_pommern_area
+						}
+						OR = {
+							nationalism = 1
+							local_autonomy = 26
+						}
+					}
+				}
+				every_owned_province = {
+					limit = {
+						OR = {
+							area = vorpommern_area
+							area = hinter_pommern_area
+						}
+						OR = {
+							nationalism = 1
+							local_autonomy = 26
+						}
+					}
+					add_nationalism = -10
+					add_local_autonomy = -15
+				}
+			}
+			else = {
+				capital_scope = { add_base_tax = 2 }
+			}
+			custom_tooltip = dec1_decisions_blank
+			SIL = { # Capital change and bonuses
+				set_capital = 1224 # Gonder
+				1224 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Region/Area Claims
+					silesia_area = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = SIL
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { tag = WOL }
+						NOT = { tag = STE }
+						NOT = { tag = RUG }
+						NOT = { was_tag = WOL }
+						NOT = { was_tag = STE }
+						NOT = { was_tag = RUG }
+						NOT = { has_idea_group = SIL_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_house_of_griffin
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+}

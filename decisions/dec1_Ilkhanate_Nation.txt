@@ -1,0 +1,214 @@
+country_decisions = {
+
+	# Restore the Ilkhanate as Independent Empire
+
+	dec1_restore_ilkhanate_decision = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			has_reform = steppe_horde
+			capital_scope = {
+				region = persia_region
+			}
+			NOT = {
+				has_country_flag = formed_ilkhanate_flag
+				dynasty = "Timurid"
+				tag = HLR
+				tag = ROM
+				tag = PAP
+				tag = TIM
+				tag = PER
+				tag = MUG
+				tag = ARB
+			}
+			OR = {
+				culture_group = tartar
+				culture_group = altaic
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 10
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				region = persia_region
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = ILK }
+			is_at_war = no
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_free_or_tributary_trigger = no
+			persia_region = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			change_tag = ILK # Country TAG
+			set_country_flag = formed_ilkhanate_flag # Country Formation Flag
+			custom_tooltip = form_ilkhanate_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			ILK = { # Capital change and bonuses
+				set_capital = 361 # Cairo
+				361 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = ILK_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+					custom_tooltip = dec1_decisions_blank
+				}
+                country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_muslim_mongols
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	# Restore the Ilkhanate as the Mongol Empire / Yuan / Great Horde / Golden Horde
+
+	dec1_restore_ilkhanate_decision_march = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			has_reform = steppe_horde
+			OR = {
+				tag = YUA
+				tag = GLH
+				tag = GOL
+				tag = MGE
+			}
+		}
+		provinces_to_highlight = {
+			region = persia_region
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_at_war = no
+			owns = 4338
+			persia_region = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			set_country_flag = restored_ilkhanate_decision_flag
+			release = ILK
+			create_march = ILK
+			ILK = {
+				change_government = monarchy
+				change_primary_culture = ROOT
+				change_religion = ROOT
+				define_ruler = {
+					dynasty = ROOT
+					culture = ROOT
+					religion = ROOT
+				}
+				persia_region = {
+					limit = {
+						owned_by = ROOT
+					}
+					add_core = ILK
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0
+			modifier = { # Only Ghengis descendents really care about doing this
+				factor = 1
+				tag = YUA
+				tag = GLH
+				tag = GOL
+				tag = MGE
+			}
+		}
+		ai_importance = 300 # for the tribes!
+	}
+}

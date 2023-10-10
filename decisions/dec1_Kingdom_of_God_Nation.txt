@@ -1,0 +1,132 @@
+country_decisions = {
+
+	##################################################################
+	# Gods Kingdom - The Papal Formable Nation upon conquering Italy #
+	##################################################################
+
+	dec1_kingdom_of_god_nation = {
+		major = yes
+		potential = {
+			technology_group = western
+			religion_group = christian
+			tag = PAP
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				region = italy_region
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = KOG }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			is_papal_controller = yes
+			num_of_owned_provinces_with = {
+				value = 15 # Decent sized papal states
+				region = italy_region
+				religion = catholic
+				NOT = { is_core = NAP } # Must not be core of Naples to prevent abuse / Northern Eccelestial Provinces
+			}
+		}
+	 	effect = {
+			change_tag = KOG # Country TAG
+			set_country_flag = formed_kingdom_of_god_flag # Country Formation Flag
+			custom_tooltip = form_kingdom_of_god_tt_2 # New Missions
+			custom_tooltip = form_kingdom_of_god_tt_4 # Message about Unlocking Gods Kingdom decision
+			custom_tooltip = dec1_decisions_blank
+			KOG = { # Capital change and bonuses
+				set_capital = 118 # Roma
+				118 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = KOG_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_the_messenger_of_god
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	#################################################################
+	# Gods Dynasty - Papacy (Establish a papal Dynastic government) #
+	#################################################################
+
+	##########################################################
+	# Gods Kingdom - General (Any nation can disable papacy) #
+	##########################################################
+
+	#IDEA: Gods Kingdom - Papal states - inherit catholics
+
+	#IDEA: Rejuvination - Any italian catholic, reenable the papacy
+
+}

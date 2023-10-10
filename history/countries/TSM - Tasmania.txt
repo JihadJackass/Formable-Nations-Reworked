@@ -1,0 +1,7 @@
+government = native
+add_government_reform = tribal_kingdom
+government_rank = 2
+primary_culture = palawa
+religion = dreamtime
+technology_group = aboriginal_tech
+capital = 4869 #Peerapper

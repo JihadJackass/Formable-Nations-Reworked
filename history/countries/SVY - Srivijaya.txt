@@ -1,0 +1,8 @@
+government = monarchy
+add_government_reform = plutocratic_reform
+primary_culture = bornean
+religion = sunni
+technology_group = chinese
+capital = 622
+religious_school = shafii_school
+

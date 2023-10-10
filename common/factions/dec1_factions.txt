@@ -1,0 +1,90 @@
+	#############################
+	# Formable Nations Factions #
+	#############################
+
+	# dec1_politburo
+
+	# dec1_national_peoples_congress
+
+  #################################
+  # Iberian Union Unique Factions #
+  #################################
+
+	dec1_aragon_nobility = {
+		monarch_power = ADM
+		always = yes
+
+		modifier = {
+			army_tradition_decay = -0.075
+		}
+	}
+
+	dec1_castile_nobility = {
+		monarch_power = MIL
+		always = yes
+
+		modifier = {
+			navy_tradition_decay = -0.10
+		}
+	}
+
+	dec1_portugal_nobility = {
+		monarch_power = DIP
+		always = yes
+
+		modifier = {
+			ae_impact = -0.10
+		}
+	}
+
+  #################################
+  # Dual Monarchy Unique Factions #
+  #################################
+
+	dec1_french_parliament = {
+		monarch_power = MIL
+		always = yes
+
+		modifier = {
+			diplomatic_reputation = 1
+			global_manpower_modifier = 0.10
+			manpower_recovery_speed = 0.10
+		}
+	}
+
+	dec1_british_parliament = {
+		monarch_power = DIP
+		always = yes
+
+		modifier = {
+			trade_efficiency = 0.1
+			global_sailors_modifier = 0.1
+			heavy_ship_power = 0.1
+			heavy_ship_cost = -0.03
+		}
+	}
+
+  #######################################
+  # People's Republic of China Factions #
+  #######################################
+
+  	dec1_hardline_communists = {
+		monarch_power = MIL
+		always = yes
+
+		modifier = {
+			global_unrest = -2
+		}
+	}
+
+	dec1_democratic_socialists = {
+		monarch_power = ADM
+		always = yes
+
+		modifier = {
+			global_unrest = 2
+		}
+	}
+
+
+

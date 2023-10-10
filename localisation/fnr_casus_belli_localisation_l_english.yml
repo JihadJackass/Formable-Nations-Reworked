@@ -1,0 +1,33 @@
+﻿l_english:
+
+  ############################
+  # CASUS BELLI LOCALISATION #
+  ############################
+
+    # American Civil War
+
+      cb_american_civil_war: "American Civil War"
+      cb_american_civil_war_desc: "The American Union has been shattered and we must restore it no matter the cost!"
+
+      american_civil_war: "American Civil War"
+      american_civil_war_desc: ""
+
+    # Shimabaura Rebellion
+
+      dec1_war_goal_shimabara_rebellion: "Shimabara Rebellion"
+      dec1_war_goal_shimabara_rebellion_desc: "An alliance of local ronin and mostly Catholic peasants led by Amakusa Shiro rebelled against the shogunate due to discontent over oppressive policies"
+
+      cb_shimabara_rebellion: "Shimabara Rebellion"
+      cb_shimabara_rebellion_desc: ""
+
+      dec1_shimabara_rebellion: "Shimabara Rebellion"
+      dec1_shimabara_rebellion_desc: ""
+
+  #########################
+  # WAR GOAL LOCALISATION #
+  #########################
+
+    # American Civil War
+
+      dec1_american_civil_war: "American Civil War"
+

@@ -1,0 +1,703 @@
+namespace = dec1_disaster_events
+
+##############################################
+# Formable Nations: Reworked Disaster Events #
+##############################################
+
+	#################
+	# Dual Monarchy #
+	#################
+
+		# The Anglois Civil War
+
+			# Start Event
+
+				country_event = {
+					id = dec1_disaster_events.1
+					title = "dec1_disaster_events.1.t"
+					desc = "dec1_disaster_events.1.d"
+					picture = CIVIL_WAR_eventPicture
+
+					is_triggered_only = yes
+
+					option = { # Support the Anglois
+						name = "dec1_disaster_events.1.a"
+						ai_chance = { factor = 60 }
+						# Random owned provinces spawn anglois rebels
+						random_owned_province = {
+							limit = { region = france_region }
+							dec1_anglois_rebels = 2
+						}
+						random_owned_province = {
+							limit = { region = british_isles_region }
+							dec1_anglois_rebels = 2
+						}
+						# A few provinces become anglois
+						random_owned_province = {
+							limit = { region = british_isles_region }
+							change_culture = dec1_anglois
+						}
+						random_owned_province = {
+							limit = { region = british_isles_region }
+							change_culture = dec1_anglois
+						}
+						random_owned_province = {
+							limit = { region = france_region }
+							change_culture = dec1_anglois
+						}
+						# French and British parliament influence increase
+						add_faction_influence = {
+							faction = dec1_french_parliament
+							influence = 40
+						}
+						add_faction_influence = {
+							faction = dec1_british_parliament
+							influence = 40
+						}
+					}
+					option = { # Support the British and French
+						name = "dec1_disaster_events.1.b"
+						ai_chance = { factor = 40 }
+						# british and french factions influence lowered
+						add_faction_influence = {
+							faction = dec1_french_parliament
+							influence = -20
+						}
+						add_faction_influence = {
+							faction = dec1_british_parliament
+							influence = -20
+						}
+					}
+				}
+
+			# Random Event - French revolt against the Dual Monarchy
+
+			# Random Event - British revolt against the Dual Monarchy
+
+			# Random Event - Revolt of Paris which leads to Treaty of Brittany (Adds two new estates called French Nobility and British Nobility)
+
+			# Random Event - French Nobility revolts against the crown (REQUIRES Treaty of Brittany)
+
+	#
+
+	############################
+	# United States of America #
+	############################
+
+		# The American Civil War Start Event - USA
+
+			country_event = {
+				id = dec1_disaster_events.2
+				title = "dec1_disaster_events.2.t"
+				desc = "dec1_disaster_events.2.d"
+				picture = CIVIL_WAR_eventPicture
+
+				is_triggered_only = yes
+
+				immediate = {
+					hidden_effect = {
+						# Southeast America slaves + cede provinces
+						southeast_america_region = {
+							if = {
+								limit = {
+									NOT = {
+										area = great_valley_area
+										area = chesapeake_area
+									}
+									owned_by = USA
+								}
+								add_core = CSA
+								#cede_province = CSA
+							}
+						}
+						# Mississippi slaves + cede provinces
+						mississippi_region = {
+							if = {
+								limit = {
+									NOT = {
+										area = upper_louisiana_area
+										area = appalachia_area
+									}
+									owned_by = USA
+								}
+								add_core = CSA
+								#cede_province = CSA
+							}
+						}
+						# CSA event fires for CSA, gives shiet
+					}
+					release = CSA
+				}
+				option = { # Rally the troops!
+					name = "dec1_disaster_events.2.a"
+					USA = {
+						# America moves the capital to Washington (Maryland)
+						set_capital = 953
+						953 = {
+							change_province_name = "Washington"
+							rename_capital = "Washington, D.C."
+						}
+					}
+					ai_chance = { factor = 95 }
+				}
+				option = { # Surrender to the Confederates (5% chance of this happening)
+					name = "dec1_disaster_events.2.b"
+					CSA = {
+						inherit = USA
+					}
+					CSA = { create_union = CSA }
+					ai_chance = { factor = 5 }
+				}
+				option = { # Play as CSA
+					name = "dec1_disaster_events.2.c"
+					switch_tag = CSA
+					ai_chance = { factor = 0 }
+				}
+			}
+
+		# Ban Slavery in USA territory (After war)
+
+		# The American Civil War Start Event - CSA
+
+		# Union Victory
+
+	#
+
+	#################################
+	# Confederate States of America #
+	#################################
+
+		# The American Civil War Start Event - CSA
+
+		country_event = {
+			id = dec1_disaster_events.3
+			title = "dec1_disaster_events.3.t"
+			desc = "dec1_disaster_events.3.d"
+			picture = CIVIL_WAR_eventPicture
+
+			is_triggered_only = yes
+
+			option = { # Rally the troops!
+				name = "dec1_disaster_events.3.a"
+				ai_chance = { factor = 90 }
+				change_government = republic
+				add_government_reform = dec1_confederate_state_congress_reform
+				change_primary_culture = american
+				add_accepted_culture = american
+				change_religion = protestant
+			}
+
+			option = { # Surrender to the Union (10% chance of this happening)
+				name = "dec1_disaster_events.3.b"
+				ai_chance = { factor = 10 }
+				USA = {
+					inherit = CSA
+				}
+				#TODO country_event =
+			}
+		}
+
+		# Confederate Victory
+
+	#
+
+	#####################
+	# Taiping Rebellion #
+	#####################
+
+		# Random Event for possibly beginning the Taiping Rebellion, spawns Taiping
+
+		country_event = {
+			id = dec1_disaster_events.13
+			title = "dec1_disaster_events.13.t"
+			desc = "dec1_disaster_events.13.d"
+
+			picture = CIVIL_WAR_eventPicture
+
+			mean_time_to_happen = {
+				months = 1800
+			}
+
+			trigger = {
+				MNG = {
+					NOT = {
+						OR = {
+							has_disaster = dec1_taiping_rebellion
+							has_country_flag = dec1_ming_start_of_taiping_rebellion
+						}
+					}
+					WUU = { # Wu does not exist
+						NOT = { exists = no }
+					}
+					TPP = {
+						NOT = { exists = no }
+					}
+					OR = {
+						has_discovered = 118 # Discovered Rome
+						AND = { # Has been met by a colonial european power
+							any_known_country = {
+								religion = catholic
+							}
+							is_great_power = yes
+						}
+						any_province = { # Ming has discovered a catholic province
+							religion = catholic
+							range = MNG
+						}
+					}
+				}
+			}
+
+			immediate = {
+				hidden_effect = {
+					south_jiangsu_area = {
+						limit = {
+							NOT = {
+								owned_by = TPP
+							}
+						}
+						cede_province = TPP
+						add_core = TPP
+						random_province = {
+							change_religion = catholic
+						}
+						random_province = {
+							change_religion = catholic
+						}
+					}
+					zhejiang_area = {
+						limit = {
+							NOT = {
+								owned_by = TPP
+							}
+						}
+						cede_province = TPP
+						add_core = TPP
+						random_province = {
+							change_religion = catholic
+						}
+						random_province = {
+							change_religion = catholic
+						}
+					}
+					random_owned_province = {
+						limit = {
+							area = zhejiang_area
+						}
+						change_religion = catholic
+					}
+					random_owned_province = {
+						limit = {
+							area = zhejiang_area
+						}
+						change_religion = catholic
+					}
+					TPP = { add_truce_with = MNG }
+				}
+			}
+
+			option = { # This is not goood for the Mandate.
+				name = "dec1_disaster_events.13.a"
+				ai_chance = { factor = 100 }
+			}
+		}
+
+		# Start of Taiping Rebellion - dec1_disaster_events.4
+
+		country_event = {
+			id = dec1_disaster_events.4
+			title = "dec1_disaster_events.4.t"
+			desc = "dec1_disaster_events.4.d"
+
+			picture = CIVIL_WAR_eventPicture
+
+			is_triggered_only = yes
+
+
+			immediate = {
+				hidden_effect = {
+					MNG = { # Ming Handler
+						set_country_flag = dec1_ming_start_of_taiping_rebellion
+						if = { # Check if Taiping Rebellion Leader is either Wu or Taiping
+							limit = {
+								WUU = { exists = yes }
+							}
+							add_opinion = {
+								who = WUU
+								modifier = dec1_taiping_rebellion_leader
+							}
+							add_trust = {
+								who = WUU
+								value = -200
+								mutual = yes
+							}
+							add_historical_rival = WUU
+							# Transfer Rebellious Provinces
+							south_jiangsu_area = {
+								limit = {
+									NOT = {
+										owned_by = WUU
+									}
+								}
+								cede_province = WUU
+							}
+							zhejiang_area = {
+								limit = {
+									NOT = {
+										owned_by = WUU
+									}
+								}
+								cede_province = WUU
+							}
+							add_historical_rival = WUU
+						}
+						if = { # Check if Taiping Rebellion Leader is either Wu or Taiping
+							limit = {
+								TPP = { exists = yes }
+							}
+							add_opinion = {
+								who = TPP
+								modifier = dec1_taiping_rebellion_leader
+							}
+							add_trust = {
+								who = TPP
+								value = -200
+								mutual = yes
+							}
+							add_historical_rival = TPP
+							# Transfer Rebellious Provinces
+							south_jiangsu_area = {
+								limit = {
+									NOT = {
+										owned_by = TPP
+									}
+								}
+								cede_province = TPP
+							}
+							zhejiang_area = {
+								limit = {
+									NOT = {
+										owned_by = TPP
+									}
+								}
+								cede_province = TPP
+							}
+							add_historical_rival = TPP
+						}
+						hebei_area = {
+							limit = {
+								owned_by = MNG
+							}
+							spawn_rebels = { # Major Rebellion
+								type = catholic_rebels
+								size = 4
+							}
+						}
+						guangdong_area = {
+							limit = {
+								owned_by = MNG
+							}
+							spawn_rebels = { # Major Rebellion
+								type = catholic_rebels
+								size = 4
+							}
+						}
+					}
+					if = { # Wu Handler
+						limit = {
+							WUU = { exists = yes }
+						}
+						WUU = {
+							add_historical_rival = MNG
+							add_opinion = {
+								who = MNG
+								modifier = dec1_taiping_rebellion_leader
+							}
+							set_ai_attitude = {
+								attitude = attitude_domineering
+								who = MNG
+								locked = yes
+							}
+							set_ai_personality = {
+								personality = ai_militarist
+								locked = yes
+							}
+						}
+					}
+					if = { # Taiping Handler
+						limit = {
+							TPP = { exists = yes }
+						}
+						TPP = {
+							add_historical_rival = MNG
+							add_opinion = {
+								who = MNG
+								modifier = dec1_taiping_rebellion_leader
+							}
+							set_ai_attitude = {
+								attitude = attitude_domineering
+								who = MNG
+								locked = yes
+							}
+							set_ai_personality = {
+								personality = ai_militarist
+								locked = yes
+							}
+						}
+					}
+					south_jiangsu_area = {
+						random_province = {
+							change_religion = catholic
+						}
+					}
+				}
+			}
+
+
+			option = { # Start of the Taiping Rebellion (Spawns Catholic Rebels, Spawns Catholic Center of Reformations, etc)
+				name = "dec1_disaster_events.4.a"
+				ai_chance = { factor = 100 }
+				add_prestige = -5
+			}
+		}
+
+		# Blessed by Papal Support (Random Event for Wu or Taiping)
+
+		# gets cardinals, blessing by pope, fires the 'backed by Great Powers of Europe' event which allows any Christan great power in europe to join the conflict
+
+		# who can vote either yes or no to support Wu or Taiping
+
+		country_event = {
+			id = dec1_disaster_events.10
+			title = "dec1_disaster_events.10.t"
+			desc = "dec1_disaster_events.10.d"
+			picture = CIVIL_WAR_eventPicture
+
+			trigger = {
+				OR = {
+					WUU = { war_with = MNG }
+					TPP = { war_with = MNG }
+				}
+			}
+
+			mean_time_to_happen = {
+				months = 280
+				# Wu is at war with Ming - Higher percentage (35%)
+				modifier = {
+					factor = 0.35
+					WUU = {
+						AND = {
+							war_with = MNG
+							is_subject = no
+						}
+					}
+				}
+				# Wu is at peace - Lower percentage (10%)
+				modifier = {
+					factor = 0.1
+					WUU = {
+						AND = {
+							is_at_war = no
+							is_subject = no
+						}
+					}
+				}
+			}
+
+			option = { # Glorious day!
+				name = "dec1_disaster_events.10.a"
+				WUU = {
+					capital_scope = {
+						add_cardinal = yes
+					}
+				}
+				if = {
+					limit = {
+						any_country = { # Any Catholic Great Power in Europe can support the Papal Blessing and Taiping as long as they are aware they exist, is not at war, and has at least 200 development
+							AND = {
+								is_great_power = yes
+								religion = catholic
+								is_at_war = no
+								has_discovered = 1821 # Ninbo
+								capital_scope = {
+									superregion = europe_superregion
+								}
+								total_development = 200
+							}
+						}
+					}
+					country_event = {
+						id = dec1_disaster_events.11 # Backed by Great Powers
+					}
+					add_prestige = 10
+					add_stability = 1
+				}
+			}
+
+		}
+
+		# Great Power Influence in China (Random Great Powers are given an event that allows them to support the current crisis in China)  dec1_disaster_events.9
+
+
+		# Backed by Great Powers event handler
+
+		country_event = {
+			id = dec1_disaster_events.11
+			title = "dec1_disaster_events.11.t"
+			desc = "dec1_disaster_events.11.d"
+			picture = CIVIL_WAR_eventPicture
+
+			is_triggered_only = yes
+
+
+			option = { # Support Taiping
+				name = "dec1_disaster_events.11.a"
+				ai_chance = { factor = 60 }
+				add_papal_influence = 15
+				add_prestige = 10
+				create_alliance = TPP
+				create_marriage = TPP
+				create_guarantee = TPP
+			}
+
+			option = { # Refuse to support Taiping
+				name = "dec1_disaster_events.11.a"
+				ai_chance = { factor = 40 }
+				add_papal_influence = -25
+				add_prestige = -5
+			}
+
+		}
+
+		# Taiping Victory Handler - Wu must reform into Taiping and Taiping must defeat Ming, and convert their core provinces
+
+		country_event = {
+			id = dec1_disaster_events.12
+			title = "dec1_disaster_events.12.t"
+			desc = "dec1_disaster_events.12.d"
+			picture = CIVIL_WAR_eventPicture
+
+			is_triggered_only = yes
+
+
+			trigger = {
+				MNG = {
+					AND = {
+						has_country_flag = dec1_ming_start_of_taiping_rebellion
+						any_owned_province = {
+							NOT = { has_rebel_faction = catholic_rebels }
+						}
+						NOT = { has_spawned_rebels = catholic_rebels }
+					}
+				}
+			}
+
+			option = { # A glorious victory!
+				name = "dec1_disaster_events.12.a"
+				set_country_flag = dec1_taiping_wins_tp_rebellion
+				add_prestige = 10
+				add_stability = 1
+			}
+		}
+
+		# End of Taiping Rebellion Handler
+
+		country_event = {
+			id = dec1_disaster_events.6
+			title = "dec1_disaster_events.6.t"
+			desc = "dec1_disaster_events.6.d"
+			picture = CIVIL_WAR_eventPicture
+
+			is_triggered_only = yes
+
+
+			option = { # Taiping loses, A glorious victory!
+				name = "dec1_disaster_events.6.a"
+				trigger = {
+					MNG = {
+						has_country_flag = dec1_ming_wins_tp_rebellion
+					}
+				}
+				add_prestige = 10
+				add_stability = 1
+			}
+
+			option = { # Taiping wins, a loss for greater china
+				name = "dec1_disaster_events.6.a"
+				trigger = {
+					MNG = {
+						has_country_flag = dec1_taiping_wins_tp_rebellion
+					}
+				}
+				add_prestige = -25
+				add_stability = -2
+			}
+		}
+
+	#################################################
+	# Shimabara Rebellion - Current Shogun of Japan #
+	#################################################
+
+		# Start of Shimabara Rebellion
+
+		country_event = {
+			id = dec1_disaster_events.7
+			title = "dec1_disaster_events.7.t"
+			desc = "dec1_disaster_events.7.d"
+
+			picture = CIVIL_WAR_eventPicture
+
+			is_triggered_only = yes
+
+
+			trigger = {
+				has_reform = shogunate
+			}
+
+			option = { # Start of the Tengoku Revolt (Spawns Catholic Rebels, Spawns Catholic Center of Reformations, etc)
+				name = "dec1_disaster_events.7.a"
+				set_global_flag = dec1_started_shimabara_rebellion
+				random_country = {
+					limit = {
+						has_reform = daimyo
+						NOT = {
+							has_reform = shogunate
+							has_country_flag = dec1_tengoku_selected
+						}
+					}
+					change_tag = TGK
+					random_owned_province = {
+						change_religion = catholic
+					}
+					set_country_flag = dec1_tengoku_selected
+				}
+				TGK = {
+					declare_war_with_cb = {
+						who = PREV
+						casus_belli = cb_shimabara_rebellion
+					}
+				}
+			}
+		}
+
+		# End of Shimabara Rebellion
+
+		country_event = {
+			id = dec1_disaster_events.8
+			title = "dec1_disaster_events.8.t"
+			desc = "dec1_disaster_events.8.d"
+			picture = CIVIL_WAR_eventPicture
+
+			is_triggered_only = yes
+
+
+			option = { # Victory!
+				name = "dec1_disaster_events.8.a"
+				set_global_flag = dec1_ended_shimabara_rebellion
+				add_prestige = 10
+				add_stability = 1
+			}
+		}
+
+	#
+

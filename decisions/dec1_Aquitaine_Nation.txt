@@ -1,0 +1,169 @@
+country_decisions = {
+
+	# Aquitaine
+
+	dec1_aquitaine_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			primary_culture = gascon
+			NOT = {
+				has_country_flag = formed_aquitaine_flag
+				exists = OCT
+				tag = OCT
+				tag = FRA
+				tag = FRE
+				tag = HLR
+				tag = PAP
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 8
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = pyrenees_area
+				area = languedoc_area
+				area = guyenne_area
+				area = poitou_area
+				area = massif_central_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = AQI }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			pyrenees_area = {
+				type = all
+				owned_by = ROOT
+			}
+			languedoc_area = {
+				type = all
+				owned_by = ROOT
+			}
+			guyenne_area = {
+				type = all
+				owned_by = ROOT
+			}
+			poitou_area = {
+				type = all
+				owned_by = ROOT
+			}
+			massif_central_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			change_tag = AQI # Country TAG
+			set_country_flag = formed_aquitaine_flag # Country Formation Flag
+			custom_tooltip = form_aquitaine_nation_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			AQI = { # Capital change and bonuses
+				set_capital = 196 # Toulouse
+				196 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_1 # Locked to Duchy!
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				custom_tooltip = dec1_government_reform_change_grand_duchy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = { government_rank = 1 }  # Locked to Duchy!
+						}
+						set_government_rank = 1
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					custom_tooltip = dec1_government_reform_change_autocracy
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = AQI_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_anti_french_policy
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Expand Aquitaine Wine Production
+
+	# Restore the Lineage of Eleanor of Aquitaine
+	# https://en.wikipedia.org/wiki/Eleanor_of_Aquitaine
+
+	# Become an English Vassal (Cannot be annexed, gain tax bonuses, gain wine and a free colony in Americas
+
+}

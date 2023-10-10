@@ -1,0 +1,60 @@
+﻿l_english:
+
+  #########################
+  # Factions localisation #
+  #########################
+
+  # FACTION LOCALISATION
+
+      # Iberian Union
+
+        dec1_aragon_nobility: "Aragonese Nobility"
+        dec1_aragon_nobility_influence: "Aragonese Influence"
+        dec1_aragon_nobility_FACTION_DESC: "The Aragonese demand a focus on maritime control of the mediterranean and ensure a dominant fleet for both offensive and defensive purposes, and establish a catholic league to defend against heresy."
+
+        dec1_castile_nobility: "Castilian Nobility"
+        dec1_castile_nobility_influence: "Castilian Influence"
+        dec1_castile_nobility_FACTION_DESC: "The Castilians are a militaristic, and autocratic styled faction that demands the central union to expand at all costs, while maintaining a standing army large enough to defend Iberia from any who would seek to threaten her."
+
+        dec1_portugal_nobility: "Portuguese Nobility"
+        dec1_portugal_nobility_influence: "Portuguese Influence"
+        dec1_portugal_nobility_FACTION_DESC: "The Portuguese require that the Iberian Union be economically reliant upon no one so that we may establish an economic hegemony in Europe to prevent any nation from dominating our sphere of influence across Europe and the Americas."
+
+      # Dual Monarchy
+
+        dec1_french_parliament: "French Parliament"
+        dec1_french_parliament_influence: "French Influence"
+        dec1_french_parliament_FACTION_DESC: "The French Parliament is the political body that dominates French politics in the Dual Monarchy which draws much of the French population into the political life. French nobles are commonly plotting to undermine the authority of national politics which can negatively effect the population."
+
+        dec1_british_parliament: "British Parliament"
+        dec1_british_parliament_influence: "British Influence"
+        dec1_british_parliament_FACTION_DESC: "The British Parliament is the ruling Parliament that overlooks the British part of the union which commonly desire to lead the Grand Parliament as they are economically superior in the union. "
+
+      # People's Republic of China
+
+        dec1_hardline_communists: "Hardline Communists"
+        dec1_hardline_communists_influence: "Communist Influence"
+        dec1_hardline_communists_FACTION_DESC: "Hardliner Communists are supporters of the Chinese Communist Party and truly believe in the Communist lifestyle in all aspects. Many of the Chinese population is unwillingly forced to join the CCP creating tensions among the populace."
+
+        dec1_democratic_socialists: "Democratic Socialists"
+        dec1_democratic_socialists_influence: "Democratic Socialism Influence"
+        dec1_democratic_socialists_FACTION_DESC: "While China remains Communist; the global reliance on Chinese product has slowly forced us to adopt a pseudo-capitalist government allowing many Chinese citizens to openly call for reform.\n\n\n\nBy remaining above §G50§! Communist Influence and below §R10§! Democratic Socialists Influence we will gain: §G+1§! £adm£ §G+1§! £dip£ §G+1§! £mil£ \n\n§RAllowing the Democratic Socialists to gain above 80 influence will lead to Civil War and removal of the Chinese Communist Party for Democratic Socialists§!"
+
+
+  # STATES GENERAL LOCALISATION
+
+      # Dual Monarchy
+
+        dec1_nationalist_influence: "Nationalists Influence"
+        dec1_nationalist_influence_MECHANIC_TOOLTIP: "Nationalists"
+
+        dec1_dec1_union_influence: "Unionists Influence"
+        dec1_union_influence_MECHANIC_TOOLTIP: "Unionists"
+
+
+  # FACTION TOOLTIP LOCALISATION
+
+      # People's Republic of China
+
+        dec1_hardline_communists_tt: "Has the §YHardline Communists§! Faction"
+        dec1_democratic_socialists_tt: "Has the §YDemocratic Socialists§! Faction"

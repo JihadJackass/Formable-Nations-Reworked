@@ -1,0 +1,187 @@
+country_decisions = {
+
+	dec1_restore_roman_republic_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			any_owned_province = {
+				area = lazio_area
+			}
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = restored_roman_republic_flag
+				exists = ROP
+				exists = ROM
+				tag = ROM
+				tag = ROP
+				tag = HLR
+				tag = PAP
+				tag = EUR
+				tag = KOG
+				tag = WRE
+				tag = JGE
+			}
+			OR = {
+				religion_group = christian
+				religion_group = pagan
+				primary_culture = greek
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					any_owned_province = {
+						area = lazio_area # AI Just needs province in lazio area (rome)
+					}
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 118
+				province_id = 2976
+				province_id = 119
+				province_id = 120
+				province_id = 121
+				province_id = 2985
+				province_id = 2983
+				province_id = 1934
+				province_id = 1933
+				province_id = 122
+				province_id = 2984
+				province_id = 123
+				province_id = 2977
+				province_id = 2978
+				province_id = 116
+				province_id = 115
+				province_id = 117
+			}
+			NOT = { owned_by = ROOT }
+			NOT = { is_core = ROOT }
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = ROP }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			owns = 118 # Must own Rome
+			custom_trigger_tooltip = {
+			tooltip = form_roman_republic_tt_1
+				owns = 118
+				owns = 2976
+				owns = 119
+				owns = 120
+				owns = 121
+				owns = 2985
+				owns = 2983
+				owns = 1934
+				owns = 1933
+				owns = 122
+				owns = 2984
+				owns = 123
+				owns = 2977
+				owns = 2978
+				owns = 116
+				owns = 115
+				owns = 117
+			}
+		}
+		effect = {
+			change_tag = ROP # Country TAG
+			set_country_flag = restored_roman_republic_flag # Country Formation Flag
+			custom_tooltip = form_roman_republic_tt_2 # New Missions
+			custom_tooltip = form_roman_republic_tt_3 # Claim on all historical Roman Empire
+			custom_tooltip = dec1_decisions_blank
+			ROP = { # Capital change and bonuses
+				set_capital = 118 # Rome
+				118 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_republic # Government Type Change
+				}
+
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = republic
+								}
+							}
+						change_government = republic
+					}
+					add_government_reform = presidential_despot_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = ROP_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_the_rebirth_of_the_republic
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 300
+	}
+}

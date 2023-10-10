@@ -1,0 +1,123 @@
+	########
+	# Ming #
+	########
+
+		# Taiping Rebellion
+
+			dec1_taiping_rebellion = {
+				ended_by_country_breaking_to_rebels = no
+
+				potential = {
+					tag = MNG
+				}
+
+				can_start = {
+					has_any_disaster = no
+					OR = { # If Wu or Taiping exist, the Taiping Rebellion will begin to progress
+						WUU = { exists = yes }
+						TPP = { exists = yes }
+					}
+				}
+
+				can_stop = {
+					has_any_disaster = yes
+					AND = { # If Wu and Taiping no longer exist the Rebellion can be stopped
+						WUU = { exists = no }
+						TPP = { exists = no }
+						NOT = { # There also must be no Catholic provinces in China, which are spawned when the disaster fires
+							china_superregion = {
+								any_province = {
+									NOT = {
+										religion = catholic
+									}
+								}
+							}
+						}
+
+					}
+				}
+
+				progress = {
+					modifier = { # Ming does not have at least 50 mandate
+						factor = 0.35
+						MNG = {
+							NOT = {
+								imperial_mandate = 50
+							}
+						}
+					}
+					modifier = { # Ming has less than 111 cities
+						factor = 0.25
+						MNG = {
+							NOT = {
+								num_of_cities = 111
+							}
+						}
+					}
+					modifier = { # Ming has less than 25% manpower
+						factor = 0.15
+						MNG = {
+							NOT = {
+								manpower_percentage = 0.25
+							}
+						}
+					}
+					modifier = { # Ming has Catholic Rebels
+						factor = 1.0
+						TPP = { is_subject = no }
+					}
+					modifier = { # Taiping is Independent
+						factor = 1.0
+						TPP = { is_subject = no }
+					}
+					modifier = { # Wu is Independent
+						factor = 1.0
+						WUU = { is_subject = no }
+					}
+					modifier = { # Taiping Exists
+						factor = 0.5
+						TPP = { exists = yes }
+					}
+					modifier = { # Wu Exists
+						factor = 0.5
+						WUU = { exists = yes }
+					}
+					modifier = { # Taiping is Subject
+						factor = 0.25
+						TPP = { is_subject = yes }
+					}
+					modifier = { # Wu is Subject
+						factor = 0.25
+						WUU = { is_subject = yes }
+					}
+				}
+
+				modifier = {
+					global_unrest = 2
+					global_manpower_modifier = -0.20
+					missionary_maintenance_cost = 0.20
+					global_regiment_cost = 0.10
+				}
+
+				can_end = {
+					AND = {
+						WUU = { exists = no }
+						TPP = { exists = no }
+						NOT = { has_country_flag = dec1_taiping_wins_tp_rebellion }
+					}
+				}
+
+				on_start = dec1_disaster_events.4 # Start of the Taiping Rebellion
+				on_end = dec1_disaster_events.6 # End of the Taiping Rebellion (Handles either Taiping winning or Ming winning)
+
+				on_monthly = {
+					events = { }
+					random_events = {
+						1000 = 0
+						# Great Catholic Revolt (Ming)
+						# Taiping Great Power Influence
+						# Great Power Involvement in China
+					}
+				}
+			}
+

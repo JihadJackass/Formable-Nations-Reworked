@@ -1,0 +1,187 @@
+country_decisions = {
+
+	###########################################
+	# Brandenburg-Prussia Nation - Historical #
+	###########################################
+
+	dec1_ducal_prussia_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			tag = TEU
+			NOT = {
+				has_country_flag = formed_prussia_flag
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 6
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+					# East Prussia
+				province_id = 40
+				province_id = 41
+				province_id = 767
+				province_id = 2958
+					# West Prussia
+				province_id = 42
+				province_id = 1841
+				province_id = 43
+				province_id = 2997
+					# Kuyavia
+				province_id = 1859
+				province_id = 4523
+					# Wielkopolska
+				province_id = 2963
+				province_id = 254
+				province_id = 4526
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 5
+			NOT = { exists = DCP }
+			is_at_war = no
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			custom_trigger_tooltip = {
+				tooltip = form_prussia_tt_1
+					# East Prussia
+				owns_core_province = 40
+				owns_core_province = 41
+				owns_core_province = 767
+				owns_core_province = 2958
+					# West Prussia
+				owns_core_province = 42
+				owns_core_province = 1841
+				owns_core_province = 43
+				owns_core_province = 2997
+					# Kuyavia
+				owns_core_province = 1859
+				owns_core_province = 4523
+					# Wielkopolska
+				owns_core_province = 2963
+				owns_core_province = 254
+				owns_core_province = 4526
+			}
+		}
+	 	effect = {
+			change_tag = DCP # Country TAG
+			set_country_flag = formed_prussia_flag # Country Formation Flag
+			custom_tooltip = form_prussia_tt_2 # New Missions
+			custom_tooltip = form_prussia_tt_4 # Claims
+			custom_tooltip = form_prussia_tt_5 # Claims
+			custom_tooltip = dec1_decisions_blank
+			DCP = { # Capital change and bonuses
+				set_capital = 41 # Konigsberg
+				41 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Claims
+					west_prussia_area = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = DCP
+					}
+					east_prussia_area = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = DCP
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 1
+								}
+							}
+						set_government_rank = 1
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = DCP_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_the_rise_of_prussia
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+}

@@ -1,0 +1,12 @@
+government = monarchy
+add_government_reform = autocracy_reform
+set_government_rank = 3
+technology_group = indian
+religion = sunni
+primary_culture = avadhi
+capital = 555	# Jaunpur
+religious_school = hanafi_school
+
+change_rajputs_or_marathas_or_nobles_land_share_effect = {
+	share = 5
+}

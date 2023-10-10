@@ -1,0 +1,13 @@
+government = monarchy
+add_government_reform = feudalism_reform
+primary_culture = hungarian
+religion = catholic
+technology_group = eastern
+capital = 4126
+
+change_estate_land_share = {
+	estate = estate_church
+	share = -5
+}
+
+

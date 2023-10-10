@@ -1,0 +1,142 @@
+ country_decisions = {
+
+	bhutan_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			OR = {
+				primary_culture = tibetan
+				OR = {
+					tag = KMT
+					tag = LWA
+					tag = ASS
+					tag = PHA
+				}
+			}
+			NOT = {
+				num_of_cities = 7 # Will not show if more than 6 cities owned
+				has_country_flag = formed_bhutan_flag
+				exists = BHU
+				tag = BHU
+				tag = TIB
+				tag = TIE
+				tag = PAP
+				tag = HIN
+				tag = BHA
+				tag = TIB
+				tag = HIM
+			}
+			OR = {
+				culture_group = eastern_aryan
+				primary_culture = tibetan
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 1
+				}
+			}
+		}
+		provinces_to_highlight = {
+			province_id = 4481 # Bhutan
+			province_id = 565 # Paro
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			NOT = { exists = BHU }
+			NOT = {
+				num_of_cities = 7
+			}
+			is_at_war = no
+			owns_core_province = 4481 # Bhutan
+			owns_core_province = 565 # Paro
+		}
+		effect = {
+			change_tag = BHU # Country TAG
+			set_country_flag = formed_bhutan_flag # Country Formation Flag
+			custom_tooltip = form_bhutan_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			BHU = { # Capital change and bonuses
+				set_capital = 565 # Bhutan
+				565 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_theocracy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_monastic_order
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Region/Area Claims (none little bhutan.. I am sorry)
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = theocracy
+								}
+							}
+						change_government = theocracy
+					}
+					add_government_reform = monastic_order_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+					 	NOT = { has_idea_group = BHU_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_dragon_kingdom
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+}

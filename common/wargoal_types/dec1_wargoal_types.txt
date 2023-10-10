@@ -1,0 +1,69 @@
+# American Civil War
+
+dec1_war_goal_american_civil_war = {
+	type = take_capital
+
+	attacker = {
+		badboy_factor = 0.10
+		prestige_factor = 0.1
+		peace_cost_factor = 0.1 # More expensive for America to win
+
+		allowed_provinces = {
+			always = no
+		}
+
+		peace_options = {
+			po_form_personal_union
+		}
+	}
+
+	defender = {
+		badboy_factor = 0.10
+		prestige_factor = 1.0
+		peace_cost_factor = 0.5
+
+		allowed_provinces = {
+		}
+
+		peace_options = {
+			po_form_personal_union
+		}
+	}
+
+	war_name = dec1_american_civil_war
+}
+
+# Shimabara Rebellion
+
+dec1_war_goal_shimabara_rebellion = {
+	type = take_capital
+
+	attacker = {
+		badboy_factor = 0.10
+		prestige_factor = 0.1
+		peace_cost_factor = 0.5
+
+		allowed_provinces = {
+			always = no
+		}
+
+		peace_options = {
+			po_change_religion
+		}
+	}
+
+	defender = {
+		badboy_factor = 0.10
+		prestige_factor = 1.0
+		peace_cost_factor = 0.5
+
+		allowed_provinces = {
+		}
+
+		peace_options = {
+			po_demand_provinces
+		}
+	}
+
+	war_name = dec1_shimabara_rebellion
+}

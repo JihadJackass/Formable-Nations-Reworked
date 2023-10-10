@@ -1,0 +1,210 @@
+country_decisions = {
+
+	dec1_restore_byzantine_empire = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			religion = orthodox
+			NOT = {
+				has_country_flag = formed_byzantium_flag
+				exists = BYZ
+				tag = BYZ
+				tag = ROM
+				tag = TUR
+				tag = LTE
+			}
+			OR = {
+				AND = {
+					culture_group = south_slavic
+					total_development = 75
+				}
+				AND = {
+					accepted_culture = greek
+					religion = catholic
+					religious_unity = 0.59
+				}
+				primary_culture = greek
+				primary_culture = pontic_greek
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 151 # Constantinople
+				province_id = 149	# Edirne
+				province_id = 144  # Epiros
+				province_id = 147	# Salonica
+				province_id = 148	# Macedonia
+				province_id = 146	# Athens
+				province_id = 145	# Morea
+				province_id = 1773	# Achea
+				province_id = 316	# Bithynia
+				province_id = 317	# Bursa
+				province_id = 318	# Smyrna
+				province_id = 1853	# Kozani
+				province_id = 2296	# Biga
+			}
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			adm_tech = 5
+			NOT = { exists = BYZ }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+
+			owns = 151 # Constantinople
+			owns = 149	# Edirne
+			owns = 144  # Epiros
+			owns = 147	# Salonica
+			owns = 148	# Macedonia
+			owns = 146	# Athens
+			owns = 145	# Morea
+			owns = 1773	# Achea
+			owns = 316	# Bithynia
+			owns = 317	# Bursa
+			owns = 318	# Smyrna
+			owns = 1853	# Kozani
+			owns = 2296	# Biga
+		}
+		effect = {
+			change_tag = BYZ # Country TAG
+			set_country_flag = formed_byzantium_flag # Country Formation Flag
+			custom_tooltip = form_byzantium_tt_2 # New Missions
+			custom_tooltip = form_byzantium_tt_3 # Region/Area Claims
+			custom_tooltip = dec1_decisions_blank
+			BYZ = { # Capital change and bonuses
+				set_capital = 151 # Constantinople
+				151 = {
+					add_base_tax = 3
+					add_base_production = 3
+					add_base_manpower = 3
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Region/Area Claims
+					every_province = {
+						limit = {
+							OR = {
+								area = aydin_area
+								area = ankara_area
+								area = germiyan_area
+								area = karaman_area
+								area = cukurova_area
+								area = rum_area
+								area = kastamonu_area
+								area = hudavendigar_area
+								area = dulkadir_area
+								province_id = 149	# Edirne
+								province_id = 147	# Salonica
+								province_id = 148	# Macedonia
+								province_id = 146	# Athens
+								province_id = 145	# Morea
+								province_id = 1773	# Achea
+								province_id = 163	# Crete
+								province_id = 164	# Naxos
+								province_id = 320	# Rhodes
+								province_id = 330	# Trebizon
+								province_id = 285	# Kaffa
+								province_id = 142	# Corfu
+								province_id = 143	# Albania
+								province_id = 144	# Janina
+								province_id = 1765	# Nis
+								province_id = 150	# Bulgaria
+								province_id = 1764	# Burgas
+								province_id = 159	# Silistria
+								province_id = 1853	# Kozani
+								province_id = 2348	# Chios
+								province_id = 2410	# Theodoro
+								province_id = 2750	# Plovdiv
+								province_id = 4298	# Ayntab
+							}
+							NOT = { is_core = BYZ }
+						}
+						add_permanent_claim = BYZ
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = BYZ_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_eastern_roman_successor
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Establish Council of Rome (Allows Byzantium to unlock republican resolutions that will
+	# give unique events to neighboring powers such as the Pope, Commonwealth, and Mamluks, to fight the Turks
+}

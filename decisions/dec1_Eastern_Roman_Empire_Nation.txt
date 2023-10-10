@@ -1,0 +1,195 @@
+country_decisions = {
+
+	dec1_eastern_roman_empire_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			OR = { # Roman Successors
+				tag = BYZ
+				tag = ROP
+				tag = TRE
+				tag = ATH
+				tag = EPI
+				tag = MAC
+			}
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = eastern_roman_empire_flag
+				exists = ERP
+				tag = ERP
+				tag = ROM
+				tag = HLR
+				tag = PAP
+				tag = EUR
+				tag = FEO
+			}
+			OR = {
+				religion_group = christian
+				religion_group = pagan
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 151 # Constantinople
+				province_id = 341 # Tunis
+				province_id = 361 # Cairo
+				region = balkan_region
+				region = anatolia_region
+				region = mashriq_region
+			}
+			NOT = { owned_by = ROOT }
+		}
+		allow = {
+			OR = {
+				AND = {
+					government_rank = 3
+					adm_tech = 10
+				}
+				AND = {
+					government_rank = 3
+					adm_tech = 10
+				}
+			}
+			NOT = { exists = ERP }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			owns = 151 # Constantinople
+			# Balkans
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 15
+				region = balkan_region
+				is_core = ROOT
+			}
+			owns = 148 # Thessily
+			# Anatolia
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 15
+				region = anatolia_region
+				is_core = ROOT
+			}
+			owns = 326 # Ankara
+			# Mashriq
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 10
+				region = mashriq_region
+				is_core = ROOT
+			}
+			owns = 379 # Jerusalem
+			# Egypt
+			num_of_provinces_owned_or_owned_by_non_sovereign_subjects_with = {
+				value = 15
+				region = egypt_region
+				is_core = ROOT
+			}
+			owns = 361 # Cairo
+		}
+		effect = {
+			change_tag = ERP # Country TAG
+			set_country_flag = eastern_roman_empire_flag # Country Formation Flag
+			custom_tooltip = form_eastern_roman_empire_tt_2 # New Missions
+			custom_tooltip = form_eastern_roman_empire_tt_3 # Culture
+			custom_tooltip = roman_culture_provinces_tooltip
+			custom_tooltip = dec1_decisions_blank
+			ERP = { # Capital change and bonuses
+				set_capital = 151 # Constantinople
+				151 = {
+					add_base_tax = 3
+					add_base_production = 3
+					add_base_manpower = 3
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				custom_tooltip = dec1_decisions_blank
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Culture Handler
+					if = { # Convert Latin to Roman
+						limit = {
+							NOT = { primary_culture = roman }
+							culture_group = latin
+						}
+						change_primary_culture = roman
+					}
+					every_owned_province = { # Convert all provinces with Greek culture to Roman Culture
+						limit = {
+							culture = greek
+						}
+						change_culture = roman
+					}
+					every_owned_province = { # Convert all provinces with Turkish culture to Roman Culture
+						limit = {
+							culture = turkish
+						}
+						change_culture = roman
+					}
+					add_stability = 3
+					# Max Government bonus
+					if = {
+						limit = {
+							government = monarchy
+						}
+						add_legitimacy = 100
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government
+					change_government = republic
+					add_government_reform = dec1_eastern_roman_senate_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = ERP_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_wealth_trade_empire
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+	}
+
+}

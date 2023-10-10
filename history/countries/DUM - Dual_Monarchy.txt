@@ -1,0 +1,7 @@
+government = monarchy
+add_government_reform = dec1_parliament_of_the_lords_reform
+primary_culture = dec1_anglois
+religion = catholic
+technology_group = western
+capital = 183 # Paris
+national_focus = ADM

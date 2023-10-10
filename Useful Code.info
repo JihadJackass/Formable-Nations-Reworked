@@ -1,0 +1,44 @@
+# This is a list of code that is useful for development purposes for quick access without much thinking required.
+
+ ###########################################################################################
+
+    # Gain a permanent claim on every province with ROOT culture that is not currently owned, or cored
+
+        every_province = {
+            limit = {
+                culture = dalmatian # Changeme
+                continent = europe
+                NOT = { owned_by = ROOT }
+                NOT = { is_permanent_claim = ROOT }
+                NOT = { is_core = DAL }
+            }
+            add_permanent_claim = DAL
+        }
+
+
+    # Compare age
+
+
+        variable_arithmetic_trigger = {
+			custom_tooltip = HAS_OLDER_RULER_THAN_THEIR_HEIR
+			export_to_variable = { # All export to variable will happen first. Then the other effects and triggers will be executed/evaluated in order
+				variable_name = my_age
+				value = trigger_value:ruler_age
+			}
+			export_to_variable = {
+				variable_name = their_age
+				value = trigger_value:heir_age
+				who = FROM
+			}
+			ruler_age = 0 # This is a normal trigger.
+			FROM = {
+				heir_age = 0 # This is a normal trigger too.
+			}
+			check_variable = { # This trigger is only allowed inside a variable_arithmetic_trigger.
+				which = my_age
+				which = their_age
+			}
+		}
+
+
+ ###########################################################################################

@@ -1,0 +1,422 @@
+country_decisions = {
+
+	######################
+	# Carolingian Empire #
+	######################
+
+	dec1_carolingian_empire_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			num_of_cities = 35 # prevent early spam
+			culture_group = french
+			tag = FRA
+			NOT = {
+				# TODO: has_country_flag = dec1_tier_5_formable
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_carolingian_empire_flag
+				exists = CAZ
+				tag = CAZ
+				tag = FRE
+				tag = HLR
+				tag = PAP
+				tag = SPA
+				tag = FIB
+				tag = IBE
+				tag = AVE
+				tag = KOJ
+				tag = BSQ
+				tag = CEU
+				tag = PAP
+				tag = LOT
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 40
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				region = france_region
+				region = low_countries_region
+				region = north_german_region
+				region = south_german_region
+				region = italy_region
+			}
+			AND = { # French, Italian, German, etc, Do not show these areas
+				NOT = { area = brittany_area }
+				NOT = { area = apulia_area }
+				NOT = { area = naples_area }
+				NOT = { area = calabria_area }
+				NOT = { area = western_sicily_area }
+				NOT = { area = sicily_area }
+				NOT = { area = hinter_pommern_area }
+				NOT = { area = neumark_area }
+				NOT = { province_id = 127 }
+				NOT = { province_id = 4735 }
+				NOT = { province_id = 2986 }
+				NOT = { province_id = 13 }
+			}
+			AND = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 15
+			NOT = { exists = CAZ }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			is_emperor = no
+			AND = { # Aachen cannot be apart of the HRE
+				owns_core_province = 1878 # Aachen
+				1878 = {
+					NOT = { is_part_of_hre = yes }
+				}
+			}
+			custom_trigger_tooltip = { # French cores (No Brittany)
+				tooltip = form_carolingian_empire_tt_4
+				normandy_area = {
+					type = all
+					owned_by = ROOT
+				}
+				provence_area = {
+					type = all
+					owned_by = ROOT
+				}
+				poitou_area = {
+					type = all
+					owned_by = ROOT
+				}
+				guyenne_area = {
+					type = all
+					owned_by = ROOT
+				}
+				pyrenees_area = {
+					type = all
+					owned_by = ROOT
+				}
+				languedoc_area = {
+					type = all
+					owned_by = ROOT
+				}
+				bourgogne_area = {
+					type = all
+					owned_by = ROOT
+				}
+				west_burgundy_area = {
+					type = all
+					owned_by = ROOT
+				}
+				massif_central_area = {
+					type = all
+					owned_by = ROOT
+				}
+				savoy_dauphine_area = {
+					type = all
+					owned_by = ROOT
+				}
+				lorraine_area = {
+					type = all
+					owned_by = ROOT
+				}
+				picardy_area = {
+					type = all
+					owned_by = ROOT
+				}
+				ile_de_france_area = {
+					type = all
+					owned_by = ROOT
+				}
+				champagne_area = {
+					type = all
+					owned_by = ROOT
+				}
+				loire_area = {
+					type = all
+					owned_by = ROOT
+				}
+				orleans_area = {
+					type = all
+					owned_by = ROOT
+				}
+			}
+			custom_trigger_tooltip = { # Italy cores (No Naples, South Corsica, Sicily)
+				tooltip = form_carolingian_empire_tt_5
+				liguria_area = {
+					type = all
+					owned_by = ROOT
+				}
+				piedmont_area = {
+					type = all
+					owned_by = ROOT
+				}
+				po_valley_area = {
+					type = all
+					owned_by = ROOT
+				}
+				lombardy_area = {
+					type = all
+					owned_by = ROOT
+				}
+				venetia_area = {
+					type = all
+					owned_by = ROOT
+				}
+				tuscany_area = {
+					type = all
+					owned_by = ROOT
+				}
+				emilia_romagna_area = {
+					type = all
+					owned_by = ROOT
+				}
+				lazio_area = {
+					type = all
+					owned_by = ROOT
+				}
+				central_italy_area = {
+					type = all
+					owned_by = ROOT
+				}
+			}
+			custom_trigger_tooltip = { # North Germany cores (No Slesvieg, Neumark, Hinterpommern, Moravia)
+				tooltip = form_carolingian_empire_tt_6
+				lower_rhineland_area = {
+					type = all
+					owned_by = ROOT
+				}
+				north_rhine_area = {
+					type = all
+					owned_by = ROOT
+				}
+				hesse_area = {
+					type = all
+					owned_by = ROOT
+				}
+				westphalia_area = {
+					type = all
+					owned_by = ROOT
+				}
+				north_westphalia_area = {
+					type = all
+					owned_by = ROOT
+				}
+				braunschweig_area = {
+					type = all
+					owned_by = ROOT
+				}
+				weser_area = {
+					type = all
+					owned_by = ROOT
+				}
+				lower_saxony_area = {
+					type = all
+					owned_by = ROOT
+				}
+				northern_saxony_area = {
+					type = all
+					owned_by = ROOT
+				}
+				south_saxony_area = {
+					type = all
+					owned_by = ROOT
+				}
+				thuringia_area = {
+					type = all
+					owned_by = ROOT
+				}
+				bohemia_area = {
+					type = all
+					owned_by = ROOT
+				}
+				mittelmark_area = {
+					type = all
+					owned_by = ROOT
+				}
+				vorpommern_area = {
+					type = all
+					owned_by = ROOT
+				}
+				lusatia_area = {
+					type = all
+					owned_by = ROOT
+				}
+			}
+			custom_trigger_tooltip = { # South Germany cores
+				tooltip = form_carolingian_empire_tt_7
+				south_german_region = {
+					type = all
+					owned_by = ROOT
+				}
+			}
+		}
+		effect = {
+			change_tag = CAZ # Country TAG
+			set_country_flag = formed_carolingian_empire_flag # Country Formation Flag
+			custom_tooltip = form_carolingian_empire_tt_2 # New Missions
+			custom_tooltip = form_carolingian_empire_tt_3 # Claims
+			define_ruler = {
+				name = "Charlemagne II"
+				dynasty = "Carolingian"
+				adm = 6
+				dip = 5
+				mil = 5
+				age = 20
+				claim = 95
+			}
+			custom_tooltip = dec1_decisions_blank
+			CAZ = { # Capital change and bonuses
+				set_capital = 1878 # Aachen
+				1878 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = FRE_ideas } # TODO: ideas
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+			#	add_country_modifier = {
+			#		name = dec1_the_emperor_general # TODO: ability
+			#		duration = 49275
+			#	}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 100
+	}
+
+	# Change name to Francia
+
+	dec1_restoration_of_francia = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			tag = CAZ
+		}
+		provinces_to_highlight = {
+			OR = {
+				region = france_region
+				region = low_countries_region
+				region = north_german_region
+				region = south_german_region
+				region = italy_region
+			}
+			NOT = { owned_by = ROOT }
+			NOT = { is_core = ROOT }
+		}
+		allow = {
+			AND = { # Conquest
+				france_region = {
+					type = all
+					owned_by = ROOT
+				}
+				low_countries_region = {
+					type = all
+					owned_by = ROOT
+				}
+				north_german_region = {
+					type = all
+					owned_by = ROOT
+				}
+				south_german_region = {
+					type = all
+					owned_by = ROOT
+				}
+				italy_region = {
+					type = all
+					owned_by = ROOT
+				}
+			}
+		}
+	 	effect = {
+			override_country_name = dec1_carolingian_empire_francia_name # Francia
+			add_prestige = 50
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 100
+	}
+
+	# Establish Imperial Estate
+
+	# TODO: random event chain for possibility to become carolingian empire early
+
+}

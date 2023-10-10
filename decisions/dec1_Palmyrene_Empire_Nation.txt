@@ -1,0 +1,228 @@
+country_decisions = {
+
+	####################
+	# Palmyrene Empire #
+	####################
+
+	dec1_palmyrene_empire_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			AND = { # Greek
+				primary_culture = greek
+				capital_scope = { region = egypt_region }
+			}
+			# Egyptian culture?
+			# Arab culture? TODO
+			NOT = {
+				has_country_flag = formed_palmyrene_empire_flag
+				has_reform = celestial_empire
+				exists = PLM
+				tag = PLM
+				tag = HLR
+				tag = TUR
+				tag = MAM
+				tag = ISR
+				tag = ARA
+				tag = CTG
+				tag = NMD
+				tag = PAP
+				tag = SPA
+				tag = LSE
+				tag = IMA
+				tag = LVE
+				tag = TTS
+				tag = ALP
+				tag = CIS
+				tag = EUR
+				tag = ADR
+				tag = BSQ
+				tag = IBE
+				tag = MGH
+				tag = ALG
+				tag = ADU
+				tag = ROP
+				tag = MEX
+				tag = BYZ
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 6
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 361
+				province_id = 2302
+				province_id = 327
+				area = gulf_of_arabia_area
+				area = al_wahat_area
+				area = delta_area
+				area = bahari_area
+				area = vostani_area
+				area = said_area
+				area = palestine_area
+				area = trans_jordan_area
+				area = syria_area
+				area = syrian_desert_area
+				area = aleppo_area
+				area = al_jazira_area
+				area = dulkadir_area
+				area = karaman_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 15
+			NOT = { exists = PLM }
+			is_subject = no
+			is_at_war = no
+			owns_core_province = 361
+			owns_core_province = 2302
+			owns_core_province = 327
+			gulf_of_arabia_area = {
+				type = all
+				owned_by = ROOT
+			}
+			al_wahat_area = {
+				type = all
+				owned_by = ROOT
+			}
+			delta_area = {
+				type = all
+				owned_by = ROOT
+			}
+			bahari_area = {
+				type = all
+				owned_by = ROOT
+			}
+			vostani_area = {
+				type = all
+				owned_by = ROOT
+			}
+			said_area = {
+				type = all
+				owned_by = ROOT
+			}
+			palestine_area = {
+				type = all
+				owned_by = ROOT
+			}
+			trans_jordan_area = {
+				type = all
+				owned_by = ROOT
+			}
+			syria_area = {
+				type = all
+				owned_by = ROOT
+			}
+			syrian_desert_area = {
+				type = all
+				owned_by = ROOT
+			}
+			aleppo_area = {
+				type = all
+				owned_by = ROOT
+			}
+			al_jazira_area = {
+				type = all
+				owned_by = ROOT
+			}
+			dulkadir_area = {
+				type = all
+				owned_by = ROOT
+			}
+			karaman_area = {
+				type = all
+				owned_by = ROOT
+			}
+		}
+		effect = {
+			change_tag = PLM # Country TAG
+			set_country_flag = formed_palmyrene_empire_flag # Country Formation Flag
+			custom_tooltip = form_palmyrene_empire_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			PLM = { # Capital change and bonuses
+				set_capital = 407 # Palmyra
+				407 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = PLM_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_zenobian_legacy
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

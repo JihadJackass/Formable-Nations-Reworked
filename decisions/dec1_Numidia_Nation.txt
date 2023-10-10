@@ -1,0 +1,164 @@
+country_decisions = {
+
+	dec1_numidia_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_numidia_flag
+				exists = NMD
+				tag = NMD
+				tag = PAP
+				tag = HLR
+				tag = MGH
+				tag = TUN
+			}
+			OR = {
+				primary_culture = algerian
+				primary_culture = berber
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 338
+				province_id = 2461
+				province_id = 337
+				province_id = 4562
+				province_id = 2459
+				province_id = 2458
+				province_id = 350
+				province_id = 2456
+				province_id = 339
+				province_id = 351
+				province_id = 2457
+				province_id = 2472
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = NMD }
+			is_at_war = no
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			
+			owns_core_province = 338
+			owns_core_province = 2461
+			owns_core_province = 337
+			owns_core_province = 4562
+			owns_core_province = 2459
+			owns_core_province = 2458
+			owns_core_province = 350
+			owns_core_province = 2456
+			owns_core_province = 339
+			owns_core_province = 351
+			owns_core_province = 2457
+			owns_core_province = 2472
+		}
+		effect = {
+			change_tag = NMD # Country TAG
+			set_country_flag = formed_numidia_flag # Country Formation Flag
+			custom_tooltip = form_numidia_tt_2 # New Missions
+			#custom_tooltip = form_numidia_tt_3 # Region/Area Claims
+			change_religion = catholic
+			high_plains_area = { change_religion = catholic }
+			custom_tooltip = dec1_decisions_blank
+			NMD = { # Capital change and bonuses
+				set_capital = 340 # Cirta
+				340 = {
+					rename_capital = "Cirta"
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				custom_tooltip = dec1_decisions_blank
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Region/Area Claims
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+			}
+			# Custom Ideas check and change
+			if = {
+				limit = {
+					has_custom_ideas = no
+		#			NOT = { has_idea_group = NMD_ideas }
+				}
+				country_event = { id = ideagroups.1 }
+			}
+			# Custom Missions check and change
+			country_event = { id = dec1_events.3 }
+			custom_tooltip = dec1_decisions_blank
+			# National Ability
+		#	add_country_modifier = {
+		#		name = dec1_restore_numidia
+		#		duration = 49275
+		#	}
+			# Increased Centralization
+			add_country_modifier = {
+				name = dec1_increased_centralization
+				duration = -1
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200 # Ancient Kingdom, Less Desirable
+	}
+}

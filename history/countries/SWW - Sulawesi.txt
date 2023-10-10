@@ -1,0 +1,16 @@
+government = monarchy
+add_government_reform = plutocratic_reform
+government_rank = 2
+primary_culture = sulawesi
+religion = animism
+technology_group = chinese
+capital = 641 # Makassar
+
+1444.1.1 = {
+	monarch = {
+		dynasty = "Sulawesi"
+		adm = 1
+		dip = 1
+		mil = 3
+	}
+}

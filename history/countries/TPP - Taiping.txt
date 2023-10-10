@@ -1,0 +1,39 @@
+government = monarchy
+add_government_reform = autocracy_reform
+government_rank = 2
+technology_group = chinese
+religion = catholic
+add_harmonized_religion = protestant
+primary_culture = jianghuai
+capital = 1821	# Nanjing
+
+if = {
+	limit = {
+		OR = {
+			has_dlc = "Dharma"
+			has_dlc = "Emperor"
+		}
+	}
+	change_estate_land_share = {
+		estate = estate_burghers
+		share = 10
+	}
+	change_estate_land_share = {
+		estate = estate_church
+		share = 10
+	}
+	change_estate_land_share = {
+		estate = estate_nobles
+		share = -20
+	}
+}
+
+1814.1.1 = {
+	monarch = {
+		name = "Hong"
+		dynasty = "Xiuquan"
+		adm = 6
+		dip = 4
+		mil = 6
+	}
+}

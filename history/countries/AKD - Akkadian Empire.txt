@@ -1,0 +1,8 @@
+government = monarchy
+add_government_reform = autocracy_reform
+government_rank = 3
+primary_culture = al_iraqiya_arabic # TODO: custom culture
+religion = coptic
+technology_group = muslim
+unit_type = sub_saharan
+capital = 415 # Akkad

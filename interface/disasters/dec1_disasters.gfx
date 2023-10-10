@@ -1,0 +1,44 @@
+spriteTypes = {
+    # Bosnia-Serbia - Balkan Uprising
+    spriteType = {
+        name = "GFX_disaster_dec1_balkan_uprising"
+        texturefile = "gfx//interface//disasters//dec1_balkan_uprising.dds"
+        noOfFrames = 3
+        loadType = "INGAME"
+    }
+    # Dual Monarchy - Anglois Civil War
+    spriteType = {
+        name = "GFX_disaster_dec1_dual_monarchy_anglois_civil_war"
+        texturefile = "gfx//interface//disasters//dec1_dual_monarchy_anglois_civil_war.dds"
+        noOfFrames = 3
+        loadType = "INGAME"
+    }
+    # People's Republic of China - Democratic Socialist Revolt
+    spriteType = {
+        name = "GFX_disaster_dec1_prc_democratic_socialist_revolt"
+        texturefile = "gfx//interface//disasters//dec1_prc_democratic_socialist_revolt.dds"
+        noOfFrames = 3
+        loadType = "INGAME"
+    }
+    # United States of America - American Civil War
+    spriteType = {
+        name = "GFX_disaster_dec1_usa_american_civil_war"
+        texturefile = "gfx//interface//disasters//dec1_usa_american_civil_war.dds"
+        noOfFrames = 3
+        loadType = "INGAME"
+    }
+     # Ming - Taiping Rebellion
+     spriteType = {
+        name = "GFX_disaster_dec1_taiping_rebellion"
+        texturefile = "gfx//interface//disasters//dec1_taiping_rebellion.dds"
+        noOfFrames = 3
+        loadType = "INGAME"
+    }
+     # Ming - Taiping Rebellion
+     spriteType = {
+        name = "GFX_disaster_dec1_tengoku_revolt"
+        texturefile = "gfx//interface//disasters//dec1_tengoku_revolt.dds"
+        noOfFrames = 3
+        loadType = "INGAME"
+    }
+}

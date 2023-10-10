@@ -1,0 +1,431 @@
+country_decisions = {
+
+	####################################################
+	# Form Qing Dynasty - Manchus and Chinese Kingdoms #
+	####################################################
+
+	dec1_qing_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			OR = {
+				any_owned_province = {
+					AND = {
+						OR = {
+							superregion = china_superregion # Chinese
+							superregion = far_east_superregion # Manchu
+						}
+						is_capital = yes
+					}
+				}
+				tag = KRC
+			}
+			NOT = {
+				has_country_flag = manchu_dynasty_formed
+				exists = QNG
+				tag = MNG # Ming CANNOT form Qing via this decision, they have their own
+				tag = CHN
+				tag = PRC
+				tag = WUU
+				tag = TPP
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 20
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 704	# Liaoxi
+				province_id = 723	# Xilin Gol
+				province_id = 726	# Liaodong
+				province_id = 1816	# Beijing
+			}
+			NOT = { owned_by = ROOT }
+			NOT = { is_core = ROOT }
+		}
+		allow = {
+			adm_tech = 10 # Unique Early Empire
+			NOT = { exists = QNG }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			if = { # DLC check for Mandate of Heaven
+				limit = {
+					has_dlc = "Mandate of Heaven"
+					any_country = {
+						is_emperor_of_china = yes
+					}
+				}
+				# DEV NOTE: this could be reworked better for people without DLC.
+				is_emperor_of_china = yes
+				else = {
+					government_rank = 3
+				}
+			}
+			NOT = {
+				has_ruler_modifier = tribal_succession_crisis
+			}
+			owns = 1816	# Beijing
+			owns = 704	# Liaoxi
+			owns = 723	# Xilin Gol
+			owns = 726	# Liaodong
+			owns = 2109	# Boduna
+			owns = 728	# Tuwan
+		}
+		effect = {
+			change_tag = QNG # Country TAG
+			set_country_flag = manchu_dynasty_formed # Country Formation Flag
+			custom_tooltip = form_qing_tt_2 # New Missions
+			custom_tooltip = form_qing_tt_3 # Region/Area Claims
+			custom_tooltip = dec1_decisions_blank
+			QNG = { # Capital change and bonuses
+				set_capital = 726 # Shenyang
+				726 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips					# Unique Qing effects
+					# If Nomadic tech and NOT Chinese tech or Chinese unit types, then change tech and unit to Chinese unit
+					if = {
+						limit = {
+							technology_group = nomad_group
+							NOT = {
+								technology_group = chinese
+								unit_type = chinese
+							}
+						}
+						change_technology_group = chinese
+						change_unit_type = chinese
+					}
+					# If not Confucianism change back to confuciansim with Tengre Pagan Reformed as harmonized religion - Perhaps change to unique event
+					# Dealing with the official policy of religion in the empire
+					if = {
+						limit = {
+							NOT = { religion = confucianism }
+						}
+						change_religion = confucianism
+						add_harmonized_religion = tengri_pagan_reformed
+					}
+					# New Missions
+
+					# Region/Area Claims
+					north_china_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = QNG
+					}
+					south_china_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = QNG
+					}
+					xinan_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = QNG
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = QNG_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+					custom_tooltip = dec1_decisions_blank
+				}
+                country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_qings_of_china
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	####################################
+	# Restore the Qing Dynasty as Ming #
+	####################################
+
+	dec1_restore_qing_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			AND = {
+				tag = MNG
+				any_owned_province = {
+					AND = {
+						superregion = china_superregion
+						is_capital = yes
+					}
+				}
+			}
+			NOT = {
+				has_country_flag = manchu_dynasty_formed
+				exists = QNG
+				tag = QNG
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 20
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 704	# Liaoxi
+				province_id = 723	# Xilin Gol
+				province_id = 726	# Liaodong
+				province_id = 1816	# Beijing
+				province_id = 677	# Lhasa (Tibet)
+				province_id = 2133	# Dege
+			}
+			NOT = { owned_by = ROOT }
+			NOT = { is_core = ROOT }
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = QNG }
+			is_at_war = no
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			if = { # DLC check for Mandate of Heaven
+				limit = {
+					has_dlc = "Mandate of Heaven"
+					any_country = {
+						is_emperor_of_china = yes
+					}
+				}
+				is_emperor_of_china = yes
+				else = {
+					government_rank = 3
+				}
+			}
+			NOT = {
+				has_ruler_modifier = tribal_succession_crisis
+			}
+			owns = 1816	# Beijing
+			owns = 704	# Liaoxi
+			owns = 723	# Xilin Gol
+			owns = 726	# Liaodong
+			owns = 677	# Lhasa (Tibet)
+			owns = 2133	# Dege
+		}
+		effect = {
+			change_tag = QNG # Country TAG
+			set_country_flag = manchu_dynasty_formed # Country Formation Flag
+			custom_tooltip = form_qing_tt_2 # New Missions
+			custom_tooltip = form_qing_tt_3 # Region/Area Claims
+			custom_tooltip = dec1_decisions_blank
+			QNG = { # Capital change and bonuses
+				set_capital = 726 # Shenyang
+				726 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_celestial_empire
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips					# Unique Qing effects
+					# If Nomadic tech and NOT Chinese tech or Chinese unit types, then change tech and unit to Chinese unit
+					if = {
+						limit = {
+							technology_group = nomad_group
+							NOT = {
+								technology_group = chinese
+								unit_type = chinese
+							}
+						}
+						change_technology_group = chinese
+						change_unit_type = chinese
+					}
+					# If not Confucianism change back to confuciansim with Tengre Pagan Reformed as harmonized religion - Perhaps change to unique event
+					# Dealing with the official policy of religion in the empire
+					if = {
+						limit = {
+							NOT = { religion = confucianism }
+						}
+						change_religion = confucianism
+						add_harmonized_religion = tengri_pagan_reformed
+					}
+					# New Missions
+
+					# Region/Area Claims
+					north_china_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = QNG
+					}
+					south_china_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = QNG
+					}
+					xinan_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = QNG
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = celestial_empire
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = QNG_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+					custom_tooltip = dec1_decisions_blank
+				}
+                country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_qings_of_china
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+}

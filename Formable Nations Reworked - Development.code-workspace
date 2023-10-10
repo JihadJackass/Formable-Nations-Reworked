@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "..\\..\\logs"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "formable_nations_reworked"
+	}
+}

@@ -1,0 +1,148 @@
+country_decisions = {
+
+	##############################
+	# Isreal - Any Jewish Nation #
+	##############################
+
+	dec1_israel_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			religion = jewish
+			NOT = {
+				has_country_flag = formed_israel_flag
+				exists = ISR
+				tag = ISR
+				tag = TRR
+				tag = TUR
+				tag = PAP
+				tag = HLR
+				tag = EUR
+				tag = PON
+				tag = ISI
+				tag = TLB
+				tag = HLR
+				tag = MAM
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 379	# Jerusalem
+				province_id = 364	# Gaza
+				province_id = 1854	# Jaffa
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = ISR }
+			is_at_war = no
+			
+			owns_core_province = 379	# Jerusalem
+			owns_core_province = 364	# Gaza
+			owns_core_province = 1854	# Jaffa
+			religion = jewish
+		}
+		effect = {
+			change_tag = ISR # Country TAG
+			set_country_flag = formed_israel_flag # Country Formation Flag
+			custom_tooltip = form_isreal_tt_2 # New Missions
+			change_religion = jewish
+			set_ruler_religion = jewish
+			379 = { # Jerusalem
+				change_religion = jewish
+			}
+			364 = { # Gaza
+				change_religion = jewish
+			}
+			1854 = { # Jaffa
+				change_religion = jewish
+			}
+			custom_tooltip = dec1_decisions_blank
+			ISR = { # Capital change and bonuses
+				set_capital = 379 # Jerusalem
+				379 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = ISR_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_jewish_revival
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+		factor = 1
+		}
+		ai_importance = 200
+	}
+
+}

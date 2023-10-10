@@ -1,0 +1,8 @@
+primary_culture = umbrian
+government = republic
+add_government_reform = republican_dictatorship
+religion = orthodox
+technology_group = eastern
+historical_rival = PER
+historical_rival = TUN
+capital = 151

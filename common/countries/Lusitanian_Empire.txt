@@ -1,0 +1,175 @@
+# Lusitanian Empire
+
+graphical_culture = westerngfx
+
+color = { 83 172 201 }
+
+historical_idea_groups = {
+	exploration_ideas
+	expansion_ideas
+	offensive_ideas
+	religious_ideas
+	economic_ideas
+	maritime_ideas
+	quality_ideas
+	defensive_ideas
+}
+
+historical_units = {
+	western_medieval_infantry
+	western_medieval_knights
+	western_men_at_arms
+	spanish_tercio
+	austrian_tercio
+	austrian_grenzer
+	austrian_hussar
+	austrian_white_coat
+	austrian_jaeger
+	mixed_order_infantry
+	open_order_cavalry
+	napoleonic_square
+	napoleonic_lancers
+}
+
+monarch_names = {
+	"Joao #0" = 120
+	"Filipe #0" = 60
+	"Afonso #4" = 40
+	"Pedro #1" = 40
+	"Antonio #0" = 20
+	"Duarte #0" = 20
+	"Henrique #0" = 20
+	"Jose #0" = 20
+	"Manuel #0" = 20
+	"Sebastiao #0" = 20
+	"Miguel #0" = 10
+	"Teodasio #0" = 10
+	"Dinis #1" = 5
+	"Fernando #1" = 5
+	"Alexandre #0" = 5
+	"Carlos #0" = 5
+	"Diego #0" = 5
+	"Jaime #0" = 5
+	"Luas #0" = 5
+	"Alvaro #0" = 0
+	"Andre #0" = 0
+	"Antonio #0 Francisco" = 0
+	"Bartolomeu #0" = 0
+	"Caetano #0" = 0
+	"Damieo #0" = 0
+	"Esteveo #0" = 0
+	"Francisco #0" = 0
+	"Francisco #0 Xavier" = 0
+	"Gabriel #0" = 0
+	"Garcia #0" = 0
+	"Gaspar #0" = 0
+	"Gil #0" = 0
+	"Gonzalo #0" = 0
+	"Guilherme #0" = 0
+	"Inacio #0" = 0
+	"Joaquim #0" = 0
+	"Jorge #0" = 0
+	"Jose #0 Manuel" = 0
+	"Lourenco #0" = 0
+	"Marco #0" = 0
+	"Nicolau #0" = 0
+	"Octavio #0" = 0
+	"Paulo #0" = 0
+	"Rafael #0" = 0
+	"Rogario #0" = 0
+	"Rui #0" = 0
+	"Simeo #0" = 0
+	"Uriel #0" = 0
+	"Vicente #0" = 0
+	"Maria #0" = -10
+	"Isabel #0" = -5
+	"Joana #0" = -1
+	"Beatriz #0" = -1
+	"Maria Manuela #0" = -1
+	"Filipa #0" = -1
+	"Luasa #0" = -1
+	"Catarina #0" = -1
+	"Ana #0" = -1
+	"Barbara #0" = -1
+}
+
+leader_names = {
+	"Machado"
+	Cabral
+	Coelho Corte-Real Coutinho
+	"da Camara"
+	"da Costa"
+	"da Cunha"
+	"da Fonseca"
+	"de Albuquerque"
+	"de Almeida" "de Andrade" "de Aveiro" "de Ataude" "de Azevedo"
+	"de Braganza" "de Brito" "de Carvalho" "de Castelo-Branco" "de Castro"
+	"de Correia" "de Faria" "da Gama" "de Guimarzes" "de Lemos" "de Magalhaes"
+	"de Marialva" "de Melo" "de Mendonza" "de Meneses" "de Noronha"
+	"de Oliveira" "de Paiva" "de Penamacor" "de Pimentel" "de Queirez"
+	"de Sa" "de Sampaio" "de Sequeira" "de Sousa" "de Souto" "de Tavares"
+	"de Tavora" "de Vilhena" Dias
+	Eanes
+	"Ferreira Martins"
+	Gomes Gonzalves
+	"Lemos de Brito"
+	"Martins de Mascarenhas" "de Vasconcelos" "Mendonaa Furtado"
+	"Nunes Barreto"
+	Pereira
+	Rebelo Rodrigues
+	Sarmento
+	Teixeira "Teles de Meneses"
+}
+
+ship_names = {
+	Activo "Afonso de Albuquerque" Aguia Albacora "Almas Santas" Amazona Andorinha Antonio Arpao Bazana Belam Benjamin Boaventura "Bom Jesus de Mazagao"
+	"Cabo de Sao Vicente" Calipso Capitania Chagas "Cinco Chagas" Colombo "Conde Dom Henrique" "Condessa de Resende" "Corazao de Jesus" Coroa "Corte Real"
+	Curiosa Damao Dao Delfim Diana Diligente "Diogo Cao" "Dom Joao VI" "Don Joao Sexto" "Dona Maria II" Douro "Duquesa de Braganza" Espadarte Falcao Fenix
+	"Fenix Constitucional" Fereta "Flor de la Mar" Fureo Gaivota Galgo Garza Garota Giavota Golfinho "Graza Divina" Guadiana "Infante Don Pedro" "Jesus da Ajuda"
+	Lebre Leio Liz "Lobo Soares" Luanda "Madre de Deus" Magnanimo "Maria I" "Martim de Freitas" Medusa Minerva "Monte du Ouro" Neptuno Ninfa "N. Sra. Belam"
+	"N. Sra. da Ajuda" "N. Sra. da Ajuda e Sao Fransisco" "N. Sra. da Ajuda e Sao Pedro" "N. Sra. da Arribada" "N. Sra. da Assunao" "N. Sra. da Atalaia"
+	"N. Sra. da Boa Hora" "N. Sra. da Boa Memoria" "N. Sra. da Boa Viagem" "N. Sra. da Caridade" "N. Sra. da Caridade e Sao Fransisco" "N. Sra. da Conceicao"
+	"N. Sra. da Conceirao e Sao Joao" "N. Sra. da Conceieo e Sao Jose" "N. Sra. da Conceiano e Sao Vicente" "N. Sra. da Encarnazo" "N. Sra. da Esperanca"
+	"N. Sra. da Estrela" "N. Sra. da Glaria" "N. Sra. da Graza" "N. Sra. da Guia" "N. Sra. da Lampadosa" "N. Sra. da Luz" "N. Sra. da Madre de Deus"
+	"Santo Antonio de Tanna" "Santo Antanio e Sao Joaquim" "Santo Antonio e Sao Jose" "Santo Agustinho" "Santo Miguel" "Sao Antonio" "Sao Bartholomeu"
+	"Sao Benedito" "Sao Bento" "Sao Bernardo" "Sao Boaventura" "Sao Bras e Sao Lourenao" "Sao Cristovao" "Sao Fransisco de Assis" "Sao Fransisco de Paula"
+	"Sao Fransisco Xavier" "Sao Fransisco Xavier e Santo Antinio" "Sao Fransisco Xavier e Todo o Bem" "Sao Joao" "Sao Joao Baptista" "Sao Joao de Deus"
+	"Sao Joao Magnanimo" "Sao Jorge" "Sao Josa" "Sao Josa e N. Sra. da Conceiao" "Sao Jose e N. Sra. das Mercas" "Sao Jose Paquete Africa" "Sao Lourenzo"
+	"Sao Martinho" "Sao Nicolau" "Sao Pedro" "Sao Pedro Goncalves" "Sao Rafael" "Sao Salvador" "Sao Sebasteio" "Sao Simao" "Sao Tomb" "Sacramento"
+	"Santissimo Sacramento" "Sem Nome" Serpente "Serpento do Mar" "Simenta de Carvalho" Successo Taforea Tejo "Temavel Portuguesa" "Todos os Santos" Torta
+	Tritao Ulisses Unizo Unido Unilo Urania Vale "Vasco da Gama" Vanus Vinganza Voador Volador Vulcano "Zabra Augusta" "Zabra Jalia" "Sao Gabriel" Barrio
+	Gonzalo Nunes Argo "Arca de Noa" Jupiter Jesus Cristo "Jesus Cristo" Lisboa
+}
+
+army_names = {
+	"Guarda Real" "Terao de $PROVINCE$" "Exercito de $PROVINCE$" "Bandeira de $PROVINCE$"  "Tereo da Armada Real da Coroa de Portugal"
+}
+
+fleet_names = {
+	"Armada Real"
+	"Armada de $PROVINCE$"
+	"Esquadra de $PROVINCE$"
+	"Frota de $PROVINCE$"
+	"Armada do Atlantico"
+	"Esquadra do Atlantico"
+	"Frota do Atlantico"
+	"Armada do Brasil"
+	"Esquadra do Brasil"
+	"Frota do Brasil"
+	"Armada da Guine"
+	"Esquadra da Guine"
+	"Frota da Guine"
+	"Armada do Cabo"
+	"Esquadra do Cabo"
+	"Frota do Cabo"
+	"Armada do Andico"
+	"Esquadra do Andico"
+	"Frota do Andico"
+	"Armada do Estreito"
+	"Esquadra do Estreito"
+	"Frota do Estreito"
+	"Armada do Extremo Oriente"
+	"Esquadra do Extremo Oriente"
+	"Frota do Extremo Oriente"
+	"Armada do Pacifico" "Esquadra do Pacifico" "Frota do Pacifico"
+}

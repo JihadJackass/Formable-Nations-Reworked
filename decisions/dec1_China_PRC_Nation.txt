@@ -1,0 +1,210 @@
+country_decisions = {
+
+	# People's Republic of China
+
+	dec1_china_PRC_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			tag = CHN # must be China - TODO: will start the Chinese Civil War
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_china_PRC_flag
+				exists = PRC
+				exists = CHN
+				tag = PRC
+				tag = CHN
+				tag = TPP
+				tag = PAP
+			}
+			OR = {
+				primary_culture = cantonese
+				primary_culture = gan
+				primary_culture = hakka
+				primary_culture = hubei
+				primary_culture = jianghuai
+				primary_culture = jin
+				primary_culture = manchu
+				primary_culture = min
+				primary_culture = sichuanese
+				primary_culture = wu
+				primary_culture = xiang
+				primary_culture = xibei
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				region = north_china_region
+				region = south_china_region
+				region = xinan_region
+				province_id = 1816 # Beijing
+			}
+			NOT = { owned_by = ROOT }
+			NOT = { is_core = ROOT }
+		}
+		allow = {
+			adm_tech = 15
+			NOT = { exists = PRC }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			owns = 1816 # Beijing
+			owns = 667 # Canton
+			owns = 679 # Chengdu
+			owns = 2133 # Dege
+			OR = {
+				num_of_cities = 125
+				AND = { # Full conquest
+					north_china_region = {
+						type = all
+						owned_by = ROOT
+					}
+					south_china_region = {
+						type = all
+						owned_by = ROOT
+					}
+					xinan_region = {
+						type = all
+						owned_by = ROOT
+					}
+					tibet_region = {
+						type = all
+						owned_by = ROOT
+					}
+				}
+			}
+		}
+	 	effect = {
+			change_tag = PRC # Country TAG
+			set_country_flag = formed_china_PRC_flag # Country Formation Flag
+			custom_tooltip = form_china_PRC_tt_2 # New Missions
+			custom_tooltip = form_china_PRC_tt_3 # Claims
+			custom_tooltip = dec1_abolish_the_empire_of_china_mandate # Abolish the Mandate of Heaven
+			custom_tooltip = dec1_decisions_blank
+			PRC = { # Capital change and bonuses
+				set_capital = 1816 # Beijing
+				1816 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_chinese_communism_government # Government Type Change
+				}
+				custom_tooltip = dec1_government_reform_change_prc # Government Type Change
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					north_china_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = PRC
+					}
+					south_china_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = PRC
+					}
+					xinan_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = PRC
+					}
+					tibet_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = PRC
+					}
+					dismantle_empire_of_china = yes # Abolished the Mandate of Heaven
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = republic
+								}
+							}
+						change_government = republic
+					}
+					add_government_reform = dec1_communist_party_of_china_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = PRC_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+                country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# Abolished the Mandate of Heaven debuff
+				add_country_modifier = {
+					name = dec1_abolished_the_mandate_of_heaven
+					duration = 49275
+				}
+				# National Ability
+				add_country_modifier = {
+					name = dec1_foundation_chinese_communist_party
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+}

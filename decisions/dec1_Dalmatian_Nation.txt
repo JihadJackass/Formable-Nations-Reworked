@@ -1,0 +1,192 @@
+country_decisions = {
+
+	dalmatian_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_dalmatia_flag
+				exists = DAL
+				tag = DAL
+				tag = LVE
+				tag = PAP
+				tag = HAB
+				tag = HLR
+				tag = ITA
+				tag = IMA
+				tag = TTS
+				tag = ALP
+				tag = CIS
+				tag = EUR
+				tag = ADR
+				tag = ROP
+				tag = SPI
+			}
+			OR = {
+				primary_culture = dalmatian
+				AND = { # Controls all dalmatian provinces
+					primary_culture = dalmatian
+					num_of_owned_provinces_with = {
+						value = 3
+						culture = dalmatian
+					}
+				}
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 1
+				}
+			}
+		}
+		provinces_to_highlight = {
+			AND = {
+				OR = {
+					province_id = 136	# Split
+					province_id = 4753	# Zadar
+				}
+				ROOT = {
+					NOT = { owns_core_province = 136 }
+					NOT = { owns_core_province = 4753 }
+				}
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = {
+				exists = DAL
+				num_of_cities = 8
+			}
+			OR = {
+				primary_culture = dalmatian
+				AND = { # Controls all dalmatian provinces
+					primary_culture = dalmatian
+					num_of_owned_provinces_with = {
+						value = 3
+						culture = dalmatian
+					}
+				}
+			}
+			is_at_war = no
+			is_free_or_tributary_trigger = yes
+			
+			owns_core_province = 136	# Split
+			owns_core_province = 4753	# Zadar
+		}
+		effect = {
+			change_tag = DAL # Country TAG
+			set_country_flag = formed_dalmatia_flag # Country Formation Flag
+			custom_tooltip = form_dalmatia_tt_2 # New Missions
+			custom_tooltip = form_dalmatia_tt_3 # Claims
+			custom_tooltip = dec1_decisions_blank
+			DAL = { # Capital change and bonuses
+				set_capital = 4753
+				4753 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Region/Area Claims
+					croatia_area = {
+						limit = {
+							NOT = { owned_by = ROOT }
+							NOT = { is_permanent_claim = ROOT }
+						}
+						add_permanent_claim = DAL
+					}
+					east_adriatic_coast_area = {
+						limit = {
+							NOT = { owned_by = ROOT }
+							NOT = { is_permanent_claim = ROOT }
+						}
+						add_permanent_claim = DAL
+					}
+					every_province = {
+						limit = {
+							culture = dalmatian
+							continent = europe
+							NOT = { owned_by = ROOT }
+							NOT = { is_permanent_claim = ROOT }
+							NOT = { is_core = DAL }
+						}
+						add_permanent_claim = DAL
+					}
+					4738 = {
+						add_permanent_claim = DAL
+					}
+					4754 = {
+						add_permanent_claim = DAL
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = DAL_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_oppressed_kingdom
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

@@ -1,0 +1,616 @@
+country_decisions = {
+
+	##########################################
+	# Create County of Edessa Crusader State #
+	##########################################
+
+		dec1_create_county_of_edessa_crusader_state = {
+			major = yes
+			potential = {
+				is_former_colonial_nation = no
+				is_colonial_nation = no
+				NOT = {
+					has_country_flag = dec1_create_county_of_edessa
+					exists = COD
+					tag = COD
+				}
+				OR = { # Crusader Creation Handler
+					AND = { # Is French and owns a province in Levant
+						culture_group = french
+						religion = catholic
+						any_owned_province = {
+							region = mashriq_region
+						}
+					}
+					AND = { # Is latin and owns a province in Levant
+						culture_group = latin
+						religion = catholic
+						any_owned_province = {
+							region = mashriq_region
+						}
+					}
+					AND = { # Is German and owns a province in Levant
+						culture_group = germanic
+						religion = catholic
+						any_owned_province = {
+							region = mashriq_region
+						}
+					}
+					AND = { # Is Participant in Crusade (historically), catholic, and owns a province in Levant
+						OR = {
+							tag = PAP # Papacy
+							tag = VEN # Venice
+							tag = ENG # England
+							tag = FRA # France
+							tag = KNI # Knights Templar
+							tag = TEU # Teutonic Order
+							tag = LIV # Livonian Order
+							tag = LIV # Livonian Order
+						}
+						religion = catholic
+						any_owned_province = {
+							region = mashriq_region
+						}
+					}
+					tag = LTE # is the Latin Empire
+				}
+			}
+			provinces_to_highlight = {
+				OR = {
+					province_id = 4310
+					province_id = 2303 # Gargar
+					province_id = 332 # Marach
+				}
+				NOT = { owned_by = ROOT }
+			}
+			allow = {
+				dip_tech = 10
+				OR = {
+					NOT = { exists = COD }
+					COD = {
+						is_subject_of = LTE
+					}
+				}
+				if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+					limit = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+					OR = {
+						is_subject = yes
+						is_subject = no
+					}
+				}
+				if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+					limit = {
+						NOT = {
+							has_global_flag = dec1_subject_formable_nations_enabled
+						}
+					}
+					is_subject = no
+				}
+				is_at_war = no
+				
+				owns = 4310
+				owns = 2303 # Gargar
+				owns = 332 # Marach
+			}
+			effect = {
+				add_prestige = 5
+				set_country_flag = dec1_create_county_of_edessa
+				hidden_effect = {
+					COD = {
+						# Religion Handler
+						change_religion = catholic
+						every_owned_province = {
+							limit = {
+								NOT = {
+									religion = catholic
+								}
+							}
+							change_religion = catholic
+						}
+						# Culture Handler
+						change_primary_culture = cosmopolitan_french
+						add_accepted_culture = greek
+						# Government Type Change
+						if = {
+							limit = {
+								NOT = {
+									government = monarchy
+									}
+								}
+							change_government = monarchy
+						}
+						add_government_reform = holy_state_reform
+					}
+					4310 = {
+						add_core = COD
+						remove_core = LTE
+						remove_claim = LTE
+					}
+					2303 = {
+						add_core = COD
+						remove_core = LTE
+						remove_claim = LTE
+					}
+					332 = {
+						add_core = COD
+						remove_core = LTE
+						remove_claim = LTE
+					}
+					release = COD
+				}
+				create_march = COD
+			}
+			ai_will_do = {
+				factor = 1
+			}
+			ai_importance = 200
+		}
+
+	#################################################
+	# Create Principality of Antioch Crusader State #
+	#################################################
+
+		dec1_create_principality_of_antioch_crusader_state = {
+			major = yes
+			potential = {
+				is_former_colonial_nation = no
+				is_colonial_nation = no
+				NOT = {
+					has_country_flag = dec1_create_principality_of_antioch
+					exists = POA
+					tag = POA
+				}
+				OR = { # Crusader Creation Handler
+					AND = { # Is French and owns a province in Levant
+						culture_group = french
+						religion = catholic
+						any_owned_province = {
+							region = mashriq_region
+						}
+					}
+					AND = { # Is latin and owns a province in Levant
+						culture_group = latin
+						religion = catholic
+						any_owned_province = {
+							region = mashriq_region
+						}
+					}
+					AND = { # Is German and owns a province in Levant
+						culture_group = germanic
+						religion = catholic
+						any_owned_province = {
+							region = mashriq_region
+						}
+					}
+					AND = { # Is Participant in Crusade (historically), catholic, and owns a province in Levant
+						OR = {
+							tag = PAP # Papacy
+							tag = VEN # Venice
+							tag = ENG # England
+							tag = FRA # France
+							tag = KNI # Knights Templar
+							tag = TEU # Teutonic Order
+							tag = LIV # Livonian Order
+							tag = LIV # Livonian Order
+						}
+						religion = catholic
+						any_owned_province = {
+							region = mashriq_region
+						}
+					}
+					tag = LTE # is the Latin Empire
+				}
+			}
+			provinces_to_highlight = {
+				OR = {
+					province_id = 4298
+					province_id = 2313
+					province_id = 378
+					province_id = 377
+					province_id = 1849
+				}
+				NOT = { owned_by = ROOT }
+			}
+			allow = {
+				dip_tech = 10
+				OR = {
+					NOT = { exists = POA }
+					POA = {
+						is_subject_of = LTE
+					}
+				}
+				if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+					limit = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+					OR = {
+						is_subject = yes
+						is_subject = no
+					}
+				}
+				if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+					limit = {
+						NOT = {
+							has_global_flag = dec1_subject_formable_nations_enabled
+						}
+					}
+					is_subject = no
+				}
+				is_at_war = no
+				
+				owns = 4298
+				owns = 2313
+				owns = 378
+				owns = 377
+				owns = 1849
+			}
+			effect = {
+				add_prestige = 10
+				set_country_flag = dec1_create_principality_of_antioch
+				hidden_effect = {
+					POA = {
+						# Religion Handler
+						change_religion = catholic
+						every_owned_province = {
+							limit = {
+								NOT = {
+									religion = catholic
+								}
+							}
+							change_religion = catholic
+						}
+						# Culture Handler
+						change_primary_culture = cosmopolitan_french
+						add_accepted_culture = greek
+						# Government Type Change
+						if = {
+							limit = {
+								NOT = {
+									government = monarchy
+									}
+								}
+							change_government = monarchy
+						}
+						add_government_reform = holy_state_reform
+					}
+					4298 = {
+						add_core = POA
+						remove_core = LTE
+						remove_claim = LTE
+					}
+					2313 = {
+						add_core = POA
+						remove_core = LTE
+						remove_claim = LTE
+					}
+					378 = {
+						add_core = POA
+						remove_core = LTE
+						remove_claim = LTE
+					}
+					377 = {
+						add_core = POA
+						remove_core = LTE
+						remove_claim = LTE
+					}
+					1849 = {
+						add_core = POA
+						remove_core = LTE
+						remove_claim = LTE
+					}
+					release = POA
+				}
+				create_march = POA
+			}
+			ai_will_do = {
+				factor = 1
+			}
+			ai_importance = 200
+		}
+
+	###########################################
+	# Create County of Tripoli Crusader State #
+	###########################################
+
+		dec1_create_county_of_tripoli_crusader_state = {
+			major = yes
+			potential = {
+				is_former_colonial_nation = no
+				is_colonial_nation = no
+				NOT = {
+					has_country_flag = dec1_create_county_of_tripoli
+					exists = CTR
+					tag = CTR
+				}
+				OR = { # Crusader Creation Handler
+					AND = { # Is French and owns a province in Levant
+						culture_group = french
+						religion = catholic
+						any_owned_province = {
+							region = mashriq_region
+						}
+					}
+					AND = { # Is latin and owns a province in Levant
+						culture_group = latin
+						religion = catholic
+						any_owned_province = {
+							region = mashriq_region
+						}
+					}
+					AND = { # Is German and owns a province in Levant
+						culture_group = germanic
+						religion = catholic
+						any_owned_province = {
+							region = mashriq_region
+						}
+					}
+					AND = { # Is Participant in Crusade (historically), catholic, and owns a province in Levant
+						OR = {
+							tag = PAP # Papacy
+							tag = VEN # Venice
+							tag = ENG # England
+							tag = FRA # France
+							tag = KNI # Knights Templar
+							tag = TEU # Teutonic Order
+							tag = LIV # Livonian Order
+							tag = LIV # Livonian Order
+						}
+						religion = catholic
+						any_owned_province = {
+							region = mashriq_region
+						}
+					}
+					tag = LTE # is the Latin Empire
+				}
+			}
+			provinces_to_highlight = {
+				OR = {
+					province_id = 1855
+					province_id = 382
+				}
+				NOT = { owned_by = ROOT }
+			}
+			allow = {
+				dip_tech = 10
+				OR = {
+					NOT = { exists = CTR }
+					POA = {
+						is_subject_of = LTE
+					}
+				}
+				if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+					limit = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+					OR = {
+						is_subject = yes
+						is_subject = no
+					}
+				}
+				if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+					limit = {
+						NOT = {
+							has_global_flag = dec1_subject_formable_nations_enabled
+						}
+					}
+					is_subject = no
+				}
+				is_at_war = no
+				
+				owns = 1855
+				owns = 382
+			}
+			effect = {
+				add_prestige = 5
+				set_country_flag = dec1_create_county_of_tripoli
+				hidden_effect = {
+					CTR = {
+						# Religion Handler
+						change_religion = catholic
+						every_owned_province = {
+							limit = {
+								NOT = {
+									religion = catholic
+								}
+							}
+							change_religion = catholic
+						}
+						# Culture Handler
+						change_primary_culture = cosmopolitan_french
+						add_accepted_culture = greek
+						# Government Type Change
+						if = {
+							limit = {
+								NOT = {
+									government = monarchy
+									}
+								}
+							change_government = monarchy
+						}
+						add_government_reform = holy_state_reform
+					}
+					1855 = {
+						add_core = CTR
+						remove_core = LTE
+						remove_claim = LTE
+					}
+					382 = {
+						add_core = CTR
+						remove_core = LTE
+						remove_claim = LTE
+					}
+					release = CTR
+				}
+				create_march = CTR
+			}
+			ai_will_do = {
+				factor = 1
+			}
+			ai_importance = 200
+		}
+
+	##############################################
+	# Create Kingdom of Jerusalem Crusader State #
+	##############################################
+
+		dec1_create_kingdom_of_jerusalem_crusader_state = {
+			major = yes
+			potential = {
+				is_former_colonial_nation = no
+				is_colonial_nation = no
+				NOT = {
+					has_country_flag = dec1_create_kingdom_of_jerusalem
+					exists = KOJ
+					tag = KOJ
+				}
+				OR = { # Crusader Creation Handler
+					AND = { # Is French and owns a province in Levant
+						culture_group = french
+						religion = catholic
+						any_owned_province = {
+							region = mashriq_region
+						}
+					}
+					AND = { # Is latin and owns a province in Levant
+						culture_group = latin
+						religion = catholic
+						any_owned_province = {
+							region = mashriq_region
+						}
+					}
+					AND = { # Is German and owns a province in Levant
+						culture_group = germanic
+						religion = catholic
+						any_owned_province = {
+							region = mashriq_region
+						}
+					}
+					AND = { # Is Participant in Crusade (historically), catholic, and owns a province in Levant
+						OR = {
+							tag = PAP # Papacy
+							tag = VEN # Venice
+							tag = ENG # England
+							tag = FRA # France
+							tag = KNI # Knights Templar
+							tag = TEU # Teutonic Order
+							tag = LIV # Livonian Order
+							tag = LIV # Livonian Order
+						}
+						religion = catholic
+						any_owned_province = {
+							region = mashriq_region
+						}
+					}
+					tag = LTE # is the Latin Empire
+				}
+			}
+			provinces_to_highlight = {
+				OR = {
+					province_id = 1854
+					province_id = 381
+					province_id = 364
+					province_id = 379 # Jerusalem
+					province_id = 380
+				}
+				NOT = { owned_by = ROOT }
+			}
+			allow = {
+				dip_tech = 10
+				OR = {
+					NOT = { exists = KOJ }
+					POA = {
+						is_subject_of = LTE
+					}
+				}
+				if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+					limit = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+					OR = {
+						is_subject = yes
+						is_subject = no
+					}
+				}
+				if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+					limit = {
+						NOT = {
+							has_global_flag = dec1_subject_formable_nations_enabled
+						}
+					}
+					is_subject = no
+				}
+				is_at_war = no
+				
+				owns = 1854
+				owns = 381
+				owns = 364
+				owns = 379
+				owns = 380
+			}
+			effect = {
+				add_prestige = 15
+				set_country_flag = dec1_create_kingdom_of_jerusalem
+				hidden_effect = {
+					KOJ = {
+						# Religion Handler
+						change_religion = catholic
+						every_owned_province = {
+							limit = {
+								NOT = {
+									religion = catholic
+								}
+							}
+							change_religion = catholic
+						}
+						# Culture Handler
+						change_primary_culture = cosmopolitan_french
+						add_accepted_culture = greek
+						# Government Type Change
+						if = {
+							limit = {
+								NOT = {
+									government = monarchy
+									}
+								}
+							change_government = monarchy
+						}
+						add_government_reform = holy_state_reform
+					}
+					1854 = {
+						add_core = KOJ
+						remove_core = LTE
+						remove_claim = LTE
+					}
+					381 = {
+						add_core = KOJ
+						remove_core = LTE
+						remove_claim = LTE
+					}
+					364 = {
+						add_core = KOJ
+						remove_core = LTE
+						remove_claim = LTE
+					}
+					379 = {
+						add_core = KOJ
+						remove_core = LTE
+						remove_claim = LTE
+					}
+					380 = {
+						add_core = KOJ
+						remove_core = LTE
+						remove_claim = LTE
+					}
+					release = KOJ
+				}
+				create_march = KOJ
+			}
+			ai_will_do = {
+				factor = 1
+			}
+			ai_importance = 200
+		}
+
+}

@@ -1,0 +1,57 @@
+country_decisions = {
+
+	###############################
+	# USA DECISIONS FOR CIVIL WAR #
+	###############################
+
+		# Restore the Union - If USA wins American Civil War they can restore the Union
+
+		dec1_restore_the_american_union = {
+			major = yes
+			potential = {
+				NOT = { has_disaster = dec1_usa_american_civil_war }
+				TAG = USA
+				OR = {
+					exists = CSA
+					NOT = { exists = CSA }
+				}
+			}
+			provinces_to_highlight = {
+				CSA = {
+					any_owned_province = {
+						always = yes
+					}
+				}
+			}
+			allow = {
+				CSA = {
+					junior_union_with = USA
+				}
+			}
+			effect = {
+				CSA = {
+					every_owned_province = {
+						cede_province = USA
+					}
+				}
+			}
+			ai_will_do = {
+				factor = 1
+			}
+			ai_importance = 200
+		}
+
+		# Establish Neutrality with Great Powers (USA can prevent intervention in Civil War)
+
+		# Produce a CSA Dreadnaught
+
+	###############################
+	# CSA DECISIONS FOR CIVIL WAR #
+	###############################
+
+		# New Confederation - If CSA wins American Civil War they establish a new Confederation and integrate the USA, establishing Slavery bonuses
+
+		# Alliance with France
+
+		# Demand Intervention from Great Powers
+}

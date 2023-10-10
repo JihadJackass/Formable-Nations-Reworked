@@ -1,0 +1,161 @@
+country_decisions = {
+
+	dec1_nigeria_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			OR = {
+				primary_culture = yorumba
+				primary_culture = nupe
+			}
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_nigeria_flag
+				exists = NGE
+				tag = NGE
+				tag = CHX
+				tag = RHO
+				tag = PNT
+				tag = SOM
+				tag = KNY
+				tag = ABY
+				tag = PAP
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					NOT = { num_of_cities = 6 }
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = { # Chad
+				area = benin_area
+				area = lower_niger_area
+				province_id = 2293
+				province_id = 1154
+				province_id = 2281
+				province_id = 1161
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = NGE }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			benin_area = {
+				type = all
+				owned_by = ROOT
+			}
+			lower_niger_area = {
+				type = all
+				owned_by = ROOT
+			}
+			owns_core_province = 2293
+			owns_core_province = 1154
+			owns_core_province = 2281
+			owns_core_province = 1161
+		}
+	 	effect = {
+			change_tag = NGE # Country TAG
+			set_country_flag = formed_nigeria_flag # Country Formation Flag
+			custom_tooltip = form_nigeria_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			NGE = { # Capital change and bonuses
+				set_capital = 1154 # TODO: rename to Abuja
+				1154 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Region/Area Claims
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+			#			NOT = { has_idea_group = CHX_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_united_chad
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+}

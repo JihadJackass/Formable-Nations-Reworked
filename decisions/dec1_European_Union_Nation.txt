@@ -1,0 +1,249 @@
+country_decisions = {
+
+	#####################################################
+	# The European Union through conquest as one nation #
+	#####################################################
+
+	# Majors can only form EU if they take brussels and dismantle the HRE
+
+	dec1_europe_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_europe_flag
+				exists = EUR
+				tag = EUR
+				tag = PAP
+				tag = HLR
+				tag = KNI
+				tag = GRA
+				tag = ADU
+				tag = KOG
+			}
+			AND = { # Major EU Nations
+				NOT = { is_emperor = yes }
+				owns = 92 # Brussels
+				OR = {
+					tag = ENG
+					tag = UKI
+					tag = GBR
+					tag = FRA
+					tag = SPA
+					tag = POL
+					tag = HAB
+					tag = IBE
+					tag = FIB
+					tag = LSE
+				}
+			}
+			OR = {
+				technology_group = western
+				religion_group = christian
+				culture_group = british
+				culture_group = germanic
+				culture_group = iberian
+			}
+			num_of_owned_provinces_with = {
+				continent = europe
+				is_capital = yes
+				value = 1
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 30
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+					# Holland
+				region = low_countries_region
+					# England
+				region = british_isles_region
+					# France
+				region = france_region
+					# Italy
+				region = italy_region
+					# Germany
+				region = north_german_region
+				region = south_german_region
+					# Iberia
+				region = iberia_region
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 20
+			NOT = { exists = EUR }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			num_of_owned_provinces_with = {
+				continent = europe
+				is_capital = yes
+				value = 1
+			}
+			AND = { # Dismantled the HRE
+				hre_size = 0
+				NOT = {
+					any_country = {
+						is_part_of_hre = yes
+					}
+				}
+			}
+			ROOT = {
+				low_countries_region = {
+					type = all
+					owned_by = ROOT
+				}
+				owns_core_province = 92 # Brabant
+				british_isles_region = {
+					type = all
+					owned_by = ROOT
+				}
+				owns_core_province = 236 # London
+				france_region = {
+					type = all
+					owned_by = ROOT
+				}
+				owns_core_province = 183 # Paris
+				italy_region = {
+					type = all
+					owned_by = ROOT
+				}
+				owns_core_province = 118 # Roma
+				north_german_region = {
+					type = all
+					owned_by = ROOT
+				}
+				south_german_region = {
+					type = all
+					owned_by = ROOT
+				}
+				owns_core_province = 50 # Berlin
+				iberia_region = {
+					type = all
+					owned_by = ROOT
+				}
+				owns_core_province = 217 # Madrid
+				owns_core_province = 227 # Lisboa
+			}
+		}
+	 	effect = {
+			change_tag = EUR # Country TAG
+			set_country_flag = formed_europe_flag # Country Formation Flag
+			custom_tooltip = form_european_union_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			EUR = { # Capital change and bonuses
+				set_capital = 92 # Brussels
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_republic # Government Type Change
+				}
+				custom_tooltip = dec1_government_reform_change_federal_republic
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = republic
+								}
+							}
+						change_government = republic
+					}
+					add_government_reform = federal_republic
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = EUR_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+					custom_tooltip = dec1_decisions_blank
+				}
+                country_event = { id = dec1_events.3 }
+                custom_tooltip = dec1_decisions_blank
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# IDEA: Disaster: if republican tradition falls below 50, major EU nations will revolt (Castille)
+
+	######################################################
+	# The European Union through diplomacy as one nation #
+	######################################################
+
+	#####################################################################################
+	# The European Union through conquest as intergovernmental and supernational system #
+	# will release historical EU members and ROOT will become an OPM overlord           #
+	#####################################################################################
+
+	######################################################################################
+	# The European Union through diplomacy as intergovernmental and supernational system #
+	# will release historical EU members and ROOT will become an OPM overlord            #
+	######################################################################################
+
+	##################################################################
+	# 1951 Treaty of Paris - Event Chain that can lead to EU forming #
+	##################################################################
+
+	##############################
+	# Brexit... Yes, I'm serious #
+	##############################
+
+}

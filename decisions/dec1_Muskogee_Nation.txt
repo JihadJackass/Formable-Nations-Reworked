@@ -1,0 +1,186 @@
+country_decisions = {
+
+	dec1_muskogee_nation = {
+		major = yes
+		potential = {
+			NOT = {
+				has_country_flag = changed_from_colonial_nation
+				has_country_flag = formed_muskogee_flag
+				exists = MSK
+				tag = MSK
+				tag = OKL
+				tag = USA
+				tag = CSA
+				tag = POR
+				tag = COL
+				tag = PAP
+			}
+			OR = {
+				AND = {
+					OR = { # Culture
+						primary_culture = creek
+						primary_culture = choctaw
+						primary_culture = chickasaw
+						primary_culture = yamasee
+						primary_culture = natchez
+						primary_culture = yuchi
+						primary_culture = yoron
+						primary_culture = catawba
+						primary_culture = cherokee
+					}
+					is_religion_reformed = yes
+				}
+				AND = { # Natives have reformed religion
+					government = tribal
+					is_religion_reformed = yes
+				}
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 2
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 928
+				province_id = 4881
+				province_id = 930
+				province_id = 925
+				province_id = 924
+				province_id = 2533
+			}
+			NOT = { owned_by = ROOT }
+			NOT = { is_core = ROOT }
+		}
+		allow = {
+			adm_tech = 5
+			NOT = { exists = MSK }
+			is_at_war = no
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			owns = 928
+			owns = 4881
+			owns = 930
+			owns = 925
+			owns = 924
+			owns = 2533
+		}
+		effect = {
+			change_tag = MSK # Country TAG
+			set_country_flag = formed_muskogee_flag # Country Formation Flag
+			set_country_flag = changed_from_colonial_nation # Colonial Nation flag
+			custom_tooltip = form_muskogee_tt_2 # New Missions
+			custom_tooltip = form_muskogee_tt_3 # Region/Area Claims
+			custom_tooltip = dec1_decisions_blank
+			MSK = { # Capital change and bonuses
+				set_capital = 928
+				928 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Region/Area Claims
+					texas_plains_area = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = MSK
+					}
+					lower_plains_area = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = MSK
+					}
+					llano_estacado_area = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = MSK
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = USA_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_the_land_of_freedom
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+}

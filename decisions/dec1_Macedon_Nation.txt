@@ -1,0 +1,232 @@
+country_decisions = {
+
+	###########
+	# Macedon #
+	###########
+
+	dec1_macedon_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			culture = greek
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_macedon_flag
+				exists = MAC
+				tag = MAC
+				tag = BYZ
+				tag = TUR
+				tag = PAP
+				tag = GRE
+				tag = LTE
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 6
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+					# Macedon
+				province_id = 148
+				province_id = 1853
+				province_id = 3001
+				balkan_region = {
+					type = all
+					owned_by = ROOT
+				}
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = MAC }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			OR = {
+				AND = {
+					total_development = 120
+					# Core Macedon
+					owns_core_province = 148
+					owns_core_province = 1853
+					owns_core_province = 3001
+				}
+				AND = {
+					num_of_owned_provinces_with = {
+						value = 10
+						region = balkan_region
+						is_core = ROOT
+					}
+				}
+			}
+		}
+	 	effect = {
+			change_tag = MAC # Country TAG
+			set_country_flag = formed_macedon_flag # Country Formation Flag
+			custom_tooltip = form_macedon_tt_2 # New Missions
+			custom_tooltip = form_macedon_tt_3 # Region/Area Claims
+			custom_tooltip = dec1_decisions_blank
+			define_ruler = {
+				name = "Perseus II"
+				dynasty = "Antigonid"
+				claim = 100
+				adm = 6
+				dip = 5
+				mil = 6
+				age = 19
+			}
+			define_heir = {
+				name = "Perseus III"
+				dynasty = "Antigonid"
+				claim = 100
+				adm = 2
+				dip = 3
+				mil = 2
+				age = 12
+			}
+			custom_tooltip = dec1_decisions_blank
+			MAC = { # Capital change and bonuses
+				set_capital = 148 # Selanik
+				148 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				# Government Rank Change
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# hidden culture change
+					if = {
+						limit = {
+							NOT = { primary_culture = greek }
+						}
+						change_primary_culture = greek
+					}
+					# hidden culture province changes
+					if = {
+						limit = {
+							all_owned_province = {
+								NOT = { culture = greek }
+							}
+						}
+						change_primary_culture = greek
+					}
+					# Region/Area Claims
+					balkan_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = MAC
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = MAC_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_alexanders_kingdom
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+			modifier = { # An Empire will not restore Macedon
+				factor = 0
+				government_rank = 3
+			}
+			modifier = { # Desire for Epirus and Athens to Kill Byzantium and Restore Macedon
+				factor = 100
+				OR = {
+					tag = EPI
+					tag = ATH
+				}
+			}
+		}
+		ai_importance = 200
+	}
+
+	# Claim Alexander's Legacy
+
+	#####################
+	# Macedonian Empire #
+	#####################
+
+	#####################
+	# Alexanders Empire #
+	#####################
+
+}

@@ -1,0 +1,281 @@
+country_decisions = {
+
+	# Celtic Union
+
+	dec1_celtic_union_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_celtic_union_flag
+				exists = CEU
+				tag = PAP
+				tag = GBR
+				tag = UKI
+				tag = AVE
+				tag = ENG
+				tag = FRA
+				tag = CEU
+				tag = EUR
+			}
+			OR = {
+				primary_culture = scottish
+				primary_culture = welsh
+				primary_culture = irish
+				primary_culture = breton
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 13 # Changed from 25 to 13.. AI need to want this.
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+					# Leinster
+				province_id = 373
+				province_id = 4379
+				province_id = 4120
+				province_id = 374
+					# Munster
+				province_id = 4377
+				province_id = 4118
+				province_id = 4378
+					# Ulster
+				province_id = 372
+				province_id = 4121
+				province_id = 4380
+					# Connacht
+				province_id = 4119
+				province_id = 375
+				province_id = 376
+					# Wales
+				province_id = 4366
+				province_id = 241
+				province_id = 242
+				province_id = 4369
+					# Wessex
+				province_id = 233
+					# Scottish Marches
+				province_id = 4361
+				province_id = 4362
+					# Lowlands
+				province_id = 249
+				province_id = 248
+				province_id = 251
+					# Highlands
+				province_id = 252
+				province_id = 250
+				province_id = 4363
+				province_id = 4110
+					# The Isles
+				province_id = 253
+				province_id = 4364
+				province_id = 4365
+					# Brittany
+				province_id = 172
+				province_id = 4384
+				province_id = 169
+				province_id = 171
+				province_id = 170
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = CEU }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			custom_trigger_tooltip = {
+				tooltip = form_celtic_union_tt_1
+					# Leinster
+				owns_core_province = 373
+				owns_core_province = 4379
+				owns_core_province = 4120
+				owns_core_province = 374
+					# Munster
+				owns_core_province = 4377
+				owns_core_province = 4118
+				owns_core_province = 4378
+					# Ulster
+				owns_core_province = 372
+				owns_core_province = 4121
+				owns_core_province = 4380
+					# Connacht
+				owns_core_province = 4119
+				owns_core_province = 375
+				owns_core_province = 376
+					# Wales
+				owns_core_province = 4366
+				owns_core_province = 241
+				owns_core_province = 242
+				owns_core_province = 4369
+					# Wessex
+				owns_core_province = 233
+					# Scottish Marches
+				owns_core_province = 4361
+				owns_core_province = 4362
+					# Lowlands
+				owns_core_province = 249
+				owns_core_province = 248
+				owns_core_province = 251
+					# Highlands
+				owns_core_province = 252
+				owns_core_province = 250
+				owns_core_province = 4363
+				owns_core_province = 4110
+					# The Isles
+				owns_core_province = 253
+				owns_core_province = 4364
+				owns_core_province = 4365
+					# Brittany
+				owns_core_province = 172
+				owns_core_province = 4384
+				owns_core_province = 169
+				owns_core_province = 171
+				owns_core_province = 170
+			}
+		}
+	 	effect = {
+			change_tag = CEU # Country TAG
+			set_country_flag = formed_celtic_union_flag # Country Formation Flag
+			custom_tooltip = form_celtic_union_tt_2 # New Missions
+			custom_tooltip = form_celtic_union_tt_3 # Region/Area Claims
+			custom_tooltip = form_celtic_union_tt_4 # Culture
+			hidden_effect = {
+				if = { limit = { accepted_culture = highland_scottish } remove_accepted_culture = highland_scottish }
+				if = { limit = { accepted_culture = english } remove_accepted_culture = english }
+				if = { limit = { accepted_culture = scottish } remove_accepted_culture = scottish }
+				if = { limit = { accepted_culture = welsh } remove_accepted_culture = welsh }
+				if = { limit = { accepted_culture = breton } remove_accepted_culture = breton }
+				if = { limit = { accepted_culture = irish } remove_accepted_culture = irish }
+				if = { limit = { accepted_culture = cornish } remove_accepted_culture = cornish }
+				if = { limit = { accepted_culture = dec1_esperanto } remove_accepted_culture = dec1_esperanto }
+				create_new_culture_group = {
+					culture_group = dec1_celtic
+					culture = scottish
+					culture2 = highland_scottish
+					culture3 = english
+					culture4 = welsh
+					culture5 = breton
+					culture6 = irish
+					culture7 = cornish
+					culture8 = dec1_esperanto
+				}
+				add_accepted_culture = scottish_new
+				add_accepted_culture = highland_scottish_new
+				add_accepted_culture = english_new
+				add_accepted_culture = welsh_new
+				add_accepted_culture = breton_new
+				add_accepted_culture = irish_new
+				add_accepted_culture = cornish_new
+				add_accepted_culture = dec1_esperanto
+			}
+			custom_tooltip = dec1_decisions_blank
+			CEU = { # Capital change and bonuses
+				set_capital = 373
+				373 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_republic # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_oligarchy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Region/Area Claims
+					british_isles_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = CEU
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = republic
+								}
+							}
+						change_government = republic
+					}
+					add_government_reform = oligarchy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = CEU_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_celtic_lifestyle
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+}

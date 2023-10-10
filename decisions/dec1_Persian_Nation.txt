@@ -1,0 +1,181 @@
+country_decisions = {
+
+	dec1_persian_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			NOT = {
+				has_country_flag = formed_persia_flag
+				exists = PER
+				tag = PER
+				tag = MUG
+				tag = TIM
+				tag = HLR
+				tag = ROM
+				tag = PAP
+				tag = TUR
+				tag = BYZ
+				tag = ARB
+				tag = TLB
+			}
+			OR = {
+				culture_group = iranian
+				primary_culture = azerbaijani
+				tag = AKK
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 8
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 414		# Hamadan
+				province_id = 429		# Isfahan
+				province_id = 433		# Yazd
+				province_id = 2213		# Qom
+				province_id = 2215		# Qazvin
+				AND = {
+					province_id = 426
+					ROOT = { NOT = { owns_core_province = 2218 } }
+				}
+				AND = {
+					province_id = 2218
+					ROOT = { NOT = { owns_core_province = 426 } }
+				}
+				AND = {
+					province_id = 416
+					ROOT = { NOT = { owns_core_province = 432 } }
+					ROOT = { NOT = { owns_core_province = 2221 } }
+				}
+				AND = {
+					province_id = 432
+					ROOT = { NOT = { owns_core_province = 416 } }
+					ROOT = { NOT = { owns_core_province = 2221 } }
+				}
+				AND = {
+					province_id = 2221
+					ROOT = { NOT = { owns_core_province = 416 } }
+					ROOT = { NOT = { owns_core_province = 432 } }
+				}
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = PER }
+			
+			is_at_war = no
+			is_tribal = no
+			owns_core_province = 414		# Hamadan
+			owns_core_province = 429		# Isfahan
+			owns_core_province = 433		# Yazd
+			owns_core_province = 2213		# Qom
+			owns_core_province = 2215		# Qazvin
+			OR = {
+				owns_core_province = 426		# Amol
+				owns_core_province = 2218		# Shiraz
+			}
+			OR = {
+				owns_core_province = 416		# Tabriz
+				owns_core_province = 432		# Kerman
+				owns_core_province = 2221		# Mashhad
+			}
+		}
+		effect = {
+			change_tag = PER # Country TAG
+			set_country_flag = formed_persia_flag # Country Formation Flag
+			custom_tooltip = form_persian_tt_2 # New Missions
+			custom_tooltip = form_persian_tt_3 # Region/Area Claims
+			custom_tooltip = dec1_decisions_blank
+			PER = { # Capital change and bonuses
+				set_capital = 414 # Hamadan
+				414 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Region/Area Claims
+					persia_region = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = PER
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = PER_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+					custom_tooltip = dec1_decisions_blank
+				}
+                country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_the_empire_of_ages
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+}

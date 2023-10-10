@@ -1,0 +1,252 @@
+country_decisions = {
+
+	# kingdom of jerusalem as player and handling of catholics and  french catholics forming it
+
+	# DEVNOTE: this whole decision could be reworked to be really cool. I suggest it being split into a few different choices
+	# form kingdom, form kingdom as march/vassal, and one for knights/cyprus/provence
+	# and how they will uniquely handle it, as they have historical relevance to jerusalem.
+	# lots of other good thoughts, i just have a migraine, so im typing it poorly. lots to expand on for the holy city tho.
+
+	kingdom_of_jerusalem = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			religion = catholic
+			NOT = {
+				has_country_flag = formed_jerusalem_flag
+				government = republic
+				has_reform = celestial_empire
+				exists = KOJ
+				tag = KOJ
+				tag = PAP
+				tag = ROM
+				tag = COD
+				tag = POA
+				tag = LTE
+			}
+			OR = {
+				owns = 379 # Any catholic ruler owns Jerusalem
+				AND = {
+					tag = KNI # Knights
+				}
+				AND = {
+					tag = CYP # Cyprus
+				}
+				AND = {
+					tag = PRO # Provence
+				}
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 1 # Unique req for jerusalem
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 364 #Gazzah
+				province_id = 379 #Jerusalem
+				province_id = 1854 #Jaffa
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 5
+			NOT = { exists = KOJ }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			owns_core_province = 364 #Gazzah
+			owns_core_province = 379 #Jerusalem
+			owns_core_province = 1854 #Jaffa
+		}
+		effect = {
+			# The status of Jerusalem
+			# DEVNOTE: this is currently only tested once, therefore untested for AI.
+			# DEVNOTE: I tried it with france and he didn't do it at all so idk. Will look at later.
+			if = {
+				# Player will annex regardless of tag.. idea: add choice event?
+				limit = {
+					ai = no # player handling of Jerusalem status
+				}
+				change_tag = KOJ # Country TAG
+				KOJ = { change_primary_culture = ROOT }
+			}
+			if = {
+				# Catholic rulers will create a vassal crusader state
+				limit = {
+					AND = {
+						ai = yes # AI rulers handling of Jerusalem status
+						NOT = {
+							tag = KNI
+							tag = CYP
+							tag = PRO
+						}
+					}
+				}
+				create_vassal = KOJ
+				KOJ = { change_primary_culture = ROOT }
+			}
+			if = {
+				# The Knights, Cyprus, and Provence will claim the title of King of Jerusalem
+				limit = {
+					AND = {
+						ai = yes # AI rulers handling of Jerusalem status
+						OR = {
+							tag = KNI
+							tag = CYP
+							tag = PRO
+						}
+					}
+				}
+				change_tag = KOJ # Country TAG
+				KOJ = { change_primary_culture = ROOT }
+				# Should make the country do something else...
+			}
+			if = { # country flags
+				limit = {
+					NOT = {
+						tag = KNI
+						tag = CYP
+						tag = PRO
+					}
+				}
+				set_country_flag = non_french_catholic_formed_jerusalem
+			}
+			if = {
+				limit = {
+					tag = KNI
+				}
+				set_country_flag = knights_formed_jerusalem
+			}
+			if = {
+				limit = {
+					tag = CYP
+				}
+				set_country_flag = cyprus_formed_jerusalem
+			}
+			if = {
+				limit = {
+					tag = PRO
+				}
+				set_country_flag = provence_formed_jerusalem
+			}
+			set_country_flag = formed_jerusalem_flag # Country Formation Flag
+			custom_tooltip = form_jerusalem_tt_2 # New Missions
+			custom_tooltip = form_jerusalem_tt_3 # Claims
+			custom_tooltip = dec1_decisions_blank
+			KOJ = { # Capital change and bonuses
+				set_capital = 379 # Jerusalem
+				379 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				# Reform Change
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+				# Claims
+					every_province = {
+						limit = {
+							OR = {
+								area = trans_jordan_area
+								area = palestine_area
+								province_id = 378 #County of Tripoli
+								province_id = 1855 #Sayda
+								province_id = 4268 #Aqaba
+							}
+						}
+						add_core = KOJ
+					}
+					# New Missions
+
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = jerusalem_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_united_christianity
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+		# todo: desire for french catholics to desire this when low papal relations and whatnot
+	}
+
+	# restore jerusalem as a march
+}

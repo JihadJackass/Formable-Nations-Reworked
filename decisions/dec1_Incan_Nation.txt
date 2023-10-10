@@ -1,0 +1,213 @@
+country_decisions = {
+
+	# Inca
+
+	dec1_incan_nation = {
+		major = yes
+		potential = {
+			is_random_new_world = no # New World Country so this should be here
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			NOT = {
+				has_country_flag = formed_inca_flag
+				exists = INC
+				tag = INC
+				tag = HLR
+				tag = ROM
+				tag = PAP
+		 	}
+			 OR = {
+				culture_group = andean_group
+				primary_culture = cara
+				primary_culture = chachapoyan
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 8
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 808 # Qusqu
+				province_id = 813 # Kashamarka
+				province_id = 810 # Wankawilka
+				province_id = 814 # Wanuku
+				province_id = 804
+				province_id = 812
+				province_id = 820
+				province_id = 2831
+				province_id = 804
+				province_id = 820
+				province_id = 812
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 5
+			NOT = { exists = INC }
+			is_at_war = no
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			owns_core_province = 808 	# Qusqu
+			owns_core_province = 813 	# Kashamarka
+			owns_core_province = 810 	# Wankawilka
+			owns_core_province = 814	# Wanuku
+			owns_core_province = 804	# Puno
+			owns_core_province = 2831	# Tiwanuku
+			owns_core_province = 812	# Chanchan
+			owns_core_province = 820	# Quito
+		}
+		effect = {
+			change_tag = INC # Country TAG
+			set_country_flag = formed_inca_flag # Country Formation Flag
+			custom_tooltip = form_inca_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			INC = { # Capital change and bonuses
+				set_capital = 808 # Cusco
+				808 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_3 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = INC_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+					custom_tooltip = dec1_decisions_blank
+				}
+                country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				add_country_modifier = {
+					name = dec1_native_empire
+					duration = 49275
+				}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Proclaim Inca Empire
+
+	dec1_proclaim_inca_empire = {
+		major = yes
+		potential = {
+			tag = INC
+			NOT = {
+				has_global_flag = dec1_historical_nations_only
+				has_country_flag = formed_inca_empire_flag
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 30
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				all_neighbor_province = {
+					NOT = { owned_by = ROOT }
+				}
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			tag = INC
+			total_development = 300
+			owns_core_province = 808	# Qusqu
+			owns_core_province = 813	# Kashamarka
+			owns_core_province = 810 	# Wankawilka
+			owns_core_province = 814	# Wanuku
+			owns_core_province = 804	# Puno
+			owns_core_province = 2831	# Tiwanuku
+			owns_core_province = 812	# Chanchan
+			owns_core_province = 820	# Quito
+			num_of_cities = 35
+		}
+		effect = {
+			set_country_flag = formed_inca_empire_flag
+			override_country_name = dec1_inca_empire_name
+			add_prestige = 15
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+}

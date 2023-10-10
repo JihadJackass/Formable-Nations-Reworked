@@ -1,0 +1,45 @@
+﻿l_english:
+
+    # LOCALISATION FOR VARIOUS MODIFIERS
+    # - opinion modifiers
+    # - static modifiers
+    # - timed modifiers
+
+
+  ##################################
+  # OPINION MODIFIERS LOCALISATION #
+  ##################################
+
+    # Taiping Rebellion
+
+      dec1_taiping_rebellion_leader: "Taiping Rebellion Leader"
+      dec1_taiping_rebellion_leader_desc: ""
+
+
+  #################################
+  # STATIC MODIFIERS LOCALISATION #
+  #################################
+
+    # Dual Monarchy
+
+      dec1_anglois_icon: "Icon of Anglois"
+      dec1_anglois_icon_desc: "This ruler has shown himself to be a true Anglois [Root.Monarch.GetTitle]"
+
+      dec1_british_parliament_british_naval_concessions: "British Naval Concessions"
+      dec1_british_parliament_british_naval_concessions_desc: ""
+
+      dec1_german_prussian_monarchy_militarised_reduction: "Overburdened Militarization"
+      dec1_german_prussian_monarchy_militarised_reduction_desc: "The German Empire has been overburdened by excessive amounts of controlled land and cannot properly enforce the Militarization policies we have retained."
+
+    # Sri Lanka
+
+      dec1_sri_lanka_development_policy: "Sri Lanka Development Policy"
+
+
+  ####################################
+  # TRIGGERED MODIFIERS LOCALISATION #
+  ####################################
+
+    # People's Republic of China
+
+      dec1_control_of_the_democratic_socialists: "Control of the Democratic Socialists"

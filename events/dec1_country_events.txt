@@ -1,0 +1,606 @@
+namespace = dec1_country_events
+
+	# index
+	#
+	# 1 - Iberian Parties - dec1_country_events.1
+	# 2 - Brazil Declares Independence - dec1_country_events.2
+	# 3 - Portugal Concedes - dec1_country_events.3
+	# 4 - The Confederados (CSA lost war to USA) - dec1_country_events.4
+	# 5 - Unification of The German Empire - dec1_country_events.5
+	# 6 - German Unification (Reciever event) - dec1_country_events.6
+	# 7 - The German Government - dec1_country_events.7
+	# 8 - The Japanese Government - Japan - dec1_country_events.8
+	# 9 - Taiping is NOT catholic Handler - dec1_country_events.9
+	# 10 - Embrace Egyptian Cultures - dec1_country_events.10
+	# 11 - The Rise of Charles I - dec1_country_events.11
+	# 12 - Government Crisis of [year] - dec1_country_events.11
+
+
+	# Mamluks
+
+		# Embrace Egyptian Cultures - dec1_country_events.10
+
+			country_event = {
+				id = dec1_country_events.10
+				title = "dec1_country_events.10.t"
+				desc = "dec1_country_events.10.d"
+				picture = CULTURE_eventPicture
+
+				mean_time_to_happen = {
+					months = 24
+
+					modifier = {
+						factor = -2
+						is_at_war = yes
+					}
+				}
+
+				trigger = {
+					tag = MAM
+				}
+
+				# Reject this nonsense
+				option = {
+					name = "dec1_country_events.10.a"
+					ai_chance = { factor = 90 }
+				}
+
+				# Support this movement
+				option = {
+					name = "dec1_country_events.10.b"
+					ai_chance = { factor = 10 }
+					# Phoenicians
+					1855 = { add_core = PCA }
+					378 = { add_core = PCA }
+					# Philistien
+					# Nebatean
+					# Kushites???
+				}
+			}
+
+	#################
+	# Iberian Union #
+	#################
+
+		# Iberian Parties - dec1_country_events.1
+
+			country_event = {
+				id = dec1_country_events.1
+				title = "dec1_country_events.1.t"
+				desc = "dec1_country_events.1.d"
+				picture = HRE_eventPicture
+
+				is_triggered_only = yes
+
+
+				trigger = {
+					tag = IBE
+				}
+
+				# Hurrah!
+				option = {
+					name = "dec1_country_events.1.a"
+					ai_chance = { factor = 100 }
+					if = { # Castilian Nobility
+						limit = {
+							OR = {
+								num_of_owned_provinces_with = {
+									value = 10
+									culture = castillian
+									is_overseas = no
+								}
+							}
+						}
+						add_faction = dec1_castile_nobility
+					}
+					if = { # Aragonese Nobility
+						limit = {
+							OR = {
+								num_of_owned_provinces_with = {
+									value = 4
+									culture = aragonese
+									is_overseas = no
+								}
+								num_of_owned_provinces_with = {
+									value = 6
+									culture = catalan
+									is_overseas = no
+								}
+							}
+						}
+						add_faction = dec1_aragon_nobility
+					}
+					if = { # Portuguese Nobility
+						limit = {
+							num_of_owned_provinces_with = {
+								value = 6
+								culture = portugese
+								is_overseas = no
+							}
+						}
+						add_faction = dec1_portugal_nobility
+					}
+				}
+			}
+
+	#################
+	# Dual Monarchy #
+	#################
+
+		#
+
+	#####################
+	# Lusitanian Empire #
+	#####################
+
+		#
+
+	#################################
+	# Confederate States of America #
+	#################################
+
+		#
+
+	############################
+	# Taiping Rebellion - Ming #
+	############################
+
+		#
+
+	##########################
+	# Taiping Rebellion - Wu #
+	##########################
+
+		#
+
+	###############################
+	# Taiping Rebellion - Taiping #
+	###############################
+
+		# Taiping is NOT catholic Handler - dec1_country_events.9
+		# Great Catholic Revolt
+
+			country_event = {
+				id = dec1_country_events.9
+				title = "dec1_country_events.9.t"
+				desc = "dec1_country_events.9.d"
+				picture = BATTLE_eventPicture
+
+				is_triggered_only = yes
+
+
+				trigger = {
+					AND = {
+						tag = TPP
+						NOT = { religion = catholic }
+					}
+				}
+
+				# We will crush them
+				option = {
+					name = "dec1_country_events.9.a"
+					ai_chance = { factor = 95 }
+					random_owned_province = {
+						set_province_flag = dec1_tpp_province_has_great_catholic_revolt
+						limit = {
+							NOT = { has_province_flag = dec1_tpp_province_has_great_catholic_revolt }
+						}
+						spawn_rebels = {
+							type = catholic_rebels
+							religion = catholic
+							size = 3
+						}
+					}
+					random_owned_province = {
+						set_province_flag = dec1_tpp_province_has_great_catholic_revolt
+						limit = {
+							NOT = { has_province_flag = dec1_tpp_province_has_great_catholic_revolt }
+						}
+						spawn_rebels = {
+							type = catholic_rebels
+							religion = catholic
+							size = 5
+						}
+					}
+					random_owned_province = {
+						set_province_flag = dec1_tpp_province_has_great_catholic_revolt
+						limit = {
+							NOT = { has_province_flag = dec1_tpp_province_has_great_catholic_revolt }
+						}
+						spawn_rebels = {
+							type = catholic_rebels
+							religion = catholic
+							size = 4
+						}
+					}
+					random_owned_province = {
+						set_province_flag = dec1_tpp_province_has_great_catholic_revolt
+						limit = {
+							NOT = { has_province_flag = dec1_tpp_province_has_great_catholic_revolt }
+						}
+						spawn_rebels = {
+							type = catholic_rebels
+							religion = catholic
+							size = 6
+						}
+					}
+					random_owned_province = {
+						set_province_flag = dec1_tpp_province_has_great_catholic_revolt
+						limit = {
+							NOT = { has_province_flag = dec1_tpp_province_has_great_catholic_revolt }
+						}
+						spawn_rebels = {
+							type = catholic_rebels
+							religion = catholic
+							size = 6
+						}
+					}
+					random_owned_province = {
+						set_province_flag = dec1_tpp_province_has_great_catholic_revolt
+						limit = {
+							NOT = { has_province_flag = dec1_tpp_province_has_great_catholic_revolt }
+						}
+						spawn_rebels = {
+							type = catholic_rebels
+							religion = catholic
+							size = 6
+						}
+					}
+					random_owned_province = {
+						set_province_flag = dec1_tpp_province_has_great_catholic_revolt
+						limit = {
+							NOT = { has_province_flag = dec1_tpp_province_has_great_catholic_revolt }
+						}
+						spawn_rebels = {
+							type = catholic_rebels
+							religion = catholic
+							size = 5
+						}
+					}
+					add_prestige = -10
+					add_stability = -1
+				}
+				# Concede
+				option = {
+					name = "dec1_country_events.9.b"
+					ai_chance = { factor = 5 }
+					change_religion = catholic
+					every_owned_province = {
+						change_religion = catholic
+					}
+					add_country_modifier = {
+						name = dec1_tpp_conceded_to_great_catholic_revolt
+						duration = -1
+					}
+					add_stability = 1
+				}
+			}
+
+	#####################
+	# Portugal - Brazil #
+	#####################
+
+		# Brazil Declares Independence - dec1_country_events.2
+
+			country_event = {
+				id = dec1_country_events.2
+				title = "dec1_country_events.2.t"
+				desc = "dec1_country_events.2.d"
+				picture = BATTLE_eventPicture
+
+				is_triggered_only = yes
+
+
+				# To War!
+				option = {
+					name = "dec1_country_events.2.a"
+					ai_chance = { factor = 45 }
+					declare_war_with_cb = {
+						who = BRZ
+						casus_belli = cb_restore_personal_union
+					}
+					add_prestige = 10
+					hidden_effect = {
+						add_treasury = 400 # Since portugal was annexed to form Brazil, portugal needs some war cash to make it fair
+					}
+				}
+				# Concede the Colony
+				option = {
+					name = "dec1_country_events.2.b"
+					ai_chance = { factor = 55 }
+					add_prestige = -25
+					add_stability = -1
+					BRZ = { # Portugal Concedes all territory of the Empire of Brazil
+						country_event = {
+							id = dec1_country_events.3
+							days = 3
+						}
+					}
+				}
+			}
+
+	#####################
+	# Brazil - Portugal #
+	#####################
+
+		# Portugal Concedes - dec1_country_events.3
+
+			country_event = {
+				id = dec1_country_events.3
+				title = "dec1_country_events.3.t"
+				desc = "dec1_country_events.3.d"
+				picture = DIPLOMACY_eventPicture
+
+				is_triggered_only = yes
+
+
+				# God is with us
+				option = {
+					name = "dec1_country_events.3.a"
+					ai_chance = { factor = 100 }
+					add_prestige = 10
+				}
+			}
+
+		# The Confederados (CSA lost war to USA) TODO: finish - dec1_country_events.4
+
+			country_event = {
+				id = dec1_country_events.4
+				title = "dec1_country_events.4.t"
+				desc = "dec1_country_events.4.d"
+				picture = DIPLOMACY_eventPicture
+
+				is_triggered_only = yes
+
+
+				# Give them citizenship!
+				option = {
+					name = "dec1_country_events.4.a"
+					ai_chance = { factor = 60 }
+					add_prestige = 10
+				}
+				# Concede Territory to CSA, Vassalize, gain claims on all CSA territory in America
+				option = {
+					name = "dec1_country_events.4.b"
+					ai_chance = { factor = 10 }
+				}
+				# Turn them away
+				option = {
+					name = "dec1_country_events.4.c"
+					ai_chance = { factor = 30 }
+					add_prestige = -5
+				}
+			}
+
+	#################
+	# German Empire #
+	#################
+
+		# Unification of The German Empire (German states join the German Empire - NO REPUBLICS, RIVALS, ETC)
+		# dec1_country_events.5
+
+			country_event = {
+				id = dec1_country_events.5
+				title = "dec1_country_events.5.t"
+				desc = "dec1_country_events.5.d"
+				picture = HRE_eventPicture
+
+				is_triggered_only = yes
+
+				major = yes
+
+				option = { # Three Hurrahs For Germany!
+					name = "dec1_country_events.5.a"
+					ai_chance = { factor = 100 }
+					add_prestige = 10
+					every_country = {
+						limit = {
+							AND = {
+								capital_scope = {
+									region = north_german_region
+								}
+								NOT = {
+									is_rival = GEP
+									government = republic
+									government = theocracy
+									tag = GEP
+									tag = HAB
+									tag = STY
+									tag = BOH
+								}
+							}
+						}
+						country_event = {
+							id = dec1_country_events.6
+						}
+					}
+					every_country = {
+						limit = {
+							AND = {
+								capital_scope = {
+									region = south_german_region
+								}
+								NOT = {
+									is_rival = GEP
+									government = republic
+									government = theocracy
+									tag = GEP
+									tag = HAB
+									tag = STY
+									tag = BOH
+								}
+							}
+						}
+						country_event = {
+							id = dec1_country_events.6
+						}
+					}
+				}
+			}
+
+		# German Unification (Reciever event)
+
+			country_event = {
+				id = dec1_country_events.6
+				title = "dec1_country_events.6.t"
+				desc = "dec1_country_events.6.d"
+				picture = HRE_eventPicture
+
+				is_triggered_only = yes
+
+				major = yes
+
+				# Join the german Empire
+				option = {
+					name = "dec1_country_events.6.a"
+					ai_chance = { factor = 70 }
+					GEP = {
+						inherit = ROOT
+					}
+				}
+
+				# Refuse!
+				option = {
+					name = "dec1_country_events.6.b"
+					ai_chance = { factor = 30 } # TODO: add more factors, such as republics refusing
+					add_prestige = 10
+					# German: Gains Cheap Unique cassus belli 'Unite Germany'
+				}
+			}
+
+		# The German Government
+
+			country_event = {
+				id = dec1_country_events.7
+				title = "dec1_country_events.7.t"
+				desc = "dec1_country_events.7.d"
+				picture = GOOD_WITH_MONARCH_eventPicture
+
+				is_triggered_only = yes
+
+				major = yes
+
+				# Enact German Autocracy
+				option = {
+					name = "dec1_country_events.7.a"
+					ai_chance = { factor = 75 }
+					add_government_reform = autocracy_reform
+					add_prestige = 10
+				}
+
+				# Retain Prussian Monarchy
+				option = {
+					name = "dec1_country_events.7.b"
+					ai_chance = { factor = 25 }
+					change_government = monarchy
+					add_government_reform = dec1_german_monarchy_reform
+					# add_militarised_society = 10
+					add_country_modifier = {
+						name = dec1_german_prussian_monarchy_militarised_reduction
+						desc = dec1_german_prussian_monarchy_militarised_reduction_desc
+						duration = -1
+					}
+					add_prestige = 5
+				}
+			}
+
+		# The Japanese Government - Japan
+
+			country_event = {
+				id = dec1_country_events.8
+				title = "dec1_country_events.8.t"
+				desc = "dec1_country_events.8.d"
+				picture = GOOD_WITH_MONARCH_eventPicture
+
+				is_triggered_only = yes
+
+
+				# Enact Japanese Autocracy
+				option = {
+					name = "dec1_country_events.8.a"
+					ai_chance = { factor = 75 }
+					add_government_reform = autocracy_reform
+					add_prestige = 10
+				}
+
+				# Retain Imperial Shogunate
+				option = {
+					name = "dec1_country_events.8.b"
+					ai_chance = { factor = 25 }
+					add_government_reform = shogunate
+					add_country_modifier = {
+						name = dec1_imperial_shogunate_japan
+						duration = -1
+					}
+					add_prestige = 5
+				}
+			}
+
+
+	############################
+	# The English Commonwealth #
+	############################
+
+			# The Rise of Charles I
+
+			country_event = {
+				id = dec1_country_events.12
+				title = "dec1_country_events.12.t"
+				desc = "dec1_country_events.12.d"
+				picture = COUNTRY_COLLAPSE_eventPicture
+
+				major = yes
+
+				mean_time_to_happen = {
+					months = 24
+				}
+
+				trigger = {
+					TAG = ENR
+				}
+
+				# Establish a republic
+				option = {
+					name = "dec1_country_events.12.a"
+					ai_chance = { factor = 90 }
+				}
+			}
+
+			# Establishment of the Protectorate (Rename?)
+
+			# Establish the English Council of State
+
+			# Government Crisis (Temporary placeholder event until commonwealth is expanded)
+
+			country_event = {
+				id = dec1_country_events.11
+				title = "dec1_country_events.11.t"
+				desc = "dec1_country_events.11.d"
+				picture = COUNTRY_COLLAPSE_eventPicture
+
+				major = yes
+
+				mean_time_to_happen = {
+					days = 365
+				}
+
+				trigger = {
+					TAG = ENR
+				}
+
+				# Establish a republic
+				option = {
+					name = "dec1_country_events.11.a"
+					ai_chance = { factor = 90 }
+					change_government = republic
+					add_government_reform = republican_dictatorship
+				}
+
+				# Establish the English Commonwealth
+				option = {
+					name = "dec1_country_events.11.b"
+					ai_chance = { factor = 10 }
+					change_government = monarchy
+					add_government_reform = elective_monarchy_reform
+				}
+			}

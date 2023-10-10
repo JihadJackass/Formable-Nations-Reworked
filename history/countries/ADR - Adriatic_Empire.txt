@@ -1,0 +1,10 @@
+government = monarchy
+add_government_reform = autocracy_reform
+mercantilism = 30
+technology_group = western
+primary_culture = venetian
+add_accepted_culture = croatian
+add_accepted_culture = greek
+religion = orthodox
+capital = 112 # Venezia
+national_focus = DIP

@@ -1,0 +1,117 @@
+	###########################
+	# Bosnia-Serbia Disasters #
+	###########################
+
+		# Balkan Uprising
+		# idea: Requires Bosnia-Serbia to have a certain rank in goverment reforms and low autonomy, or to have NO autonomy in all of Bosnia
+
+			dec1_balkan_uprising = {
+
+				potential = {
+					tag = BSK
+					has_country_flag = dec1_unified_bosnians_serbians
+				}
+
+				can_start = {
+					has_any_disaster = no
+					NOT = { stability = 1 }
+					OR = {
+						any_owned_province = { # If there are no Albanians in Balkan region, then this can start uprising
+							region = balkan_region
+							NOT = { culture = BSK_albanian_new }
+						}
+						AND = { # If any Balkan culture is accepted while having Bosnian-Serbian culture
+							OR = {
+								primary_culture = BSK_bosnian_new
+								primary_culture = BSK_serbian_new
+								primary_culture = BSK_albanian_new
+							}
+							OR = { # TODO: tooltip
+								accepted_culture = bulgarian
+								accepted_culture = slovene
+								accepted_culture = croatian
+								accepted_culture = bulgarian_new # just in case
+								accepted_culture = slovene_new # just in case
+								accepted_culture = croatian_new # just in case
+							}
+						}
+						# Has provinces in the South Slavic culture group of such cultures
+					}
+
+				}
+
+				can_stop = {
+					has_any_disaster = yes
+					# does not have any balkan accepted cultures
+					NOT = {
+						OR = {
+							accepted_culture = bulgarian
+							accepted_culture = slovene
+							accepted_culture = croatian
+							accepted_culture = bulgarian_new # just in case
+							accepted_culture = slovene_new # just in case
+							accepted_culture = croatian_new # just in case
+						}
+					}
+					if = {
+						limit = {
+							any_owned_province = { # If there is no Albanians in Balkan region
+								region = balkan_region
+								NOT = { culture = BSK_albanian_new }
+							}
+						}
+						albania_area = { development = 32 } # Albania area has at least 32 dev
+					}
+				}
+
+				progress = {
+					modifier = { # Any Culture in the South Slavic group is not Accepted, or has low autonomy
+						factor = 3.0
+						NOT = {
+							num_of_owned_provinces_with = {
+								value = 12
+								culture = dec1_anglois
+							}
+						}
+					}
+					modifier = { # Stability not at least 1
+						factor = 0.5
+						NOT = { stability = 1 }
+					}
+				}
+
+				modifier = {
+					global_unrest = 5
+				}
+
+				can_end = {
+					any_owned_province = { # If any owned provinces in the Balkan region are NOT these cultures
+						if = {
+							limit = {
+								region = balkan_region
+								NOT = {
+									culture = bosnian
+									culture = serbian
+									culture = albanian
+									culture = BSK_bosnian_new
+									culture = BSK_serbian_new
+									culture = BSK_albanian_new
+								}
+								culture_group = south_slavic
+							}
+						}
+					}
+				}
+
+				on_start = dec1_disaster_events.12
+				#on_end = dec1_disaster_events_anglois_civil_war.100
+
+				on_monthly = {
+					events = { }
+					random_events = {
+						1000 = 0
+						# 100 = dec1_disaster_events.4 #
+					}
+				}
+			}
+
