@@ -40,6 +40,20 @@
         dec1_democratic_socialists_influence: "Democratic Socialism Influence"
         dec1_democratic_socialists_FACTION_DESC: "While China remains Communist; the global reliance on Chinese product has slowly forced us to adopt a pseudo-capitalist government allowing many Chinese citizens to openly call for reform.\n\n\n\nBy remaining above §G50§! Communist Influence and below §R10§! Democratic Socialists Influence we will gain: §G+1§! £adm£ §G+1§! £dip£ §G+1§! £mil£ \n\n§RAllowing the Democratic Socialists to gain above 80 influence will lead to Civil War and removal of the Chinese Communist Party for Democratic Socialists§!"
 
+      # French Empire
+
+        dec1_fre_loyalists: "Loyalists"
+        dec1_fre_loyalists_influence: "Loyalist Influence"
+        dec1_fre_loyalists_FACTION_DESC: ""
+
+        dec1_fre_imperialist: "Imperials"
+        dec1_fre_imperialist_influence: "Imperial Influence"
+        dec1_fre_imperialist_FACTION_DESC: ""
+
+        dec1_fre_radicals: "Radicals"
+        dec1_fre_radicals_influence: "Radical Influence"
+        dec1_fre_radicals_FACTION_DESC: ""
+
 
   # STATES GENERAL LOCALISATION
 

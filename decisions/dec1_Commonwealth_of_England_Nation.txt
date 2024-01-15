@@ -7,8 +7,10 @@ country_decisions = {
 			is_colonial_nation = no
 			primary_culture = english
 			tag = ENG
-			is_date = 1450.1.1
-			NOT = { is_date = 1460.1.1 } # Cannot be formed after 1460
+			AND = {
+				is_date = 1450.1.1
+				NOT = { is_date = 1460.1.1 } # Cannot be formed after 1460
+			}
 			NOT = {
 				has_country_flag = formed_commonwealth_of_england_flag
 				exists = ENR
@@ -40,7 +42,10 @@ country_decisions = {
 			}
 		}
 		allow = {
-			NOT = { exists = ENR }
+			#adm_tech = 5
+			is_at_war = no
+			ENR = { exists = no }
+			num_of_subjects = 0
 			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
 				limit = {
 					has_global_flag = dec1_subject_formable_nations_enabled
@@ -58,22 +63,67 @@ country_decisions = {
 				}
 				is_subject = no
 			}
-			is_at_war = no
 			custom_trigger_tooltip = {
-				tooltip = dec1_commonwealth_of_england_tt_1
-				AND = { # Must not control any land outside of British Isles
-					num_of_owned_provinces_with = {
-						value = 20
-						region = british_isles_region
-					}
-					NOT = {
-						num_of_owned_provinces_with = {
-							value = 1
-							region = iberia_region
+				tooltip = dec1_commonwealth_tooltip_1
+				NOT = {
+					any_owned_province = {
+						NOT = {			 	
+							num_of_provinces_owned_or_owned_by_subjects_with = {
+								value = 1
+								region = france_region
+							}
 						}
-						num_of_owned_provinces_with = {
-							value = 1
-							region = france_region
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = dec1_commonwealth_tooltip_2
+				NOT = {
+					any_owned_province = {
+						NOT = {			 	
+							num_of_provinces_owned_or_owned_by_subjects_with = {
+								value = 1
+								region = iberia_region
+							}
+						}
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = dec1_commonwealth_tooltip_3
+				NOT = {
+					any_owned_province = {
+						NOT = {			 	
+							num_of_provinces_owned_or_owned_by_subjects_with = {
+								value = 1
+								region = low_countries_region
+							}
+						}
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = dec1_commonwealth_tooltip_4
+				NOT = {
+					any_owned_province = {
+						NOT = {			 	
+							num_of_provinces_owned_or_owned_by_subjects_with = {
+								value = 1
+								region = north_german_region
+							}
+						}
+					}
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = dec1_commonwealth_tooltip_5
+				NOT = {
+					any_owned_province = {
+						NOT = {			 	
+							num_of_provinces_owned_or_owned_by_subjects_with = {
+								value = 1
+								region = scandinavia_region
+							}
 						}
 					}
 				}
@@ -101,7 +151,7 @@ country_decisions = {
 					custom_tooltip = dec1_government_change_monarchy # Government Type Change
 				}
 				# Reform Change
-				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_government_reform_change_protectorate_parliament
 				custom_tooltip = dec1_decisions_blank
 				country_event = { id = dec1_country_events.11 } # The Government of the Commonwealth
 				# Our Place in the Empire Custom Event
@@ -125,14 +175,16 @@ country_decisions = {
 					if = {
 						limit = {
 							NOT = {
-								government = monarchy
+								government = republic
 								}
 							}
-						change_government = monarchy
+						change_government = republic
 					}
-					add_government_reform = autocracy_reform
+					#add_government_reform = elective_monarchy
+					add_government_reform = protectorate_parliament_reform
 				}
 				# Custom Ideas check and change
+
 				if = {
 					limit = {
 						has_custom_ideas = no
@@ -162,5 +214,7 @@ country_decisions = {
 
 	# Establish Duchy of Scotland
 	# - Creates a powerful vassal for England to abuse (kek get rekt scots)
+
+	# Rename to English Commonwealth
 
 }

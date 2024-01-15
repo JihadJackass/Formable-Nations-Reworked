@@ -4,8 +4,6 @@
 
   # Unsorted Tooltips
 
-    dec1_commonwealth_tooltip: "Must NOT control any lands in France\nMust NOT control and lands in Iberia"
-
     dec1_west_roman_culture_provinces_tooltip: "All provinces of the §YLatin§! Culture Group will now have §YRoman§! culture."
     dec1_east_roman_culture_provinces_tooltip: "All provinces of the §YLatin§! Culture Group will now have §YRoman§! culture."
 
@@ -33,6 +31,22 @@
   # DECISION TOOLTIPS #
   #####################
 
+    # Commonwealth of England
+
+    dec1_commonwealth_tooltip_1: "Must NOT control any lands or subjects in §YFrance§!"
+    dec1_commonwealth_tooltip_2: "Must NOT control any lands or subjects in §YIberia§!"
+    dec1_commonwealth_tooltip_3: "Must NOT control any lands or subjects in §YLow Countries§!"
+    dec1_commonwealth_tooltip_4: "Must NOT control any lands or subjects in §YNorth Germany§!"
+    dec1_commonwealth_tooltip_5: "Must NOT control any lands or subjects in §YScandinavia§!"
+
+    # Finland
+
+    form_finland_tt_2: "Country obtains §YFinland§! missions."
+
+    # Greater Finland
+
+    form_greater_finland_tt_2: "Country obtains §YGreater Finland§! missions."
+
     # The Horde
 
     dec1_the_horde_req_1: "Must have enacted the §YSteppe Horde§! reform"
@@ -42,7 +56,7 @@
 
     dec1_north_korea_req_1: "Controls all §YNorth Korean§! core provinces."
 
-    dec1_commonwealth_of_england_tt_1: "Must not control any land outside of the §YBritish Isles§!"
+    dec1_commonwealth_of_england_tt_1: "Must not directly control any land outside of the §YBritish Isles§!"
 
     form_sulawesi_tt_2: "Country obtains §YSulawesi§! missions."
 

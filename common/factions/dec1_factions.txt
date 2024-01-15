@@ -86,5 +86,38 @@
 		}
 	}
 
+  ##########################
+  # French Empire Factions #
+  ##########################
 
+	dec1_fre_loyalists = {
+		monarch_power = ADM
+		always = yes
+
+		modifier = {
+			global_unrest = -1
+			discipline = 0.05
+		}
+	}
+
+	dec1_fre_imperialist = {
+		monarch_power = MIL
+		always = yes
+
+		modifier = {
+			global_unrest = 1
+			land_morale = 0.10
+		}
+	}
+
+	dec1_fre_radicals = {
+		monarch_power = DIP
+		always = yes
+
+		modifier = {
+			global_unrest = 2
+			defensiveness = 0.20
+			mercenary_cost = -0.35
+		}
+	}
 

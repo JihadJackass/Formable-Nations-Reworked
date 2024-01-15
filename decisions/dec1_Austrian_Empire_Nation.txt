@@ -32,7 +32,13 @@ country_decisions = {
 				ai = no
 				AND = {
 					ai = yes
-					num_of_cities = 50
+					num_of_cities = 45
+					grown_by_development = 115
+					adm_tech = 10
+					OR = {
+						NOT = { is_emperor = yes } # Prevent Austria being an asshole
+						adm_tech = 15
+					}
 				}
 			}
 		}

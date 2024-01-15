@@ -4,6 +4,11 @@
   # Country Name Localisation #
   #############################
 
+    # Finland - Greater Finland
+
+      dec1_greater_finland_name: "Greater Finland"
+      dec1_greater_finland_short_name: "Greater Finland"
+
     # Armenian Empire - Greater Armenia
 
       dec1_greater_armenia_name: "Greater Armenia"

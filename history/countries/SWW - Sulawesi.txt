@@ -9,6 +9,7 @@ capital = 641 # Makassar
 1444.1.1 = {
 	monarch = {
 		dynasty = "Sulawesi"
+		#name = ""
 		adm = 1
 		dip = 1
 		mil = 3

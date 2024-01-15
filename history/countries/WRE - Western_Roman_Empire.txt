@@ -1,5 +1,6 @@
 government = republic
-add_government_reform = dec1_eastern_roman_senate_reform
+#add_government_reform = dec1_western_roman_senate_reform
+government_rank = 3
 primary_culture = umbrian
 religion = orthodox
 technology_group = eastern

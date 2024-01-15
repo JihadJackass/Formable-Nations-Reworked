@@ -1,0 +1,94 @@
+﻿l_english:
+
+######################
+# GOVERNMENT REFORMS #
+######################
+
+  # Bulgarian Empire
+
+    # Tier 1
+
+      dec1_bulgarian_tsardom_reform: "Bulgarian Tsardom"
+      dec1_bulgarian_tsardom_reform_desc: "The title Tsar meaning Emperor, the Bulgarian form of the Latin Caesar, was adopted and used in Bulgaria by Simeon I the Great (son of Knyaz Boris I) following a decisive victory over the Byzantines in the year 913. Simeon I's successors continued the usage of this title until the fall of Bulgaria which after Bulgaria's liberation, its first monarch Alexander I adopted the title knyaz, or prince."
+
+  # Dual Monarchy
+
+    # Tier 1
+
+      dec1_parliament_of_the_lords_reform: "Grand Parliament of Lords and People"
+      dec1_parliament_of_the_lords_reform_desc: "The Grand Parliament is the branching governing body over the Dual Monarchy. Both Britain and France having their own national parliament which allows it to stand as the political bond between both members of this union."
+
+  # Soviet Union
+
+    # Tier 1
+
+      dec1_communist_party_of_russia_reform: "Communist Party of Russia"
+      dec1_communist_party_of_russia_reform_desc: ""
+
+  # People's Republic of China
+
+    # Tier 1
+
+      dec1_communist_party_of_china_reform: "Chinese Communist Party"
+      dec1_communist_party_of_china_reform_desc: ""
+
+      dec1_democratic_socialists_reform: "Democratic Socialist Party of China"
+      dec1_democratic_socialists_reform_desc: ""
+
+    # Tier 2
+
+      # None yet
+
+    # Tier 3
+
+      dec1_abolish_term_limits_reform: "Abolish Term Limits"
+      dec1_abolish_term_limits_reform_desc: ""
+
+      dec1_reduced_term_limits_reform:  "Reform and Reduction"
+      dec1_reduced_term_limits_reform_desc:  ""
+
+  # Japan and Empire of Japan
+
+    dec1_imperial_shogunate_japan_reform: "Imperial Shogunate of Japan"
+    dec1_imperial_shogunate_japan_reform_desc: "The Imperial Shogunate rejects the idea of an autocratic leader in favor of keeping the Shogun as the head of politics, diplomacy, and the nation itself."
+
+    dec1_imperial_shogunate_empire_of_japan_reform: "Imperial Shogunate of Japan"
+    dec1_imperial_shogunate_empire_of_japan_reform_desc: "The Imperial Shogunate rejects the idea of an autocratic leader in favor of keeping the Shogun as the head of politics, diplomacy, and the nation itself."
+
+  # German Empire
+
+    # Tier 1
+
+      dec1_german_monarchy_reform: "German-Prussian Monarchy"
+      dec1_german_monarchy_reform_desc: ""
+
+  # Eastern Roman Empire
+
+    # Tier 1
+
+      dec1_eastern_roman_senate_reform: "Eastern Roman Senate"
+      dec1_eastern_roman_senate_reform_desc: "TODO"
+
+  # Confederate States of America
+
+    # Government Reform - Tier 1
+
+      dec1_confederate_state_congress_reform: "Confederate States Congress"
+      dec1_confederate_state_congress_reform_desc: ""
+
+  # Catholic Russia
+
+    # Tier 1
+
+      dec1_theocratic_tsardom_reform: "Theocratic Tsardom"
+      dec1_theocratic_tsardom_reform_desc: ""
+
+
+    # Unsorted
+
+      dec1_state_administration: "Administration"
+      dec1_cultural_values: "Cultural Values"
+      dec1_religion: "Religious Debate"
+      dec1_modernization: "Modernization"
+      dec1_reformation: "Reformation"
+      dec1_anarcho_communist_reform: "Anarcho-Communist Regime"

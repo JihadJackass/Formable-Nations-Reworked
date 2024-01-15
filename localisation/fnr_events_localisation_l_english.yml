@@ -123,6 +123,46 @@
   # COUNTRY EVENTS LOCALISATION #
   ###############################
 
+    # Sweden
+
+      # Rise of Finnish Culture
+
+      dec1_country_events.13: "Rise of Finnish Culture"
+      dec1_country_events.13.t: "Rise of Finnish Culture"
+      dec1_country_events.13.d: "The recent tensions in our eastern territory has caused the grander population to no longer identify as Swedish, and now claim to belong under a supposed King of Finland.\n\nSuch nonsense cannot be tolerated and we must put this insurrection down immediately."
+      dec1_country_events.13.a: "Damned traitors!"
+
+      # Cudgel War
+
+        dec1_country_events.14: "The Cudgel War"
+        dec1_country_events.14.t: "The Cudgel War"
+        dec1_country_events.14.d: "The Cudgel War was a peasant uprising in Finland from 1596-1597, fueled by social, economic, and religious grievances. Peasants armed with clubs aimed to challenge the established order, but their rebellion failed due to lack of unity and leadership. The aftermath led to increased royal authority and centralization of power in Finland."
+        dec1_country_events.14.a: "Crush this rabble."
+        dec1_country_events.14.b: "Accept the demands."
+
+      # Finnish Uprising of 1460 (non-historical, will help finland rise)
+
+    # Savo and Lapland
+
+      # Unification of Finland
+
+    # Finland
+
+      # Founding of Helsinki
+
+        dec1_country_events.17: "Founding of Helsinki"
+        dec1_country_events.17.t: "Founding of Helsinki"
+        dec1_country_events.17.d: "Helsinki, founded in 1550 by King Gustav I of Sweden, emerged as a medieval trading town on the Gulf of Finland. Originally established to rival Tallinn for Baltic Sea trade, it grew over time into the contemporary capital of independent Finland, known for its rich history and modern significance."
+        dec1_country_events.17.a: "Helsinki is established!"
+
+      # Proclaim Greater Finland
+
+        dec1_country_events.18: "Greater Finland"
+        dec1_country_events.18.t: "Proclamation of Greater Finland"
+        dec1_country_events.18.d: "In a surge of nationalist fervor, Finland boldly proclaims the vision of a Greater Finland, extending its territorial aspirations beyond historical boundaries. This audacious move is met with international scrutiny and diplomatic challenges."
+        dec1_country_events.18.a: "Proclaim Greater Finland in name."
+        dec1_country_events.18.b: "Establish Greater Finland on the world stage."
+
     # Mamluks
 
       # Embrace Egyptian Cultures
@@ -139,7 +179,7 @@
 
         dec1_country_events.9: "Great Catholic Revolt"
         dec1_country_events.9.t: "Great Catholic Revolt"
-        dec1_country_events.9.d: "With the rise of Taiping comes a wave of catholic fervor among Greater China and a shift towards the Holy Church of Rome, leading to an uprising among the masses of our populace due to the current regime refusing to accept Catholisism as the sole legal religion."
+        dec1_country_events.9.d: "With the rise of Taiping comes a wave of catholic fervor among Greater China and a shift towards the Holy Church of Rome, leading to an uprising among the masses of our populace due to the current regime refusing to accept Catholicism as the sole legal religion."
         dec1_country_events.9.a: "These rebels will die."
         dec1_country_events.9.b: "Concede in the name of God."
 
@@ -150,13 +190,11 @@
         dec1_disaster_events.12.d: "We have crushed the Taiping rebels, and are ready to announce total victory though we must first establish the path forward due to the shift in court politics."
         dec1_disaster_events.12.a: "Down with rebels."
 
-    # End Taiping
-
     # The Iberian Union
 
       dec1_country_events.1: "The Iberian Union"
       dec1_country_events.1.t: "The Iberian Union"
-      dec1_country_events.1.d: "We have united the Iberian region under our Great [Root.Monarch.GetTitle] [Root.Monarch.GetName], and with Iberia fully centralized under our control we are able to focus our efforts on much larger goals.\n\nThough we now are forced to contend with balancing the three dominant factions in the new Iberian Union; those being the Castilians, the Aragonese, and the Portugese.\n\nThis is a new age for Europe!"
+      dec1_country_events.1.d: "We have united the Iberian region under our Great [Root.Monarch.GetTitle] [Root.Monarch.GetName], and with Iberia fully centralized under our control we are able to focus our efforts on much larger goals.\n\nThough we now are forced to contend with balancing the three dominant factions in the new Iberian Union; those being the Castilian, the Aragonese, and the Portuguese.\n\nThis is a new age for Europe!"
       dec1_country_events.1.a: "Hurrah! For Iberia!"
 
     # Brazil Declares Independence
@@ -192,7 +230,7 @@
         dec1_country_events.5.d: ""
         dec1_country_events.5.a: "Hurrah! Hurrah! Hurrah!"
 
-      # Unification of German Empire - Reciever Event
+      # Unification of German Empire - Receiver Event
 
         dec1_country_events.6: "German Unification"
         dec1_country_events.6.t: "German Unification"
@@ -221,11 +259,20 @@
 
     # English Commonwealth
 
-      dec1_country_events.11: "Governmental Crisis of [GetYear]"
-      dec1_country_events.11.t: "Governmental Crisis of [GetYear]"
-      dec1_country_events.11.d: "The English Governmental Crisis of [GetYear] caused by our continous civil strife has imposed upon us dire consequences leading to the collapse of our Government. Our previous ruler "
-      dec1_country_events.11.a: "Republicanism will restore the peace."
-      dec1_country_events.11.b: "We cannot allow the many to rule the few."
+      # Government Crisis
+
+        dec1_country_events.11: "Governmental Crisis of [GetYear]"
+        dec1_country_events.11.t: "English Governmental Crisis of [GetYear]"
+        dec1_country_events.11.d: "The English Governmental Crisis of [GetYear] caused by our continuous civil strife has imposed upon us dire consequences leading to the collapse of our government. Our previous ruler has succumbed to the masses and stepped down"
+        dec1_country_events.11.a: "Republicanism will restore the peace."
+        dec1_country_events.11.b: "We cannot allow the many to rule the few."
+
+      # Rise of Charles I
+
+        dec1_country_events.12: "Rise of Charles I"
+        dec1_country_events.12.t: "Rise of Charles I"
+        dec1_country_events.12.d: ""
+        dec1_country_events.12.a: "It is time to Establish a republic."
 
   ###############################
   # FACTION EVENTS LOCALISATION #
@@ -237,16 +284,16 @@
     dec1_faction_events.1.a: "Refuse such nonsense!"
     dec1_faction_events.1.b: "We support this."
 
-    dec1_faction_events.2: "British Naval Intergration"
-    dec1_faction_events.2.t: "British Naval Intergration"
+    dec1_faction_events.2: "British Naval Integration"
+    dec1_faction_events.2.t: "British Naval Integration"
     dec1_faction_events.2.d: ""
     dec1_faction_events.2.a: "Refuse British demands."
     dec1_faction_events.2.b: "This is reasonable."
 
     dec1_faction_events.3: "French Autonomy Demands"
     dec1_faction_events.3.t: "French Demand Increased Autonomy"
-    dec1_faction_events.3.d: "The French have issued a string of demands to the Parliment and demands that the British are severely reduced in their autonomy rights while France itself recieves greater autonomy rights.. a clear indiciation of the friction in our multi-cultural union, and the solution to this is not an easy one it would seem."
-    dec1_faction_events.3.a: "The French Demands are rediculous."
+    dec1_faction_events.3.d: "The French have issued a string of demands to the Parliament and demands that the British are severely reduced in their autonomy rights while France itself receives greater autonomy rights.. a clear indication of the friction in our multi-cultural union, and the solution to this is not an easy one it would seem."
+    dec1_faction_events.3.a: "The French Demands are ridiculous."
     dec1_faction_events.3.b: "British rebels are indeed a threat!"
 
   # End Localisation

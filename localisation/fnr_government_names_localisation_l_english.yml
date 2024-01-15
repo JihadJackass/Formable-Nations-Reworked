@@ -1,0 +1,173 @@
+﻿l_english:
+
+  ####################
+  # GOVERNMENT NAMES #
+  ####################
+
+    # Dual Monarchy
+
+      DEC1_DUAL_MONARCHY_GRAND_DUCHY: "Grand Duchy"
+      DEC1_DUAL_MONARCHY_GRAND_KINGDOM: "Grand Kingdom"
+      DEC1_DUAL_MONARCHY_GRAND_PROTECTORATE: "Grand Protectorate"
+
+          # Rank
+      DEC1_GRAND_PROTECTORATE: "Grand Protectorate"  # Rank 3
+
+          # Male
+      DEC1_GRAND_PROTECTOR: "Grand Protector"  # Rank 3
+
+          # Female
+      DEC1_GRAND_PROTECTRESS: "Grand Protectress"  # Rank 3
+
+          # Consort Male
+
+          # Consort Female
+
+          # Heir Male
+      DEC1_HEIR_APPARENT: "Heir Apparent"  # Rank 3
+
+          # Heir Female
+      DEC1_HEIRESS_APPARENT: "Heiress Apparent"  # Rank 3
+
+    # People's Republic of China
+
+          # Rank
+      DEC1_PEOPLES_REPUBLIC: "People's Republic"  # Rank 3
+
+          # Male
+      DEC1_SUPREME_LEADER: "Supreme Leader"  # Rank 3
+
+          # Female
+      DEC1_MADAM_SUPREME_LEADER: "Madam Supreme Leader"  # Rank 3
+
+          # Consort Male
+
+          # Consort Female
+
+          # Heir Male
+      DEC1_CENTRAL_GUARD: "Central Guard"  # Rank 3
+
+          # Heir Female
+
+    # Eastern Roman Empire
+
+          # Rank
+      DEC1_EASTERN_ROMAN_SENATE_GOVERNMENT_3: "Roman Republic"  # Rank 3
+
+          # Male
+      DEC1_EASTERN_ROMAN_EMPEROR_3: "Eastern Roman Emperor"  # Rank 3
+
+          # Female
+      DEC1_EASTERN_ROMAN_EMPRESS_3: "Eastern Roman Empress"  # Rank 3
+
+          # Consort Male
+
+          # Consort Female
+
+          # Heir Male
+      DEC1_SUCCESSOR: "Successor"  # Rank 3
+
+          # Heir Female
+
+    # Confederate States of America
+
+          # Rank
+      DEC1_CONFEDERATE_CONGRESS_RANK_1: "Confederacy"  # Rank 1
+      DEC1_CONFEDERATE_CONGRESS_RANK_2: "Confederacy"  # Rank 2
+      DEC1_CONFEDERATE_CONGRESS_RANK_3: "Confederacy"  # Rank 3
+
+          # Male
+      DEC1_CONFEDERATE_CONGRESS_RULER_MALE_1: "President"  # Rank 1
+      DEC1_CONFEDERATE_CONGRESS_RULER_MALE_2: "President"  # Rank 2
+      DEC1_CONFEDERATE_CONGRESS_RULER_MALE_3: "President"  # Rank 3
+
+          # Female
+      DEC1_CONFEDERATE_CONGRESS_RULER_FEMALE_1: "Madam President"  # Rank 3
+      DEC1_CONFEDERATE_CONGRESS_RULER_FEMALE_2: "Madam President"  # Rank 3
+      DEC1_CONFEDERATE_CONGRESS_RULER_FEMALE_3: "Madam President"  # Rank 3
+
+          # Consort Male
+
+          # Consort Female
+
+          # Heir Male
+
+          # Heir Female
+
+    # Catholica Russica
+
+          # Name
+      DEC1_RUSSIAN_THEOCRACY_GOVERNMENT: "Russian Theocracy"  # Rank 3
+
+          # Rank
+      DEC1_THEOCRATIC_TSARDOM_BISHOP_1: "Russian Bishop"  # Rank 1
+      DEC1_THEOCRATIC_TSARDOM_ARCHBISHOPRIC_2: "Russian Archbishopric"   # Rank 2
+      DEC1_THEOCRATIC_TSARDOM_PATRIARCHATE_3: "Russian Patriarchate"  # Rank 3
+
+          # Male
+      DEC1_THEOCRATIC_TSARDOM_BISHOP_MALE: "Russian Bishop"  # Rank 1
+      DEC1_THEOCRATIC_TSARDOM_ARCHBISHOP_MALE: "Russian Archbishopric"   # Rank 2
+      DEC1_THEOCRATIC_TSARDOM_PATRIARCH_MALE: "Russian Patriarch"  # Rank 3
+
+          # Female
+      DEC1_THEOCRATIC_TSARDOM_BISHOP_FEMALE: "Russian Bishop"  # Rank 1
+      DEC1_THEOCRATIC_TSARDOM_ARCHBISHOP_FEMALE: "Russian Archbishop"   # Rank 2
+      DEC1_THEOCRATIC_TSARDOM_MATRIARCH_FEMALE: "Russian Matriarch"  # Rank 3
+
+          # Heir Male
+      DEC1_THEOCRATIC_TSARDOM_HEIR_MALE: "Heir" # Rank 3
+
+          # Heir Female
+      DEC1_THEOCRATIC_TSARDOM_HEIR_FEMALE: "Heiress" # Rank 3
+
+    # German Empire
+
+          # Name
+      DEC1_GERMAN_PRUSSIAN_MONARCHY_GOVERNMENT: "German-Prussian Monarchy"  # Rank 3
+
+          # Rank
+      DEC1_GERMAN_PRUSSIAN_DUKE_1: "Duke"  # Rank 1
+      DEC1_GERMAN_PRUSSIAN_KING_2: "King"   # Rank 2
+      DEC1_GERMAN_PRUSSIAN_EMPIRE_3: "Emperor"  # Rank 3
+
+          # Male
+      DEC1_GERMAN_PRUSSIAN_DUKE_MALE: "Duke"  # Rank 1
+      DEC1_GERMAN_PRUSSIAN_KING_MALE: "King"   # Rank 2
+      DEC1_GERMAN_PRUSSIAN_EMPIRE_MALE: "Empire"  # Rank 3
+
+          # Female
+      DEC1_GERMAN_PRUSSIAN_DUCHESS_FEMALE: "Duchess"  # Rank 1
+      DEC1_GERMAN_PRUSSIAN_QUEEN_FEMALE: "Queen"   # Rank 2
+      DEC1_GERMAN_PRUSSIAN_EMPRESS_FEMALE: "Empress"  # Rank 3
+
+          # Heir Male
+      DEC1_GERMAN_PRUSSIAN_HEIR_MALE: "Heir" # Rank 3
+
+          # Heir Female
+      DEC1_GERMAN_PRUSSIAN_HEIR_FEMALE: "Heiress" # Rank 3
+
+    # Japan
+
+          # Name
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_GOVERNMENT: "Imperial Shogunate of Japan"  # Rank 3
+
+          # Rank
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_DUKE: "Shogunate"  # Rank 1
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_KING: "Shogunate"   # Rank 2
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_EMPIRE: "Shogunate"  # Rank 3
+
+          # Male
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_DUKE_MALE: "Shogun"  # Rank 1
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_KING_MALE: "Shogun"   # Rank 2
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_EMPIRE_MALE: "Shogun"  # Rank 3
+
+          # Female
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_DUCHESS: "Shogun"  # Rank 1
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_QUEEN: "Shogun"   # Rank 2
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_EMPRESS: "Shogun"  # Rank 3
+
+          # Heir Male
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_HEIR_MALE: "" # Rank 3
+
+          # Heir Female
+      DEC1_IMPERIAL_SHOGUNATE_JAPAN_HEIR_FEMALE: "" # Rank 3

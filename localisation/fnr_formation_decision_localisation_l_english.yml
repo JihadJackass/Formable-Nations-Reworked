@@ -6,6 +6,9 @@
   # New Custom Nations #
   ######################
 
+    dec1_finnish_nation_title: "@FIN Swedish-Polish Unification"
+    dec1_finnish_nation_desc: "We must establih a Finnish state and make our intentions to form a Greater Finnish Realm known to all."
+
     dec1_polish_swedish_commonwealth_nation_title: "@PSC Swedish-Polish Unification"
     dec1_polish_swedish_commonwealth_nation_desc: "We have established dominion across the scandanavian and commonwealth territories as one union and it is time to establish an permanent union between the two realms."
 
@@ -40,7 +43,7 @@
     dec1_pitjantjatjara_nation_desc: "We must embrace the local identity of our people and unite under one political structure to fend off colonial powers and expand our trade into the northern islands."
 
     dec1_commonwealth_of_england_nation_title: "@ENR Commonwealth of England"
-    dec1_commonwealth_of_england_nation_desc: "The Comonwealth is a \n\n§YThis nation §RCANNOT§! be formed after 1450§!."
+    dec1_commonwealth_of_england_nation_desc: "The English Commonwealth is a political structure from 1649 to 1660 governed as a Republic due to the end of the Second English Civil War and Execution of Charles I.\n\nThe Commonwealth of England is highly centralized and abolishes any form of succession due to the Monarchy being dissolved.\n\n§YThis nation §RCANNOT§! be formed after 1450§!."
 
     dec1_ceylon_nation_title: "@CLN Union of Ceylon"
     dec1_ceylon_nation_desc: "We must establish dominance upon the island of Ceylon allowing us to control vital trade routes between the Eastern and Western Indian Oceans creating a problem for any nation wishing to exploit this economic supercenter. Upon this day we shall Proclaim the Kingdom of Ceylon and crown a rightful ruler to defend from any who oppose this union."
@@ -103,7 +106,7 @@
     dec1_alpland_nation_desc: "Alpland is an important power in Europe which extends over the Alpine regions of Austria, Italy, France and Switzerland."
 
     dec1_angevin_empire_nation_title: "@AVE The Angevin Empire"
-    dec1_angevin_empire_nation_desc: "The Angevin Empire describes the possessions of the Angevin kings of England who held lands in England and France during the 12th and 13th centuries.\n\nThe only rulers were Henry II, Richard I, and John.\n\nThe Angevin Empire is an early example of a composite state and as such poses a threat to the stability of feudal europe."
+    dec1_angevin_empire_nation_desc: "The Angevin Empire describes the possessions of the Angevin kings of England who held lands in England and France during the 12th and 13th centuries.\n\nThe only rulers were Henry II, Richard I, and John.\n\nThe Angevin Empire is an early example of a composite state and as such poses a threat to the stability of feudal Europe."
 
     dec1_angevin_empire_france_nation_title: "@AVE Franco-Angevin Empire"
     dec1_angevin_empire_france_nation_desc: "The Angevin Empire describes the possessions of the Angevin kings of England who held lands in England and France during the 12th and 13th centuries.\n\nThe only rulers were Henry II, Richard I, and John.\n\nThe Angevin Empire is an early example of a composite state and as such poses a threat to the stability of feudal europe."
@@ -397,7 +400,7 @@
     dec1_turan_nation_desc: "According to Shahnameh the nomadic tribes who inhabited these lands were ruled by Tur who in that sense, the Turanians could be members of two Iranian peoples both descending from Fereydun but with different geographical domains and often at war with each other.\n\nTurans comprised five areas: the Kopet Dag region, the Atrek valley, parts of Bactria, Sogdia and Margiana."
 
     dec1_kalmar_union_nation_title: "@KLR The Kalmar Union"
-    dec1_kalmar_union_nation_desc: ""
+    dec1_kalmar_union_nation_desc: "The Kalmar Union was a decentralized personal-union between Denmark, Sweden, and Norway which established a single king for all three realms and lasted for almost 150 years.\n\n§YDecentralized version of Scandinavia (This country will expand quickly with powerful subjects.)§!"
 
     dec1_numidia_nation_title: "@NMD Restore the Kingdom of Numidia"
     dec1_numidia_nation_desc: ""
@@ -430,7 +433,7 @@
     dec1_restore_roman_republic_nation_desc: "The Roman Republic was the era of classical Roman civilization beginning with the overthrow of the Roman Kingdom, traditionally dated to 509 BC, and ending in 27 BC with the establishment of the Roman Empire. It was during this period that Rome's control expanded from the city's immediate surroundings to hegemony over the entire Mediterranean world."
 
     dec1_eastern_roman_empire_nation_title: "@ERP The Eastern Roman Empire"
-    dec1_eastern_roman_empire_nation_desc: "The Eastern Empire has been seperated from Rome along with the Scism has created for us a situation that requires us to no longer identify as a Roman Successor but as our own Eastern Roman Empire."
+    dec1_eastern_roman_empire_nation_desc: "The Eastern Empire has been seperated from Rome along with the Schism has created for us a situation that requires us to no longer identify as a Roman Successor but as our own Eastern Roman Empire."
 
     dec1_western_roman_empire_nation_title: "@WRE The Western Roman Empire"
     dec1_western_roman_empire_nation_desc: "We have secured the lands of what were once the Western Roman Empire, and we may now claim that title allowing us control over the olity of Rome."
@@ -545,7 +548,7 @@
     dec1_russian_tsardom_nation_desc: "The Tsardom of Russia, also called the Tsardom of Muscovy, was the centralized Russian state from the assumption of the title of Tsar by Ivan IV in 1547 until the foundation of the Russian Empire by Peter the Great in 1721."
 
     dec1_scandinavian_nation_title: "@SCA Proclaim Scandinavia"
-    dec1_scandinavian_nation_desc: "For untold centuries the Kingdoms of the North have been divided and locked in internecine power struggles. Previous attempts at Union have ultimately failed, to the delight of their European neighbors. Even so, the vision of a lasting union remains a tantalizing possibility..."
+    dec1_scandinavian_nation_desc: "For untold centuries the Kingdoms of the North have been divided and locked in internecine power struggles. Previous attempts at Union have ultimately failed, to the delight of their European neighbors. Even so, the vision of a lasting union remains a tantalizing possibility.\n\n§YCentralized version of Scandinavia (This country will expand quickly with no subjects.)§!"
 
     dec1_scottish_nation_title: "@SCO Scotland"
     dec1_scottish_nation_desc: "The once proud nation of Scotland has fallen into ruin, yet there remain some among the Clans with the will to restore our kingdom. We will muster our courage and fight for a free and independent Scotland."

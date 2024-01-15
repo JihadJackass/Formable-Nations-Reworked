@@ -290,7 +290,7 @@
 	# tier 1
 
 		dec1_eastern_roman_senate_reform = {
-			icon = "united_cantons_reform"
+			icon = "constitution"
 			valid_for_nation_designer = no
 
 			nation_designer_trigger = { always = no }
@@ -313,7 +313,8 @@
 				has_parliament = yes
 			}
 
-			republic = yes
+			#republic = yes
+			monarchy = yes
 			fixed_rank = 3
 			maintain_dynasty = yes
 			royal_marriage = yes

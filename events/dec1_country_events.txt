@@ -15,48 +15,49 @@ namespace = dec1_country_events
 	# 11 - The Rise of Charles I - dec1_country_events.11
 	# 12 - Government Crisis of [year] - dec1_country_events.11
 
-
-	# Mamluks
+	###########
+	# Mamluks #
+	###########
 
 		# Embrace Egyptian Cultures - dec1_country_events.10
 
-			country_event = {
-				id = dec1_country_events.10
-				title = "dec1_country_events.10.t"
-				desc = "dec1_country_events.10.d"
-				picture = CULTURE_eventPicture
+		country_event = {
+			id = dec1_country_events.10
+			title = "dec1_country_events.10.t"
+			desc = "dec1_country_events.10.d"
+			picture = CULTURE_eventPicture
 
-				mean_time_to_happen = {
-					months = 24
+			mean_time_to_happen = {
+				months = 24
 
-					modifier = {
-						factor = -2
-						is_at_war = yes
-					}
-				}
-
-				trigger = {
-					tag = MAM
-				}
-
-				# Reject this nonsense
-				option = {
-					name = "dec1_country_events.10.a"
-					ai_chance = { factor = 90 }
-				}
-
-				# Support this movement
-				option = {
-					name = "dec1_country_events.10.b"
-					ai_chance = { factor = 10 }
-					# Phoenicians
-					1855 = { add_core = PCA }
-					378 = { add_core = PCA }
-					# Philistien
-					# Nebatean
-					# Kushites???
+				modifier = {
+					factor = -2
+					is_at_war = yes
 				}
 			}
+
+			trigger = {
+				tag = MAM
+			}
+
+			# Reject this nonsense
+			option = {
+				name = "dec1_country_events.10.a"
+				ai_chance = { factor = 90 }
+			}
+
+			# Support this movement
+			option = {
+				name = "dec1_country_events.10.b"
+				ai_chance = { factor = 10 }
+				# Phoenicians
+				1855 = { add_core = PCA }
+				378 = { add_core = PCA }
+				# Philistien
+				# Nebatean
+				# Kushites???
+			}
+		}
 
 	#################
 	# Iberian Union #
@@ -64,64 +65,64 @@ namespace = dec1_country_events
 
 		# Iberian Parties - dec1_country_events.1
 
-			country_event = {
-				id = dec1_country_events.1
-				title = "dec1_country_events.1.t"
-				desc = "dec1_country_events.1.d"
-				picture = HRE_eventPicture
+		country_event = {
+			id = dec1_country_events.1
+			title = "dec1_country_events.1.t"
+			desc = "dec1_country_events.1.d"
+			picture = HRE_eventPicture
 
-				is_triggered_only = yes
+			is_triggered_only = yes
+			fire_only_once = yes
 
+			trigger = {
+				tag = IBE
+			}
 
-				trigger = {
-					tag = IBE
-				}
-
-				# Hurrah!
-				option = {
-					name = "dec1_country_events.1.a"
-					ai_chance = { factor = 100 }
-					if = { # Castilian Nobility
-						limit = {
-							OR = {
-								num_of_owned_provinces_with = {
-									value = 10
-									culture = castillian
-									is_overseas = no
-								}
-							}
-						}
-						add_faction = dec1_castile_nobility
-					}
-					if = { # Aragonese Nobility
-						limit = {
-							OR = {
-								num_of_owned_provinces_with = {
-									value = 4
-									culture = aragonese
-									is_overseas = no
-								}
-								num_of_owned_provinces_with = {
-									value = 6
-									culture = catalan
-									is_overseas = no
-								}
-							}
-						}
-						add_faction = dec1_aragon_nobility
-					}
-					if = { # Portuguese Nobility
-						limit = {
+			# Hurrah!
+			option = {
+				name = "dec1_country_events.1.a"
+				ai_chance = { factor = 100 }
+				if = { # Castilian Nobility
+					limit = {
+						OR = {
 							num_of_owned_provinces_with = {
-								value = 6
-								culture = portugese
+								value = 10
+								culture = castillian
 								is_overseas = no
 							}
 						}
-						add_faction = dec1_portugal_nobility
 					}
+					add_faction = dec1_castile_nobility
+				}
+				if = { # Aragonese Nobility
+					limit = {
+						OR = {
+							num_of_owned_provinces_with = {
+								value = 4
+								culture = aragonese
+								is_overseas = no
+							}
+							num_of_owned_provinces_with = {
+								value = 6
+								culture = catalan
+								is_overseas = no
+							}
+						}
+					}
+					add_faction = dec1_aragon_nobility
+				}
+				if = { # Portuguese Nobility
+					limit = {
+						num_of_owned_provinces_with = {
+							value = 6
+							culture = portugese
+							is_overseas = no
+						}
+					}
+					add_faction = dec1_portugal_nobility
 				}
 			}
+		}
 
 	#################
 	# Dual Monarchy #
@@ -158,123 +159,123 @@ namespace = dec1_country_events
 	###############################
 
 		# Taiping is NOT catholic Handler - dec1_country_events.9
-		# Great Catholic Revolt
+		# AKA: The Great Catholic Revolt - Dai hanran
 
-			country_event = {
-				id = dec1_country_events.9
-				title = "dec1_country_events.9.t"
-				desc = "dec1_country_events.9.d"
-				picture = BATTLE_eventPicture
+		country_event = {
+			id = dec1_country_events.9
+			title = "dec1_country_events.9.t"
+			desc = "dec1_country_events.9.d"
+			picture = BATTLE_eventPicture
 
-				is_triggered_only = yes
+			is_triggered_only = yes
 
 
-				trigger = {
-					AND = {
-						tag = TPP
-						NOT = { religion = catholic }
-					}
-				}
-
-				# We will crush them
-				option = {
-					name = "dec1_country_events.9.a"
-					ai_chance = { factor = 95 }
-					random_owned_province = {
-						set_province_flag = dec1_tpp_province_has_great_catholic_revolt
-						limit = {
-							NOT = { has_province_flag = dec1_tpp_province_has_great_catholic_revolt }
-						}
-						spawn_rebels = {
-							type = catholic_rebels
-							religion = catholic
-							size = 3
-						}
-					}
-					random_owned_province = {
-						set_province_flag = dec1_tpp_province_has_great_catholic_revolt
-						limit = {
-							NOT = { has_province_flag = dec1_tpp_province_has_great_catholic_revolt }
-						}
-						spawn_rebels = {
-							type = catholic_rebels
-							religion = catholic
-							size = 5
-						}
-					}
-					random_owned_province = {
-						set_province_flag = dec1_tpp_province_has_great_catholic_revolt
-						limit = {
-							NOT = { has_province_flag = dec1_tpp_province_has_great_catholic_revolt }
-						}
-						spawn_rebels = {
-							type = catholic_rebels
-							religion = catholic
-							size = 4
-						}
-					}
-					random_owned_province = {
-						set_province_flag = dec1_tpp_province_has_great_catholic_revolt
-						limit = {
-							NOT = { has_province_flag = dec1_tpp_province_has_great_catholic_revolt }
-						}
-						spawn_rebels = {
-							type = catholic_rebels
-							religion = catholic
-							size = 6
-						}
-					}
-					random_owned_province = {
-						set_province_flag = dec1_tpp_province_has_great_catholic_revolt
-						limit = {
-							NOT = { has_province_flag = dec1_tpp_province_has_great_catholic_revolt }
-						}
-						spawn_rebels = {
-							type = catholic_rebels
-							religion = catholic
-							size = 6
-						}
-					}
-					random_owned_province = {
-						set_province_flag = dec1_tpp_province_has_great_catholic_revolt
-						limit = {
-							NOT = { has_province_flag = dec1_tpp_province_has_great_catholic_revolt }
-						}
-						spawn_rebels = {
-							type = catholic_rebels
-							religion = catholic
-							size = 6
-						}
-					}
-					random_owned_province = {
-						set_province_flag = dec1_tpp_province_has_great_catholic_revolt
-						limit = {
-							NOT = { has_province_flag = dec1_tpp_province_has_great_catholic_revolt }
-						}
-						spawn_rebels = {
-							type = catholic_rebels
-							religion = catholic
-							size = 5
-						}
-					}
-					add_prestige = -10
-					add_stability = -1
-				}
-				# Concede
-				option = {
-					name = "dec1_country_events.9.b"
-					ai_chance = { factor = 5 }
-					change_religion = catholic
-					every_owned_province = {
-						change_religion = catholic
-					}
-					add_country_modifier = {
-						name = dec1_tpp_conceded_to_great_catholic_revolt
-						duration = -1
-					}
-					add_stability = 1
+			trigger = {
+				AND = {
+					tag = TPP
+					NOT = { religion = catholic }
 				}
 			}
+
+			# We will crush them
+			option = {
+				name = "dec1_country_events.9.a"
+				ai_chance = { factor = 95 }
+				random_owned_province = {
+					set_province_flag = dec1_tpp_province_has_great_catholic_revolt
+					limit = {
+						NOT = { has_province_flag = dec1_tpp_province_has_great_catholic_revolt }
+					}
+					spawn_rebels = {
+						type = catholic_rebels
+						religion = catholic
+						size = 3
+					}
+				}
+				random_owned_province = {
+					set_province_flag = dec1_tpp_province_has_great_catholic_revolt
+					limit = {
+						NOT = { has_province_flag = dec1_tpp_province_has_great_catholic_revolt }
+					}
+					spawn_rebels = {
+						type = catholic_rebels
+						religion = catholic
+						size = 5
+					}
+				}
+				random_owned_province = {
+					set_province_flag = dec1_tpp_province_has_great_catholic_revolt
+					limit = {
+						NOT = { has_province_flag = dec1_tpp_province_has_great_catholic_revolt }
+					}
+					spawn_rebels = {
+						type = catholic_rebels
+						religion = catholic
+						size = 4
+					}
+				}
+				random_owned_province = {
+					set_province_flag = dec1_tpp_province_has_great_catholic_revolt
+					limit = {
+						NOT = { has_province_flag = dec1_tpp_province_has_great_catholic_revolt }
+					}
+					spawn_rebels = {
+						type = catholic_rebels
+						religion = catholic
+						size = 6
+					}
+				}
+				random_owned_province = {
+					set_province_flag = dec1_tpp_province_has_great_catholic_revolt
+					limit = {
+						NOT = { has_province_flag = dec1_tpp_province_has_great_catholic_revolt }
+					}
+					spawn_rebels = {
+						type = catholic_rebels
+						religion = catholic
+						size = 6
+					}
+				}
+				random_owned_province = {
+					set_province_flag = dec1_tpp_province_has_great_catholic_revolt
+					limit = {
+						NOT = { has_province_flag = dec1_tpp_province_has_great_catholic_revolt }
+					}
+					spawn_rebels = {
+						type = catholic_rebels
+						religion = catholic
+						size = 6
+					}
+				}
+				random_owned_province = {
+					set_province_flag = dec1_tpp_province_has_great_catholic_revolt
+					limit = {
+						NOT = { has_province_flag = dec1_tpp_province_has_great_catholic_revolt }
+					}
+					spawn_rebels = {
+						type = catholic_rebels
+						religion = catholic
+						size = 5
+					}
+				}
+				add_prestige = -10
+				add_stability = -1
+			}
+			# Concede
+			option = {
+				name = "dec1_country_events.9.b"
+				ai_chance = { factor = 5 }
+				change_religion = catholic
+				every_owned_province = {
+					change_religion = catholic
+				}
+				add_country_modifier = {
+					name = dec1_tpp_conceded_to_great_catholic_revolt
+					duration = -1
+				}
+				add_stability = 1
+			}
+		}
 
 	#####################
 	# Portugal - Brazil #
@@ -282,42 +283,42 @@ namespace = dec1_country_events
 
 		# Brazil Declares Independence - dec1_country_events.2
 
-			country_event = {
-				id = dec1_country_events.2
-				title = "dec1_country_events.2.t"
-				desc = "dec1_country_events.2.d"
-				picture = BATTLE_eventPicture
+		country_event = {
+			id = dec1_country_events.2
+			title = "dec1_country_events.2.t"
+			desc = "dec1_country_events.2.d"
+			picture = BATTLE_eventPicture
 
-				is_triggered_only = yes
+			is_triggered_only = yes
 
 
-				# To War!
-				option = {
-					name = "dec1_country_events.2.a"
-					ai_chance = { factor = 45 }
-					declare_war_with_cb = {
-						who = BRZ
-						casus_belli = cb_restore_personal_union
-					}
-					add_prestige = 10
-					hidden_effect = {
-						add_treasury = 400 # Since portugal was annexed to form Brazil, portugal needs some war cash to make it fair
-					}
+			# To War!
+			option = {
+				name = "dec1_country_events.2.a"
+				ai_chance = { factor = 45 }
+				declare_war_with_cb = {
+					who = BRZ
+					casus_belli = cb_restore_personal_union
 				}
-				# Concede the Colony
-				option = {
-					name = "dec1_country_events.2.b"
-					ai_chance = { factor = 55 }
-					add_prestige = -25
-					add_stability = -1
-					BRZ = { # Portugal Concedes all territory of the Empire of Brazil
-						country_event = {
-							id = dec1_country_events.3
-							days = 3
-						}
+				add_prestige = 10
+				hidden_effect = {
+					add_treasury = 400 # Since portugal was annexed to form Brazil, portugal needs some war cash to make it fair
+				}
+			}
+			# Concede the Colony
+			option = {
+				name = "dec1_country_events.2.b"
+				ai_chance = { factor = 55 }
+				add_prestige = -25
+				add_stability = -1
+				BRZ = { # Portugal Concedes all territory of the Empire of Brazil
+					country_event = {
+						id = dec1_country_events.3
+						days = 3
 					}
 				}
 			}
+		}
 
 	#####################
 	# Brazil - Portugal #
@@ -325,282 +326,553 @@ namespace = dec1_country_events
 
 		# Portugal Concedes - dec1_country_events.3
 
-			country_event = {
-				id = dec1_country_events.3
-				title = "dec1_country_events.3.t"
-				desc = "dec1_country_events.3.d"
-				picture = DIPLOMACY_eventPicture
+		country_event = {
+			id = dec1_country_events.3
+			title = "dec1_country_events.3.t"
+			desc = "dec1_country_events.3.d"
+			picture = DIPLOMACY_eventPicture
 
-				is_triggered_only = yes
+			is_triggered_only = yes
 
 
-				# God is with us
-				option = {
-					name = "dec1_country_events.3.a"
-					ai_chance = { factor = 100 }
-					add_prestige = 10
-				}
+			# God is with us
+			option = {
+				name = "dec1_country_events.3.a"
+				ai_chance = { factor = 100 }
+				add_prestige = 10
 			}
+		}
 
 		# The Confederados (CSA lost war to USA) TODO: finish - dec1_country_events.4
 
-			country_event = {
-				id = dec1_country_events.4
-				title = "dec1_country_events.4.t"
-				desc = "dec1_country_events.4.d"
-				picture = DIPLOMACY_eventPicture
+		country_event = {
+			id = dec1_country_events.4
+			title = "dec1_country_events.4.t"
+			desc = "dec1_country_events.4.d"
+			picture = DIPLOMACY_eventPicture
 
-				is_triggered_only = yes
+			is_triggered_only = yes
 
 
-				# Give them citizenship!
-				option = {
-					name = "dec1_country_events.4.a"
-					ai_chance = { factor = 60 }
-					add_prestige = 10
-				}
-				# Concede Territory to CSA, Vassalize, gain claims on all CSA territory in America
-				option = {
-					name = "dec1_country_events.4.b"
-					ai_chance = { factor = 10 }
-				}
-				# Turn them away
-				option = {
-					name = "dec1_country_events.4.c"
-					ai_chance = { factor = 30 }
-					add_prestige = -5
-				}
+			# Give them citizenship!
+			option = {
+				name = "dec1_country_events.4.a"
+				ai_chance = { factor = 60 }
+				add_prestige = 10
 			}
+			# Concede Territory to CSA, Vassalize, gain claims on all CSA territory in America
+			option = {
+				name = "dec1_country_events.4.b"
+				ai_chance = { factor = 10 }
+			}
+			# Turn them away
+			option = {
+				name = "dec1_country_events.4.c"
+				ai_chance = { factor = 30 }
+				add_prestige = -5
+			}
+		}
 
 	#################
 	# German Empire #
 	#################
 
-		# Unification of The German Empire (German states join the German Empire - NO REPUBLICS, RIVALS, ETC)
-		# dec1_country_events.5
+		# Unification of The German Empire (German states join the German Empire - NO REPUBLICS, RIVALS, ETC) - dec1_country_events.5
 
-			country_event = {
-				id = dec1_country_events.5
-				title = "dec1_country_events.5.t"
-				desc = "dec1_country_events.5.d"
-				picture = HRE_eventPicture
+		country_event = {
+			id = dec1_country_events.5
+			title = "dec1_country_events.5.t"
+			desc = "dec1_country_events.5.d"
+			picture = HRE_eventPicture
 
-				is_triggered_only = yes
+			is_triggered_only = yes
 
-				major = yes
+			major = yes
 
-				option = { # Three Hurrahs For Germany!
-					name = "dec1_country_events.5.a"
-					ai_chance = { factor = 100 }
-					add_prestige = 10
-					every_country = {
-						limit = {
-							AND = {
-								capital_scope = {
-									region = north_german_region
-								}
-								NOT = {
-									is_rival = GEP
-									government = republic
-									government = theocracy
-									tag = GEP
-									tag = HAB
-									tag = STY
-									tag = BOH
-								}
+			option = { # Three Hurrahs For Germany!
+				name = "dec1_country_events.5.a"
+				ai_chance = { factor = 100 }
+				add_prestige = 10
+				every_country = {
+					limit = {
+						AND = {
+							capital_scope = {
+								region = north_german_region
+							}
+							NOT = {
+								is_rival = GEP
+								government = republic
+								government = theocracy
+								tag = GEP
+								tag = HAB
+								tag = STY
+								tag = BOH
 							}
 						}
-						country_event = {
-							id = dec1_country_events.6
-						}
 					}
-					every_country = {
-						limit = {
-							AND = {
-								capital_scope = {
-									region = south_german_region
-								}
-								NOT = {
-									is_rival = GEP
-									government = republic
-									government = theocracy
-									tag = GEP
-									tag = HAB
-									tag = STY
-									tag = BOH
-								}
+					country_event = {
+						id = dec1_country_events.6
+					}
+				}
+				every_country = {
+					limit = {
+						AND = {
+							capital_scope = {
+								region = south_german_region
+							}
+							NOT = {
+								is_rival = GEP
+								government = republic
+								government = theocracy
+								tag = GEP
+								tag = HAB
+								tag = STY
+								tag = BOH
 							}
 						}
-						country_event = {
-							id = dec1_country_events.6
+					}
+					country_event = {
+						id = dec1_country_events.6
+					}
+				}
+			}
+		}
+
+		# German Unification (Reciever event) - dec1_country_events.6
+
+		country_event = {
+			id = dec1_country_events.6
+			title = "dec1_country_events.6.t"
+			desc = "dec1_country_events.6.d"
+			picture = HRE_eventPicture
+
+			is_triggered_only = yes
+
+			major = yes
+
+			# Join the german Empire
+			option = {
+				name = "dec1_country_events.6.a"
+				ai_chance = { factor = 70 }
+				GEP = {
+					inherit = ROOT
+				}
+			}
+
+			# Refuse!
+			option = {
+				name = "dec1_country_events.6.b"
+				ai_chance = { factor = 30 } # TODO: add more factors, such as republics refusing
+				add_prestige = 10
+				# German: Gains Cheap Unique cassus belli 'Unite Germany'
+			}
+		}
+
+		# The German Government - dec1_country_events.7
+
+		country_event = {
+			id = dec1_country_events.7
+			title = "dec1_country_events.7.t"
+			desc = "dec1_country_events.7.d"
+			picture = GOOD_WITH_MONARCH_eventPicture
+
+			is_triggered_only = yes
+
+			major = yes
+
+			# Enact German Autocracy
+			option = {
+				name = "dec1_country_events.7.a"
+				ai_chance = { factor = 75 }
+				add_government_reform = autocracy_reform
+				add_prestige = 10
+			}
+
+			# Retain Prussian Monarchy
+			option = {
+				name = "dec1_country_events.7.b"
+				ai_chance = { factor = 25 }
+				change_government = monarchy
+				add_government_reform = dec1_german_monarchy_reform
+				# add_militarised_society = 10
+				add_country_modifier = {
+					name = dec1_german_prussian_monarchy_militarised_reduction
+					desc = dec1_german_prussian_monarchy_militarised_reduction_desc
+					duration = -1
+				}
+				add_prestige = 5
+			}
+		}
+
+	##################
+	# Imperial Japan #
+	##################
+
+		# The Japanese Government - dec1_country_events.8
+
+		country_event = {
+			id = dec1_country_events.8
+			title = "dec1_country_events.8.t"
+			desc = "dec1_country_events.8.d"
+			picture = GOOD_WITH_MONARCH_eventPicture
+
+			is_triggered_only = yes
+
+
+			# Enact Japanese Autocracy
+			option = {
+				name = "dec1_country_events.8.a"
+				ai_chance = { factor = 75 }
+				add_government_reform = autocracy_reform
+				add_prestige = 10
+			}
+
+			# Retain Imperial Shogunate
+			option = {
+				name = "dec1_country_events.8.b"
+				ai_chance = { factor = 25 }
+				add_government_reform = shogunate
+				add_country_modifier = {
+					name = dec1_imperial_shogunate_japan
+					duration = -1
+				}
+				add_prestige = 5
+			}
+		}
+
+	##########
+	# Sweden #
+	##########
+
+		# Rise of Finnish Culture
+
+		country_event = {
+			id = dec1_country_events.13
+			title = "dec1_country_events.13.t"
+			desc = "dec1_country_events.13.d"
+			picture = GOOD_WITH_MONARCH_eventPicture
+
+			fire_only_once = yes
+
+			mean_time_to_happen = {
+				months = 48
+			}
+
+			# These damn traitors!
+			option = {
+				name = "dec1_country_events.13.a"
+				ai_chance = { factor = 100 }
+				add_prestige = -5
+				4113 = {
+					add_core = LPL
+					add_unrest = 5
+					add_nationalism = 10
+				}
+				4151 = {
+					add_core = LPL
+					add_unrest = 5
+					add_nationalism = 10
+				}
+				31 = {
+					add_core = SVA
+					add_unrest = 5
+					add_nationalism = 10
+				}
+				29 = {
+					add_core = SVA
+					add_unrest = 5
+					add_nationalism = 10
+				}
+			}
+
+		}
+
+	#################
+	# Lapland (War) #
+	#################
+
+		# Finnish Uprising of 1452 (Cudgel War)
+
+		country_event = {
+			id = dec1_country_events.14
+			title = "dec1_country_events.14.t"
+			desc = "dec1_country_events.14.d"
+			picture = MARCHING_PEASANTS_eventPicture
+
+			fire_only_once = yes
+
+			trigger = {
+				is_date = 1460.1.1
+			}
+
+			mean_time_to_happen = {
+				months = 220
+			}
+
+			# Crush this rabble
+			option = {
+				name = "dec1_country_events.14.a"
+				ai_chance = { factor = 80 }
+				add_country_modifier = {
+					name = dec1_cudgel_uprising_debuff
+					duration = 182
+				}
+				spawn_rebels = {
+					type = pretender_rebels
+					size = 6
+					leader = rebel_preacher
+				}
+			}
+
+			# Accept the demands of the Finnish Nobility (gives up cores of finland to Lapland and Savo, makes them Kingdoms)
+			# TODO: Unique government form?
+			option = {
+				name = "dec1_country_events.14.b"
+				ai_chance = { factor = 20 }
+				add_prestige = -10
+				add_legitimacy = -5
+				4113 = {
+					cede_province = LPL
+				}
+				4151 = {
+					cede_province = LPL
+				}
+				31 = {
+					cede_province = SVA
+				}
+				29 = {
+					cede_province = SVA
+				}
+			}
+
+		}
+
+		# Unification of Finland (Lapland)
+
+		country_event = {
+			id = dec1_country_events.15
+			title = "dec1_country_events.15.t"
+			desc = "dec1_country_events.15.d"
+			picture = GOOD_WITH_MONARCH_eventPicture
+
+			fire_only_once = yes
+			#is_triggered_only = yes
+
+			trigger = {
+				has_country_flag = dec1_disabled_content
+				tag = LPL
+			}
+
+			mean_time_to_happen = {
+				months = 24
+			}
+
+			# go to war
+			option = {
+				name = "dec1_country_events.15.a"
+				ai_chance = { factor = 70 }
+				SVA = { # Send Ultimadum to Savo
+					country_event = {
+						id = dec1_country_events.16
+					}
+				}
+			}
+			# we cannot do this, we must find another way (can lead to peaceful unification)
+			option = {
+				name = "dec1_country_events.15.b"
+				ai_chance = { factor = 30 }
+			}
+
+		}
+
+	####################
+	# Savo (Diplomacy) #
+	####################
+
+		# Unification of Finland (Lapland)
+
+		country_event = {
+			id = dec1_country_events.16
+			title = "dec1_country_events.16.t"
+			desc = "dec1_country_events.16.d"
+			picture = GOOD_WITH_MONARCH_eventPicture
+
+			fire_only_once = yes
+			#is_triggered_only = yes
+
+			trigger = {
+				has_country_flag = dec1_disabled_content
+				OR = {
+					tag = SVA
+					tag = LPL
+				}
+			}
+
+			mean_time_to_happen = {
+				months = 24
+			}
+
+			#
+			option = {
+				name = "dec1_country_events.16.a"
+				ai_chance = { factor = 55 }
+			}
+
+			#
+			option = {
+				name = "dec1_country_events.16.b"
+				ai_chance = { factor = 45 }
+			}
+
+		}
+
+	###########
+	# Finland #
+	###########
+
+		# Founding of Helsinki
+
+		country_event = {
+			id = dec1_country_events.17
+			title = "dec1_country_events.17.t"
+			desc = "dec1_country_events.17.d"
+			picture = CASTLE_eventPicture
+
+			fire_only_once = yes
+			#is_triggered_only = yes
+
+			trigger = {
+				NOT = {
+					has_country_flag = dec1_establish_helsinki_foundings_completed
+				}
+				has_country_flag = dec1_establish_helsinki_foundings
+				OR = {
+					tag = FIN
+					tag = GFE
+				}
+			}
+
+			mean_time_to_happen = {
+				months = 600
+				modifier = {
+					is_date = 1525.1.1
+					factor = 2
+				}
+			}
+
+			# Helsinki is established!
+			option = {
+				name = "dec1_country_events.17.a"
+				ai_chance = { factor = 100 }
+				set_country_flag = dec1_establish_helsinki_foundings_completed
+				add_prestige = 5
+				28 = {
+					change_province_name = "Helsinki"
+					rename_capital = "Helsinki"
+					add_base_tax = 3
+					add_base_production = 3
+					add_base_manpower = 2
+				}
+			}
+
+		}
+
+		# Proclaim Greater Finland - dec1_country_events.18
+
+		country_event = {
+			id = dec1_country_events.18
+			title = "dec1_country_events.18.t"
+			desc = "dec1_country_events.18.d"
+			picture = VIKING_KING_eventPicture
+
+			fire_only_once = yes
+			is_triggered_only = yes
+			major = yes
+
+			# In name
+			option = {
+				name = "dec1_country_events.18.a"
+				ai_chance = { factor = 50 }
+				override_country_name = dec1_greater_finland_name
+			}
+			# In whole
+			option = {
+				name = "dec1_country_events.18.b"
+				ai_chance = { factor = 50 }
+				change_tag = GFE # Country TAG
+				set_country_flag = formed_greater_finland_flag # Country Formation Flag
+				custom_tooltip = form_greater_finland_tt_2 # New Missions
+				custom_tooltip = dec1_decisions_blank
+				GFE = { # Capital change and bonuses
+					set_capital = 28
+					28 = {
+						add_base_tax = 1
+						add_base_production = 1
+						add_base_manpower = 1
+					}
+					custom_tooltip = dec1_decisions_blank
+					custom_tooltip = dec1_government_rank_3 # Government Rank Change
+					# Dharma DLC check to prevent ugly tooltip
+					if = {
+						limit = {
+							has_dlc = "Dharma"
 						}
+						custom_tooltip = dec1_government_change_monarchy # Government Type Change
 					}
-				}
-			}
-
-		# German Unification (Reciever event)
-
-			country_event = {
-				id = dec1_country_events.6
-				title = "dec1_country_events.6.t"
-				desc = "dec1_country_events.6.d"
-				picture = HRE_eventPicture
-
-				is_triggered_only = yes
-
-				major = yes
-
-				# Join the german Empire
-				option = {
-					name = "dec1_country_events.6.a"
-					ai_chance = { factor = 70 }
-					GEP = {
-						inherit = ROOT
+					custom_tooltip = dec1_government_reform_change_autocracy
+					custom_tooltip = dec1_decisions_blank
+					# Our Place in the Empire Custom Event
+					if = {
+						limit = {
+							is_part_of_hre = yes
+						}
+						country_event = { id = dec1_events.1 }
 					}
-				}
-
-				# Refuse!
-				option = {
-					name = "dec1_country_events.6.b"
-					ai_chance = { factor = 30 } # TODO: add more factors, such as republics refusing
-					add_prestige = 10
-					# German: Gains Cheap Unique cassus belli 'Unite Germany'
-				}
-			}
-
-		# The German Government
-
-			country_event = {
-				id = dec1_country_events.7
-				title = "dec1_country_events.7.t"
-				desc = "dec1_country_events.7.d"
-				picture = GOOD_WITH_MONARCH_eventPicture
-
-				is_triggered_only = yes
-
-				major = yes
-
-				# Enact German Autocracy
-				option = {
-					name = "dec1_country_events.7.a"
-					ai_chance = { factor = 75 }
-					add_government_reform = autocracy_reform
-					add_prestige = 10
-				}
-
-				# Retain Prussian Monarchy
-				option = {
-					name = "dec1_country_events.7.b"
-					ai_chance = { factor = 25 }
-					change_government = monarchy
-					add_government_reform = dec1_german_monarchy_reform
-					# add_militarised_society = 10
+					hidden_effect = { # Hidden Effects to fix bad tooltips
+						# Claims
+						# Government Rank change
+						if = {
+							limit = {
+								NOT = {
+									government_rank = 3
+									}
+								}
+							set_government_rank = 3
+						}
+						# Government Type Change
+						if = {
+							limit = {
+								NOT = {
+									government = monarchy
+									}
+								}
+							change_government = monarchy
+						}
+						add_government_reform = autocracy_reform
+					}
+					# Custom Ideas check and change
+					if = {
+						limit = {
+							has_custom_ideas = no
+		#					NOT = { has_idea_group = GFE_ideas } # TODO: ability
+						}
+						country_event = { id = ideagroups.1 }
+					}
+					# Custom Missions check and change
+					country_event = { id = dec1_events.3 }
+					custom_tooltip = dec1_decisions_blank
+					# National Ability
 					add_country_modifier = {
-						name = dec1_german_prussian_monarchy_militarised_reduction
-						desc = dec1_german_prussian_monarchy_militarised_reduction_desc
+						name = dec1_greater_finnish_morale
+						duration = 49275
+					}
+					# Increased Centralization
+					add_country_modifier = {
+						name = dec1_increased_centralization
 						duration = -1
 					}
-					add_prestige = 5
 				}
 			}
+		}
 
-		# The Japanese Government - Japan
-
-			country_event = {
-				id = dec1_country_events.8
-				title = "dec1_country_events.8.t"
-				desc = "dec1_country_events.8.d"
-				picture = GOOD_WITH_MONARCH_eventPicture
-
-				is_triggered_only = yes
-
-
-				# Enact Japanese Autocracy
-				option = {
-					name = "dec1_country_events.8.a"
-					ai_chance = { factor = 75 }
-					add_government_reform = autocracy_reform
-					add_prestige = 10
-				}
-
-				# Retain Imperial Shogunate
-				option = {
-					name = "dec1_country_events.8.b"
-					ai_chance = { factor = 25 }
-					add_government_reform = shogunate
-					add_country_modifier = {
-						name = dec1_imperial_shogunate_japan
-						duration = -1
-					}
-					add_prestige = 5
-				}
-			}
-
-
-	############################
-	# The English Commonwealth #
-	############################
-
-			# The Rise of Charles I
-
-			country_event = {
-				id = dec1_country_events.12
-				title = "dec1_country_events.12.t"
-				desc = "dec1_country_events.12.d"
-				picture = COUNTRY_COLLAPSE_eventPicture
-
-				major = yes
-
-				mean_time_to_happen = {
-					months = 24
-				}
-
-				trigger = {
-					TAG = ENR
-				}
-
-				# Establish a republic
-				option = {
-					name = "dec1_country_events.12.a"
-					ai_chance = { factor = 90 }
-				}
-			}
-
-			# Establishment of the Protectorate (Rename?)
-
-			# Establish the English Council of State
-
-			# Government Crisis (Temporary placeholder event until commonwealth is expanded)
-
-			country_event = {
-				id = dec1_country_events.11
-				title = "dec1_country_events.11.t"
-				desc = "dec1_country_events.11.d"
-				picture = COUNTRY_COLLAPSE_eventPicture
-
-				major = yes
-
-				mean_time_to_happen = {
-					days = 365
-				}
-
-				trigger = {
-					TAG = ENR
-				}
-
-				# Establish a republic
-				option = {
-					name = "dec1_country_events.11.a"
-					ai_chance = { factor = 90 }
-					change_government = republic
-					add_government_reform = republican_dictatorship
-				}
-
-				# Establish the English Commonwealth
-				option = {
-					name = "dec1_country_events.11.b"
-					ai_chance = { factor = 10 }
-					change_government = monarchy
-					add_government_reform = elective_monarchy_reform
-				}
-			}
+# End of file

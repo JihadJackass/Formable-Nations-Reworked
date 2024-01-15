@@ -1,0 +1,431 @@
+country_decisions = {
+
+	# Establish Finland (For Sapmi, Lapland, and Savo)
+
+	dec1_finnish_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			OR = {
+				AND = {
+					primary_culture = finnish
+					tag = SMI
+				}
+				AND = {
+					primary_culture = finnish
+					tag = LPL
+				}
+				AND = {
+					primary_culture = finnish
+					tag = SVA
+				}
+			}
+			NOT = {
+				has_country_flag = formed_finland_flag
+				exists = FIN
+				tag = FIN
+				tag = NOR
+				tag = SWE
+				tag = DAN
+				tag = ICE
+				tag = PAP
+				tag = GBR
+				tag = KLR
+				tag = SSE
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 4
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 248 # edinburgh
+				province_id = 251 # aberdeen
+				province_id = 252 # inverness
+				province_id = 249 # ayrshire
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = FIN }
+			is_at_war = no
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_free_or_tributary_trigger = no
+			owns_core_province = 248 # edinburgh
+			owns_core_province = 251 # aberdeen
+			owns_core_province = 252 # inverness
+			owns_core_province = 249 # ayrshire
+		}
+		effect = {
+			change_tag = FIN # Country TAG
+			set_country_flag = formed_finland_flag # Country Formation Flag
+			custom_tooltip = form_finland_tt_2 # New Missions
+			custom_tooltip = dec1_decisions_blank
+			FIN = { # Capital change and bonuses
+				set_capital = 248 # edinburgh
+				248 = {
+					add_base_tax = 1
+					add_base_production = 1
+					add_base_manpower = 1
+				}
+				custom_tooltip = dec1_decisions_blank
+				custom_tooltip = dec1_government_rank_2 # Government Rank Change
+				# Dharma DLC check to prevent ugly tooltip
+				if = {
+					limit = {
+						has_dlc = "Dharma"
+					}
+					custom_tooltip = dec1_government_change_monarchy # Government Type Change
+				}
+				custom_tooltip = dec1_government_reform_change_autocracy
+				custom_tooltip = dec1_decisions_blank
+				# Our Place in the Empire Custom Event
+				if = {
+					limit = {
+						is_part_of_hre = yes
+					}
+					country_event = { id = dec1_events.1 }
+				}
+				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Claims
+					laponia_area = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = FIN
+					}
+					pomor_area = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = FIN
+					}
+					north_karelia = {
+						limit = {
+							NOT = { owned_by = ROOT }
+						}
+						add_permanent_claim = FIN
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
+					# Government Type Change
+					if = {
+						limit = {
+							NOT = {
+								government = monarchy
+								}
+							}
+						change_government = monarchy
+					}
+					add_government_reform = autocracy_reform
+				}
+				# Custom Ideas check and change
+				if = {
+					limit = {
+						has_custom_ideas = no
+						NOT = { has_idea_group = SCO_ideas }
+					}
+					country_event = { id = ideagroups.1 }
+				}
+				# Custom Missions check and change
+				country_event = { id = dec1_events.3 }
+				custom_tooltip = dec1_decisions_blank
+				# National Ability
+				#add_country_modifier = {
+				#	name = dec1_greater_finnish_morale
+				#	duration = 49275
+				#}
+				# Increased Centralization
+				add_country_modifier = {
+					name = dec1_increased_centralization
+					duration = -1
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Proclaim Greater Finland (Can either proclaim Greater Finland in name, or in whole and become a new tag with more finnish-related ideas and bonuses)
+
+	dec1_proclaim_greater_finland_nation = {
+		major = yes
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			OR = {
+				tag = FIN
+				AND = {
+					primary_culture = finnish
+					tag = SMI
+				}
+				AND = {
+					primary_culture = finnish
+					tag = LPL
+				}
+				AND = {
+					primary_culture = finnish
+					tag = SVA
+				}
+			}
+			NOT = {
+				has_country_flag = formed_finland_flag
+				exists = GFE
+				tag = GFE
+				tag = NOR
+				tag = SWE
+				tag = DAN
+				tag = ICE
+				tag = PAP
+				tag = GBR
+				tag = KLR
+				tag = SSE
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 4
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 27
+				province_id = 19
+				province_id = 4123
+				province_id = 29
+				province_id = 28
+				province_id = 31
+				province_id = 30
+				province_id = 4124
+				province_id = 4152
+				province_id = 1776
+				province_id = 4113
+				province_id = 4151
+				province_id = 1777
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			adm_tech = 10
+			NOT = { exists = FIN }
+			is_at_war = no
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_free_or_tributary_trigger = no
+			owns_core_province = 27
+			owns_core_province = 19
+			owns_core_province = 4123
+			owns_core_province = 29
+			owns_core_province = 28
+			owns_core_province = 31
+			owns_core_province = 30
+			owns_core_province = 4124
+			owns_core_province = 4152
+			owns_core_province = 1776
+			owns_core_province = 4113
+			owns_core_province = 4151
+			owns_core_province = 1777
+		}
+		effect = {
+			add_prestige = 5
+			country_event = {
+				id = dec1_country_events.18
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# Establish Claims on Greater Finnish territory - Must be Finland or Greater Finland; Finland has a higher cost
+
+	dec1_claim_lands_of_the_fins = {
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			OR = {
+				tag = FIN
+				tag = GFE
+			}
+			NOT = {
+				has_country_flag = formed_finland_flag
+				tag = NOR
+				tag = SWE
+				tag = DAN
+				tag = ICE
+				tag = PAP
+				tag = GBR
+				tag = KLR
+				tag = SSE
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				# Scandinavia
+				province_id = 11
+				province_id = 4114
+				province_id = 315
+				# Baltics
+				province_id = 35
+				province_id = 36
+				province_id = 37
+				province_id = 1842
+				province_id = 1834
+				# Russia
+				province_id = 34
+				province_id = 33
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				#NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			legitimacy = 95
+			is_at_war = no
+			is_subject = no
+			is_free_or_tributary_trigger = no
+		}
+		effect = {
+			set_country_flag = dec1_claimed_land_of_fins
+			add_prestige = 5
+			# Scandinavia
+			add_core = 11
+			add_core = 4114
+			add_core = 315
+			# Baltics
+			add_core = 35
+			add_core = 36
+			add_core = 37
+			add_core = 1842
+			add_core = 1834
+			# Russia
+			add_core = 34
+			add_core = 33
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 150
+	}
+
+	# Foundation of Helsinki - Trigger for Founding of Helskinki event (600 months MTTH - historically happened 1550, can fire 1500-1550)
+
+	dec1_establish_helsinki_foundings = {
+		potential = {
+			is_former_colonial_nation = no
+			is_colonial_nation = no
+			is_date = 1500.1.1
+			OR = {
+				tag = FIN
+				tag = GFE
+			}
+			NOT = {
+				has_country_flag = dec1_establish_helsinki_foundings_completed
+				exists = FIN
+				tag = FIN
+				tag = NOR
+				tag = SWE
+				tag = DAN
+				tag = ICE
+				tag = PAP
+				tag = GBR
+				tag = KLR
+				tag = SSE
+			}
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 3
+					is_date = 1500.1.1
+				}
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				province_id = 28 # Helskinki
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_at_war = no
+			is_subject = no
+			is_free_or_tributary_trigger = no
+		}
+		effect = {
+			add_prestige = 10
+			set_country_flag = dec1_establish_helsinki_foundings
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 250
+	}
+
+}

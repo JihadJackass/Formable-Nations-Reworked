@@ -6,6 +6,8 @@
   # New Countries #
   #################
 
+    GFE: "Greater Finland"
+    GFE_ADJ: "Finnish"
     AKD: "Akkadia"
     AKD_ADJ: "Akkadian"
     PCA: "Phoenicia"
@@ -360,3 +362,9 @@
     ESY_ADJ: "Arab"
     SNN: "Swedish-Norway"
     SNN_ADJ: "Swedish-Norway"
+    LPL: "Lapland"
+    LPL_ADJ: "Lapp"
+    SVA: "Savo"
+    SVA_ADJ: "Savvy"
+    PSC: "Polish-Swedish Commonwealth"
+    PSC_ADJ: "Polish-Swedish Commonwealth"

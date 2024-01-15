@@ -1,8 +1,12 @@
 spriteTypes = {
-	# Government Reform
+	# Confederate States
 	spriteType = {
 		name = "dec1_confederate_state_congress_reform_tribal_civil_society"
 		texturefile = "gfx//interface//government_reform_icons//tribal_civil_society.dds"
 	}
-
+	# Eastern Roman Empire
+	spriteType = {
+		name = "government_reform_dec1_eastern_roman_senate_reform"
+		texturefile = "gfx//interface//government_reform_icons//dec1_eastern_roman_empire.dds"
+	}
 }

@@ -15,8 +15,12 @@ country_decisions = {
 				tag = GER
 				tag = KGG
 				tag = HLR
+				tag = SSE
 				tag = NSE
 				tag = SNO
+				tag = LPL
+				tag = KLR
+				tag = FIN
 			}
 			OR = {
 				ai = no

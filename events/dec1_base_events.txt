@@ -1,8 +1,8 @@
+namespace = dec1_events
+
 	##########################################
 	# Formable Nations: Reworked Base events #
 	##########################################
-
-	namespace = dec1_events
 
 	# Our place in the Empire - dec1_events.1
 
@@ -211,9 +211,6 @@
 			name = "dec1_events.3.a"
 			ai_chance = { factor = 1 }
 			swap_non_generic_missions = yes
-			trigger = {
-				tag = AQI # for testing
-			}
 		}
 		option = {	# No, we cannot abandon our roots.
 			name = "dec1_events.3.b"
@@ -243,3 +240,5 @@
 			name = "dec1_events.4.b" # This cannot stand! (Unique War to add nation to HRE)
 		}
 	}
+
+#

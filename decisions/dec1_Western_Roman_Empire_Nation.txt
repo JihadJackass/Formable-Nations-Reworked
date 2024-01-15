@@ -1,9 +1,12 @@
 country_decisions = {
 
-	# Reworked this to just be the south balkan region , remove tunis, adjust all regions to be less hard and historically accurate
+	# Reworked this to just be the south balkan region,
+	# removed tunis, adjusted all regions to be less hard and historically accurate
 
 	# Planned Content: New Augustus! [Man declared Imperator of both East and West,
 	# can lead to war with East
+
+	# Establish Claims Over Western Empire
 
 	dec1_western_roman_empire_nation = {
 		major = yes

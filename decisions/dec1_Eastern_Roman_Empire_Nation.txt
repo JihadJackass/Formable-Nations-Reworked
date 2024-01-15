@@ -6,6 +6,10 @@ country_decisions = {
 			is_former_colonial_nation = no
 			is_colonial_nation = no
 			OR = { # Roman Successors
+				AND = {
+					primary_culture = greek
+					government_rank = 2
+				}
 				tag = BYZ
 				tag = ROP
 				tag = TRE
@@ -191,5 +195,12 @@ country_decisions = {
 			}
 		}
 	}
+
+	# Refute British Claims (removes the requirement for Britain/london to be owned, but requires ERE to own rome
+
+	# Establish Egypt under Eastern Influence (Creates a pro-roman egyptian proto-state)
+
+	# Grain Dole Restoration (De restitutione Annae Curae)
+	# Makes many provinces in Egypt and North Africa produce grain at increased price at the cost of influence
 
 }

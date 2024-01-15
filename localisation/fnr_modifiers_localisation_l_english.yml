@@ -20,6 +20,10 @@
   # STATIC MODIFIERS LOCALISATION #
   #################################
 
+    # Finland
+
+      dec1_cudgel_uprising_debuff: "Cudgel Uprising"
+
     # Dual Monarchy
 
       dec1_anglois_icon: "Icon of Anglois"

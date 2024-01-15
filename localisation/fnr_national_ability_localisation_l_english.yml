@@ -11,6 +11,11 @@
   dec1_increased_centralization: "Increased Centralization"
   dec1_increased_centralization_desc: "With the foundation of a new state we have increased our authority over local polities; with this comes great benifit of reducing the autonomy of our subjects."
 
+  # Greater Finland
+
+  dec1_greater_finnish_morale: "Greater Finnish Morale"
+  dec1_greater_finnish_morale_desc: ""
+
   # Aquitaine
 
   dec1_anti_french_policy: "Anti-French Policy"

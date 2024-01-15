@@ -21,6 +21,9 @@ country_decisions = {
 				tag = NSE
 				tag = SNO
 				tag = SCA
+				tag = LPL
+				tag = SSE
+				tag = FIN
 			}
 			OR = {
 				ai = no
@@ -74,7 +77,9 @@ country_decisions = {
 			every_owned_province = {
 				if = {
 					limit = {
-						core_claim = SWE
+						any_province = {
+							owned_by = SWE
+						}
 					}
 					remove_core = SWE
 				}
@@ -165,32 +170,11 @@ country_decisions = {
 
 	# Establish the Kalmar Council
 
-	dec1_establish_kalmar_council = {
-		potential = {
-			is_former_colonial_nation = no
-			is_colonial_nation = no
-			tag = KLR
-			NOT = { has_country_flag = formed_scandinavia_flag }
-			OR = {
-				ai = no
-				AND = {
-					ai = yes
-					num_of_cities = 6
-				}
-			}
-		}
-		allow = {
-
-		}
-		effect = {
-
-		}
-	}
-
 	# Establish Kalmar Norway
 
 	dec1_establish_swedish_norway = {
 		potential = {
+			always = no # TDOO: finish
 			is_former_colonial_nation = no
 			is_colonial_nation = no
 			tag = KLR
@@ -240,7 +224,7 @@ country_decisions = {
 		}
 		effect = {
 			add_prestige = 10
-			set_country_flag = dec1_create_kalmar_norway
+			set_country_flag = established_swedish_norway
 			if = {
 				limit = {
 					any_owned_province = {

@@ -107,15 +107,15 @@
 
 			dec1_byzantine_bureaucracy_government = {
 				rank = {
-					3 = DEC1_ROMAN_REPUBLIC
+					3 = DEC1_EASTERN_ROMAN_SENATE_GOVERNMENT_3
 				}
 
 				ruler_male = {
-					3 = DEC1_EASTERN_ROMAN_EMPEROR
+					3 = DEC1_EASTERN_ROMAN_EMPEROR_3
 				}
 
 				ruler_female = {
-					3 = DEC1_EASTERN_ROMAN_EMPRESS
+					3 = DEC1_EASTERN_ROMAN_EMPRESS_3
 				}
 
 				heir_male = {
@@ -161,3 +161,32 @@
 				}
 			}
 
+		########################
+		# Western Roman Empire #
+		########################
+
+		dec1_eastern_roman_senate_reform = {
+			rank = {
+				3 = DEC1_EASTERN_ROMAN_SENATE_GOVERNMENT_3
+			}
+
+			ruler_male = {
+				3 = DEC1_EASTERN_ROMAN_EMPEROR_3
+			}
+
+			ruler_female = {
+				3 = DEC1_EASTERN_ROMAN_EMPRESS_3
+			}
+
+			heir_male = {
+				3 = DEC1_SUCCESSOR
+			}
+
+			heir_female = {
+				3 = DEC1_SUCCESSOR
+			}
+
+			trigger = {
+				has_reform = dec1_eastern_roman_senate_reform
+			}
+		}
