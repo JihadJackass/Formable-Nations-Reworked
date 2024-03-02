@@ -71,7 +71,7 @@ country_decisions = {
 		allow = {
 			adm_tech = 15
 			NOT = { exists = RUS }
-			
+
 			is_at_war = no
 			owns_core_province = 295 # Moskva
 			owns_core_province = 310 # Novgorod
@@ -181,7 +181,6 @@ country_decisions = {
 							}
 						change_government = monarchy
 					}
-					add_government_reform = autocracy_reform
 				}
 				# Custom Ideas check and change
 				if = {

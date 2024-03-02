@@ -65,9 +65,9 @@ country_decisions = {
 			is_former_colonial_nation = yes
 			is_at_war = no
 			owns = 2738
-			num_of_cities = 4 # Colonial nations need 4
+			num_of_cities = 3 # Colonial nations need 4
 			num_of_owned_provinces_with = {
-				value = 4
+				value = 3
 				area = te_waipounamu_area
 				is_city = yes
 			}
@@ -113,15 +113,6 @@ country_decisions = {
 						}
 						add_permanent_claim = NZL
 					}
-					# Government Rank change
-					if = {
-						limit = {
-							NOT = {
-								government_rank = 2
-								}
-							}
-						set_government_rank = 2
-					}
 					# Government Type Change
 					if = {
 						limit = {
@@ -132,6 +123,15 @@ country_decisions = {
 						change_government = monarchy
 					}
 					add_government_reform = autocracy_reform
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
 				}
 				# Custom Ideas check and change
 				if = {

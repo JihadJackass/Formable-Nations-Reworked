@@ -137,16 +137,6 @@ country_decisions = {
 				custom_tooltip = dec1_decisions_blank
 				hidden_effect = { # Hidden Effects to fix bad tooltips
 					# Claims
-					# Government Rank change
-					if = {
-						limit = {
-							NOT = {
-								government_rank = 3
-								}
-							}
-						set_government_rank = 3
-					}
-					# Government Type Change
 					if = {
 						limit = {
 							NOT = {
@@ -156,6 +146,15 @@ country_decisions = {
 						change_government = monarchy
 					}
 					add_government_reform = autocracy_reform
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
 				}
 				# Custom Ideas check and change
 				if = {

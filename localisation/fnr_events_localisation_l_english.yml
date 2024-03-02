@@ -123,6 +123,100 @@
   # COUNTRY EVENTS LOCALISATION #
   ###############################
 
+    # Russia
+
+      # First Kamchatka Expedition
+
+        dec1_russian_alaska_events.1: "The First Kamchatka Expedition"
+        dec1_russian_alaska_events.1.t: "The First Kamchatka Expedition"
+        dec1_russian_alaska_events.1.d: "We have received concerning advice from royal polities in the upper $COUNTRY_ADJ$ circles that an expedition east could prove extremely fruitful for our young nation with possible expansion into islands and lands unknown to us at this time."
+        dec1_russian_alaska_events.1.a: "We must support this potential expansion."
+        dec1_russian_alaska_events.1.b: "There are other concerns for $COUNTRY_ADJ$s."
+
+        dec1_russian_alaska_events.2: "The Kamchatka Expedition"
+        dec1_russian_alaska_events.2.t: "The Kamchatka Expedition"
+        dec1_russian_alaska_events.2.d: "As the Russian Empire extends its reach further eastward, the distant land of Kamchatka beckons explorers and adventurers alike. In the halls of the Russian court, discussions arise about who should lead the next expedition to this remote region. Four prominent figures have emerged as potential candidates, each bringing their own unique expertise and experience to the table."
+        dec1_russian_alaska_events.2.a: "Vitus Bering is a fine choice."
+        dec1_russian_alaska_events.2.b: "Fedor Luzhin seems fit for the job."
+        dec1_russian_alaska_events.2.c: "Alexei Chirikov is a qualified general and will crush any native dissent."
+        dec1_russian_alaska_events.2.e: "Martin Spanberg knows this region well!"
+
+        dec1_russian_alaska_events.3: "Kamchatka Alternatives"
+        dec1_russian_alaska_events.3.t: "Kamchatka Alternatives"
+        dec1_russian_alaska_events.3.d: "As the Kamchatka expedition looms on the horizon, murmurs of an alternative course ripple through the Russian court. Drawing from a history steeped in expansionism and territorial ambition, the idea of redirecting efforts towards claiming the vast expanse of the Scandinavia region or delving into the enigmatic depths of Central Asia gains traction. These regions, with their strategic significance and untapped potential, beckon as new frontiers for the ever-expanding Russian empire."
+        dec1_russian_alaska_events.3.a: "Central Asia, our neighboring lands."
+        dec1_russian_alaska_events.3.b: "Scandinavia is the economic choice."
+
+        dec1_russian_alaska_events.4: "Bering Begins Expedition"
+        dec1_russian_alaska_events.4.t: "Bering Begins Expedition"
+        dec1_russian_alaska_events.4.d: "With resolute confidence, Admiral Vitus Bering assumes command as the chosen leader for the Kamchatka expedition. His reputation precedes him, marked by a legacy of Arctic exploration and daring voyages. Under his seasoned leadership, the Russian empire sets its sights on the uncharted territories of the Pacific, ready to unveil the mysteries of Kamchatka and beyond."
+        dec1_russian_alaska_events.4.a: "The Expedition Begins!"
+
+        dec1_russian_alaska_events.5: "Luzhin Begins Expedition"
+        dec1_russian_alaska_events.5.t: "Luzhin Begins Expedition"
+        dec1_russian_alaska_events.5.d: "Captain Fedor Luzhin takes the helm as the appointed leader for the Kamchatka expedition. A stalwart figure within the Russian naval ranks, his strategic acumen and fervent dedication promise to guide the empire towards new horizons. With sails unfurled and crews at the ready, the Russian flag flies high as Captain Luzhin embarks on a journey of discovery and conquest in the distant reaches of the Pacific."
+        dec1_russian_alaska_events.5.a: "Fedor sails from port!"
+
+        dec1_russian_alaska_events.6: "Chirikov Begins Expedition"
+        dec1_russian_alaska_events.6.t: "Chirikov Begins Expedition"
+        dec1_russian_alaska_events.6.d: "Amidst anticipation and fervor, Commander Alexei Chirikov assumes command for the Kamchatka expedition. Known for his audacious exploits and fearless spirit, Chirikov embodies the adventurous essence of Russian exploration. With the wind at his back and the promise of uncharted lands ahead, he leads his crew into the vast expanse of the Pacific, driven by the thirst for discovery and the glory of the Russian empire."
+        dec1_russian_alaska_events.6.a: "Chirikov sets sail!"
+
+        dec1_russian_alaska_events.7: "Spanberg Begins Expedition"
+        dec1_russian_alaska_events.7.t: "Spanberg Begins Expedition"
+        dec1_russian_alaska_events.7.d: "In a bold departure from tradition, Captain Martin Spanberg emerges as the unexpected choice to lead the Kamchatka expedition, his martial prowess overshadowing his cartographic expertise. Renowned for his strategic brilliance and battlefield valor, Spanberg brings a new dimension to the expedition. With sword in hand and a steely resolve, he charts a course through uncharted waters, ready to confront any obstacle that dares to challenge the might of the Russian empire."
+        dec1_russian_alaska_events.7.a: "Spanberg is off!"
+
+        dec1_russian_alaska_events.8: "Bering Expedition Discoveries"
+        dec1_russian_alaska_events.8.t: "Bering Expedition Discoveries"
+        dec1_russian_alaska_events.8.d: "Through the tempests of the North Pacific, Admiral Vitus Bering's expedition presses onward, dauntless in the face of uncertainty. Guided by the iron will of their leader, the Russian explorers chart a course into the unknown, where the whispers of destiny beckon them towards new shores. As the icy winds relent, the veil of mystery is lifted to reveal the distant lands of America, a testament to the boundless spirit of Russian exploration. Yet, amidst the vast expanse of uncharted waters, a revelation stirs the soul: the mighty Bering Sea, named in honor of the intrepid admiral whose courage knows no bounds."
+        dec1_russian_alaska_events.8.a: "Wonderful discoveries!"
+
+        dec1_russian_alaska_events.9: "Luzhin Expedition Discoveries"
+        dec1_russian_alaska_events.9.t: "Luzhin Expedition Discoveries"
+        dec1_russian_alaska_events.9.d: "Across the boundless expanse of the Pacific, Captain Fedor Luzhin's expedition sails forth, propelled by the unwavering resolve of the Russian spirit. Guided by his astute leadership, the crew navigates the treacherous waters with skill and determination, forging ever deeper into uncharted territory. As the waves part before them, a path of discovery unfolds, revealing new lands and riches beyond imagination. With each passing day, Luzhin's expedition makes strides towards greatness, a testament to the indomitable spirit of the Russian navy and the enduring legacy of exploration."
+        dec1_russian_alaska_events.9.a: "Fantastic!"
+
+        dec1_russian_alaska_events.10: "Chirikov Expedition Discoveries"
+        dec1_russian_alaska_events.10.t: "Chirikov Expedition Discoveries"
+        dec1_russian_alaska_events.10.d: "Amidst the vast expanse of the Pacific, Commander Alexei Chirikov's expedition unfurls its sails, carrying the dreams of Russian exploration into the unknown. With the fierce determination of a Russian bear, Chirikov leads his intrepid crew forward, navigating through perilous waters with unwavering resolve. As the sun casts its golden rays upon the horizon, Chirikov's keen eyes discern the outlines of uncharted lands, beckoning with the promise of discovery. With each passing day, the expedition presses onward, carving a path through the boundless ocean and etching their names into the annals of Russian history."
+        dec1_russian_alaska_events.10.a: "For Russia!"
+
+        dec1_russian_alaska_events.11: "Spanberg Expedition Discoveries"
+        dec1_russian_alaska_events.11.t: "Spanberg Expedition Discoveries"
+        dec1_russian_alaska_events.11.d: "As Captain Martin Spanberg's expedition makes landfall on the uncharted shores of a new continent, the tranquil anticipation is shattered by the war cries of native tribes. Amidst the rugged terrain and fierce resistance, naval logistics come into play as Spanberg maneuvers his forces against the indigenous inhabitants. In a tumultuous clash between Russian naval might and tribal warriors, Spanberg's leadership is tested amidst the chaos of battle, marking a significant chapter in Russian exploration as they encounter America's unyielding shores."
+        dec1_russian_alaska_events.11.a: "Imperial Bounty!"
+
+        dec1_russian_alaska_events.12: "Kamchatka Expedition Finishes"
+        dec1_russian_alaska_events.12.t: "Kamchatka Expedition Finishes"
+        dec1_russian_alaska_events.12.d: "After years of grueling exploration and enduring harsh conditions, Admiral Vitus Bering's expedition finally returns triumphant from the Kamchatka venture. Despite facing formidable challenges, including treacherous seas and harsh weather, Bering's leadership and perseverance have prevailed. With maps redrawn and knowledge expanded, the expedition's return heralds a new era of discovery and influence for the Russian Empire."
+        dec1_russian_alaska_events.12.a: "Bering was the right choice."
+
+        dec1_russian_alaska_events.13: "Kamchatka Expedition Finishes"
+        dec1_russian_alaska_events.13.t: "Kamchatka Expedition Finishes"
+        dec1_russian_alaska_events.13.d: "Captain Fedor Luzhin's expedition concludes with resounding success, as they return from their journey to Kamchatka laden with tales of adventure and conquest. Through his strategic prowess and unwavering determination, Luzhin has navigated the treacherous waters of the North Pacific, expanding Russia's reach and influence in the region. As the expedition's ships dock in Russian ports, they bring with them not only newfound knowledge but also a sense of pride and accomplishment, marking Luzhin's leadership as a pivotal moment in Russian naval history."
+        dec1_russian_alaska_events.13.a: "Excellent."
+
+        dec1_russian_alaska_events.14: "Kamchatka Expedition Finishes"
+        dec1_russian_alaska_events.14.t: "Kamchatka Expedition Finishes"
+        dec1_russian_alaska_events.14.d: "Commander Alexei Chirikov's expedition concludes with a mixture of triumph and solemn reflection. Though the journey to Kamchatka was fraught with challenges and dangers, Chirikov's boldness and daring led the expedition to uncover new lands and expand the Russian Empire's reach. As the expedition returns, Chirikov's leadership is celebrated, and his name becomes synonymous with exploration and discovery. Despite the trials faced along the way, the legacy of Chirikov's expedition will endure, inspiring future generations of Russian adventurers to push the boundaries of exploration even further."
+        dec1_russian_alaska_events.14.a: "Excellent."
+
+        dec1_russian_alaska_events.15: "Kamchatka Expedition Finishes"
+        dec1_russian_alaska_events.15.t: "Kamchatka Expedition Finishes"
+        dec1_russian_alaska_events.15.d: "Captain Martin Spanberg's expedition draws to a close, marking the end of a remarkable journey filled with both triumphs and hardships. Despite facing fierce resistance from native tribes and navigating treacherous waters, Spanberg's leadership has guided the expedition safely back from the distant shores of America. As the ships dock in Russian ports once more, they bring with them tales of adventure, conquest, and the enduring spirit of Russian exploration. Spanberg's name will forever be etched in the annals of history as a fearless explorer who dared to venture into the unknown and returned with knowledge that would shape the destiny of nations."
+        dec1_russian_alaska_events.15.a: "Excellent."
+
+        dec1_russian_alaska_events.16: "The Kamchatka Expedition Concludes"
+        dec1_russian_alaska_events.16.t: "The Kamchatka Expedition Concludes"
+        dec1_russian_alaska_events.16.d: "As the final chapter of the Kamchatka Expedition unfolds, the Russian court gathers to commemorate the culmination of this ambitious venture. With maps redrawn and horizons expanded, the expedition's return brings with it a wealth of new knowledge and opportunities. Amidst celebrations and reflections, the achievements and sacrifices of the explorers are honored, marking a pivotal moment in Russian history. Yet, as the expedition draws to a close, whispers of future endeavors echo through the halls, hinting at the endless possibilities that await on the horizon of exploration."
+        dec1_russian_alaska_events.16.a: "Bering was the right man."
+        dec1_russian_alaska_events.16.b: "Luzhin gained us much knowledge."
+        dec1_russian_alaska_events.16.c: "Chirikov will always be with us."
+        dec1_russian_alaska_events.16.e: "Spanberg defeated many enemies for Russia."
+
+        dec1_russian_alaska_events_tt_1: "The Expedition progresses."
+
     # Sweden
 
       # Rise of Finnish Culture

@@ -142,15 +142,6 @@ country_decisions = {
 						}
 						add_permanent_claim = ALP
 					}
-					# Government Rank change
-					if = {
-						limit = {
-							NOT = {
-								government_rank = 2
-								}
-							}
-						set_government_rank = 2
-					}
 					# Government Type Change
 					if = {
 						limit = {
@@ -161,6 +152,15 @@ country_decisions = {
 						change_government = monarchy
 					}
 					add_government_reform = autocracy_reform
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
 				}
 				if = {
 					limit = {	 # Custom Ideas check and ROOT check

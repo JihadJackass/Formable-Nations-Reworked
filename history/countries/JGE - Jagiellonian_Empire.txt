@@ -4,7 +4,7 @@ add_accepted_culture = hungarian
 government = monarchy
 religion = catholic
 technology_group = eastern
-
+set_government_rank = 3
 historical_rival = RUS
 historical_rival = MOS
 

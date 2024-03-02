@@ -31,8 +31,8 @@ country_decisions = {
 		}
 		provinces_to_highlight = {
 			OR = {
-				province_id = 504 
-				province_id = 4504 
+				province_id = 504
+				province_id = 4504
 				province_id = 4503
 				province_id = 2068
 				province_id = 4511
@@ -63,7 +63,7 @@ country_decisions = {
 				area = bundelkhand_area
 				area = baghelkhand_area
 				area = jharkhand_area
-				area = katehar_area 
+				area = katehar_area
 				area = oudh_area
 				area = purvanchal_area
 				area = bihar_area
@@ -98,8 +98,8 @@ country_decisions = {
 				is_subject = no
 			}
 			is_at_war = no
-			owns_core_province = 504 
-			owns_core_province = 4504 
+			owns_core_province = 504
+			owns_core_province = 4504
 			owns_core_province = 4503
 			owns_core_province = 2068
 			owns_core_province = 4511
@@ -197,7 +197,7 @@ country_decisions = {
 			custom_tooltip = form_sur_empire_tt_2 # Claims
 			custom_tooltip = dec1_decisions_blank
 			SUR = { # Capital change and bonuses
-				set_capital = 2044 
+				set_capital = 2044
 				2044 = {
 					add_base_tax = 1
 					add_base_production = 1
@@ -251,7 +251,6 @@ country_decisions = {
 							}
 						change_government = monarchy
 					}
-					add_government_reform = autocracy_reform
 				}
 				# Custom Ideas check and change
 				if = {

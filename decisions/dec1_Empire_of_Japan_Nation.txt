@@ -140,6 +140,8 @@ country_decisions = {
 						}
 						add_permanent_claim = JAE
 					}
+					# Government Type Change
+					country_event = { id = dec1_country_events.8 } # The Japanese Government
 					# Government Rank change
 					if = {
 						limit = {
@@ -149,8 +151,6 @@ country_decisions = {
 							}
 						set_government_rank = 3
 					}
-					# Government Type Change
-					country_event = { id = dec1_country_events.8 } # The Japanese Government
 				}
 				# Custom Ideas check and change
 				if = {

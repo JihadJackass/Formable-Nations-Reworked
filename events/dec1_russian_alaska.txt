@@ -1,0 +1,521 @@
+namespace = dec1_russian_alaska_events
+
+	#  First Kamchatka Expedition Proposal - dec1_russian_alaska_events.1
+
+	country_event = {
+		id = dec1_russian_alaska_events.1
+		title = "dec1_russian_alaska_events.1.t"
+		desc = "dec1_russian_alaska_events.1.d"
+		picture = east_slavic_WESTERNISATION_eventPicture
+
+		trigger = {
+			exists = RUS
+			is_date = 1700.1.1
+			OR = { # Check if bordering Alaska
+				1034 = {
+					AND = {
+						owned_by = RUS
+						province_distance = {
+							who = 1680 # Alutian isles
+							distance = 80
+						}
+					}
+				}
+				1035 = {
+					AND = {
+						owned_by = RUS
+						province_distance = {
+							who = 1680 # Alutian isles
+							distance = 80
+						}
+					}
+				}
+				2440 = {
+					AND = {
+						owned_by = RUS
+						province_distance = {
+							who = 1680 # Alutian isles
+							distance = 80
+						}
+					}
+				}
+			}
+		}
+
+		mean_time_to_happen = {
+			months = 12
+		}
+
+		option = { # Support the First Kamchatka Expedition
+			name = "dec1_russian_alaska_events.1.a"
+			ai_chance = {
+				factor = 70
+			}
+			country_event = { # Event fires in a month, giving options.
+				id = dec1_russian_alaska_events.2
+				days = 30
+			}
+			add_prestige = 10
+		}
+
+		option = { # Refuse this plan, invest in other spheres
+			name = "dec1_russian_alaska_events.1.b"
+			ai_chance = {
+				factor = 30
+			}
+			country_event = { # Event fires in a half month, giving options.
+				id = dec1_russian_alaska_events.3
+				days = 15
+			}
+			add_prestige = 5
+		}
+	}
+
+	# if Yes to Supported the Kamchatka Expadition - dec1_russian_alaska_events.2
+
+	country_event = {
+		id = dec1_russian_alaska_events.2
+		title = "dec1_russian_alaska_events.2.t"
+		desc = "dec1_russian_alaska_events.2.d"
+		picture = east_slavic_WESTERNISATION_eventPicture
+
+		is_triggered_only = yes
+
+		option = { # Vitus Bering
+			name = "dec1_russian_alaska_events.2.a"
+			ai_chance = {
+				factor = 40
+			}
+			highlight = yes
+			country_event = { # Bering Prepares Expadition (possibly with Fedor Luzhin)
+				id = dec1_russian_alaska_events.4
+				days = 15
+			}
+		}
+
+		option = { # Fedor Luzhin - Friend of Bering (Forces Bering to Flee)
+			name = "dec1_russian_alaska_events.2.b"
+			ai_chance = {
+				factor = 20
+			}
+			country_event = { # Fedor Luzhin Prepares Expadition
+				id = dec1_russian_alaska_events.5
+				days = 15
+			}
+		}
+
+		option = { # Alexei Chirikov (most qualified compared to bering) + military bonuses against natives
+			name = "dec1_russian_alaska_events.2.c"
+			ai_chance = {
+				factor = 30
+			}
+			country_event = { # Fedor Luzhin Prepares Expadition
+				id = dec1_russian_alaska_events.6
+				days = 15
+			}
+		}
+
+		option = { # Martin Spanberg (Naval bonuses, no preperation)
+			name = "dec1_russian_alaska_events.2.e"
+			ai_chance = {
+				factor = 10
+			}
+			country_event = { # Fedor Luzhin Begins Expadition
+				id = dec1_russian_alaska_events.7
+				days = 15
+			}
+		}
+	}
+
+	# if No to Supported the Kamchatka Expadition - Claims on Afghanistan and Urals / Scandinavia - dec1_russian_alaska_events.3
+
+	country_event = {
+		id = dec1_russian_alaska_events.3
+		title = "dec1_russian_alaska_events.3.t"
+		desc = "dec1_russian_alaska_events.3.d"
+		picture = ENTERING_MOSCOW_eventPicture
+
+		is_triggered_only = yes
+
+		option = { # Afghanistan Focus
+			name = "dec1_russian_alaska_events.3.a"
+			ai_chance = {
+				factor = 70
+			}
+			central_asia_region = {
+				add_claim = ROOT
+			}
+		}
+
+		option = { # Scandinavia Focus
+			name = "dec1_russian_alaska_events.3.b"
+			ai_chance = {
+				factor = 30
+			}
+			finland_area = { # TODO: change if Russia owns these lands
+				add_claim = ROOT
+			}
+			bothnia_area = {
+				add_claim = ROOT
+			}
+			laponia_area = {
+				add_claim = ROOT
+			}
+		}
+	}
+
+	# Historical Bering Expedition - dec1_russian_alaska_events.4
+
+	country_event = {
+		id = dec1_russian_alaska_events.4
+		title = "dec1_russian_alaska_events.4.t"
+		desc = "dec1_russian_alaska_events.4.d"
+		picture = DHOW_AT_SEA_eventPicture
+
+		is_triggered_only = yes
+
+		option = {
+			name = "dec1_russian_alaska_events.4.a"
+			ai_chance = {
+				factor = 80
+			}
+			custom_tooltip = dec1_russian_alaska_events_tt_1
+			hidden_effect = {
+				country_event = { # Expedition discoveries
+					id = dec1_russian_alaska_events.8
+					days = 80
+				}
+			}
+			country_event = { # End of Expedition
+				id = dec1_russian_alaska_events.12
+				days = 180
+			}
+		}
+	}
+
+	# Fedor Luzhin Expedition - dec1_russian_alaska_events.5
+
+	country_event = {
+		id = dec1_russian_alaska_events.5
+		title = "dec1_russian_alaska_events.5.t"
+		desc = "dec1_russian_alaska_events.5.d"
+		picture = DHOW_AT_SEA_eventPicture
+
+		is_triggered_only = yes
+
+		option = {
+			name = "dec1_russian_alaska_events.5.a"
+			ai_chance = {
+				factor = 100
+			}
+			custom_tooltip = dec1_russian_alaska_events_tt_1
+			hidden_effect = {
+				country_event = { # Expedition discoveries
+					id = dec1_russian_alaska_events.9
+					days = 80
+				}
+			}
+			country_event = { # End of Expedition
+				id = dec1_russian_alaska_events.13
+				days = 180
+			}
+		}
+	}
+
+	# Alexei Chirikov Expedition - dec1_russian_alaska_events.6
+
+	country_event = {
+		id = dec1_russian_alaska_events.6
+		title = "dec1_russian_alaska_events.6.t"
+		desc = "dec1_russian_alaska_events.6.d"
+		picture = DHOW_AT_SEA_eventPicture
+
+		is_triggered_only = yes
+
+		option = { #
+			name = "dec1_russian_alaska_events.6.a"
+			ai_chance = {
+				factor = 100
+			}
+			custom_tooltip = dec1_russian_alaska_events_tt_1
+			hidden_effect = {
+				country_event = { # Expedition discoveries
+					id = dec1_russian_alaska_events.10
+					days = 80
+				}
+			}
+			country_event = { # End of Expedition
+				id = dec1_russian_alaska_events.14
+				days = 180
+			}
+		}
+	}
+
+	# Martin Spanberg Expedition - dec1_russian_alaska_events.7
+
+	country_event = {
+		id = dec1_russian_alaska_events.7
+		title = "dec1_russian_alaska_events.7.t"
+		desc = "dec1_russian_alaska_events.7.d"
+		picture = STRELTSY_MARCHING_eventPicture
+
+		is_triggered_only = yes
+
+		option = {
+			name = "dec1_russian_alaska_events.7.a"
+			ai_chance = {
+				factor = 100
+			}
+			custom_tooltip = dec1_russian_alaska_events_tt_1
+			hidden_effect = {
+				country_event = { # Expedition discoveries
+					id = dec1_russian_alaska_events.11
+					days = 80
+				}
+			}
+			country_event = { # End of Expedition
+				id = dec1_russian_alaska_events.15
+				days = 180
+			}
+		}
+	}
+
+	# Bering expedition discovery - dec1_russian_alaska_events.8
+
+	country_event = {
+		id = dec1_russian_alaska_events.8
+		title = "dec1_russian_alaska_events.8.t"
+		desc = "dec1_russian_alaska_events.8.d"
+		picture = DHOW_AT_SEA_eventPicture
+
+		is_triggered_only = yes
+
+		option = {
+			name = "dec1_russian_alaska_events.8.a"
+			cascadia_region = { discover_country = ROOT }
+			north_east_pacific_region = { discover_country = ROOT }
+			1678 = { change_province_name = "Bering Strait" }
+			1445 = { change_province_name = "Bering Sea" }
+			1677 = { change_province_name = "Bering Bay" }
+		}
+	}
+
+	# Luzhin expedition discovery - dec1_russian_alaska_events.9
+
+	country_event = {
+		id = dec1_russian_alaska_events.9
+		title = "dec1_russian_alaska_events.9.t"
+		desc = "dec1_russian_alaska_events.9.d"
+		picture = DHOW_AT_SEA_eventPicture
+
+		is_triggered_only = yes
+
+		option = {
+			name = "dec1_russian_alaska_events.9.a"
+			cascadia_region = { discover_country = ROOT }
+			north_east_pacific_region = { discover_country = ROOT }
+			1678 = { change_province_name = "Luzhin Strait" }
+			1445 = { change_province_name = "Luzhin Sea" }
+			1677 = { change_province_name = "Luzhin Bay" }
+		}
+	}
+
+	# Chirikov expedition discovery - dec1_russian_alaska_events.10
+
+	country_event = {
+		id = dec1_russian_alaska_events.10
+		title = "dec1_russian_alaska_events.10.t"
+		desc = "dec1_russian_alaska_events.10.d"
+		picture = DHOW_AT_SEA_eventPicture
+
+		is_triggered_only = yes
+
+		option = {
+			name = "dec1_russian_alaska_events.10.a"
+			cascadia_region = { discover_country = ROOT }
+			north_east_pacific_region = { discover_country = ROOT }
+			1678 = { change_province_name = "Chirikov Strait" }
+			1445 = { change_province_name = "Chirikov Sea" }
+			1677 = { change_province_name = "Chirikov Bay" }
+		}
+	}
+
+	# Spanberg expedition discovery - dec1_russian_alaska_events.11
+
+	country_event = {
+		id = dec1_russian_alaska_events.11
+		title = "dec1_russian_alaska_events.11.t"
+		desc = "dec1_russian_alaska_events.11.d"
+		picture = DHOW_AT_SEA_eventPictures
+
+		is_triggered_only = yes
+
+		option = {
+			name = "dec1_russian_alaska_events.11.a"
+			cascadia_region = { discover_country = ROOT }
+			north_east_pacific_region = { discover_country = ROOT }
+			1678 = { change_province_name = "Spanberg Strait" }
+			1445 = { change_province_name = "Spanberg Sea" }
+			1677 = { change_province_name = "Spanberg Bay" }
+		}
+	}
+
+	# Bering Expedition finishes - 12
+
+	country_event = {
+		id = dec1_russian_alaska_events.12
+		title = "dec1_russian_alaska_events.12.t"
+		desc = "dec1_russian_alaska_events.12.d"
+		picture = south_slavic_COLONIZATION_eventPicture
+
+		is_triggered_only = yes
+
+		option = {
+			name = "dec1_russian_alaska_events.12.a"
+			set_country_flag = dec1_russian_alaska_events_expedition_finished_trigger_bering
+			979 = { create_colony = 500 }
+			976 = { create_colony = 250 }
+			add_prestige = 15
+			add_legitimacy = 10
+		}
+	}
+
+	# Luzhin Expedition finishes - 13
+
+	country_event = {
+		id = dec1_russian_alaska_events.13
+		title = "dec1_russian_alaska_events.13.t"
+		desc = "dec1_russian_alaska_events.13.d"
+		picture = south_slavic_COLONIZATION_eventPicture
+
+		is_triggered_only = yes
+
+		option = {
+			name = "dec1_russian_alaska_events.13.a"
+			set_country_flag = dec1_russian_alaska_events_expedition_finished_trigger_luzhin
+			978 = { create_colony = 600 }
+			add_prestige = 10
+			add_legitimacy = 5
+		}
+	}
+
+	# Chirikov Expedition finishes - 14
+
+	country_event = {
+		id = dec1_russian_alaska_events.14
+		title = "dec1_russian_alaska_events.14.t"
+		desc = "dec1_russian_alaska_events.14.d"
+		picture = south_slavic_COLONIZATION_eventPicture
+
+		is_triggered_only = yes
+
+		option = {
+			name = "dec1_russian_alaska_events.14.a"
+			set_country_flag = dec1_russian_alaska_events_expedition_finished_trigger_chirikov
+			979 = { create_colony = 200 }
+			2611 = { create_colony = 200 }
+			add_prestige = 10
+			add_legitimacy = 10
+		}
+	}
+
+	# Spanberg Expedition finishes - 15
+
+	country_event = {
+		id = dec1_russian_alaska_events.15
+		title = "dec1_russian_alaska_events.15.t"
+		desc = "dec1_russian_alaska_events.15.d"
+		picture = south_slavic_COLONIZATION_eventPicture
+
+		is_triggered_only = yes
+
+		option = {
+			name = "dec1_russian_alaska_events.15.a"
+			set_country_flag = dec1_russian_alaska_events_expedition_finished_trigger_spanberg
+			2609 = { create_colony = 250 }
+			975 = { create_colony = 150 }
+			add_prestige = 5
+			add_legitimacy = 5
+		}
+	}
+
+	# End of the Expedition - 16
+
+	country_event = {
+		id = dec1_russian_alaska_events.16
+		title = "dec1_russian_alaska_events.16.t"
+		desc = "dec1_russian_alaska_events.16.d"
+		picture = east_slavic_GREAT_BUILDING_eventPictures
+
+		is_triggered_only = yes
+		major = yes
+
+		option = { # Vitus Bering
+			name = "dec1_russian_alaska_events.16.a"
+			trigger = {
+				has_country_flag = dec1_russian_alaska_events_expedition_finished_trigger_bering
+			}
+			clr_country_flag = dec1_russian_alaska_events_expedition_finished_trigger_bering
+			highlight = yes
+			define_admiral = {
+				name = "Vitus Bering"
+				shock = 6
+				fire = 6
+				manuever = 2
+				siege = 1
+			}
+			add_prestige = 5
+			add_legitimacy = 5
+		}
+
+		option = { # Fedor Luzhin
+			name = "dec1_russian_alaska_events.16.b"
+			trigger = {
+				has_country_flag = dec1_russian_alaska_events_expedition_finished_trigger_luzhin
+			}
+			clr_country_flag = dec1_russian_alaska_events_expedition_finished_trigger_luzhin
+			define_admiral = {
+				name = "Fedor Luzhin"
+				shock = 4
+				fire = 6
+				manuever = 3
+				siege = 4
+			}
+			add_prestige = 5
+			add_legitimacy = 5
+		}
+
+		option = { # Alexei Chirikov
+			name = "dec1_russian_alaska_events.16.c"
+			trigger = {
+				has_country_flag = dec1_russian_alaska_events_expedition_finished_trigger_chirikov
+			}
+			clr_country_flag = dec1_russian_alaska_events_expedition_finished_trigger_chirikov
+			define_admiral = {
+				name = "Martin Spanberg"
+				shock = 2
+				fire = 4
+				manuever = 6
+				siege = 4
+			}
+			add_prestige = 5
+			add_legitimacy = 5
+		}
+
+		option = { # Martin Spanberg
+			name = "dec1_russian_alaska_events.16.e"
+			trigger = {
+				has_country_flag = dec1_russian_alaska_events_expedition_finished_trigger_spanberg
+			}
+			clr_country_flag = dec1_russian_alaska_events_expedition_finished_trigger_spanberg
+			define_general = {
+				name = "Martin Spanberg"
+				shock = 4
+				fire = 4
+				manuever = 6
+				siege = 6
+			}
+			add_prestige = 5
+			add_legitimacy = 5
+		}
+	}

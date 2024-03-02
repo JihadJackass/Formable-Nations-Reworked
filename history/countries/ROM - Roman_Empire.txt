@@ -4,13 +4,14 @@ religion = orthodox
 technology_group = eastern
 historical_rival = PER
 historical_rival = TUN
+government_rank = 3
 capital = 151
 
 1391.2.16 = {
 	monarch = {
 		name = "Manuel II"
 		dynasty = "Palaiologos"
-		birth_date = 1350.6.27		
+		birth_date = 1350.6.27
 		adm = 1
 		dip = 2
 		mil = 1

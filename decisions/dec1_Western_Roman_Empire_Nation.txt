@@ -171,6 +171,9 @@ country_decisions = {
 						}
 						add_legitimacy = 100
 					}
+					# Government
+					change_government = monarchy
+					add_government_reform = autocracy_reform
 					# Government Rank change
 					if = {
 						limit = {
@@ -180,9 +183,6 @@ country_decisions = {
 							}
 						set_government_rank = 3
 					}
-					# Government
-					change_government = monarchy
-					add_government_reform = autocracy_reform
 				}
 				# Custom Ideas check and change
 				if = {

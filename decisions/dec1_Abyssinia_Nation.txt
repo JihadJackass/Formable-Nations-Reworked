@@ -202,15 +202,6 @@ country_decisions = {
 						}
 						add_permanent_claim = ABY
 					}
-					# Government Rank change
-					if = {
-						limit = {
-							NOT = {
-								government_rank = 3
-								}
-							}
-						set_government_rank = 3
-					}
 					# Government Type Change
 					if = {
 						limit = {
@@ -221,6 +212,15 @@ country_decisions = {
 						change_government = monarchy
 					}
 					add_government_reform = autocracy_reform
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
 				}
 				# Custom Ideas check and change
 				if = {

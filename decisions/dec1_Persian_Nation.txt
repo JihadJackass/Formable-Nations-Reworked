@@ -71,7 +71,7 @@ country_decisions = {
 		allow = {
 			adm_tech = 10
 			NOT = { exists = PER }
-			
+
 			is_at_war = no
 			is_tribal = no
 			owns_core_province = 414		# Hamadan
@@ -147,7 +147,6 @@ country_decisions = {
 							}
 						change_government = monarchy
 					}
-					add_government_reform = autocracy_reform
 				}
 				# Custom Ideas check and change
 				if = {

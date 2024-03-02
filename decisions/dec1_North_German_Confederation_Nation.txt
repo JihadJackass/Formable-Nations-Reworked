@@ -33,9 +33,12 @@ country_decisions = {
 				primary_culture = saxon
 				primary_culture = prussian
 			}
-			AND = {
-				ai = yes
-				num_of_cities = 8
+			OR = {
+				ai = no
+				AND = {
+					ai = yes
+					num_of_cities = 8
+				}
 			}
 		}
 		provinces_to_highlight = {
@@ -307,7 +310,6 @@ country_decisions = {
 							}
 						change_government = monarchy
 					}
-					add_government_reform = autocracy_reform
 				}
 				# Custom Ideas check and change
 				if = {

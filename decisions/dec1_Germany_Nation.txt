@@ -108,6 +108,8 @@ country_decisions = {
 				custom_tooltip = dec1_decisions_blank
 				custom_tooltip = dec1_government_rank_3 # Government Rank Change
 				hidden_effect = { # Hidden Effects to fix bad tooltips
+					# Government Type Change
+					country_event = { id = dec1_country_events.7 } # The German Government
 					# Government Rank change
 					if = {
 						limit = {
@@ -117,8 +119,6 @@ country_decisions = {
 							}
 						set_government_rank = 3
 					}
-					# Government Type Change
-					country_event = { id = dec1_country_events.7 } # The German Government
 				}
 				# Custom Ideas check and change
 				if = {

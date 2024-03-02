@@ -60,7 +60,7 @@ country_decisions = {
 				num_of_cities = 5
 		 	}
 			is_subject = no
-			
+
 			is_at_war = no
 			owns_core_province = 2412
 		}
@@ -98,15 +98,6 @@ country_decisions = {
 				}
 				hidden_effect = { # Hidden Effects to fix bad tooltips
 					# Region/Area Claims
-					# Government Rank change
-					if = {
-						limit = {
-							NOT = {
-								government_rank = 1
-								}
-							}
-						set_government_rank = 1
-					}
 					# Government Type Change
 					if = {
 						limit = {
@@ -117,6 +108,15 @@ country_decisions = {
 						change_government = monarchy
 					}
 					add_government_reform = autocracy_reform
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 1
+								}
+							}
+						set_government_rank = 1
+					}
 				}
 				# Custom Ideas check and change
 				if = {

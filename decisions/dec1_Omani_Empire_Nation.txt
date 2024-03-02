@@ -41,7 +41,7 @@ country_decisions = {
 			adm_tech = 10
 			NOT = { exists = OME }
 			is_at_war = no
-			
+
 			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
 				limit = {
 					has_global_flag = dec1_subject_formable_nations_enabled
@@ -145,7 +145,6 @@ country_decisions = {
 							}
 						change_government = monarchy
 					}
-					add_government_reform = autocracy_reform
 				}
 				# Custom Ideas check and change
 				if = {

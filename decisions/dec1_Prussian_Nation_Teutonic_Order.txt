@@ -235,13 +235,6 @@ country_decisions = {
 						}
 						add_permanent_claim = PRU
 					}
-					# Government Rank change
-					if = {
-						limit = {
-							NOT = { government_rank = 2 }
-						}
-						set_government_rank = 2
-					}
 					# Government Type Change
 					if = {
 						limit = {
@@ -252,14 +245,21 @@ country_decisions = {
 						change_government = monarchy
 					}
 					add_government_reform = prussian_monarchy
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = { government_rank = 2 }
+						}
+						set_government_rank = 2
+					}
 					# Unique Secularization effect (must load after government change)
 					every_neighbor_country = {
 						limit = {
 							government = monarchy
 						}
 						add_opinion = {
-							who = ROOT
-							modifier = secularized_monastic_order
+								who = ROOT
+								modifier = secularized_monastic_order
 							}
 						}
 				}

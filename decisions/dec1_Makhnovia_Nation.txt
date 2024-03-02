@@ -111,15 +111,6 @@ country_decisions = {
 					country_event = { id = dec1_events.1 }
 				}
 				hidden_effect = { # Hidden Effects to fix bad tooltips
-					# Government Rank change
-					if = {
-						limit = {
-							NOT = {
-								government_rank = 1
-								}
-							}
-						set_government_rank = 1
-					}
 					# Government Type Change
 					if = {
 						limit = {
@@ -130,6 +121,15 @@ country_decisions = {
 						change_government = tribal
 					}
 					add_government_reform = stateless_society
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 1
+								}
+							}
+						set_government_rank = 1
+					}
 				}
 				# Custom Ideas check and change
 				if = {

@@ -122,15 +122,6 @@ country_decisions = {
 						}
 						add_permanent_claim = ISI
 					}
-					# Government Rank change
-					if = {
-						limit = {
-							NOT = {
-								government_rank = 3
-								}
-							}
-						set_government_rank = 3
-					}
 					# Government Type Change
 					if = {
 						limit = {
@@ -141,6 +132,15 @@ country_decisions = {
 						change_government = theocracy
 					}
 					add_government_reform = iqta
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 3
+								}
+							}
+						set_government_rank = 3
+					}
 				}
 				# Custom Ideas check and change
 				if = {

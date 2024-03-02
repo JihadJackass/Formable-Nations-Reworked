@@ -6,6 +6,8 @@ namespace = dec1_events
 
 	# Our place in the Empire - dec1_events.1
 
+	# Perhaps add a choice for if the Empire forms a country? (Austria -> Austrian Empire) - 2024.2.1: WTF Does this even mean?
+
 	country_event = {
 		id = dec1_events.1
 		title = "dec1_events.1.t"
@@ -17,10 +19,11 @@ namespace = dec1_events
 		major = yes
 
 		trigger = {
-			is_part_of_hre = yes
-			NOT = {
-				is_emperor = yes # Perhaps add a choice for if the Empire forms a country? (Austria -> Austrian Empire)
+			AND = {
+
 			}
+			is_part_of_hre = yes
+			NOT = { is_emperor = yes }
 		}
 
 		# Stay in the Empire
@@ -35,6 +38,11 @@ namespace = dec1_events
 					add_opinion = {
 						who = root
 						modifier = stayed_in_the_empire
+					}
+				}
+				hidden_effect = {
+					PREV = {
+						set_in_empire = yes
 					}
 				}
 			}

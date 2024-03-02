@@ -10,6 +10,7 @@ country_decisions = {
 				is_former_colonial_nation = no
 				is_colonial_nation = no
 				tag = FRA
+				culture_group = french
 				NOT = {
 					has_country_flag = formed_french_empire_flag
 					exists = FRE
@@ -24,11 +25,6 @@ country_decisions = {
 					tag = BSQ
 					tag = CEU
 					tag = LOT
-				}
-				OR = {
-					culture_group = french
-					primary_culture = basque
-					primary_culture = breton
 				}
 				OR = {
 					ai = no
@@ -90,25 +86,11 @@ country_decisions = {
 				set_country_flag = formed_french_empire_flag # Country Formation Flag
 				custom_tooltip = form_french_empire_tt_2 # New Missions
 				custom_tooltip = form_french_empire_tt_3 # Claims
+				add_faction = dec1_fre_loyalists
+				add_faction = dec1_fre_imperialist
+				add_faction = dec1_fre_radicals
+				# Event Check for if Austria is independent, will turn them into Austrian Empire, and can expand them
 				custom_tooltip = dec1_decisions_blank
-				define_ruler = {
-					name = "Napoleon I"
-					dynasty = "Bonaparte"
-					claim = 100
-					adm = 6
-					dip = 6
-					mil = 6
-					age = 35
-				}
-				define_heir = {
-					name = "Napoleon II"
-					dynasty = "Bonaparte"
-					claim = 100
-					adm = 5
-					dip = 4
-					mil = 5
-					age = 1
-				}
 				custom_tooltip = dec1_decisions_blank
 				FRE = { # Capital change and bonuses
 					set_capital = 183 # Paris
@@ -156,6 +138,24 @@ country_decisions = {
 							change_government = monarchy
 						}
 						add_government_reform = autocracy_reform
+						define_ruler = {
+							name = "Napoleon I"
+							dynasty = "Bonaparte"
+							claim = 100
+							adm = 6
+							dip = 6
+							mil = 6
+							age = 35
+						}
+						define_heir = {
+							name = "Napoleon II"
+							dynasty = "Bonaparte"
+							claim = 100
+							adm = 5
+							dip = 4
+							mil = 5
+							age = 1
+						}
 					}
 					# Custom Ideas check and change
 					if = {

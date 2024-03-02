@@ -91,7 +91,7 @@ country_decisions = {
 				is_subject = no
 			}
 			is_at_war = no
-			
+
 				# U area
 			owns_core_province = 677
 			owns_core_province = 4205
@@ -184,7 +184,6 @@ country_decisions = {
 							}
 						change_government = monarchy
 					}
-					add_government_reform = autocracy_reform
 				}
 				# Custom Ideas check and change
 				if = {

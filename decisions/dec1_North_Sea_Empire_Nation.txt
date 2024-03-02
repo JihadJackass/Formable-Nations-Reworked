@@ -230,7 +230,6 @@ country_decisions = {
 							}
 						change_government = monarchy
 					}
-					add_government_reform = autocracy_reform
 				}
 				# Custom Ideas check and change
 				if = {
@@ -474,6 +473,7 @@ country_decisions = {
 						}
 						add_permanent_claim = NSE
 					}
+					add_government_reform = autocracy_reform
 					# Government Rank change
 					if = {
 						limit = {
@@ -492,7 +492,6 @@ country_decisions = {
 							}
 						change_government = monarchy
 					}
-					add_government_reform = autocracy_reform
 				}
 				# Custom Ideas check and change
 				if = {
@@ -524,5 +523,7 @@ country_decisions = {
 		do_not_integrate = ENG
 		do_not_integrate = NOR
 	}
+
+	# TODO: england
 
 }

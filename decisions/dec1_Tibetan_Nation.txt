@@ -47,7 +47,7 @@
 		allow = {
 			is_at_war = no
 			NOT = { exists = TIB }
-			
+
 			religion = vajrayana
 			owns_core_province = 565
 			owns_core_province = 677
@@ -102,15 +102,6 @@
 						}
 						add_permanent_claim = TIB
 					}
-					# Government Rank change
-					if = {
-						limit = {
-							NOT = {
-								government_rank = 2
-								}
-							}
-						set_government_rank = 2
-					}
 					# Government Type Change
 					if = {
 						limit = {
@@ -119,6 +110,15 @@
 								}
 							}
 						change_government = theocracy
+					}
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
 					}
 				}
 				# Custom Ideas check and change

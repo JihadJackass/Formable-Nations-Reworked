@@ -108,15 +108,6 @@ country_decisions = {
 						}
 						add_permanent_claim = CAM
 					}
-					# Government Rank change
-					if = {
-						limit = {
-							NOT = {
-								government_rank = 2
-								}
-							}
-						set_government_rank = 2
-					}
 					# Government Type Change
 					if = {
 						limit = {
@@ -127,6 +118,15 @@ country_decisions = {
 						change_government = republic
 					}
 					add_government_reform = oligarchy_reform
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
 				}
 				# Custom Ideas check and change
 				if = {

@@ -66,12 +66,10 @@ country_decisions = {
 			custom_trigger_tooltip = {
 				tooltip = dec1_commonwealth_tooltip_1
 				NOT = {
-					any_owned_province = {
-						NOT = {			 	
-							num_of_provinces_owned_or_owned_by_subjects_with = {
-								value = 1
-								region = france_region
-							}
+					NOT = {
+						num_of_provinces_owned_or_owned_by_subjects_with = {
+							value = 1
+							region = france_region
 						}
 					}
 				}
@@ -79,52 +77,36 @@ country_decisions = {
 			custom_trigger_tooltip = {
 				tooltip = dec1_commonwealth_tooltip_2
 				NOT = {
-					any_owned_province = {
-						NOT = {			 	
-							num_of_provinces_owned_or_owned_by_subjects_with = {
-								value = 1
-								region = iberia_region
-							}
-						}
+					num_of_provinces_owned_or_owned_by_subjects_with = {
+						value = 1
+						region = iberia_region
 					}
 				}
 			}
 			custom_trigger_tooltip = {
 				tooltip = dec1_commonwealth_tooltip_3
 				NOT = {
-					any_owned_province = {
-						NOT = {			 	
-							num_of_provinces_owned_or_owned_by_subjects_with = {
-								value = 1
-								region = low_countries_region
-							}
-						}
+					num_of_provinces_owned_or_owned_by_subjects_with = {
+						value = 1
+						region = low_countries_region
 					}
 				}
 			}
 			custom_trigger_tooltip = {
 				tooltip = dec1_commonwealth_tooltip_4
 				NOT = {
-					any_owned_province = {
-						NOT = {			 	
-							num_of_provinces_owned_or_owned_by_subjects_with = {
-								value = 1
-								region = north_german_region
-							}
-						}
+					num_of_provinces_owned_or_owned_by_subjects_with = {
+						value = 1
+						region = north_german_region
 					}
 				}
 			}
 			custom_trigger_tooltip = {
 				tooltip = dec1_commonwealth_tooltip_5
 				NOT = {
-					any_owned_province = {
-						NOT = {			 	
-							num_of_provinces_owned_or_owned_by_subjects_with = {
-								value = 1
-								region = scandinavia_region
-							}
-						}
+					num_of_provinces_owned_or_owned_by_subjects_with = {
+						value = 1
+						region = scandinavia_region
 					}
 				}
 			}
@@ -162,15 +144,6 @@ country_decisions = {
 					country_event = { id = dec1_events.1 }
 				}
 				hidden_effect = { # Hidden Effects to fix bad tooltips
-					# Government Rank change
-					if = {
-						limit = {
-							NOT = {
-								government_rank = 2
-								}
-							}
-						set_government_rank = 2
-					}
 					# Government Type Change
 					if = {
 						limit = {
@@ -182,6 +155,15 @@ country_decisions = {
 					}
 					#add_government_reform = elective_monarchy
 					add_government_reform = protectorate_parliament_reform
+					# Government Rank change
+					if = {
+						limit = {
+							NOT = {
+								government_rank = 2
+								}
+							}
+						set_government_rank = 2
+					}
 				}
 				# Custom Ideas check and change
 

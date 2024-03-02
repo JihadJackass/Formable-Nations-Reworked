@@ -274,6 +274,8 @@ country_decisions = {
 						}
 						add_permanent_claim = GEP
 					}
+					# Government Type Change
+					country_event = { id = dec1_country_events.7 } # The German Government
 					# Government Rank change
 					if = {
 						limit = {
@@ -283,8 +285,6 @@ country_decisions = {
 							}
 						set_government_rank = 3
 					}
-					# Government Type Change
-					country_event = { id = dec1_country_events.7 } # The German Government
 				}
 				# Custom Ideas check and change
 				if = {
