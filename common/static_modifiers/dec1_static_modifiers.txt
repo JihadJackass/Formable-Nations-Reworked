@@ -32,6 +32,12 @@
 		army_tradition_decay = 0.01
 	}
 
+	dec1_nge_modifier_christian_influx = {
+		yearly_corruption = 0.1
+		mercenary_cost = -0.10 
+		cb_on_religious_enemies = yes 
+	}
+
 #	dec1_rule_without_parliament_unrest = {
 #		unrest = 5 
 #	}

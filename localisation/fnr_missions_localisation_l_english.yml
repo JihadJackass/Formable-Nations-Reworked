@@ -1,5 +1,28 @@
 ﻿l_english:
 
+# Nigeria
+
+  # Catholic Branch
+
+    # Welcome Christians
+    dec1_nge_welcome_christians_title: "Welcome Christians"
+    dec1_nge_welcome_christians_desc: "As an isolated nation upon the Western Coast of Africa we have seen in the recent past various well funded travelers not of our people who follow a god called 'Jesus' giving us clear insight that perhaps it may be beneficial to align with these rich traders and travelers."
+
+    dec1_nge_welcome_christians_tt: "Any known country has a §YCapital§! in §YEurope§! and is a §YCatholic Christian§!."
+
+    dec1_nge_modifier_christian_influx: "Influx of Christians"
+
+    dec1_nge_propogate_christianity_title: "Propogate Christianity"
+    dec1_nge_propogate_christianity_desc: "We must spread the faith of Christianity and allow the foreign confessors convert our populace so that we may seek a strong pact with European society."
+
+    dec1_nge_christianity_first_title: "Christianity First"
+    dec1_nge_christianity_first_desc: "Crusader State path"
+
+  # Nationalist Branch
+
+    dec1_nge_nigerians_first_title: "Nigeria First"
+    dec1_nge_nigerians_first_desc: ""
+
 # Aquitaine
 
   # Economy

@@ -1,3 +1,107 @@
-# Nigerian Christianity Path
+# Nigerian Christianity Path (has crusader state path)
 
+dec1_nge_christianity_branch = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = NGE
+	}
+	has_country_shield = yes
 
+	dec1_nge_welcome_christians = {
+		icon = mission_wine_monopolies
+		required_missions = { }
+		completed_by = 1490.1.1
+		provinces_to_highlight = {
+			area = benin_area
+		}
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = dec1_nge_welcome_christians_tt
+				any_known_country = {
+					capital_scope = {
+						continent = europe
+					}
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = { 
+				name = dec1_nge_modifier_christian_influx
+				duration = 1825
+			}
+			capital_scope = {
+				change_religion = catholic
+				add_unrest = 5
+			}
+		}
+		ai_weight = {
+			factor = 500
+		}
+	}
+
+	dec1_nge_propogate_christianity = {
+		icon = mission_raid_christian_trade
+		required_missions = { dec1_nge_welcome_christians }
+		completed_by = 1505.1.1
+		provinces_to_highlight = {
+		}
+		#trigger = { }
+		effect = {
+			add_adm_power = 10
+		}
+		ai_weight = {
+			factor = 500
+		}
+	}
+
+	dec1_nge_christianity_first = {
+		icon = mission_raid_christian_trade
+		position = 6
+		required_missions = { dec1_nge_propogate_christianity }
+		completed_by = 1505.1.1
+		provinces_to_highlight = {
+		}
+		trigger = {
+			NOT = { mission_completed = dec1_nge_nigerians_first }
+		}
+		effect = {
+
+		}
+		ai_weight = {
+			factor = 500
+		}
+	}
+}
+
+# Nigerian Nationalist path (for authoritarian strongman type path)
+dec1_nge_nigerian_nationalism_branch = {
+	slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = NGE
+	}
+	has_country_shield = yes
+
+	dec1_nge_nigerians_first = {
+		icon = mission_raid_christian_trade
+		position = 5
+		#required_missions = { west_africa_greater_than_mali }
+		completed_by = 1505.1.1
+		provinces_to_highlight = {
+		}
+		trigger = {
+			NOT = { mission_completed = dec1_nge_christianity_first }
+		}
+		effect = {
+			add_adm_power = 10
+		}
+		ai_weight = {
+			factor = 500
+		}
+	}
+}
+
+# Nigerian Electoral path (AI path, catholic liberal demoracy post 1780 type path)

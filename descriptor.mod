@@ -4,5 +4,5 @@ tags={
 }
 name="Formable Nations: Reworked"
 picture="thumbnail.png"
-supported_version="1.36.*"
+supported_version="1.37.*"
 remote_file_id="1810341847"

@@ -45,38 +45,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			adm_tech = 10
-			NOT = { exists = NGE }
-			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
-				limit = {
-					has_global_flag = dec1_subject_formable_nations_enabled
-				}
-				OR = {
-					is_subject = yes
-					is_subject = no
-				}
-			}
-			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
-				limit = {
-					NOT = {
-						has_global_flag = dec1_subject_formable_nations_enabled
-					}
-				}
-				is_subject = no
-			}
-			is_at_war = no
-			benin_area = {
-				type = all
-				owned_by = ROOT
-			}
-			lower_niger_area = {
-				type = all
-				owned_by = ROOT
-			}
-			owns_core_province = 2293
-			owns_core_province = 1154
-			owns_core_province = 2281
-			owns_core_province = 1161
+
 		}
 	 	effect = {
 			change_tag = NGE # Country TAG
