@@ -32,6 +32,10 @@
 		army_tradition_decay = 0.01
 	}
 
+#	dec1_rule_without_parliament_unrest = {
+#		unrest = 5 
+#	}
+
 ######################
 # National Abilities #
 ######################

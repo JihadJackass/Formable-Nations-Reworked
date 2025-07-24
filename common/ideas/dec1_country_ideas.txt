@@ -985,7 +985,7 @@ CTG_ideas = {
 	free = yes	# will be added at load.
 
 	CTG_phoenician_trade_plans = {
-		global_trade_power = 0.1 # phoenician trade plans
+		global_trade_power = 0.1 # Phoenician Trade Plans
 	}
 
 	CTG_carthaginian_governmental_ideas = {

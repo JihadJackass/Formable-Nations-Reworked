@@ -20,6 +20,13 @@ spriteTypes = {
         noOfFrames = 3
         loadType = "INGAME"
     }
+    # Commonwealth of England - Rise of Charles I
+    spriteType = {
+        name = "GFX_disaster_dec1_rise_of_charles_i"
+        texturefile = "gfx//interface//disasters//dec1_rise_of_charles_i.dds"
+        noOfFrames = 3
+        loadType = "INGAME"
+    }
     # United States of America - American Civil War
     spriteType = {
         name = "GFX_disaster_dec1_usa_american_civil_war"
@@ -34,10 +41,10 @@ spriteTypes = {
         noOfFrames = 3
         loadType = "INGAME"
     }
-     # Ming - Taiping Rebellion
+     # Shogun / Japan - Shimabara Rebellion
      spriteType = {
-        name = "GFX_disaster_dec1_tengoku_revolt"
-        texturefile = "gfx//interface//disasters//dec1_tengoku_revolt.dds"
+        name = "GFX_disaster_dec1_shimabara_rebellion"
+        texturefile = "gfx//interface//disasters//dec1_shimabara_rebellion.dds"
         noOfFrames = 3
         loadType = "INGAME"
     }

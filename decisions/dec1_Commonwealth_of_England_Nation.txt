@@ -1,5 +1,7 @@
 country_decisions = {
 
+	# Country Formable
+
 	dec1_commonwealth_of_england_nation = {
 		major = yes
 		potential = {
@@ -7,6 +9,7 @@ country_decisions = {
 			is_colonial_nation = no
 			primary_culture = english
 			tag = ENG
+			has_country_flag = dec1_commonwealth_proclaimed
 			AND = {
 				is_date = 1450.1.1
 				NOT = { is_date = 1460.1.1 } # Cannot be formed after 1460
@@ -135,7 +138,7 @@ country_decisions = {
 				# Reform Change
 				custom_tooltip = dec1_government_reform_change_protectorate_parliament
 				custom_tooltip = dec1_decisions_blank
-				country_event = { id = dec1_country_events.11 } # The Government of the Commonwealth
+				#dec1_country_events.11 } # The Government of the Commonwealth
 				# Our Place in the Empire Custom Event
 				if = {
 					limit = {
@@ -191,12 +194,126 @@ country_decisions = {
 		ai_importance = 200
 	}
 
-	# Federalize the Union
-	# - Requires to have chosen the Republic during the government crisis event, and allows you to establish
+	# Rule without Parliament
 
-	# Establish Duchy of Scotland
-	# - Creates a powerful vassal for England to abuse (kek get rekt scots)
+	dec1_commonwealth_rule_without_parliament = {
+		color = { 255 0 0 }
+		#major = yes
+		potential = {
+			tag = ENG
+			OR = {
+				has_disaster = dec1_rise_of_charles_i 
+				has_ruler = "Charles I" 
+			}
+			NOT = {
+				has_country_flag = dec1_commonwealth_rule_without_parliament
+				exists = ENR
+				tag = ENR
+			}
+		}
+		provinces_to_highlight = {
+			OR = {
+				area = home_counties_area
+			}
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			#adm_tech = 5
+			is_at_war = no
+			has_disaster = dec1_rise_of_charles_i 
+			custom_trigger_tooltip = {
+				tooltip = dec1_commonwealth_tooltip_1
+				NOT = {
+					NOT = {
+						num_of_provinces_owned_or_owned_by_subjects_with = {
+							value = 1
+							region = france_region
+						}
+					}
+				}
+			}
+		}
+		effect = {
+			set_country_flag = dec1_commonwealth_rule_without_parliament
+			dissolve_parliament = yes 
+			add_stability = -1
+			add_prestige = -5
+			236 = {
+				create_revolt = 1 
+			#	add_province_modifier = { 
+			#		name = dec1_rule_without_parliament_unrest 
+			#		desc = dec1_rule_without_parliament_unrest_desc
+			#		local_unrest = -3 
+			#		duration = 365
+			#	}
+			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
 
-	# Rename to English Commonwealth
+	# Raise Ship Money (affects coastal cities)
+
+	dec1_commonwealth_raise_ship_money = {
+		color = { 255 0 0 }
+		#major = yes
+		potential = {
+			tag = ENG
+			OR = {
+				has_disaster = dec1_rise_of_charles_i 
+				has_ruler = "Charles I" 
+			}
+			NOT = {
+				has_country_flag = dec1_commonwealth_rule_without_parliament
+				exists = ENR
+				tag = ENR
+			}
+		}
+		provinces_to_highlight = {
+			AND = {
+				region = british_isles_region
+				NOT = { has_port = no }
+				has_port = yes 
+				owned_by = ROOT
+				is_core = ROOT
+			}
+		}
+		allow = {
+			#adm_tech = 5
+			is_at_war = no
+			OR = {
+				has_disaster = dec1_rise_of_charles_i 
+				has_ruler = "Charles I" 
+			}
+		}
+		effect = {
+			set_country_flag = dec1_commonwealth_raise_ship_money_1
+			add_years_of_income = 1.25 
+			add_corruption = 1
+			add_prestige = -5
+#			random_list = {
+#				chance = 33.3 {
+#					236 = { create_revolt = 2 }
+#				}
+#				chance = 33.3 {
+#					4366 = { create_revolt = 1 }
+#				}
+#				chance = 33.3 {
+#					245 = { create_revolt = 1 }
+#				}
+#			}
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		ai_importance = 200
+	}
+
+	# extend ship money to inner cities
 
 }

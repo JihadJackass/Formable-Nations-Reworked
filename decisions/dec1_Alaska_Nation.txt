@@ -3,7 +3,6 @@ country_decisions = {
 	dec1_alaska_nation = {
 		major = yes
 		potential = {
-
 			NOT = {
 				has_country_flag = changed_from_colonial_nation
 				has_country_flag = formed_alaska_flag
@@ -13,19 +12,27 @@ country_decisions = {
 				tag = COL
 				tag = PAP
 			}
-			capital_scope = { # Has a capital in Colonial Region
-				colonial_region = colonial_alaska
-				is_core = ROOT
+			OR = {
+				capital_scope = { # Has a capital in Colonial Region
+					area = alaska_area
+					is_core = ROOT
+				}
+				capital_scope = { # Has a capital in Colonial Region
+					area = east_alaska_area
+					is_core = ROOT
+				}
 			}
 			OR = {
-				AND = { # Natives have reformed religion, and has at least 10 provinces
+				AND = { # Natives have reformed religion, and has at least 5 provinces
 					is_religion_reformed = yes
-					num_of_cities = 10
+					num_of_cities = 5
 				}
 				# is former colonial nation
 				is_former_colonial_nation = yes
 				# is current colonial nation
 				is_colonial_nation = yes
+				# custom nation check
+				is_playing_custom_nation = yes 
 			}
 			OR = {
 				ai = no
@@ -37,7 +44,8 @@ country_decisions = {
 		}
 		provinces_to_highlight = {
 			OR = {
-				colonial_region = colonial_alaska
+				area = alaska_area	
+				area = east_alaska_area	
 			}
 			NOT = { owned_by = ROOT }
 			NOT = { is_core = ROOT }

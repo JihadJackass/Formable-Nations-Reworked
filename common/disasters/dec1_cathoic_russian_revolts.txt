@@ -4,7 +4,7 @@
 
 		# Catholic Revolt
 
-			dec1_tengoku_revolt = {
+			dec1_catholic_russian_rebellion = {
 
 				potential = {
 					tag = RSC

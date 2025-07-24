@@ -1,4 +1,6 @@
 
+	# Commonwealth of England Disasters
+
 	# Rise of Charles I
 
 	# This event can fire if you take the Republic option during government crisis, and will lead to the Republic of England with custom government
@@ -7,43 +9,64 @@
 	dec1_rise_of_charles_i = {
 
 		potential = {
-			tag = ENR
+			tag = ENG
+			is_date = 1624.1.1
 		}
 
 		can_start = {
 			has_any_disaster = no
-			NOT = { stability = 1 }
+			OR = {
+				has_ruler = "Charles I" 
+				custom_trigger_tooltip = {
+					tooltip = dec1_charles_i_date_check_1
+					hidden_trigger = {
+						is_year = 1624
+						is_month = 0
+					}
+				}
+			}
 		}
 
 		can_stop = {
 			has_any_disaster = yes
+			has_country_flag = dec1_commonwealth_rejected_charles_i
 		}
 
 		progress = {
-			modifier = { # Stability not at least 1
+			modifier = { 
 				factor = 0.5
-				NOT = { stability = 1 }
+				is_date = 1624.1.1
+			}
+			modifier = { 
+				factor = 2.5
+				is_date = 1624.6.1
+			}
+			modifier = { 
+				factor = 5.0
+				is_date = 1625.1.1
+			}
+			modifier = { 
+				factor = 25.0
+				has_ruler = "Charles I" 
 			}
 		}
 
 		modifier = {
-			global_unrest = 5
+			global_unrest = 0.25
 		}
 
 		can_end = {
-			OR = {
-				has_ruler = "Charles I"
-				has_ruler = "Oliver Cromwell"
-			}
+			has_country_flag = dec1_end_of_commonwealth_crisis
 		}
 
-		#on_start = dec1_disaster_events.1
+		#on_start = dec1_commonwealth_events.12
 		#on_end = dec1_disaster_events_anglois_civil_war.100
 
 		on_monthly = {
 			events = { }
 			random_events = {
 				1000 = 0
+
 			}
 		}
 	}

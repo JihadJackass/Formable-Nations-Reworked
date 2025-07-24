@@ -1,0 +1,75 @@
+namespace = dec1_disaster_events_shimabara_rebellion
+
+##############################################
+# Formable Nations: Reworked Disaster Events #
+##############################################
+
+
+	#################################################
+	# Shimabara Rebellion - Current Shogun of Japan #
+	#################################################
+
+		# Start of Shimabara Rebellion
+
+		country_event = {
+			id = dec1_disaster_events_shimabara_rebellion.1
+			title = "dec1_disaster_events.1.t"
+			desc = "dec1_disaster_events.1.d"
+
+			picture = CIVIL_WAR_eventPicture
+
+			is_triggered_only = yes
+
+
+			trigger = {
+				has_reform = shogunate
+			}
+
+			option = { # Start of the Tengoku Revolt (Spawns Catholic Rebels, Spawns Catholic Center of Reformations, etc)
+				name = "dec1_disaster_events.7.a"
+				set_global_flag = dec1_started_shimabara_rebellion
+				random_country = {
+					limit = {
+						has_reform = daimyo
+						NOT = {
+							has_reform = shogunate
+							has_country_flag = dec1_tengoku_selected
+						}
+					}
+					change_tag = TGK
+					random_owned_province = {
+						change_religion = catholic
+					}
+					set_country_flag = dec1_tengoku_selected
+				}
+				TGK = {
+					declare_war_with_cb = {
+						who = PREV
+						casus_belli = cb_shimabara_rebellion
+					}
+				}
+			}
+		}
+
+		# End of Shimabara Rebellion - Defeated Christianity
+
+		country_event = {
+			id = dec1_disaster_events.8
+			title = "dec1_disaster_events.8.t"
+			desc = "dec1_disaster_events.8.d"
+			picture = CIVIL_WAR_eventPicture
+
+			is_triggered_only = yes
+
+
+			option = { # Victory!
+				name = "dec1_disaster_events.8.a"
+				set_global_flag = dec1_ended_shimabara_rebellion
+				add_prestige = 10
+				add_stability = 1
+			}
+		}
+
+		# End of Shimabara Rebellion - Embraced Christianity
+
+	#

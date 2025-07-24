@@ -1,15 +1,24 @@
-	##############################################
-	# Tengoku Revolt - Applies to current shogun #
-	##############################################
+	#######################
+	# Shimabara Rebellion #
+	#######################
 
-		# Shimabara Rebellion
+		# Shimabara Rebellion (Catholic dominated rebellion in the Kyushu region sparked by religious persecution and heavy taxation on non-shinto populaces - Powerful but led by peasants)
 
-			dec1_tengoku_revolt = {
+			dec1_shimabara_rebellion = {
 				ended_by_country_breaking_to_rebels = no
 
+				# Is at least 1625
+				# Japan Exists, or is the Shogun
+				# Has Kyoto as Capital and Is Japan, OR has the Shogunate Reform - CANNOT be both. Must target one recipeint
+				# Does NOT have Shimabara Rebellion global flag
 				potential = {
-					ROOT = {
-						has_reform = shogunate
+					is_year = 1625
+					AND = {
+						capital_scope = { region = japan_region }
+						OR = {
+							tag = JAP
+							has_reform = shogunate
+						}
 					}
 					NOT = {
 						has_global_flag = dec1_started_shimabara_rebellion
@@ -18,107 +27,120 @@
 				}
 
 				can_start = {
+					# Has no disasters
+					# Is at least 1635
+					# Has either full Isolation (5 - closed doors), Christianity incident, OR has No Isolation (0 - open doors), OR the isolation system is NOT active
+					# Japan is an Eastern Religion (Shinto, Buddhist, Indian, etc)
+					# Japan/Kyoto has been discovered by Europeans (TODO: Change to someone with a capital in Europe instead of TAGS)
+					# Has any Catholic Subject
+					# Is Allied to any Catholic Powers
+					has_any_disaster = no
+					is_year = 1635
+					OR = {
+						isolationism = 0
+						isolationism = 5
+						is_incident_active = incident_spread_of_christianity
+						uses_isolationism = no 
+					}
+					OR = {
+						any_known_country = {
+							capital_scope = {
+								AND = {
+									superregion = europe_superregion
+									religion = catholic
+									has_discovered = 1020
+								} 
+							}
+						}
+						any_subject_country = { religion = catholic } 
+						any_ally = { religion = catholic } 
+					}
+				}
+
+				can_stop = { # TODO
+					# Can not be stopped by other disasters
 					has_any_disaster = no
 					OR = {
+						# Rebellion is Defeated, Shogun/Japan/etc victorious
 						AND = {
-							isolationism = 0
-							is_incident_active = incident_spread_of_christianity
 						}
-						is_year = 1500
-						POR = { has_discovered = 1020 }
-						CAS = { has_discovered = 1020 }
-						SPA = { has_discovered = 1020 }
-						ENG = { has_discovered = 1020 }
-						GBR = { has_discovered = 1020 }
-						FRA = { has_discovered = 1020 }
-						# Add Formable Nation tags?
-					}
-				}
-
-				can_stop = {
-					has_any_disaster = yes
-					OR = {
-						# For Winning
-						AND = { # Converted all Catholic provinces
-							if = {
-								limit = {
-									has_reform = shogunate
-								}
-								japan_region = {
-									NOT = {
-										religion = catholic
-									}
-								}
-							}
+						# Defeated the Revolt
+						AND = {
 						}
-						AND = { # Defeated the Revolt
-							TGK = {
-								exists = no
-							}
-						}
-						# For Losing
-						AND = { # Is Tengoku
+						# Tengoku has Defeated the Shogun
+						AND = { 
 							tag = TGK
-							if = {
-								limit = {
-									has_reform = shogunate
-								}
-								religion = catholic
-							}
 						}
-						AND = { # Is catholic
-							if = {
-								limit = {
-									has_reform = shogunate
-								}
-								religion = catholic
-							}
-						}
+						religion = catholic
 					}
 				}
 
+				# HIGHEST PROGRESS TO LOWEST
+				# 0.65 - Japan has any Rebel occupation in Kyushu Region
+				# 0.45 - Any Catholic European has territory bordering a core of Japan
+				# 0.40 - Shogun has less than -2 Stability
+				# 0.35 - Shogun has less than -1 Stability
+				# 0.35 - Shogun has high relations with a Catholic European
+				# 0.30 - Shogun has less than 0 Stability
+				# 0.30 - Any Catholic European has territory bordering Japan
+				# 0.30 - Shogun is Allied to a Catholic European
+				# 0.25 - Shogun has less than 6 subjects (NOTE: Shogun starts with 29 in 1444)
+				# 0.20 - Shogun has less than 15 subjects (NOTE: Shogun starts with 29 in 1444)
+				# 0.15 - Shogun has less than 25 subjects (NOTE: Shogun starts with 29 in 1444)
+				# 0.15 - Japan has any Rebel occupation outside of Kyushu Region
+				# 0.02 - Is the Shogun
 				progress = {
-					modifier = { # Shogun has less than 0 stability
-						factor = 0.12
+					modifier = { # Shogun has less than -2 stability
+						factor = 0.40
 						if = {
-							limit = {
-								has_reform = shogunate
-							}
+							limit = { has_reform = shogunate }
+							NOT = { stability = -2 }
+						}
+					}
+					modifier = { # Shogun has less than -1 stability
+						factor = 0.35
+						if = {
+							limit = { has_reform = shogunate }
+							NOT = { stability = -1 }
+						}
+					}
+					modifier = { # Shogun has less than 0 stability
+						factor = 0.30
+						if = {
+							limit = { has_reform = shogunate }
 							NOT = { stability = 0 }
 						}
 					}
-					modifier = { # Shogun does not have at least 25 subjects (NOTE: Shogun starts with 29 in 1444)
-						factor = 0.8
+					modifier = { # Shogun does not have at least 6 subjects (NOTE: Shogun starts with 29 in 1444)
+						factor = 0.25
 						if = {
-							limit = {
-								has_reform = shogunate
-							}
-							NOT = { num_of_subjects = 25 }
+							limit = { has_reform = shogunate }
+							NOT = { num_of_subjects = 6 }
 						}
 					}
 					modifier = { # Shogun does not have at least 15 subjects (NOTE: Shogun starts with 29 in 1444)
-						factor = 0.4
+						factor = 0.20
 						if = {
-							limit = {
-								has_reform = shogunate
-							}
+							limit = { has_reform = shogunate }
 							NOT = { num_of_subjects = 15 }
 						}
 					}
-					modifier = { # Shogun does not have at least 10 subjects (NOTE: Shogun starts with 29 in 1444)
-						factor = 0.2
+					modifier = { # Shogun does not have at least 25 subjects (NOTE: Shogun starts with 29 in 1444)
+						factor = 0.15
 						if = {
-							limit = {
-								has_reform = shogunate
-							}
-							NOT = { num_of_subjects = 10 }
+							limit = { has_reform = shogunate }
+							NOT = { num_of_subjects = 25 }
 						}
+					}
+					modifier = { # Is the Shogunate
+						factor = 0.02
+						has_reform = shogunate
 					}
 				}
 
 				modifier = {
 					global_unrest = 2
-					missionary_maintenance_cost = 0.20
+					missionary_maintenance_cost = 0.65
 				}
 
 				can_end = {
@@ -128,8 +150,8 @@
 					}
 				}
 
-				on_start = dec1_disaster_events.7
-				on_end = dec1_disaster_events.8
+				#on_start = dec1_disaster_events.7
+				#on_end = dec1_disaster_events.8
 
 				on_monthly = {
 					events = { }
@@ -140,3 +162,20 @@
 				}
 			}
 
+		# Protestant Shimabara Rebellion (Far more powerful and led by European settlers, but heavily religiously and politically decentralized)
+
+			dec1_shimabara_rebellion_protestant = {
+				potential = {
+					always = no
+				}
+			}
+
+		# Hussite Rebellion (Requires Hussite Bohemia to exist - Extremely powerful but very small support and small armies)
+
+			dec1_shimabara_rebellion_hussite = {
+				potential = {
+					always = no
+				}
+			}
+
+		

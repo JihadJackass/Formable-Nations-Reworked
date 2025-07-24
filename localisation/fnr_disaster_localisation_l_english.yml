@@ -9,7 +9,30 @@
     # Commonwealth of England
 
       dec1_rise_of_charles_i: "The Rise of Charles I"
-      dec1_rise_of_charles_i_desc: ""
+      dec1_rise_of_charles_i_desc: "test $DEC1PARLVAL|+$!"
+
+      dec1_commonwealth_rule_without_parliament: "Rule without Parliament"
+      dec1_commonwealth_rule_without_parliament_title: "Rule without Parliament"
+      dec1_commonwealth_rule_without_parliament_desc: "With the rise of Charles I to the English throne conflict began almost immediatley due to religious and government power conflicts - Charles I decided to disregard and ignore Parliament and even attempt to dissolve it entirely."
+
+      dec1_rule_without_parliament_unrest: "Parliamentary Crisis"
+      dec1_rule_without_parliament_unrest_desc: "\nThe population of London is heavily opposed to the actions of Charles I"
+
+      dec1_commonwealth_rejected_charles_i: "Rejected Charles I as King of England"
+
+      dec1_charles_i_date_check_1: "The date is at least §Y1624.1.1§!"
+      dec1_charles_i_date_check_2: "The date is at least §Y1624.6.1§!"
+      dec1_charles_i_date_check_3: "The date is at least §Y1625.1.1§!"
+
+      commonwealth_tt_1: "§YParliamentary Crisis§! Mechanic will be enabled."
+
+      dec1_parliament_crisis_disaster_modifier: "Parliamentary Crisis"
+      dec1_parliament_crisis_disaster_modifier_desc: "Parliamentary Crisis"
+
+      dec1_parliament_crisis_variable: "Parliamentary Crisis (50)"
+
+      dec1_commonwealth_raise_ship_money_title: "Raise Ship Money"
+      dec1_commonwealth_raise_ship_money_desc: "Charles I will use his authority to allow"
 
     # Bosnia-Serbia
 
@@ -41,10 +64,12 @@
       dec1_taiping_rebellion: "Taiping Rebellion"
       dec1_taiping_rebellion_desc: "With the rise of an extremely large band of Catholic followers we are forced into a civil conflict to defend our very existance as a defender of [MNG.Religion.GetName]."
 
-    # Current Shogun
+    # Current Shogun / Japan
 
-      dec1_tengoku_revolt: "Shimabara Rebellion"
-      dec1_tengoku_revolt_desc: ""
+      # Shimabara Rebellion
+
+      dec1_shimabara_rebellion: "Shimabara Rebellion"
+      dec1_shimabara_rebellion_desc: "§RFailiure to appease the Catholic inspired peasantry could lead to conflict!\n\nIn the domains of western Japan, unrest simmers beneath the surface. Years of relentless taxation — levied to sustain local daimyos and shogunate projects — have left the peasantry destitute. Nowhere is this burden felt more heavily than in the Shimabara Peninsula, where poor harvests and crushing levies push entire villages to desperation.\nCompounding the strain is the persecution of hidden Christians, whose faith, once tolerated, is now hunted. Whispers of foreign gods and promises of justice mingle with anger at the rice tax collectors. Though the shogunate’s grip remains firm, the region teeters on the edge.\n\nIf pressure continues to mount — through harsh reforms, foreign fearmongering, or religious crackdowns — open rebellion may be inevitable. The question is not whether the people can endure, but how long they will remain silent.\n\n§YThere will be various events related to the spread of Kirishitan missionaries across the kyushu Peninsula and possibly regions in Japan loyal to the Catholic Church - but as well the more radical peasant-led groups known as Kakure Kirishitan (Hidden Christians).§!"
 
   #################################
   # DISASTER TOOLTIP LOCALISATION #

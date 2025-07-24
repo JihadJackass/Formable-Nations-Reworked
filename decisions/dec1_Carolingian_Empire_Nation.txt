@@ -343,10 +343,10 @@ country_decisions = {
 				country_event = { id = dec1_events.3 }
 				custom_tooltip = dec1_decisions_blank
 				# National Ability
-			#	add_country_modifier = {
-			#		name = dec1_the_emperor_general # TODO: ability
-			#		duration = 49275
-			#	}
+		#		add_country_modifier = {
+		#			name = dec1_restored_frankish_dynasty
+		#			duration = 49275
+		#		}
 				# Increased Centralization
 				add_country_modifier = {
 					name = dec1_increased_centralization

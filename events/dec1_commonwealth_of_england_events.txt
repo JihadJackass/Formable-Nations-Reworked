@@ -1,4 +1,4 @@
-namespace = dec1_country_events
+namespace = dec1_commonwealth_events
 
 	# TODO: rework and finish this entire content pack
 
@@ -6,98 +6,109 @@ namespace = dec1_country_events
 	# The English Commonwealth #
 	############################
 
-		# The Rise of Charles I - dec1_country_events.12
+		# The Rise of Charles I - dec1_commonwealth_events.1
 
 			country_event = {
-				id = dec1_country_events.12
-				title = "dec1_country_events.12.t"
-				desc = "dec1_country_events.12.d"
+				id = dec1_commonwealth_events.1
+				title = "dec1_commonwealth_events.1.t"
+				desc = "dec1_commonwealth_events.1.d"
 				picture = COUNTRY_COLLAPSE_eventPicture
+
+				is_triggered_only = yes
+				fire_only_once = yes
+				major = yes
+
+				# Charles I takes the throne
+				option = {
+					name = "dec1_commonwealth_events.1.a"
+					set_country_flag = dec1_charles_1_has_risen
+					if = {
+						limit = {
+							NOT = { has_ruler = "Charles I" }
+						}
+						define_ruler = {
+							name = "Charles I"
+							dynasty = Stuart
+							culture = ROOT
+							religion = ROOT
+						}
+					}
+					ai_chance = { factor = 65 }
+				}
+				# Parliament Rejects Charles I
+				option = {
+					name = "dec1_commonwealth_events.1.b"
+					set_country_flag = dec1_charles_i_rejected_by_parliament
+					# charles leads an army to take the throne
+					# dissolves parliament and establishes a military government
+					ai_chance = { factor = 35 }
+				}
+			}
+
+		# Charles I - Tensions among Parliament
+
+			country_event = {
+				id = dec1_commonwealth_events.2
+				title = "dec1_commonwealth_events.2.t"
+				desc = "dec1_commonwealth_events.2.d"
+				picture = COUNTRY_COLLAPSE_eventPicture
+
 				fire_only_once = yes
 				major = yes
 
 				mean_time_to_happen = {
-					months = 24
+					months = 12
 				}
 
 				trigger = {
-					TAG = ENR
-					is_year = 1650
-					has_country_flag = rn_disabled_content # TODO: finish 
+					has_disaster = dec1_rise_of_charles_i
+					has_country_flag = dec1_charles_1_has_risen
+					OR = {
+						tag = ENG
+						tag = GBR
+					}
 				}
 
-				# Establish a republic
 				option = {
-					name = "dec1_country_events.12.a"
-					ai_chance = { factor = 90 }
-					set_country_flag = dec1_charles_1_has_risen
-				}
-				# Accept the current king
-				option = {
-					name = "dec1_country_events.12.a"
-					ai_chance = { factor = 10 }
+					name = "dec1_commonwealth_events.2.a"
+					set_country_flag = dec1_charles_1_parliament_tensions
+					ai_chance = { factor = 100 }
 				}
 			}
+
+		# Clashes of Charles I - dec1_commonwealth_events.3
+
+			country_event = {
+				id = dec1_commonwealth_events.3
+				title = "dec1_commonwealth_events.3.t"
+				desc = "dec1_commonwealth_events.3.d"
+				picture = COUNTRY_COLLAPSE_eventPicture
+				
+				fire_only_once = yes
+
+				option = {
+					name = "dec1_commonwealth_events.3.a"
+					ai_chance = { factor = 100 }
+					custom_tooltip = commonwealth_tt_1
+			#		add_disaster_modifier = {
+			#			name = "dec1_parliament_crisis_disaster_modifier"
+			#			duration = -1
+			#			disaster = dec1_rise_of_charles_i
+			#		}
+					set_variable = {            
+						which = dec1_parliament_crisis_variable
+						value = 50
+					}
+				}
+			}
+
+		
 
 		# Establishment of the Protectorate (Rename?)
 
 		# Establish the English Council of State
 
 		# Government Crisis (Temporary placeholder event until commonwealth is expanded)
-
-			country_event = {
-				id = dec1_country_events.11
-				title = "dec1_country_events.11.t"
-				desc = "dec1_country_events.11.d"
-				picture = COUNTRY_COLLAPSE_eventPicture
-				fire_only_once = yes
-				major = yes
-
-				mean_time_to_happen = {
-					days = 365
-				}
-
-				trigger = {
-					has_country_flag = rn_disabled_content # TODO: finish 
-					OR = {
-						tag = ENR
-						tag = ENG
-						# TODO: add GBR? I doubt. requires testing.
-					}
-					NOT = { has_country_flag = dec1_commonwealth_government_crisis }
-					has_country_flag = dec1_charles_1_has_risen
-				}
-
-				immediate = {
-					set_country_flag = dec1_commonwealth_government_crisis
-				}
-
-				# Establish a republic
-				option = {
-					name = "dec1_country_events.11.a"
-					ai_chance = { factor = 90 }
-					change_government = republic
-					add_government_reform = republican_dictatorship
-				}
-
-				# Establish the English Commonwealth
-				option = {
-					name = "dec1_country_events.11.b"
-					ai_chance = { factor = 10 }
-					change_government_to_republic = yes
-					add_government_reform = protectorate_parliament_reform
-					define_ruler = {
-						name = "Oliver Cromwell"
-						dynasty = "Cromwell"
-						ADM = 4
-						DIP = 4
-						MIL = 5
-					}
-					#change_government = monarchy
-					#add_government_reform = english_monarchy # t1
-					#add_government_reform = protectorate_parliament_reform # t2
-				}
-			}
 
 		#
 

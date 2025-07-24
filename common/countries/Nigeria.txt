@@ -1,8 +1,8 @@
-# Chad
+# Nigeria
 
 graphical_culture = africangfx
 
-color = { 217 211 100 }
+color = { 3 87 53 }
 
 historical_idea_groups = {
 	defensive_ideas
@@ -31,11 +31,13 @@ historical_units = {
 }
 
 monarch_names = {
-	"Demetros #0" = 20
-	"Gyrgs #0" = 20
-	"Fiqtor #0" = 5
-	"Menas #0" = 5
-	"Marqos #0" = 5
+	"Bolu Ahmed #0" = 20
+	"Muhammadu Buhari #0" = 20
+	"Jibiri #0" = 20
+	"Muhammadu #0" = 20
+	"Maazu #0" = 5
+	"Bello #0" = 5
+	"Usman #0" = 5
 	"Hamalmal #0" = 5
 	"Saga Krestos #0" = 5
 	"Malta Krestos #0" = 5

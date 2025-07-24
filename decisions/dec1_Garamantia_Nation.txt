@@ -13,8 +13,8 @@ country_decisions = {
 			NOT = {
 				has_global_flag = dec1_historical_nations_only
 				has_country_flag = formed_garamantia_flag
-				exists = GMA
-				tag = GMA
+				exists = GMM
+				tag = GMM
 				tag = NMD
 				tag = PAP
 				tag = HLR
@@ -32,7 +32,7 @@ country_decisions = {
 			}
 		}
 		effect = {
-			change_tag = GMA # Country TAG
+			change_tag = GMM # Country TAG
 			set_country_flag = formed_garamantia_flag # Country Formation Flag
 			custom_tooltip = form_garamantia_tt_2 # New Missions
 			#custom_tooltip = form_numidia_tt_3 # Region/Area Claims
@@ -41,7 +41,7 @@ country_decisions = {
 			north_saharan_area = { change_religion = catholic }
 			high_plains_area = { change_religion = catholic }
 			custom_tooltip = dec1_decisions_blank
-			GMA = { # Capital change and bonuses
+			GMM = { # Capital change and bonuses
 				set_capital = 2472
 				2472 = {
 					add_base_tax = 1

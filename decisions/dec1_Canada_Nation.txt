@@ -27,9 +27,19 @@ country_decisions = {
 				is_core = ROOT
 			}
 			OR = {
-				AND = { # Natives have reformed religion, and has at least 10 provinces
-					is_religion_reformed = yes
-					num_of_cities = 10
+				government = native
+				OR = {
+					AND = { # Natives have reformed religion, and has at least 10 provinces
+						government = native
+						is_religion_reformed = yes
+						num_of_cities = 5
+					}
+					AND = { # Natives have have at least 20 provinces - TODO: add another requirement (AI CANNOT do this method; they must reform)
+						government = native
+						is_religion_reformed = yes
+						num_of_cities = 20
+						NOT = { ai = yes }
+					}
 				}
 				# is former colonial nation
 				is_former_colonial_nation = yes
@@ -52,7 +62,7 @@ country_decisions = {
 			NOT = { is_core = ROOT }
 		}
 		allow = {
-			adm_tech = 10
+			#adm_tech = 10 - Adjust for natives? - 8 tech early canada? :D - but we can also do historical canada path with countries like hudson bay and lower canada
 			NOT = { exists = CAN }
 			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
 				limit = {
@@ -71,19 +81,31 @@ country_decisions = {
 				}
 				is_subject = no
 			}
-			is_colonial_nation = no
-			is_former_colonial_nation = yes
-			is_at_war = no
 			OR = {
-				AND = { # Unique Formation for 🇨🇦 !
-					# > subject of England, or Great Britain, or an English tag
-					# > has a capital in ontario region
+				AND = { # Natives have reformed religion, and has at least 10 provinces
+					government = native
+					is_religion_reformed = yes
+					num_of_cities = 5
 				}
-				AND = { # Normal formation
-					owns = 991
-					num_of_cities = 12 # Colonial nations need 12
+				AND = { # Natives have have at least 20 provinces - TODO: add another requirement (AI CANNOT do this method; they must reform)
+					government = native
+					#is_religion_reformed = yes
+					num_of_cities = 20
+					NOT = { ai = yes }
+				}
+				AND = {
+					is_colonial_nation = no
+					is_former_colonial_nation = yes
 				}
 			}
+			is_at_war = no
+			AND = { # Normal formation
+				owns = 991
+				num_of_cities = 12 # Colonial nations need 12
+			}
+			# Unique Formation for 🇨🇦 !
+			# > subject of England, or Great Britain, or an English tag
+			# > has a capital in ontario region
 		}
 		effect = {
 			change_tag = CAN # Country TAG
@@ -93,8 +115,8 @@ country_decisions = {
 			custom_tooltip = form_canada_tt_3 # Region/Area Claims
 			custom_tooltip = dec1_decisions_blank
 			CAN = { # Capital change and bonuses
-				set_capital = 991
-				991 = {
+				set_capital = 4890
+				4890 = {
 					add_base_tax = 1
 					add_base_production = 1
 					add_base_manpower = 1
