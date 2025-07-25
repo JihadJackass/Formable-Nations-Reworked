@@ -38,6 +38,16 @@
 		cb_on_religious_enemies = yes 
 	}
 
+	dec1_nge_propogate_christianity_temp_missionary = {
+		missionaries = 1 
+		global_missionary_strength = 0.25
+	}
+
+	dec1_nge_fetishist_traditions = {
+		diplomatic_reputation = 0.80
+		tolerance_heathen = 1
+	}
+
 #	dec1_rule_without_parliament_unrest = {
 #		unrest = 5 
 #	}

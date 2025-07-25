@@ -6,22 +6,83 @@
 
     # Welcome Christians
     dec1_nge_welcome_christians_title: "Welcome Christians"
-    dec1_nge_welcome_christians_desc: "As an isolated nation upon the Western Coast of Africa we have seen in the recent past various well funded travelers not of our people who follow a god called 'Jesus' giving us clear insight that perhaps it may be beneficial to align with these rich traders and travelers."
+    dec1_nge_welcome_christians_desc: "§RWe will be locked out of the §YNigeria First§! path if we choose to embrace §YChristianity§! extensively upon completion of §YPropogate Christianity§! Mission!§!\n\nAs an isolated nation upon the Western Coast of Africa we have seen in the recent past various well funded travelers not of our people who follow a god called 'Jesus' giving us clear insight that perhaps it may be beneficial to align with these rich traders and travelers."
 
-    dec1_nge_welcome_christians_tt: "Any known country has a §YCapital§! in §YEurope§! and is a §YCatholic Christian§!."
+    dec1_nge_welcome_christians_tt: "Any known country has a §YCapital§! in §YEurope§! and is a §YCatholic Christian§! with at least §Y80 opinion§! which we have an active diplomat working to increase relations."
 
     dec1_nge_modifier_christian_influx: "Influx of Christians"
 
     dec1_nge_propogate_christianity_title: "Propogate Christianity"
-    dec1_nge_propogate_christianity_desc: "We must spread the faith of Christianity and allow the foreign confessors convert our populace so that we may seek a strong pact with European society."
+    dec1_nge_propogate_christianity_desc: "We must spread the faith of Christianity and allow the foreign confessors to convert our populace so that we may seek a strong pact with European society."
+
+    dec1_nge_propogate_christianity_temp_missionary: "Propogation of Christianity"
+
+    dec1_NGE_country_event_tt_1: "The Spread of Christianity will be based on our total support our nation can muster as well as dependent on relations with Europe"
 
     dec1_nge_christianity_first_title: "Christianity First"
     dec1_nge_christianity_first_desc: "Crusader State path"
 
+    dec1_nge_christian_branching_1_title: "Branching Mission"
+    dec1_nge_christian_branching_1_desc: "This mission is a §YBranching Mission§!. Its triggers and effects will be based on the way we complete the '§YChristianity First§!' mission.\n\n§RMutally Exclusive with §YNigeria First§! path§!"
+
+    dec1_nge_christian_branching_1_tt: "This mission is a §YBranching Mission§!. Its triggers and effects will be based on the way we complete the '§YChristianity First§!' mission."
+
+    dec1_nge_embraced_islamic_traditions: "Rejected Christian Propogration and Embraced Islamic Traditions"
+
+  # SLAVE CONTENT
+
+    dec1_establish_slave_markets_title: "Establish Slave Markets"
+    dec1_establish_slave_markets_desc: "§RIf we choose to §YEstablish Slave Markets§! and ensure our direct monetary control over them we will NOT be able to complete §YThe Slave Trade§! mission.§!"
+
+    dec1_nge_establishes_benin_slave_guild: "Establishes the §YBenin Slave Guild§! Estate."
+
+    dec1_promote_external_slave_markets_title: "External Markets"
+    dec1_promote_external_slave_markets_desc: ""
+
+    dec1_dominate_the_market_title: "Dominate The Industry"
+    dec1_dominate_the_market_desc: ""
+
+    dec1_sell_slaves_to_europe_title: "European Slave Trade Deals"
+    dec1_sell_slaves_to_europe_desc: ""
+
+    dec1_atlantic_slave_trade_title: "Transatlantic Slave Trade"
+    dec1_atlantic_slave_trade_desc: ""
+
+      # SLAVE ESTATE
+
+    dec1_nge_nigerian_slave_masters: "Benin Slave Guild"
+    dec1_nge_nigerian_slave_masters_desc: "A powerful estate composed of slave merchants, raiders, and military-financial elites profiting from the expansion of quasi-legal markets."
+
+    DEC1_EST_VAL_SLAVE_GOODS: "Profitable Slave Economy"
+    DEC1_EST_VAL_HAS_COLONIES: "Colonial Expansion benefitial to Slave Markets"
+    DEC1_EST_VAL_HIGH_WAR_SCORE: "Profitable War for the Slave Economy"
+    DEC1_EST_VAL_LARGE_ECONOMY: "Strong Economy Backed by the Slave Trade"
+
+      # SLAVE PRIVILAGES
+
+    dec1_slave_trade_rights: "Expanded Slave Trade Rights"
+    dec1_slave_trade_rights_desc: ""
+
   # Nationalist Branch
 
     dec1_nge_nigerians_first_title: "Nigeria First"
-    dec1_nge_nigerians_first_desc: ""
+    dec1_nge_nigerians_first_desc: "§RWe will be locked out of the §YChristianity First§! path if we choose our §YNigerian§! identity over Christian Clerical political domination.§!\n\nTODO: Description"
+
+    dec1_nge_democratic_realism_title: "Democratic Realism"
+    dec1_nge_democratic_realism_desc: ""
+
+  # Democratic Path
+
+    dec1_NGE_democratic_realism_path_tt: "We must establish Democracy as a core principle of our people upon completion of §YPropogate Christianity§! mission."
+
+  # Islam branch
+
+    dec1_nge_shehu_polities_title: "Shehu Polities"
+    dec1_nge_shehu_polities_desc: "§TWe can bypass the requirement for §YSincretic Rituals§! by supporting the §YShehu Locals§! instead of allowing §OChristians to spread their religion upon our people§! during the §YPropogate Christianity§! mission related events.§!\n\nShehu scholars and leaders - particularly those associated with the Sokoto Caliphate founded by Usman dan Fodio are abundant in our northern territories. They hold strong influence over the region and suggest various changes to legal structure clearly in favor of Islam of which our stance on is currently uncertain."
+
+  # fetishist branch
+
+    dec1_nge_fetishist_traditions: "Preference for Fetishist Traditions"
 
 # Aquitaine
 

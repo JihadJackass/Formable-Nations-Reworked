@@ -123,6 +123,17 @@
   # COUNTRY EVENTS LOCALISATION #
   ###############################
 
+    # Nigeria
+
+      # Propgation of christianity
+      dec1_country_events.200: "Propogation of Christianity"
+      dec1_country_events.200.t: "Propogation of Christianity"
+      dec1_country_events.200.d: "TODO"
+      dec1_country_events.200.a: "Prefer Fetishist Traditions"
+      dec1_country_events.200.b: "Embrace Christian Ideals"
+      dec1_country_events.200.c: "Support the Shehu Locals"
+      dec1_country_events.200.e: "Proclaim the order of Militia Christi Nigra"
+
     # Russia
 
       # First Kamchatka Expedition

@@ -854,7 +854,7 @@ namespace = dec1_country_events
 					if = {
 						limit = {
 							has_custom_ideas = no
-		#					NOT = { has_idea_group = GFE_ideas } # TODO: ability
+							#NOT = { has_idea_group = GFE_ideas } # TODO: ability
 						}
 						country_event = { id = ideagroups.1 }
 					}
@@ -873,6 +873,105 @@ namespace = dec1_country_events
 					}
 				}
 			}
+		}
+
+	###########
+	# Nigeria #
+	###########
+
+		# MISSION EVENTS - dec1_country_events.200
+
+		# Propogation of Christianity
+		country_event = {
+			id = dec1_country_events.200
+			title = "dec1_country_events.200.t"
+			desc = "dec1_country_events.200.d"
+			picture = VIKING_KING_eventPicture
+
+			fire_only_once = yes
+			is_triggered_only = yes
+
+			immediate = {
+				set_country_flag = dec1_nge_established_stance_on_christianity
+			}
+
+			# Limited Support, prefer fetishist traditions (historical)
+			option = {
+				name = "dec1_country_events.200.a"
+				ai_chance = { factor = 60 }
+				add_country_modifier = { 
+					name = dec1_nge_fetishist_traditions
+					duration = -1
+				}
+			}
+
+			# full support of christianity (high temporal control)
+			option = {
+				name = "dec1_country_events.200.b"
+				ai_chance = { factor = 20 }
+			}
+
+			# embrace islamic traditions, reject Christian settlers
+			option = {
+				name = "dec1_country_events.200.c"
+				ai_chance = { factor = 27 }
+				set_country_flag = dec1_nge_embraced_islamic_traditions
+			}
+
+			# democratic ideals
+			option = {
+				name = "dec1_country_events.200.f"
+				ai_chance = { factor = 27 }
+				set_country_flag = dec1_nge_embraced_islamic_traditions
+			}
+
+			# hidden nigerian crusader state path, byzantium either must exist or be allied to the pope, pope must have 150 opinion, must not be protestant
+			# Militia Christi Nigra path  "Black Militia of Christ"
+			option = {
+				name = "dec1_country_events.200.e"
+				ai_chance = { factor = 3 }
+				trigger = {
+					NOT = { religion = protestant }
+					OR = {
+						exists = BYZ
+						OR = {
+							alliance_with = PAP 
+							PAP = {
+								has_opinion = {
+									who = NGE
+									value > 149
+								}
+							}
+						}
+					}
+				}
+				set_country_flag = dec1_nge_nigerian_papacy_crusader_secret_pact
+			}
+
+		}
+
+		# Handling the Shehu Polities
+		country_event = {
+			id = dec1_country_events.210
+			title = "dec1_country_events.210.t"
+			desc = "dec1_country_events.210.d"
+			picture = VIKING_KING_eventPicture
+
+			fire_only_once = yes
+			is_triggered_only = yes
+
+			# islam before nationality
+			option = {
+				name = "dec1_country_events.210.c"
+				ai_chance = { factor = 50 }
+			}
+
+			# nationality before islam
+			option = {
+				name = "dec1_country_events.210.c"
+				ai_chance = { factor = 50 }
+			}
+
 		}
 
 # End of file

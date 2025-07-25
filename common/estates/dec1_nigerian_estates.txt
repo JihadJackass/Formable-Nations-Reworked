@@ -1,0 +1,97 @@
+dec1_nge_nigerian_slave_masters = {
+	icon = 4
+
+	trigger = {
+		tag = NGE
+		mission_completed = dec1_establish_slave_markets
+	}
+
+	# Scaling country effects based on loyalty
+	country_modifier_happy = {
+		global_trade_goods_size_modifier = 0.15
+		production_efficiency = 0.10
+		global_unrest = -0.25
+	}
+	country_modifier_neutral = {
+		production_efficiency = 0.5
+	}
+	country_modifier_angry = {
+		global_unrest = 1
+		production_efficiency = -0.15
+		stability_cost_modifier = 0.25
+	}
+
+	# Modifiers from % land ownership (scaled)
+	land_ownership_modifier = {
+		global_trade_goods_size_modifier = 0.25
+		production_efficiency = 0.10
+	}
+
+	# Influence modifiers — slave trade interest
+	base_influence = 10
+
+	influence_modifier = {
+		desc = DEC1_EST_VAL_SLAVE_GOODS
+		trigger = {
+			any_owned_province = {
+				trade_goods = slaves
+			}
+		}
+		influence = 15
+	}
+
+	influence_modifier = {
+		desc = DEC1_EST_VAL_LARGE_ECONOMY
+		trigger = {
+			monthly_income = 50
+		}
+		influence = 10
+	}
+
+	# Loyalty modifiers — rewarding conquest and colonialism
+	loyalty_modifier = {
+		desc = DEC1_EST_VAL_HAS_COLONIES
+		trigger = {
+			colony > 0
+		}
+		loyalty = 5
+	}
+
+	loyalty_modifier = {
+		desc = DEC1_EST_VAL_HAS_COLONIES
+		trigger = {
+			is_at_war = yes
+			war_score > 30
+		}
+		loyalty = 5
+	}
+
+	# Province secession weight (for estate revolts)
+	province_independence_weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.5
+			trade_goods = slaves
+		}
+		modifier = {
+			factor = 1.25
+			NOT = { development = 10 }
+		}
+	}
+
+	privileges = {
+		dec1_slave_trade_rights
+	}
+
+	# Optional: agenda stubs
+	agendas = {
+		#dec1_slave_expand_slave_trade_agenda
+		#dec1_slave_capture_slave_ports_agenda
+		#dec1_slave_increase_slave_output_agenda
+		#dec1_slave_secure_trade_routes_agenda
+	}
+
+	color = { 90 60 30 }
+
+	influence_from_dev_modifier = 1.5
+}
