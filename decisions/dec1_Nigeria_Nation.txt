@@ -53,8 +53,8 @@ country_decisions = {
 			custom_tooltip = form_nigeria_tt_2 # New Missions
 			custom_tooltip = dec1_decisions_blank
 			NGE = { # Capital change and bonuses
-				set_capital = 1154 # TODO: rename to Abuja
-				1154 = {
+				set_capital = 1147
+				1147 = {
 					add_base_tax = 1
 					add_base_production = 1
 					add_base_manpower = 1
@@ -103,7 +103,7 @@ country_decisions = {
 				if = {
 					limit = {
 						has_custom_ideas = no
-			#			NOT = { has_idea_group = CHX_ideas }
+						#NOT = { has_idea_group = CHX_ideas }
 					}
 					country_event = { id = ideagroups.1 }
 				}
@@ -111,10 +111,10 @@ country_decisions = {
 				country_event = { id = dec1_events.3 }
 				custom_tooltip = dec1_decisions_blank
 				# National Ability
-		#		add_country_modifier = {
-		#			name = dec1_united_chad
-		#			duration = 49275
-				}
+				#add_country_modifier = {
+				#	name = dec1_united_chad
+				#	duration = 49275
+				#}
 				# Increased Centralization
 				add_country_modifier = {
 					name = dec1_increased_centralization
@@ -127,4 +127,8 @@ country_decisions = {
 		}
 		ai_importance = 200
 	}
+
+	# Rename Ijebu to Lagos
+
+	# Move capital to Lagos
 }

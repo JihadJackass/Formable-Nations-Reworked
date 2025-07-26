@@ -4,6 +4,11 @@
   # Country Name Localisation #
   #############################
 
+    # Nigeria - Greater Nigeria
+
+      dec1_greater_nigeria_name: "Greater Nigeria"
+      dec1_greater_nigeria_short_name: "Great Nigeria"
+
     # Finland - Greater Finland
 
       dec1_greater_finland_name: "Greater Finland"

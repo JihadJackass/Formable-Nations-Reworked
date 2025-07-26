@@ -58,5 +58,19 @@
 
     BSK_albanian_new: "Albanian"
 
+  # Nigeria
 
+    dec1_west_african_new: "Nigerian"
+    yorumba_new: "Nigerian"
+    aka_new: "Aka"
+    nupe_new: "Nupe"
+    fon_new: "Fon"
+    mossi_new: "Mossi"
+    dagomba_new: "Dagomba"
+    mali_new: "Mali"
+    songhai_new: "Songhai"
+    soninke_new: "Sonike"
+    bambara_new: "Bambara"
+    bozo_new: "Bozo"
+    dyola_new: "Dyola"
 

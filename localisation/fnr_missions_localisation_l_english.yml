@@ -68,8 +68,21 @@
     dec1_nge_nigerians_first_title: "Nigeria First"
     dec1_nge_nigerians_first_desc: "§RWe will be locked out of the §YChristianity First§! path if we choose our §YNigerian§! identity over Christian Clerical political domination.§!\n\nTODO: Description"
 
+    form_greater_nigerian_culture_tt_3: "Form the §YNigerian§! culture group."
+
+    form_greater_nigerian_culture_tt_4: "We will §YPermanently§! gain §G3§! Promoted Culture slots.§!\n"
+
+    dec1_nge_cultural_shift: "Nigerian Cultural Shift"
+
     dec1_nge_democratic_realism_title: "Democratic Realism"
     dec1_nge_democratic_realism_desc: ""
+
+    dec1_nge_foundations_of_greater_nigeria_title: "Foundations of Greater Nigeria"
+    dec1_nge_foundations_of_greater_nigeria_desc: ""
+    
+    dec1_nge_greater_nigeria_title: "Greater Nigeria"
+    dec1_nge_greater_nigeria_desc: ""
+
 
   # Democratic Path
 
@@ -82,7 +95,12 @@
 
   # fetishist branch
 
-    dec1_nge_fetishist_traditions: "Preference for Fetishist Traditions"
+    dec1_nge_embrace_our_past_title: "Embrace our Past"
+    dec1_nge_embrace_our_past_desc: ""
+
+  # Nigeria Ruler Monument (move to own file im lazy)
+
+    nge_statue_of_ruler: "Statue of Oduduwa"
 
 # Aquitaine
 
@@ -112,3 +130,6 @@
 # Price change localisation
 
   dec1_expanded_wine: "Expanded Wine in Aquitaine"
+
+
+

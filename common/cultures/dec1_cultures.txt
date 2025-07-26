@@ -655,3 +655,220 @@ dec1_bosnian_serbian = {
 		}
 	}
 }
+
+dec1_west_african_new = {
+	graphical_culture = africangfx
+	
+	yorumba_new = {
+		primary = OYO
+		dynasty_names = {
+			Alaafin Eweka Ubah Umaru Aliu Solaja Okara
+			Ajuwa Ezinwa Kanu Opara Rufai
+		}
+		male_names = {
+			Oranyan Sango Ajaka Aganju Kari Oluaso Onigbogi Ofinran Eguguoju Orompoto Ajiboyede Abipa Obalokun Ajagbo 
+			Odorawu Kanran Jayin Ayibi Osiyago Ojigi Gberu Amuniwaiye Onisle Labisi Agboluaje Majeogbe Abiodun Awole 
+			Arongangan Adebo Maaku Aburumaku Majotu Do Aklim Dakondunu Ganye Hessu Wegbaja Akaba Agaja Tegbesu Kpengla 
+			Anonglo Haholo Kpasse Ayohuan Agbangia
+		}
+		female_names = {
+			Winona Isi Abeni Abimbola Abiodun Ade Adebola Adebowale Adedayo Adetokunbo Alaba Ayo Ayodele Ayomide 
+			Ayotunde Bolanle Bosede Dada Dayo Ekundayo Eniola Enitan Folami Gbemisola Idowu Ife Ige Kayin Mojisola 
+			Monifa Olamide Olayinka Olubunmi Olufunke Olufunmilayo Olufunmilola Oluwafunmilayo Oluwakanyinsola 
+			Oluwasegun Oluwaseun Oluwaseyi Oluwatoyin Oluwayemisi Omobolanle Omolara Oni Opeyemi Simisola Temitope 
+			Titilayo Yejide Yewande
+		}
+	}
+	aka_new = {
+		primary = ASH
+		dynasty_names = {
+			Denkyirahene "Oyoko Abohyen" Kotokuhene Bonohene
+			Addy Afrifa Sadami Sabah Sribor Moyoyo
+		}
+		male_names = {
+			"Beriguwiemda" "Zolgo" "Zongman" "Nengmitoni" "Dimani" "Yanza" "Dariziogo" "Luro" "Tutugri" "Zagale" 
+			"Zokuli" "Gungoble" "Boadu Akofu Berempon" "Boa Amponsem" "Ntim Gyakari" "Ose Tutu" "Opoku Fofie" 
+			"Opoku Ware" "Kusi Obodum" "Osei Bonsu" "Osei Kojo" "Osei Kwame" "Osei Fofie" "Osei Yaw" "Kwaku Dua" 
+			"Salifu Saatankugri" "Mahama Kuluguba" "Nyagse" "Zulande" "Zangina" "Andan Sigili" "Jimli" "Zibirim" 
+			"Gariba" "Yakuba" "Ayekeraa" "Kokobo" "Ahaha" "Warembe Ampen" "Agyinamoa" "Twum" "Kobla Amana" "Akenten" 
+			"Obiri Yeboa" "Opoku" "Antwi"
+		}
+		female_names = {
+			Adaeze Adanna Adannaya Akachi Akuchi Amaka Schiamaka Amara Amarachi Añuli Chi Chiamaka Chibueze Chibuike 
+			Chibuzo Chichi Chidi Chidiebere Chidiebube Chidiegwu Chidimma Chijindum Chika Chike Chikelu Chikere 
+			Chinasa Chinedu Chinonso Chinwe Chinweike Chinwendu Chinweuba Chinyelu Chinyere Chioma Chizoba Ebele Ekene 
+			Ekenedilichukwu Fumnanya Funanya Ndidi Ngozi Nkechi Nkechinyere Nkemdilim Nkiru Nkiruka Nneka Nnenna 
+			Nnenne Nwanneka Ogechi Ogechukwukama Oluchi Onyeka Onyekachi Onyekachukwu Udo Uzoma
+		}
+	}
+	nupe_new = {
+		primary = NUP
+		dynasty_names = {
+			Etsu Ubah Solaja Umaru
+			Aliu Solaja Okara Ajuwa
+			Ezinwa Kanu Opara
+		}
+		male_names = {
+			"Edegi" "Abdu Waliyi" "Alyu" "Ganamace" "Ibrahima" "Idirisu" "Abd Allahi 'Tsado" "Abu Bakr Kolo" 
+			"Jibirin dan Au Bakr Kolo" "Ma'azu" "Majiya" "Ilyasu" "Ali Kolo Tankari" "Mamma" "Jimada" "Jia" "Masaba" 
+			"Maza" "Ma'azu 'Isa" "Tsoede" "'Usuman Zaki" "'Umaru Majigi" "Maliki" "Abu Bakr" "Muhammadu" "Bello" 
+			"Malam" "'Usman Sarki" "'Umaru Sanda Ndayako" "Yahaya" 
+		}
+		female_names = {
+			Abagbe Abegi Abeje Oluremi Winona Isi Abeni Abimbola Abiodun Ade Adebola Adebowale Adedayo Adetokunbo 
+			Alaba Ayo Ayodele Ayomide Ayotunde Bolanle Bosede Dada Dayo Ekundayo Eniola Enitan Folami Gbemisola Idowu 
+			Ife Ige Kayin Mojisola Monifa Olamide Olayinka Olubunmi Olufunke Olufunmilayo Olufunmilola Oluwafunmilayo 
+			Oluwakanyinsola Oluwasegun Oluwaseun Oluwaseyi Oluwatoyin Oluwayemisi Omobolanle Omolara Oni Opeyemi 
+			Simisola Temitope Titilayo Yejide Yewande
+		}
+	}
+	fon_new = {
+		primary = DAH
+		dynasty_names = {
+			Ajahutonon Ahosu Assogba Ahyi
+			Tometin Koukou Sessegnon
+			Séka Sinzogan
+		}
+		male_names = {
+			Agaja Doaklin Gangnihessou Dakodonou Houebadja Akaba Tegbessou Kpengla Agonglo Adandozan Ghezo Glele 
+			Behanzin Agoli-agbo Aidododo Togni-ahoussou Agolli-Agbo Houédogni Kokpon Te-Agdanlin Dosu Agbo Sassa Huffon 
+			Adoma Tomo
+		}
+		female_names = {
+			Hangbe Sehdong Hongbe Nawi Afyavi Ahwlikponuwa Asiba Ayàbà Abagbe Abegi Abeje Oluremi Winona Isi Abeni 
+			Abimbola Abiodun Ade Adebola Adebowale Adedayo Adetokunbo 
+			Alaba Ayo Ayodele Ayomide Ayotunde Bolanle Bosede Dada Dayo Ekundayo Eniola Enitan Folami Gbemisola Idowu 
+			Ife Ige Kayin Mojisola Monifa Olamide Olayinka Olubunmi Olufunke Olufunmilayo Olufunmilola Oluwafunmilayo 
+			Oluwakanyinsola Oluwasegun Oluwaseun Oluwaseyi Oluwatoyin Oluwayemisi Omobolanle Omolara Oni Opeyemi 
+			Simisola Temitope Titilayo Yejide Yewande
+		}
+	}
+	mossi_new = {
+		primary = MSI
+		dynasty_names = {
+			"Tenga Niama" "Moogo" "Naaba"
+			Addy Afrifa Sadami Sabah Zakari
+			Offei Donkor Akoto
+		}
+		male_names = {
+			Sapilem Nyambre Salma Korongo Koom Yamba Sorgo Tigre Dulugu Sawadogo Karfo Baongo Kutu Sanum Wobgo Mazi 
+			Sigiri Saaga Kugri Yadega Yolomfaogona Kourita Geda Wobgho Kango Saaga Kaongo Tuguri Korogo Ragongo Wobgo 
+			Nyambe Moogo Totebaldbo Yemde Sanum Woboga Piiyo Bulli Wedraogo Ligidi Kobga Gigma Dramani
+		}
+		female_names = {
+			Poko Kenga Adaeze Adanna Adannaya Akachi Akuchi Amaka Schiamaka Amara Amarachi Añuli Chi 
+			Chiamaka Chibueze Chibuike Chibuzo Chichi Chidi Chidiebere Chidiebube Chidiegwu Chidimma Chijindum Chika  
+			Chike Chikelu Chikere Chinasa Chinedu Chinonso Chinwe Chinweike Chinwendu Chinweuba Chinyelu Chinyere 
+			Chioma Chizoba Ebele Ekene Ekenedilichukwu Fumnanya Funanya Ndidi Ngozi Nkechi Nkechinyere Nkemdilim Nkiru 
+			Nkiruka Nneka Nnenna Nnenne Nwanneka Ogechi Ogechukwukama Oluchi Onyeka Onyekachi Onyekachukwu Udo Uzoma
+		}
+	}
+	dagomba_new = {
+		primary = DGB
+		dynasty_names = {
+			Naa Dagomba Mamprusi
+		}
+		male_names = {
+			Sapilem Nyambre Salma Korongo Koom Yamba Sorgo Tigre Dulugu Sawadogo Karfo Baongo Kutu Sanum Wobgo Mazi 
+			Sigiri Saaga Kugri Yadega Yolomfaogona Kourita Geda Wobgho Kango Saaga Kaongo Tuguri Korogo Ragongo Wobgo 
+			Nyambe Moogo Totebaldbo Yemde Sanum Woboga Piiyo Bulli Wedraogo Ligidi Kobga Gigma Dramani
+		}
+		female_names = {
+			Poko Kenga Adaeze Adanna Adannaya Akachi Akuchi Amaka Schiamaka Amara Amarachi Añuli Chi Chiamaka Chibueze 
+			Chibuike Chibuzo Chichi Chidi Chidiebere Chidiebube Chidiegwu Chidimma Chijindum Chika Chike Chikelu 
+			Chikere Chinasa Chinedu Chinonso Chinwe Chinweike Chinwendu Chinweuba Chinyelu Chinyere Chioma Chizoba 
+			Ebele Ekene Ekenedilichukwu Fumnanya Funanya Ndidi Ngozi Nkechi Nkechinyere Nkemdilim Nkiru Nkiruka Nneka 
+			Nnenna Nnenne Nwanneka Ogechi Ogechukwukama Oluchi Onyeka Onyekachi Onyekachukwu Udo Uzoma
+		}
+	}
+	mali_new = {
+		primary = MAL
+		dynasty_names = {
+			Keita Sama
+		}
+		male_names = {
+			"Mule" "Mamadu" "Al-Hajj" "'Ali Zalil" "Muhammad" "Da'ud" "Bakari" "'Abd al-Rahman" "Bakr" "Al-Mukhtar" 
+			"Mahmud" "Majan" "Birahim" "'Ali" "Amada Sire" "Nguia" "Bubu" "Ilo" "Kanta" "Al-Mansur" "'Ammar" "Sa'ud 'Arjud"
+			"Haddu" "Sa'id" "Dhu al-Nun" "'Abd Allah" "Nasr" "Yahya" "Sanibar" "Hammadi" "'Abbas" "Benkano" 
+			"Zenka" "Mami" "Ba-Bakribin" "'Abd al-Qadir" "Yusuf" "Santa'a" "Al-Fa' Ibrahim" "Sandaki" 
+		}
+		female_names = {
+			"Amna" "Ghadir" "Latifa" "Maha" "Ranya" Ibtisam Isra Karima Kera Khadija Layla Malika Mariam Maria Munya 
+			Munia Nadia Naila Nur Rafiqa Rahat 
+		}
+	}
+	songhai_new = {
+		primary = SON
+		dynasty_names = {
+			Askia Sonni 
+		}
+		male_names = {
+			"Muhammad" "Karbifo" "Mar Fai" "Mar-Arkana" "Mar Arandan" "Sulaymân" "`Alî Ber" "Bakarî" "Mûsâ" "Ismâ`îl" 
+			"Ishâq" "Dâ`ûd" "Nûh" "Hârûn" "al-Amîn" "Hanga" "Samsu" "Harangi" "Silman" "Abu Bakr" "Fodi Mayrumfa"	 
+			"Al-Mustafa" "Harun" "Tomo" "Bassaru Missi" "Bumi" "Koyze Baba" "Wankoy" "Mar Kiray" "Bakr Zanku" "Salman" 
+			"Birahim" "Hammadi" "Al-Mansur" "`Ammar" "Sa`id" "`Abd Allah" "Nasr" "Yahya" "Yusuf" 
+		}
+		female_names = {
+			"Amna" "Ghadir" "Latifa" "Maha" "Ranya" Ibtisam Isra Karima Kera Khadija Layla Malika Mariam Maria Munya 
+			Munia Nadia Naila Nur Rafiqa Rahat 
+		}
+	}
+	soninke_new = {
+		primary = ZAF
+		dynasty_names = {
+			Ghana Diarisso Kante
+		}
+		male_names = {
+			"Barama N'Golo" "Danfasri" "Suma" "Denkoro" "Bakari" "Ton Mansa Demele" "Kera Djugu" "Monson" "Tonkomo" 
+			"Fa Sine" "Da Kaha" "Tyefolo" "Nga Ngolo" "Sunsa" "Massa" "Sekolo" "Forokolo" "Seba Mana" "Deni ba Bo" 
+			"Sira Bo" "Dessekoro" "Saraba" "Nntinkoro" "Nanka" "Daoula" "Yadega" "Yolomfaogoma" "Kourita" "Geba" 
+			"Wobgho" "Saaga" "Kaongo" "Dulugu" "Sawadogo" "Karfo" "Baongo" "Tontuoriba"
+		}
+		female_names = {
+			"Tabara" "Gaisiri" "Bello" "Diallo" "Nyako" Endana Gethera Hinya Ikeno Inira Inithia Itanya Jamba Kakena 
+			Kenja Kenithia Kenura Kiama Kiania Kianira Kiira Kirima Muney Muraty Oyana Therania Tia
+		}
+	}
+	bambara_new = {
+		primary = SOF
+		dynasty_names = {
+			Coulibaly Diarra Massassi
+		}
+	}
+	bozo_new = {
+		primary = JNN
+		dynasty_names = {
+			Konboro Seku
+		}
+		male_names = {
+			"Barama N'Golo" "Kaladyan Kulibaly" "Danfasri" "Suma" "Biton Mamari" "Denkoro" "Bakari" "Ton Mansa Demele" 
+			"Kanyuba Nyama" "Kera Djugu" "N'Golo Diara" "Monson" "Tonkomo" "Fa Sine" "Da Kaha" "Tyefolo" "Nga Ngolo" 
+			"Sunsa" "Massa" "Sekolo" "Forokolo" "Seba Mana" "Deni ba Bo" "Sira Bo" "Dessekoro" "Saraba" "Nntinkoro" 
+			"Nanka" "Daoula" "Yadega" "Yolomfaogoma" "Kourita" "Geba" "Wobgho" "Saaga" "Kaongo" "Dulugu" "Sawadogo" 
+			"Karfo" "Baongo" "Tontuoriba"
+		}
+		female_names = {
+			"Masego" "Sekai" "Tsholofelo" Boipelo Boitumelo Dikeledi Itumeleng Kagiso Katlego Kefilwe Lesedi Neo 
+			Refilwe Sethunya Tumelo
+		}
+	}
+	dyola_new = {
+		primary = KNG
+		dynasty_names = {
+			Gorogo Wattara
+		}
+		male_names = {
+			"Agyen Kokobo" "Ofusu Kwabi" "Oduro" "Ado" "Otumfo Asare" "Yanza" "Ansa Saseraku" "Akotia" "Abuako Dako" 
+			"Afera Kuma" "Manukure" "Akwamno Panyini" "Dako Booman" "Mnumunumfi" "Werempe Ampem" "Boa Amponsem" 
+			"Ntim Gyakari" "Boado Ahafo Berempon" "Kyei Akobeng" "Amoako Atta Panyin" "Gyan Badu" "Amoako Atta Kuma" 
+			"Amoako Atta Yiadom" "Owusu Bori" "Kwadwo Tibu" "Kwakye Fram" "Kwesi Kyei" "Nkwantabisa"
+		}
+		female_names = {
+			Adaeze Adanna Adannaya Akachi Akuchi Amaka Schiamaka Amara Amarachi Añuli Chi Chiamaka Chibueze Chibuike Chibuzo 
+			Chichi Chidi Chidiebere Chidiebube Chidiegwu Chidimma Chijindum Chika Chike Chikelu Chikere Chinasa Chinedu Chinonso 
+			Chinwe Chinweike Chinwendu Chinweuba Chinyelu Chinyere Chioma Chizoba Ebele Ekene Ekenedilichukwu Fumnanya Funanya 
+			Ndidi Ngozi Nkechi Nkechinyere Nkemdilim Nkiru Nkiruka Nneka Nnenna Nnenne Nwanneka Ogechi Ogechukwukama Oluchi 
+			Onyeka Onyekachi Onyekachukwu Udo Uzoma
+		}
+	}
+}	

@@ -137,16 +137,163 @@ dec1_nge_nigerian_nationalism_branch = {
 	dec1_nge_nigerians_first = {
 		icon = mission_mal_riches_of_trade
 		position = 6
-		#required_missions = { west_africa_unite_home_region }
 		completed_by = 1505.1.1
 		provinces_to_highlight = {
 		}
 		trigger = {
+			prestige > 65
+			num_of_owned_provinces_with = {
+				value = 20
+				superregion = africa_superregion
+				#has_owner_accepted_culture = no
+				is_overseas = no
+			}
 			NOT = { mission_completed = dec1_nge_christianity_first }
 			mission_completed = west_africa_unite_home_region
 		}
 		effect = {
-			add_adm_power = 10
+			add_prestige = 20
+			# Unify Culture
+			custom_tooltip = form_greater_nigerian_culture_tt_3 # Culture
+			hidden_effect = {
+				if = { limit = { accepted_culture = yorumba } remove_accepted_culture = yorumba }
+				if = { limit = { accepted_culture = aka } remove_accepted_culture = aka }
+				if = { limit = { accepted_culture = nupe } remove_accepted_culture = nupe }
+				if = { limit = { accepted_culture = fon } remove_accepted_culture = fon }
+				if = { limit = { accepted_culture = mossi } remove_accepted_culture = mossi }
+				if = { limit = { accepted_culture = dagomba } remove_accepted_culture = dagomba }
+				if = { limit = { accepted_culture = mali } remove_accepted_culture = mali }
+				if = { limit = { accepted_culture = songhai } remove_accepted_culture = songhai }
+				if = { limit = { accepted_culture = soninke } remove_accepted_culture = soninke }
+				if = { limit = { accepted_culture = bambara } remove_accepted_culture = bambara }
+				if = { limit = { accepted_culture = bozo } remove_accepted_culture = bozo }
+				if = { limit = { accepted_culture = dyola } remove_accepted_culture = dyola }
+				create_new_culture_group = {
+					culture_group = dec1_bosnian_serbian
+					culture = BSK_bosnian_new
+					culture2 = BSK_serbian_new
+				}
+				# Add accepted cultures
+					add_accepted_culture = yorumba_new
+					add_accepted_culture = aka_new
+					add_accepted_culture = nupe_new
+					add_accepted_culture = fon_new
+					add_accepted_culture = mossi_new
+					add_accepted_culture = dagomba_new
+					add_accepted_culture = mali_new
+					add_accepted_culture = songhai_new
+					add_accepted_culture = soninke_new
+					add_accepted_culture = bambara_new
+					add_accepted_culture = bozo_new
+					add_accepted_culture = dyola_new
+				# Check for owned provinces with previous cultures and replace them 
+				# (Nigeria is not a full unification so its okay to have old cultures)
+				every_owned_province = {
+					limit = { culture = yorumba } #check
+					change_culture = yorumba_new #change
+				}
+				every_owned_province = {
+					limit = { culture = aka } #check
+					change_culture = aka_new #change
+				}
+				every_owned_province = {
+					limit = { culture = nupe } #check
+					change_culture = nupe_new #change
+				}
+				every_owned_province = {
+					limit = { culture = fon } #check
+					change_culture = fon_new #change
+				}
+				every_owned_province = {
+					limit = { culture = mossi } #check
+					change_culture = mossi_new #change
+				}
+				every_owned_province = {
+					limit = { culture = dagomba } #check
+					change_culture = dagomba_new #change
+				}
+				every_owned_province = {
+					limit = { culture = mali } #check
+					change_culture = mali_new #change
+				}
+				every_owned_province = {
+					limit = { culture = songhai } #check
+					change_culture = songhai_new #change
+				}
+				every_owned_province = {
+					limit = { culture = soninke } #check
+					change_culture = soninke_new #change
+				}
+				every_owned_province = {
+					limit = { culture = bambara } #check
+					change_culture = bambara_new #change
+				}
+				every_owned_province = {
+					limit = { culture = bozo } #check
+					change_culture = bozo_new #change
+				}
+				every_owned_province = {
+					limit = { culture = dyola } #check
+					change_culture = dyola_new #change
+				}
+				# Change to new culture
+				change_primary_culture = BSK_bosnian_new
+				# Final check to remove nocultures
+				if = { limit = { accepted_culture = noculture } remove_accepted_culture = noculture }
+				add_legitimacy = 10
+				add_absolutism = 5
+			}
+			add_country_modifier = {
+				name = dec1_nge_cultural_shift
+				duration = 365
+			}
+			custom_tooltip = form_greater_nigerian_culture_tt_4 # Culture
+			hidden_effect = {
+				add_country_modifier = {
+					name = dec1_nge_cultural_shift_perm
+					duration = -1
+					hidden = yes
+				}
+			}
+		}
+		ai_weight = {
+			factor = 500
+		}
+	}
+
+	dec1_nge_foundations_of_greater_nigeria = {
+		icon = mission_mal_riches_of_trade
+		position = 7
+		required_missions = { dec1_nge_nigerians_first }
+		completed_by = 1505.1.1
+		provinces_to_highlight = {
+		}
+		trigger = {
+		}
+		effect = {
+			add_prestige = 10
+			add_legitimacy = 5
+			add_great_project = {
+				type = nge_statue_of_ruler
+				instant = no 
+			}
+		}
+		ai_weight = {
+			factor = 500
+		}
+	}
+
+	dec1_nge_greater_nigeria = {
+		icon = mission_mal_riches_of_trade
+		position = 8
+		required_missions = { dec1_nge_foundations_of_greater_nigeria }
+		completed_by = 1505.1.1
+		provinces_to_highlight = {
+		}
+		trigger = {
+		}
+		effect = {
+			override_country_name = dec1_greater_nigeria_name 
 		}
 		ai_weight = {
 			factor = 500
@@ -222,7 +369,7 @@ dec1_nge_islam_branch = {
 }
 
 # fetishist path
-dec1_nge_islam_branch = {
+dec1_nge_fetishist_branch = {
 	slot = 3
 	generic = no
 	ai = yes
@@ -231,14 +378,15 @@ dec1_nge_islam_branch = {
 	}
 	has_country_shield = yes
 
-	dec1_nge_shehu_polities = {
+	dec1_nge_embrace_our_past = {
 		icon = mission_mal_riches_of_trade
 		position = 8
-		required_missions = { west_africa_sincretic_rituals }
+		#required_missions = { west_africa_sincretic_rituals }
 		completed_by = 1505.1.1
 		provinces_to_highlight = {
 		}
 		trigger = {
+			mission_completed = west_africa_sincretic_rituals
 		}
 		effect = {
 			add_adm_power = 10
@@ -376,5 +524,7 @@ dec1_nge_slave_trade_path_branch = {
 		}
 	}
 }
+
+# Anti-Slave Trade Path (Democratic Path required)
 
 

@@ -48,6 +48,15 @@
 		tolerance_heathen = 1
 	}
 
+	dec1_nge_cultural_shift = {
+		culture_conversion_cost = -0.15
+		culture_conversion_time = -0.5
+	}	
+
+	dec1_nge_cultural_shift_perm = {
+		num_accepted_cultures = 3 
+	}		
+
 #	dec1_rule_without_parliament_unrest = {
 #		unrest = 5 
 #	}

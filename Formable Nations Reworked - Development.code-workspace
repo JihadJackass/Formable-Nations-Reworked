@@ -7,7 +7,10 @@
 			"path": "..\\..\\logs"
 		},
 		{
-			"path": "../../../../../../../Steam/steamapps/common/Europa Universalis IV"
+			"path": "../../../../../../../Steam/steamapps/common/Europa Universalis IV/map"
+		},
+		{
+			"path": "../../../../../../../Steam/steamapps/common/Europa Universalis IV/localisation"
 		}
 	],
 	"settings": {
