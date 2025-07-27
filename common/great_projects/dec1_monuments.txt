@@ -1,18 +1,14 @@
 nge_statue_of_ruler = {
 	start = 1147 #Benin
-	date = 900.01.01
+	date = -2000.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
 	move_days_per_unit_distance = 10
-	starting_tier = 1
+	starting_tier = 0
 	type = monument
 
 	build_trigger = {
-		ROOT = {
-			tag = NGE
-			mission_completed = dec1_nge_foundations_of_greater_nigeria
-		}
 	}
 
 	on_built = {
@@ -22,15 +18,9 @@ nge_statue_of_ruler = {
 	}
 
 	can_use_modifiers_trigger = {
-		province_is_or_accepts_religion_group = {
-			religion_group = pagan
-		}
 	}
 
 	can_upgrade_trigger = {
-		province_is_or_accepts_religion_group = {
-			religion_group = pagan
-		}
 	}
 
 	keep_trigger = {

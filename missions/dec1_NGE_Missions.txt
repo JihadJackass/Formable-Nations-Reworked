@@ -149,11 +149,45 @@ dec1_nge_nigerian_nationalism_branch = {
 				is_overseas = no
 			}
 			NOT = { mission_completed = dec1_nge_christianity_first }
-			mission_completed = west_africa_unite_home_region
+			OR = {
+				mission_completed = west_africa_unite_home_region
+			}
 		}
 		effect = {
 			add_prestige = 20
+			add_country_modifier = {
+				name = dec1_nge_cultural_shift
+				duration = 365
+			}
+			custom_tooltip = form_greater_nigerian_culture_tt_4 # Culture
+			hidden_effect = {
+				add_country_modifier = {
+					name = dec1_nge_cultural_shift_perm
+					duration = -1
+					hidden = yes
+				}
+			}
+		}
+		ai_weight = {
+			factor = 500
+		}
+	}
+
+	dec1_nge_foundations_of_greater_nigeria = {
+		icon = mission_mal_riches_of_trade
+		position = 7
+		required_missions = { dec1_nge_nigerians_first }
+		completed_by = 1505.1.1
+		provinces_to_highlight = {
+		}
+		trigger = {
+		}
+		effect = {
+			add_prestige = 10
+			add_legitimacy = 5
 			# Unify Culture
+			# For every country in the West African and Mande culture group that has 
+			# at least 100 opinion with NGE will also willingly join the culture group
 			custom_tooltip = form_greater_nigerian_culture_tt_3 # Culture
 			hidden_effect = {
 				if = { limit = { accepted_culture = yorumba } remove_accepted_culture = yorumba }
@@ -169,9 +203,19 @@ dec1_nge_nigerian_nationalism_branch = {
 				if = { limit = { accepted_culture = bozo } remove_accepted_culture = bozo }
 				if = { limit = { accepted_culture = dyola } remove_accepted_culture = dyola }
 				create_new_culture_group = {
-					culture_group = dec1_bosnian_serbian
-					culture = BSK_bosnian_new
-					culture2 = BSK_serbian_new
+					culture_group = dec1_west_african_new
+					culture = yorumba_new
+					culture2 = aka_new
+					culture3 = nupe_new
+					culture4 = fon_new
+					culture5 = mossi_new
+					culture6 = dagomba_new
+					culture7 = mali_new
+					culture8 = songhai_new
+					culture9 = soninke_new
+					culture10 = bambara_new
+					culture11 = bozo_new
+					culture12 = dyola_new
 				}
 				# Add accepted cultures
 					add_accepted_culture = yorumba_new
@@ -188,6 +232,225 @@ dec1_nge_nigerian_nationalism_branch = {
 					add_accepted_culture = dyola_new
 				# Check for owned provinces with previous cultures and replace them 
 				# (Nigeria is not a full unification so its okay to have old cultures)
+				# 100 opinion check handler
+				every_country = {
+					if = { # Yorumba Check
+						limit = {
+							AND = {
+								has_opinion = {
+									who = ROOT
+									value > 99
+								}
+								num_of_owned_provinces_with = {
+									value = 1
+									culture = yorumba
+								}
+							}
+						}
+						every_owned_province = {
+							limit = { culture = yorumba } #check
+							change_culture = yorumba_new #change
+						}
+					}
+					if = { # aka Check
+						limit = {
+							AND = {
+								has_opinion = {
+									who = ROOT
+									value > 99
+								}
+								num_of_owned_provinces_with = {
+									value = 1
+									culture = aka
+								}
+							}
+						}
+						every_owned_province = {
+							limit = { culture = aka } #check
+							change_culture = aka_new #change
+						}
+					}
+					if = { # nupe Check
+						limit = {
+							AND = {
+								has_opinion = {
+									who = ROOT
+									value > 99
+								}
+								num_of_owned_provinces_with = {
+									value = 1
+									culture = nupe
+								}
+							}
+						}
+						every_owned_province = {
+							limit = { culture = nupe } #check
+							change_culture = nupe_new #change
+						}
+					}
+					if = { # fon Check
+						limit = {
+							AND = {
+								has_opinion = {
+									who = ROOT
+									value > 99
+								}
+								num_of_owned_provinces_with = {
+									value = 1
+									culture = fon
+								}
+							}
+						}
+						every_owned_province = {
+							limit = { culture = fon } #check
+							change_culture = fon_new #change
+						}
+					}
+					if = { # mossi Check
+						limit = {
+							AND = {
+								has_opinion = {
+									who = ROOT
+									value > 99
+								}
+								num_of_owned_provinces_with = {
+									value = 1
+									culture = mossi
+								}
+							}
+						}
+						every_owned_province = {
+							limit = { culture = mossi } #check
+							change_culture = mossi_new #change
+						}
+					}
+					if = { # dagomba Check
+						limit = {
+							AND = {
+								has_opinion = {
+									who = ROOT
+									value > 99
+								}
+								num_of_owned_provinces_with = {
+									value = 1
+									culture = dagomba
+								}
+							}
+						}
+						every_owned_province = {
+							limit = { culture = dagomba } #check
+							change_culture = dagomba_new #change
+						}
+					}
+					if = { # mali Check
+						limit = {
+							AND = {
+								has_opinion = {
+									who = ROOT
+									value > 99
+								}
+								num_of_owned_provinces_with = {
+									value = 1
+									culture = mali
+								}
+							}
+						}
+						every_owned_province = {
+							limit = { culture = mali } #check
+							change_culture = mali_new #change
+						}
+					}
+					if = { # songhai Check
+						limit = {
+							AND = {
+								has_opinion = {
+									who = ROOT
+									value > 99
+								}
+								num_of_owned_provinces_with = {
+									value = 1
+									culture = songhai
+								}
+							}
+						}
+						every_owned_province = {
+							limit = { culture = songhai } #check
+							change_culture = songhai_new #change
+						}
+					}
+					if = { # songhai Check
+						limit = {
+							AND = {
+								has_opinion = {
+									who = ROOT
+									value > 99
+								}
+								num_of_owned_provinces_with = {
+									value = 1
+									culture = songhai
+								}
+							}
+						}
+						every_owned_province = {
+							limit = { culture = songhai } #check
+							change_culture = songhai_new #change
+						}
+					}
+					if = { # soninke Check
+						limit = {
+							AND = {
+								has_opinion = {
+									who = ROOT
+									value > 99
+								}
+								num_of_owned_provinces_with = {
+									value = 1
+									culture = soninke
+								}
+							}
+						}
+						every_owned_province = {
+							limit = { culture = soninke } #check
+							change_culture = soninke_new #change
+						}
+					}
+					if = { # bambara Check
+						limit = {
+							AND = {
+								has_opinion = {
+									who = ROOT
+									value > 99
+								}
+								num_of_owned_provinces_with = {
+									value = 1
+									culture = bambara
+								}
+							}
+						}
+						every_owned_province = {
+							limit = { culture = bambara } #check
+							change_culture = bambara_new #change
+						}
+					}
+					if = { # bozo Check (lol)
+						limit = {
+							AND = {
+								has_opinion = {
+									who = ROOT
+									value > 99
+								}
+								num_of_owned_provinces_with = {
+									value = 1
+									culture = bozo
+								}
+							}
+						}
+						every_owned_province = {
+							limit = { culture = bozo } #check
+							change_culture = bozo_new #change
+						}
+					}
+				}
 				every_owned_province = {
 					limit = { culture = yorumba } #check
 					change_culture = yorumba_new #change
@@ -243,36 +506,6 @@ dec1_nge_nigerian_nationalism_branch = {
 				add_legitimacy = 10
 				add_absolutism = 5
 			}
-			add_country_modifier = {
-				name = dec1_nge_cultural_shift
-				duration = 365
-			}
-			custom_tooltip = form_greater_nigerian_culture_tt_4 # Culture
-			hidden_effect = {
-				add_country_modifier = {
-					name = dec1_nge_cultural_shift_perm
-					duration = -1
-					hidden = yes
-				}
-			}
-		}
-		ai_weight = {
-			factor = 500
-		}
-	}
-
-	dec1_nge_foundations_of_greater_nigeria = {
-		icon = mission_mal_riches_of_trade
-		position = 7
-		required_missions = { dec1_nge_nigerians_first }
-		completed_by = 1505.1.1
-		provinces_to_highlight = {
-		}
-		trigger = {
-		}
-		effect = {
-			add_prestige = 10
-			add_legitimacy = 5
 			add_great_project = {
 				type = nge_statue_of_ruler
 				instant = no 
