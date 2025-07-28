@@ -1,0 +1,7 @@
+spriteTypes = {
+	# 
+	spriteType = {
+		name = "trade_good_bitumen"
+		texturefile = "gfx//interface//tradegoods//bitumen.dds"
+	}
+}

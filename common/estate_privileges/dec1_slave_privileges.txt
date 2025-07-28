@@ -21,7 +21,7 @@ dec1_slave_trade_rights = {
 
 	benefits = {
 		production_efficiency = 0.15
-		global_trade_goods_size_modifier = 0.1
+		#global_trade_goods_size_modifier = 0.1
 	}
 
 	modifier_by_land_ownership = {
@@ -36,14 +36,6 @@ dec1_slave_trade_rights = {
 	ai_will_do = {
 		factor = 1
 
-		modifier = {
-			factor = 2
-			slavery_trade_goods_produced_percent = 0.15
-		}
-		modifier = {
-			factor = 0.25
-			NOT = { global_trade_goods_size_modifier = 0.05 }
-		}
 		modifier = {
 			factor = 0
 			yearly_corruption_increase = 0.35

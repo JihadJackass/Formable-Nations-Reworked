@@ -1,0 +1,73 @@
+	# Nigeria
+
+	dec1_nigerian_tribal_crisis = {
+
+		potential = {
+			tag = NGE
+			OR = {
+				mission_completed = dec1_nge_christianity_first
+				NOT = { mission_completed = dec1_nge_embrace_our_past }
+			}
+		}
+
+		can_start = {
+			has_any_disaster = no
+			has_country_flag = dec1_NGE_tribal_crisis_active
+			stability < 1
+			OR = {
+				mission_completed = dec1_nge_christianity_first # todo: change to big mission choice
+				NOT = { mission_completed = dec1_nge_embrace_our_past }
+			}
+		}
+
+		can_stop = {
+			has_any_disaster = yes
+			OR = {
+				has_country_flag = dec1_nigeria_resolved_tribal_crisis
+				mission_completed = dec1_nge_embrace_our_past
+			}
+		}
+
+		progress = {
+			modifier = { 
+				factor = -0.010
+				stability > 2
+			}
+			modifier = { 
+				factor = 0.5
+				NOT = { mission_completed = dec1_nge_embrace_our_past }
+			}
+		}
+
+		modifier = {
+			global_unrest = 0.35
+		}
+
+		can_end = {
+			OR = {
+				has_country_flag = dec1_nigeria_resolved_tribal_crisis
+				mission_completed = dec1_nge_embrace_our_past
+				AND = {
+					NOT = {
+						OR = {
+							has_rebel_faction = tribal_rebels 
+							num_of_rebel_armies > 1
+						}
+					}
+					has_country_flag = dec1_NGE_tribal_crisis_set_force
+				}
+			}
+		}
+
+		#on_start = dec1_commonwealth_events.12
+		#on_end = dec1_disaster_events_anglois_civil_war.100
+
+		on_monthly = {
+			events = { }
+			random_events = {
+				1000 = 0
+
+			}
+		}
+	}
+

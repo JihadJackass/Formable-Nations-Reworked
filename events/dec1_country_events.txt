@@ -886,7 +886,7 @@ namespace = dec1_country_events
 			id = dec1_country_events.200
 			title = "dec1_country_events.200.t"
 			desc = "dec1_country_events.200.d"
-			picture = VIKING_KING_eventPicture
+			picture = CHRISTIAN_ANIMIST_ALTAR_eventPicture
 
 			fire_only_once = yes
 			is_triggered_only = yes
@@ -896,9 +896,11 @@ namespace = dec1_country_events
 			}
 
 			# Limited Support, prefer fetishist traditions (historical)
-			option = {
+			option = {	
 				name = "dec1_country_events.200.a"
 				ai_chance = { factor = 60 }
+				add_stability = 1
+				add_prestige = 10
 				add_country_modifier = { 
 					name = dec1_nge_fetishist_traditions
 					duration = -1
@@ -909,20 +911,40 @@ namespace = dec1_country_events
 			option = {
 				name = "dec1_country_events.200.b"
 				ai_chance = { factor = 20 }
+				add_stability = -1
+				add_estate_influence_modifier = {
+					estate = estate_clergy
+					influence = 15
+					duration = -1
+				}
+				set_country_flag = dec1_nge_full_christian_support
 			}
 
 			# embrace islamic traditions, reject Christian settlers
 			option = {
 				name = "dec1_country_events.200.c"
 				ai_chance = { factor = 27 }
-				set_country_flag = dec1_nge_embraced_islamic_traditions
+				every_owned_province = {
+					limit = {
+						OR = {
+							NOT = { religion = sunni }
+							NOT = { religion = ibadi }
+						}
+					}
+					add_unrest = 3
+				}
+				set_country_flag = dec1_NGE_embraced_islamic_traditions
 			}
 
 			# democratic ideals
 			option = {
 				name = "dec1_country_events.200.f"
 				ai_chance = { factor = 27 }
-				set_country_flag = dec1_nge_embraced_islamic_traditions
+				add_stability = -1
+				add_prestige = 5
+				add_legitimacy = 20
+				add_government_reform = elective_monarchy_reform
+				set_country_flag = dec1_NGE_democratic_realism_embraced
 			}
 
 			# hidden nigerian crusader state path, byzantium either must exist or be allied to the pope, pope must have 150 opinion, must not be protestant
@@ -930,17 +952,16 @@ namespace = dec1_country_events
 			option = {
 				name = "dec1_country_events.200.e"
 				ai_chance = { factor = 3 }
+				highlight = yes
 				trigger = {
+					has_country_flag = dec1_nge_full_christian_support
 					NOT = { religion = protestant }
 					OR = {
-						exists = BYZ
-						OR = {
-							alliance_with = PAP 
-							PAP = {
-								has_opinion = {
-									who = NGE
-									value > 149
-								}
+						alliance_with = PAP 
+						PAP = {
+							has_opinion = {
+								who = NGE
+								value > 149
 							}
 						}
 					}
@@ -950,12 +971,115 @@ namespace = dec1_country_events
 
 		}
 
+		# Random event for nigeria tribal conflict which can fire within 10 years of nigeria forming
+		# STARTING EVENT for nigeria tribal crisis
+
+		country_event = {
+			id = dec1_country_events.201
+			title = "dec1_country_events.201.t"
+			desc = "dec1_country_events.201.d"
+			picture = PEASANTS_ON_STEPPES_eventPicture
+
+			fire_only_once = yes
+
+			trigger = {
+				NGE = { exists = yes }
+			}
+
+			mean_time_to_happen = {
+				months = 24
+
+				modifier = {
+					factor = 0.8
+					stability < 1
+				}
+			}
+
+			# Start of the crisis
+			option = {
+				name = "dec1_country_events.201.a"
+				ai_chance = { factor = 100 }
+				add_prestige = -5
+				set_country_flag = dec1_NGE_tribal_crisis_active
+			}
+
+		}
+
+		# handling of tribal crisis resolution event
+
+		country_event = {
+			id = dec1_country_events.202
+			title = "dec1_country_events.202.t"
+			desc = "dec1_country_events.202.d"
+			picture =     BABBLING_BAFFOON_eventPicture
+
+			fire_only_once = yes
+
+			trigger = {
+				has_disaster = dec1_nigerian_tribal_crisis
+				NGE = { exists = yes }
+			}
+
+			mean_time_to_happen = {
+				months = 12
+
+				modifier = {
+					factor = 0.8
+					stability < 1
+				}
+			}
+
+			# use force
+			option = {
+				name = "dec1_country_events.202.a"
+				ai_chance = { factor = 55 }
+				capital_scope = {
+					add_unrest = 5
+				}
+				tribal_rebels = 2
+				set_country_flag = dec1_NGE_tribal_crisis_set_force
+			}
+
+			# recognize local tribal groups with partial autonomy
+			option = {
+				name = "dec1_country_events.202.b"
+				ai_chance = { factor = 30 }
+				add_prestige = -5
+				random_owned_province = {
+					if = {
+						limit = {
+							NOT = {
+								OR = {
+									has_port = yes
+									is_capital = yes
+									trade_goods = slaves
+								}
+							}
+						}
+						create_vassal = NUP  # TODO: rework
+					}
+				}
+				set_country_flag = dec1_NGE_tribal_crisis_set_autonomy
+			}
+
+			# grant local tribes full rights as an estate
+			option = {
+				name = "dec1_country_events.202.c"
+				ai_chance = { factor = 15 }
+				add_prestige = -5
+				set_country_flag = dec1_NGE_tribal_crisis_set_estate
+			}
+
+		}
+
+		# end event for nigeria tribal crisis
+
 		# Handling the Shehu Polities
 		country_event = {
 			id = dec1_country_events.210
 			title = "dec1_country_events.210.t"
 			desc = "dec1_country_events.210.d"
-			picture = VIKING_KING_eventPicture
+			picture = 3_SONS_eventPicture
 
 			fire_only_once = yes
 			is_triggered_only = yes

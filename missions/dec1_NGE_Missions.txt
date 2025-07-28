@@ -24,8 +24,14 @@ dec1_nge_christianity_branch = {
 			custom_trigger_tooltip = {
 				tooltip = dec1_nge_welcome_christians_tt
 				any_known_country = {
-					capital_scope = {
-						continent = europe
+					AND = {
+						capital_scope = {
+							continent = europe
+						}
+						has_opinion = {
+							who = NGE
+							value > 40
+						}
 					}
 				}
 			}
@@ -73,7 +79,7 @@ dec1_nge_christianity_branch = {
 		}
 	}
 
-	dec1_nge_christianity_first = {
+	dec1_nge_christianity_first = { # Course of Identity
 		icon = mission_religious
 		position = 6
 		required_missions = { dec1_nge_propogate_christianity }
@@ -84,7 +90,9 @@ dec1_nge_christianity_branch = {
 			NOT = { mission_completed = dec1_nge_nigerians_first }
 		}
 		effect = {
-
+			country_event = {
+				id = dec1_country_events.203 # Identity event - tied to 200
+			}
 		}
 		ai_weight = {
 			factor = 500
@@ -92,7 +100,7 @@ dec1_nge_christianity_branch = {
 	}
 }
 
-dec1_nge_christianity_branch = {
+dec1_nge_christianity_branching = {
 	slot = 1
 	generic = no
 	ai = yes
@@ -134,23 +142,37 @@ dec1_nge_nigerian_nationalism_branch = {
 	}
 	has_country_shield = yes
 
-	dec1_nge_nigerians_first = {
-		icon = mission_mal_riches_of_trade
+	dec1_nge_nigerians_first = { # nigeria first
+		icon = mission_african_trade_post
 		position = 6
 		completed_by = 1505.1.1
 		provinces_to_highlight = {
 		}
 		trigger = {
 			prestige > 65
-			num_of_owned_provinces_with = {
-				value = 20
-				superregion = africa_superregion
-				#has_owner_accepted_culture = no
-				is_overseas = no
-			}
-			NOT = { mission_completed = dec1_nge_christianity_first }
-			OR = {
-				mission_completed = west_africa_unite_home_region
+			AND = {
+				num_of_owned_provinces_with = { # Needs at least 9
+					value > 9
+					superregion = africa_superregion
+				}
+				OR = { # has 13 provinces OR has completed unite home region
+					# OR has not completed christianity first OR went democratic
+					num_of_owned_provinces_with = {
+						value > 13
+						superregion = africa_superregion
+					}
+					mission_completed = west_africa_unite_home_region
+					OR = {
+						AND = {
+							NOT = { mission_completed = dec1_nge_christianity_first }
+							has_country_flag = dec1_nge_full_christian_support
+						}
+						custom_trigger_tooltip = {
+							tooltip = dec1_NGE_democratic_realism_path_tt
+							has_country_flag = dec1_NGE_democratic_realism_embraced
+						}
+					}
+				}
 			}
 		}
 		effect = {
@@ -174,13 +196,32 @@ dec1_nge_nigerian_nationalism_branch = {
 	}
 
 	dec1_nge_foundations_of_greater_nigeria = {
-		icon = mission_mal_riches_of_trade
+		icon = mission_west_african_ports
 		position = 7
 		required_missions = { dec1_nge_nigerians_first }
 		completed_by = 1505.1.1
 		provinces_to_highlight = {
+			owned_by = NGE
 		}
 		trigger = {
+			OR = {
+				# at least one neighbor has 100 opinion of NGE and is in west africa
+				any_country = {
+					AND = {
+						has_opinion = {
+							who = NGE
+							value > 99
+						}		
+						capital_scope = {
+							continent = africa
+						}						
+					}
+				}
+				num_of_owned_provinces_with = { # Needs at least 9
+					value > 19
+					superregion = africa_superregion
+				}
+			}
 		}
 		effect = {
 			add_prestige = 10
@@ -516,17 +557,31 @@ dec1_nge_nigerian_nationalism_branch = {
 		}
 	}
 
-	dec1_nge_greater_nigeria = {
-		icon = mission_mal_riches_of_trade
+	dec1_nge_greater_nigeria = { # greater nigeria
+		icon = mission_african_soldier
 		position = 8
 		required_missions = { dec1_nge_foundations_of_greater_nigeria }
 		completed_by = 1505.1.1
 		provinces_to_highlight = {
+			owned_by = NGE
 		}
 		trigger = {
+			legitimacy > 90
+			OR = {
+				in_golden_age = yes 
+				total_development = 225 
+			}
 		}
 		effect = {
+			add_stability = 1
 			override_country_name = dec1_greater_nigeria_name 
+			custom_tooltip = dec1_greater_nigeria_golden_age_tt
+			if = {
+				limit = {
+					in_golden_age = yes 
+				}
+				extend_golden_age = 1200 
+			}
 		}
 		ai_weight = {
 			factor = 500
@@ -545,8 +600,8 @@ dec1_nge_democratic_monarchism_branch = {
 	}
 	has_country_shield = yes
 
-	dec1_nge_democratic_realism = {
-		icon = mission_mal_riches_of_trade
+	dec1_nge_democratic_realism = { # democratic realism
+		icon = mission_hanseatic_city
 		position = 6
 		#required_missions = { west_africa_unite_home_region }
 		completed_by = 1505.1.1
@@ -560,7 +615,12 @@ dec1_nge_democratic_monarchism_branch = {
 			} 
 		}
 		effect = {
-			add_adm_power = 10
+			add_prestige = 10
+			change_government_reform_progress = 250 
+			add_country_modifier = {
+				name = dec1_nge_democratic_realist_ideas
+				duration = -1
+			}
 		}
 		ai_weight = {
 			factor = 500
@@ -579,7 +639,7 @@ dec1_nge_islam_branch = {
 	has_country_shield = yes
 
 	dec1_nge_shehu_polities = {
-		icon = mission_mal_riches_of_trade
+		icon = mission_islamic_golden_age
 		position = 8
 		required_missions = { west_africa_sincretic_rituals }
 		completed_by = 1505.1.1
@@ -593,7 +653,55 @@ dec1_nge_islam_branch = {
 
 		}
 		effect = {
-			add_adm_power = 10
+			custom_tooltip = dec1_nge_random_conversion
+			hidden_effect = {
+				random_owned_province = {
+					limit = {
+						AND = {
+							NOT = { religion = sunni }
+							NOT = { religion = ibadi }
+							NOT = {
+								OR = {
+									has_province_flag = dec1_nge_sunni_islam_spread
+									has_province_flag = dec1_nge_ibadi_islam_spread
+								}
+							}
+						}
+					}
+					change_religion = sunni
+					set_province_flag = dec1_nge_sunni_islam_spread
+				}
+				random_owned_province = {
+					limit = {
+						AND = {
+							NOT = { religion = sunni }
+							NOT = { religion = ibadi }
+							NOT = {
+								OR = {
+									has_province_flag = dec1_nge_sunni_islam_spread
+									has_province_flag = dec1_nge_ibadi_islam_spread
+								}
+							}
+						}
+					}
+					change_religion = ibadi
+					set_province_flag = dec1_nge_ibadi_islam_spread
+				}
+				every_owned_province = { # Clear country flags
+					if = {
+						limit = {
+							has_province_flag = dec1_nge_sunni_islam_spread
+							has_province_flag = dec1_nge_ibadi_islam_spread
+						}
+						clr_province_flag = dec1_nge_sunni_islam_spread
+						clr_province_flag = dec1_nge_ibadi_islam_spread
+					}
+				}				
+			}
+			add_country_modifier = {
+				name = dec1_shehu_polities_hold_influence
+				duration = -1
+			}
 		}
 		ai_weight = {
 			factor = 500
@@ -611,8 +719,8 @@ dec1_nge_fetishist_branch = {
 	}
 	has_country_shield = yes
 
-	dec1_nge_embrace_our_past = {
-		icon = mission_mal_riches_of_trade
+	dec1_nge_embrace_our_past = { # Embrace our past
+		icon = mission_bedouins
 		position = 8
 		#required_missions = { west_africa_sincretic_rituals }
 		completed_by = 1505.1.1
@@ -622,7 +730,10 @@ dec1_nge_fetishist_branch = {
 			mission_completed = west_africa_sincretic_rituals
 		}
 		effect = {
-			add_adm_power = 10
+			add_country_modifier = { 
+				name = dec1_embrace_our_past
+				duration = -1
+			}
 		}
 		ai_weight = {
 			factor = 500
@@ -647,12 +758,24 @@ dec1_nge_slave_trade_path_branch = {
 		#required_missions = { africa_slave_trade }
 		completed_by = 1505.1.1
 		provinces_to_highlight = {
+			trade_goods = slaves
 		}
 		trigger = {
 			NOT = { mission_completed = africa_slave_trade }
-			#slaves = 5
+			current_income_balance = 2 
+			years_of_income = 1.2
+			slaves > 2
 		}
 		effect = {
+			if = {
+				limit = {
+					any_owned_province = {
+						has_port = yes 
+						NOT = { trade_goods = slaves }			
+					}
+				}
+				every_owned_province = { change_trade_goods = slaves }
+			}
 			complete_mission = africa_slave_trade
 			custom_tooltip = dec1_nge_establishes_benin_slave_guild
 		}
@@ -662,11 +785,12 @@ dec1_nge_slave_trade_path_branch = {
 	}
 
 	dec1_promote_external_slave_markets = {
-		icon = mission_central_asian_city
+		icon = mission_invade_island
 		position = 5
 		required_missions = { dec1_establish_slave_markets }
 		completed_by = 1505.1.1
 		provinces_to_highlight = {
+			trade_goods = slaves
 		}
 		trigger = {
 			NOT = { mission_completed = africa_slave_trade }
@@ -674,23 +798,29 @@ dec1_nge_slave_trade_path_branch = {
 				production_leader = {
 					trade_goods = slaves
 				}
-				slaves = 5
+				slaves > 3
 			}
 		}
 		effect = {
-			add_adm_power = 10
+			change_price = {
+				trade_goods = slaves
+				key = dec1_nigerian_slave_markets_established_upprice
+				value = 0.05
+				duration = 18250
+			}
 		}
 		ai_weight = {
 			factor = 500
 		}
 	}
 
-	dec1_dominate_the_market = {
-		icon = mission_central_asian_city
+	dec1_dominate_the_market = { # Dominate the industry
+		icon = mission_noble_council
 		position = 6
 		required_missions = { dec1_promote_external_slave_markets }
 		completed_by = 1505.1.1
 		provinces_to_highlight = {
+			trade_goods = slaves
 		}
 		trigger = {
 			NOT = { mission_completed = africa_slave_trade }
@@ -698,11 +828,17 @@ dec1_nge_slave_trade_path_branch = {
 				production_leader = {
 					trade_goods = slaves
 				}
-				slaves = 5
+				slaves = 4
 			}
 		}
 		effect = {
-			add_adm_power = 10
+
+			change_price = {
+				trade_goods = slaves
+				key = dec1_nigerian_slave_markets_established_upprice
+				value = 0.10
+				duration = -1
+			}
 		}
 		ai_weight = {
 			factor = 500
@@ -710,11 +846,17 @@ dec1_nge_slave_trade_path_branch = {
 	}
 
 	dec1_sell_slaves_to_europe = {
-		icon = mission_central_asian_city
+		icon = mission_dominate_home_trade_node
 		position = 7
 		required_missions = { dec1_dominate_the_market }
 		completed_by = 1505.1.1
 		provinces_to_highlight = {
+			trade_goods = slaves
+			any_great_power = {
+				capital_scope = {
+					is_capital = yes 
+				}
+			}
 		}
 		trigger = {
 			NOT = { mission_completed = africa_slave_trade }
@@ -722,11 +864,17 @@ dec1_nge_slave_trade_path_branch = {
 				production_leader = {
 					trade_goods = slaves
 				}
-				slaves = 5
+				slaves > 5
 			}
 		}
 		effect = {
-			add_adm_power = 10
+			add_years_of_owned_provinces_production_income = {
+				years = 22
+				trigger = {
+					trade_goods = slaves
+				}
+				custom_tooltip = dec1_nge_slave_production_income_sell_europe
+			}
 		}
 		ai_weight = {
 			factor = 500
@@ -734,7 +882,7 @@ dec1_nge_slave_trade_path_branch = {
 	}
 
 	dec1_atlantic_slave_trade = {
-		icon = mission_central_asian_city
+		icon = mission_settlers_north_america
 		position = 8
 		required_missions = { dec1_sell_slaves_to_europe }
 		completed_by = 1505.1.1
@@ -746,11 +894,22 @@ dec1_nge_slave_trade_path_branch = {
 				production_leader = {
 					trade_goods = slaves
 				}
-				slaves = 5
+				slaves > 7
 			}
 		}
 		effect = {
-			add_adm_power = 10
+			random_owned_province = {
+				limit = {
+					region = southeast_america_region
+				}
+				change_trade_goods = slaves 
+			}
+			change_price = {
+				trade_goods = slaves
+				key = dec1_nigerian_transatlantic_slaves_price
+				value = 0.50
+				duration = -1
+			}			
 		}
 		ai_weight = {
 			factor = 500

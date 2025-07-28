@@ -31,3 +31,11 @@
     desc_dec1_anglois_icon_personality: "This ruler has become a true icon for the Anglois religion."
     dec1_anglois_icon_personality_die_desc: "A great loss!"
 
+  # trade goods
+
+    palm_oil: "Palm Oil"
+    palm_oilDESC: "TODO"
+
+    bitumen: "Bitumen"
+    bitumenDESC: "TODO"
+

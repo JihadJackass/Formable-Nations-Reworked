@@ -128,11 +128,26 @@
       # Propgation of christianity
       dec1_country_events.200: "Propogation of Christianity"
       dec1_country_events.200.t: "Propogation of Christianity"
-      dec1_country_events.200.d: "TODO"
+      dec1_country_events.200.d: "The Christian population is booming lately which isn't exactly good for us for various reasons.\n\nWe have gathered all influential members of Nigerian society so that we may come together and decide upon the future of our state."
       dec1_country_events.200.a: "Prefer Fetishist Traditions"
-      dec1_country_events.200.b: "Embrace Christian Ideals"
+      dec1_country_events.200.b: "Fully Embrace Christian Ideals"
       dec1_country_events.200.c: "Support the Shehu Locals"
+      dec1_country_events.200.f: "Embrace Christian Democratic Values"
       dec1_country_events.200.e: "Proclaim the order of Militia Christi Nigra"
+
+      # random event for tribal disaster
+      dec1_country_events.201: "Nigerian Tribal Disaster"
+      dec1_country_events.201.t: "Nigerian Tribal Disaster"
+      dec1_country_events.201.d: "Many groups of local tribals have gathered to oppose our unificaiton of the Nigerian region into a single polity which they feel threatens their way of life and are actively leading campaigns against at both the civilian and military level to various degrees."
+      dec1_country_events.201.a: "We must resolve this soon.."
+
+      # handle tribal crisis
+      dec1_country_events.202: "Nigerian Tribal Disaster"
+      dec1_country_events.202.t: "Nigerian Tribal Disaster"
+      dec1_country_events.202.d: "Many groups of local tribals have gathered to oppose our unificaiton of the Nigerian region into a single polity which they feel threatens their way of life and are actively leading campaigns against at both the civilian and military level to various degrees."
+      dec1_country_events.202.a: "We will resolve this with force."
+      dec1_country_events.202.b: "Partial Autonomy is acceptable."
+      dec1_country_events.202.c: "Recognize their rights and provide them lands."
 
     # Russia
 

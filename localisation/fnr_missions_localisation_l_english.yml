@@ -8,7 +8,7 @@
     dec1_nge_welcome_christians_title: "Welcome Christians"
     dec1_nge_welcome_christians_desc: "§RWe will be locked out of the §YNigeria First§! path if we choose to embrace §YChristianity§! extensively upon completion of §YPropogate Christianity§! Mission!§!\n\nAs an isolated nation upon the Western Coast of Africa we have seen in the recent past various well funded travelers not of our people who follow a god called 'Jesus' giving us clear insight that perhaps it may be beneficial to align with these rich traders and travelers."
 
-    dec1_nge_welcome_christians_tt: "Any known country has a §YCapital§! in §YEurope§! and is a §YCatholic Christian§! with at least §Y80 opinion§! which we have an active diplomat working to increase relations."
+    dec1_nge_welcome_christians_tt: "Any known country has a §YCapital§! in §YEurope§! and is a §YCatholic Christian§! with more than §Y40 opinion§!."
 
     dec1_nge_modifier_christian_influx: "Influx of Christians"
 
@@ -17,9 +17,11 @@
 
     dec1_nge_propogate_christianity_temp_missionary: "Propogation of Christianity"
 
+    dec1_nge_has_propogated_christianity: "Has §RNOT§! chosen to support §YChristianity§! during the §YPropogation of Christianity§! mission."
+
     dec1_NGE_country_event_tt_1: "The Spread of Christianity will be based on our total support our nation can muster as well as dependent on relations with Europe"
 
-    dec1_nge_christianity_first_title: "Christianity First"
+    dec1_nge_christianity_first_title: "Course of Identity"
     dec1_nge_christianity_first_desc: "Crusader State path"
 
     dec1_nge_christian_branching_1_title: "Branching Mission"
@@ -34,6 +36,14 @@
     dec1_establish_slave_markets_title: "Establish Slave Markets"
     dec1_establish_slave_markets_desc: "§RIf we choose to §YEstablish Slave Markets§! and ensure our direct monetary control over them we will NOT be able to complete §YThe Slave Trade§! mission.§!"
 
+    dec1_nge_established_slave_markets_large: "Institutional Local Slave Markets"
+    dec1_nge_established_slave_markets_large_desc: "TODO DESC"
+    dec1_nge_established_slave_markets_latge_tooltip: "TODO TT"
+
+    dec1_nge_established_slave_markets_small: "Established Local Slave Markets"
+    dec1_nge_established_slave_markets_small_desc: "TODO DESC"
+    dec1_nge_established_slave_markets_small_tooltip: "TODO TT"
+
     dec1_nge_establishes_benin_slave_guild: "Establishes the §YBenin Slave Guild§! Estate."
 
     dec1_promote_external_slave_markets_title: "External Markets"
@@ -42,11 +52,17 @@
     dec1_dominate_the_market_title: "Dominate The Industry"
     dec1_dominate_the_market_desc: ""
 
+    dec1_nigerian_slave_markets_established_upprice: "Nigerian Slave Markets Drive Profits"
+
     dec1_sell_slaves_to_europe_title: "European Slave Trade Deals"
     dec1_sell_slaves_to_europe_desc: ""
 
+    dec1_nge_slave_production_income_sell_europe: "From the §YEuropean Slave-Trade Economic Agreements§!"
+
     dec1_atlantic_slave_trade_title: "Transatlantic Slave Trade"
     dec1_atlantic_slave_trade_desc: ""
+
+    dec1_nigerian_transatlantic_slaves_price: "Nigerian Participation in Transatlantic Slave Trade"
 
       # SLAVE ESTATE
 
@@ -66,9 +82,9 @@
   # Nationalist Branch
 
     dec1_nge_nigerians_first_title: "Nigeria First"
-    dec1_nge_nigerians_first_desc: "§RWe will be locked out of the §YChristianity First§! path if we choose our §YNigerian§! identity over Christian Clerical political domination.§!"
+    dec1_nge_nigerians_first_desc: "§RWe will be locked out of the §YChristianity First§! path if we choose our §YNigerian§! identity over Christian Clerical political domination.§!\n\nIt is time for our nation to become "
 
-    form_greater_nigerian_culture_tt_3: "\nForm the §YNigerian§! culture group.\n\nAny Country which has at least 100 opinion of us and is apart of TODO"
+    form_greater_nigerian_culture_tt_3: "\nForm the §YNigerian§! culture group.\n\nEvery country in the §YWest African§! and §YMande Culture Groups§! which has at least §G100§! §Yopinion§! of @NGE [Root.GetName] will willingly join the new §YNigerian Culture Group§!.\n\nThe region of our people is wealthy beyond measure but the disorganized tribal groups are abundant and there is no clear direct central authority which is a situation we are destined to change now.\n"
 
     form_greater_nigerian_culture_tt_4: "We will §YPermanently§! gain §G3§! Promoted Culture slots.§!\n"
 
@@ -77,11 +93,15 @@
     dec1_nge_democratic_realism_title: "Democratic Realism"
     dec1_nge_democratic_realism_desc: "With the establishment of European-styled Democratic systems based on the likes of Switzerland and the Greeks of past times as we have so learned from extended Christian contact - An interesting concept which we will attempt to institute."
 
+    dec1_nge_democratic_realist_ideas: "Legal-Backed Tolerance"
+
     dec1_nge_foundations_of_greater_nigeria_title: "Foundations of Greater Nigeria"
     dec1_nge_foundations_of_greater_nigeria_desc: "Every country in the §YWest African§! and §YMande Culture Groups§! which has at least §G100§! §Yopinion§! of @NGE [Root.GetName] will willingly join the new §YNigerian Culture Group§!.\n\nThe region of our people is wealthy beyond measure but the disorganized tribal groups are abundant and there is no clear direct central authority which is a situation we are destined to change now."
     
     dec1_nge_greater_nigeria_title: "Greater Nigeria"
     dec1_nge_greater_nigeria_desc: ""
+
+    dec1_greater_nigeria_golden_age_tt: "If we are in a @NGE §YNigerian Golden Age§! upon completion of this mission we will extend the §YGolden Age§! by 20 years."
 
 
   # Democratic Path
@@ -93,14 +113,26 @@
     dec1_nge_shehu_polities_title: "Shehu Polities"
     dec1_nge_shehu_polities_desc: "§TWe can bypass the requirement for §YSincretic Rituals§! by supporting the §YShehu Locals§! instead of allowing §OChristians to spread their religion upon our people§! during the §YPropogate Christianity§! mission related events.§!\n\nShehu scholars and leaders - particularly those associated with the Sokoto Caliphate founded by Usman dan Fodio are abundant in our northern territories. They hold strong influence over the region and suggest various changes to legal structure clearly in favor of Islam of which our stance on is currently uncertain."
 
+    dec1_shehu_polities_hold_influence: "Shehu Polities Expand Influence"
+
+    dec1_nge_random_conversion: "Two §Yrandom provinces§! will convert to either §YSunni§! or §YIbadi§!."
+
   # fetishist branch
 
     dec1_nge_embrace_our_past_title: "Embrace our Past"
-    dec1_nge_embrace_our_past_desc: ""
+    dec1_nge_embrace_our_past_desc: "The traditions of our past are far more important than Christian values or Islamic beliefs - It is obvious we are people who are one with nature, one with our own culture, one with Nigeria.\n\nWe will abandon the ideals of the west and their horse-filled armies and focus on our religious and cultural strength."
+
+    dec1_embrace_our_past: "Embrace our Past"
+
+    dec1_nge_fetishist_traditions: "Fetishist Traditions"
 
   # Nigeria Ruler Monument (move to own file im lazy)
 
     nge_statue_of_ruler: "Statue of Oduduwa"
+
+  # Tribal crisis
+
+    dec1_NGE_tribal_crisis_active: "§YNigerian Tribal Crisis§! is §GActive§!"
 
 # Aquitaine
 

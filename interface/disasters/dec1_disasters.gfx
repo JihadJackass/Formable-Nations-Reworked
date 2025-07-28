@@ -48,4 +48,11 @@ spriteTypes = {
         noOfFrames = 3
         loadType = "INGAME"
     }
+     # Nigeria
+     spriteType = {
+        name = "GFX_disaster_dec1_nigerian_tribal_crisis"
+        texturefile = "gfx//interface//disasters//dec1_nigerian_tribal_crisis.dds"
+        noOfFrames = 3
+        loadType = "INGAME"
+    }
 }
