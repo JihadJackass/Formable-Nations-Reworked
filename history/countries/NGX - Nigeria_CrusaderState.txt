@@ -1,6 +1,6 @@
 government = theocracy
 add_government_reform = crusading_kingdom_reform
-primary_culture = dec1_west_african_new
+primary_culture = yorumba_new
 religion = catholic
 technology_group = western
 capital = 2290 #

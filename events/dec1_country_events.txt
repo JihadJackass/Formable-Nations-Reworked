@@ -914,7 +914,7 @@ namespace = dec1_country_events
 				ai_chance = { factor = 20 }
 				add_stability = -1
 				add_estate_influence_modifier = {
-					estate = estate_clergy
+					estate = estate_church
 					influence = 15
 					duration = -1
 				}
