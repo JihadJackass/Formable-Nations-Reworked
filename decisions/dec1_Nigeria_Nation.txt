@@ -103,7 +103,7 @@ country_decisions = {
 				if = {
 					limit = {
 						has_custom_ideas = no
-						#NOT = { has_idea_group = CHX_ideas }
+						NOT = { has_idea_group = NGE_ideas }
 					}
 					country_event = { id = ideagroups.1 }
 				}
@@ -111,10 +111,10 @@ country_decisions = {
 				country_event = { id = dec1_events.3 }
 				custom_tooltip = dec1_decisions_blank
 				# National Ability
-				#add_country_modifier = {
-				#	name = dec1_united_chad
-				#	duration = 49275
-				#}
+				add_country_modifier = {
+					name = dec1_nge_nigeria_united
+					duration = 49275
+				}
 				# Increased Centralization
 				add_country_modifier = {
 					name = dec1_increased_centralization
@@ -130,28 +130,18 @@ country_decisions = {
 
 	# Nigeria crusader state path
 
-	dec1_establish_the_black_militia_of_christ = {
-		major = yes
+		# ESTABLISH BLACK MILITIA OF CHRIST MERC GROUP
+
+	# Rename Ijebu to Lagos
+
+	dec1_settle_lagos = {
+		#major = yes
 		potential = {
 			tag = NGE
-			AND = {
-				NGE = {
-					alliance_with = PAP 
-					has_opinion = {
-						who = THIS
-						value = x
-					}
-				}
-			}
 		}
 		provinces_to_highlight = {
-			OR = { # Chad
-				area = benin_area
-				area = lower_niger_area
-				province_id = 2293
-				province_id = 1154
-				province_id = 2281
-				province_id = 1161
+			OR = {
+				province_id = 2290
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
@@ -159,81 +149,15 @@ country_decisions = {
 			}
 		}
 		allow = {
-			
+			tag = NGE
+			treasury > 250
 		}
 	 	effect = {
-			change_tag = NGE # Country TAG
-			set_country_flag = formed_nigeria_flag # Country Formation Flag
-			custom_tooltip = form_nigeria_tt_2 # New Missions
-			custom_tooltip = dec1_decisions_blank
-			NGE = { # Capital change and bonuses
-				set_capital = 1147
-				1147 = {
-					add_base_tax = 1
-					add_base_production = 1
-					add_base_manpower = 1
-				}
-				custom_tooltip = dec1_decisions_blank
-				custom_tooltip = dec1_government_rank_2 # Government Rank Change
-				# Dharma DLC check to prevent ugly tooltip
-				if = {
-					limit = {
-						has_dlc = "Dharma"
-					}
-					custom_tooltip = dec1_government_change_monarchy # Government Type Change
-				}
-				custom_tooltip = dec1_government_reform_change_autocracy
-				custom_tooltip = dec1_decisions_blank
-				# Our Place in the Empire Custom Event
-				if = {
-					limit = {
-						is_part_of_hre = yes
-					}
-					country_event = { id = dec1_events.1 }
-				}
-				hidden_effect = { # Hidden Effects to fix bad tooltips
-					# Region/Area Claims
-					# Government Type Change
-					if = {
-						limit = {
-							NOT = {
-								government = monarchy
-								}
-							}
-						change_government = monarchy
-					}
-					add_government_reform = autocracy_reform
-					# Government Rank change
-					if = {
-						limit = {
-							NOT = {
-								government_rank = 2
-								}
-							}
-						set_government_rank = 2
-					}
-				}
-				# Custom Ideas check and change
-				if = {
-					limit = {
-						has_custom_ideas = no
-						#NOT = { has_idea_group = CHX_ideas }
-					}
-					country_event = { id = ideagroups.1 }
-				}
-				# Custom Missions check and change
-				country_event = { id = dec1_events.3 }
-				custom_tooltip = dec1_decisions_blank
-				# National Ability
-				#add_country_modifier = {
-				#	name = dec1_united_chad
-				#	duration = 49275
-				#}
-				# Increased Centralization
-				add_country_modifier = {
-					name = dec1_increased_centralization
-					duration = -1
-				}
+			add_treasury = -250
+			add_prestige = 5
+			2290 = {
+				rename_capital = "Lagos" 
+				change_province_name = "Lagos" 
 			}
 		}
 		ai_will_do = {
@@ -241,8 +165,6 @@ country_decisions = {
 		}
 		ai_importance = 200
 	}
-
-	# Rename Ijebu to Lagos
 
 	# Move capital to Lagos
 }

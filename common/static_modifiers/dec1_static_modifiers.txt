@@ -40,6 +40,7 @@
 
 	dec1_nge_propogate_christianity_temp_missionary = {
 		missionaries = 1 
+		colonists = 1
 		global_missionary_strength = 0.25
 	}
 
@@ -141,6 +142,13 @@
 	dec1_nubian_archers = {
 		fire_damage = 0.10
 		backrow_artillery_damage = 0.03
+	}
+
+		# Nigeria
+
+	dec1_nge_nigeria_united = {
+		development_cost_modifier = -0.05 
+		global_manpower_modifier = 0.10 
 	}
 
 		# Aksumite
