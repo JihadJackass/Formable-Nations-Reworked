@@ -6,7 +6,7 @@
 
     # Welcome Christians
     dec1_nge_welcome_christians_title: "Welcome Christians"
-    dec1_nge_welcome_christians_desc: "§RWe will be locked out of the §YNigeria First§! path if we choose to embrace §YChristianity§! extensively upon completion of §YPropogate Christianity§! Mission!§!\n\nAs an isolated nation upon the Western Coast of Africa we have seen in the recent past various well funded travelers not of our people who follow a god called 'Jesus' giving us clear insight that perhaps it may be beneficial to align with these rich traders and travelers."
+    dec1_nge_welcome_christians_desc: "As an isolated nation upon the Western Coast of Africa we have seen in the recent past various well funded travelers not of our people who follow a god called 'Jesus' giving us clear insight that perhaps it may be beneficial to align with these rich traders and travelers.\n\n§RWe will be locked out of the §YNigeria First§! path if we choose to embrace §YChristianity§! extensively upon completion of §YPropogate Christianity§! Mission!§!"
 
     dec1_nge_welcome_christians_tt: "Any known country has a §YCapital§! in §YEurope§! and is a §YCatholic Christian§! with more than §Y40 opinion§!."
 
@@ -22,45 +22,72 @@
     dec1_NGE_country_event_tt_1: "The Spread of Christianity will be based on our total support our nation can muster as well as dependent on relations with Europe"
 
     dec1_nge_christianity_first_title: "Course of Identity"
-    dec1_nge_christianity_first_desc: "Crusader State path"
+    dec1_nge_christianity_first_desc: "The rise of Christian domination has come to a head as the Clergy are making significant demands and desires for increased influence are abundant among the powerful estate.\n\nIf we align with strong Christian powers such as @FRA §YFrance§!, @ENG §YEngland§!, @CAS §YCastile§!, or the @PAP §YPapal States§! we could perhaps seek specific assurances should the clergy desire full control of @NGE §YNigeria§!.\n\n§RIf we choose this path we will be locked out of §YNigeria First§! unless we have chosen to §YFully Support the Christian Clergy§! during the §YPropgation of Christianity§! event.§!"
 
     dec1_nge_christian_branching_1_title: "Branching Mission"
     dec1_nge_christian_branching_1_desc: "This mission is a §YBranching Mission§!. Its triggers and effects will be based on the way we complete the '§YChristianity First§!' mission.\n\n§RMutally Exclusive with §YNigeria First§! path§!"
-
     dec1_nge_christian_branching_1_tt: "This mission is a §YBranching Mission§!. Its triggers and effects will be based on the way we complete the '§YChristianity First§!' mission."
 
+    dec1_nge_christian_branching_2_title: "Militia Christi Nigra"
+    dec1_nge_christian_branching_2_desc: "With the Alliance of @PAP §YThe Papal States§! and @NGE §YNigeria§! secured we are now ensuring both political and religious leverage against the §YHoly Christian Sea§! allowing our bureaucracy to become entagled with §YChristian§! values - one of which suggests our neighbors are enemies of Christ and all §YChristians§! alike."
+
+    dec1_nge_christian_branching_3_title: "The Catholic Clergy"
+    dec1_nge_christian_branching_3_desc: "The Catholics are now dominating the everyday politics and daily life of §YNigeria§! though we have embraced this well and our societal structures remain strong!"
+
+    dec1_nge_christian_branching_4_title: "The New Crusader State"
+    dec1_nge_christian_branching_4_desc: "With the rise of the §YBlack Militia of Christ§! has come an enormous amount of influence given to them as well has come at a significant boon to the local populations as they embrace and celebrate their traditions clearly heavily influenced by Catholic traditions."
+
+    dec1_nge_christian_branching_5_title: "Papal Authority"
+    dec1_nge_christian_branching_5_desc: "As of lately §YThe Papal States§! have positioned themselves as the official religious legal authority of the region due to our constant enforcement and embracing of Christian values and while this may have been great at the start it is now clear that our own authority is being questioned by clerics and monks alike."
+
+    dec1_nge_christianity_branching_clergy_title: "Clergy Takes Over"
+
+    dec1_nge_christianity_branching_holy_order_title: "Black Militia of Christ"
+
     dec1_nge_embraced_islamic_traditions: "Rejected Christian Propogration and Embraced Islamic Traditions"
+
+    dec1_nge_rise_of_christianity: "Rise of Christianity"
+
+    dec1_nge_rise_of_christianity_reject_clergy_war: "Rejected the African Holy Wars"
+
+    dec1_nge_black_militia_of_christ: "Black Militia of Christ"
+
+    dec1_nge_the_new_catholic_african_crusaders: "Crusaders of Africa"
+
+    dec1_nge_crusader_mission_clear: "We will lose access to missions which do not directly support our Crusader cause or are locked regardless."
+
+    dec1_nge_fully_supported_christian_clergy: "Fully Supported the Christian Clergy"
 
   # SLAVE CONTENT
 
     dec1_establish_slave_markets_title: "Establish Slave Markets"
-    dec1_establish_slave_markets_desc: "§RIf we choose to §YEstablish Slave Markets§! and ensure our direct monetary control over them we will NOT be able to complete §YThe Slave Trade§! mission.§!"
+    dec1_establish_slave_markets_desc: "The region of our people holds rich history and great culture; yet the existence of slavery is one that will see dissolution anytime soon - we are positioned in a land where this resource simply cannot be passed up and must be directly benifitial to our coffers.\n\nWe will establish control over the slave market and directly benefit and expand this resource in our nation. We could even perhaps convince neighbors and possibly foreign markets to invest in a market which we dominate.\n\n§RIf we choose to §YEstablish Slave Markets§! and ensure our direct monetary control over them we will NOT be able to complete §YThe Slave Trade§! mission§!"
 
     dec1_nge_established_slave_markets_large: "Institutional Local Slave Markets"
-    dec1_nge_established_slave_markets_large_desc: "TODO DESC"
-    dec1_nge_established_slave_markets_latge_tooltip: "TODO TT"
+    dec1_nge_established_slave_markets_large_desc: ""
+    dec1_nge_established_slave_markets_latge_tooltip: ""
 
     dec1_nge_established_slave_markets_small: "Established Local Slave Markets"
-    dec1_nge_established_slave_markets_small_desc: "TODO DESC"
-    dec1_nge_established_slave_markets_small_tooltip: "TODO TT"
+    dec1_nge_established_slave_markets_small_desc: ""
+    dec1_nge_established_slave_markets_small_tooltip: ""
 
     dec1_nge_establishes_benin_slave_guild: "Establishes the §YBenin Slave Guild§! Estate."
 
     dec1_promote_external_slave_markets_title: "External Markets"
-    dec1_promote_external_slave_markets_desc: ""
+    dec1_promote_external_slave_markets_desc: "The establishment of our control over the slave market comes with societal issues but we cannot worry about such nonsense when the profits are that of which could fund a Great Nigerian Army - one which will allow us to conquer many lands of many new people - for now though, it will be most benifitial to promote new markets in neighboring regions and drive the price up so that we may profit."
 
     dec1_dominate_the_market_title: "Dominate The Industry"
-    dec1_dominate_the_market_desc: ""
+    dec1_dominate_the_market_desc: "We now have direct influence and profits from a great deal of the market control which we directly assert into our local laws - We should consider expanding our way of thinking to various regions of our people that will continue the existence of our practice as lately many have begun to question the legitimacy in the enslavement of our own people.\n\n§RShould we choose to ignore the general growing of anti-slavery sentiment there could potentially be conflict§!"
 
     dec1_nigerian_slave_markets_established_upprice: "Nigerian Slave Markets Drive Profits"
 
     dec1_sell_slaves_to_europe_title: "European Slave Trade Deals"
-    dec1_sell_slaves_to_europe_desc: ""
+    dec1_sell_slaves_to_europe_desc: "The rise of slavery has allowed us to flourish economically and now the Europeans seeks deals within our markets - this could absolutely benefit both our nation and trade networks."
 
     dec1_nge_slave_production_income_sell_europe: "From the §YEuropean Slave-Trade Economic Agreements§!"
 
     dec1_atlantic_slave_trade_title: "Transatlantic Slave Trade"
-    dec1_atlantic_slave_trade_desc: ""
+    dec1_atlantic_slave_trade_desc: "The Transatlantic Slave Trade is a economically viable option with the rise of colonial nations across the new world which could directly benefit our nation."
 
     dec1_nigerian_transatlantic_slaves_price: "Nigerian Participation in Transatlantic Slave Trade"
 
@@ -79,10 +106,18 @@
     dec1_slave_trade_rights: "Expanded Slave Trade Rights"
     dec1_slave_trade_rights_desc: ""
 
+  # tribes TODO: move to proper area
+
+    dec1_nge_nigerian_tribes: "Hausa Clans"
+
+    dec1_nge_tribal_estate_rights: "Establish their rights as an Estate."
+
   # Nationalist Branch
 
     dec1_nge_nigerians_first_title: "Nigeria First"
-    dec1_nge_nigerians_first_desc: "§RWe will be locked out of the §YChristianity First§! path if we choose our §YNigerian§! identity over Christian Clerical political domination.§!\n\nIt is time for our nation to become "
+    dec1_nge_nigerians_first_desc: "It is time for our nation to become the dominant power in this region as these neighboring tribal kingdoms are but mere fools compared to us - compared to our ambition.\n\nThe time has come to dominate these fools or turn them against each other so they we may grow while they shrink.\n\nThe use of diplomacy is certainly on the table and could be leveraged in our favor should we have ambition of such heights.\n\n§RWe will be locked out of the §YChristianity First§! path if we choose our §YNigerian§! identity over Christian Clerical political domination.§! "
+
+    dec1_nge_full_christian_support: "Fully Supported the Rise of Christianity"
 
     form_greater_nigerian_culture_tt_3: "\nForm the §YNigerian§! culture group.\n\nEvery country in the §YWest African§! and §YMande Culture Groups§! which has at least §G100§! §Yopinion§! of @NGE [Root.GetName] will willingly join the new §YNigerian Culture Group§!.\n\nThe region of our people is wealthy beyond measure but the disorganized tribal groups are abundant and there is no clear direct central authority which is a situation we are destined to change now.\n"
 
@@ -91,17 +126,20 @@
     dec1_nge_cultural_shift: "Nigerian Cultural Shift"
 
     dec1_nge_democratic_realism_title: "Democratic Realism"
-    dec1_nge_democratic_realism_desc: "With the establishment of European-styled Democratic systems based on the likes of Switzerland and the Greeks of past times as we have so learned from extended Christian contact - An interesting concept which we will attempt to institute."
+    dec1_nge_democratic_realism_desc: "With the establishment of democratic systems based on the likes of @SWI §YSwitzerland§! and the @GRE §YGreeks§! of which we have learned much of due to extended Christian contact - An interesting concept which we will attempt to instill into our people."
 
     dec1_nge_democratic_realist_ideas: "Legal-Backed Tolerance"
 
+    dec1_nge_rise_of_the_parliament_title: "The National Assembly"
+    dec1_nge_rise_of_the_parliament_desc: "We have established Democratic values as of late and it is now time for the creation and assembly of the National Assembly to come to be as we now must focus on the development of both our region and people."
+
     dec1_nge_foundations_of_greater_nigeria_title: "Foundations of Greater Nigeria"
-    dec1_nge_foundations_of_greater_nigeria_desc: "Every country in the §YWest African§! and §YMande Culture Groups§! which has at least §G100§! §Yopinion§! of @NGE [Root.GetName] will willingly join the new §YNigerian Culture Group§!.\n\nThe region of our people is wealthy beyond measure but the disorganized tribal groups are abundant and there is no clear direct central authority which is a situation we are destined to change now."
+    dec1_nge_foundations_of_greater_nigeria_desc: "The region of our people is wealthy beyond measure but the disorganized tribal groups are abundant and there is no clear direct central authority which is a situation we are destined to change now.\n\nEvery country in the §YWest African§! and §YMande Culture Groups§! which has at least §G100§! §Yopinion§! of @NGE [Root.GetName] will willingly join the new §YNigerian Culture Group§!."
     
     dec1_nge_greater_nigeria_title: "Greater Nigeria"
-    dec1_nge_greater_nigeria_desc: ""
+    dec1_nge_greater_nigeria_desc: "Oya! It is time! Our nation is longer that of simply just @NGE §YNigeria§!.. We make up a significant portion of the §YWest Africa§! region and are a regional power! Oya! - This is a dangerous position to be in regardless and we must invest in the training and defense of our people so that we may fight harder! for our nation of @NGE §YGreater Nigeria§!! OYA!"
 
-    dec1_greater_nigeria_golden_age_tt: "If we are in a @NGE §YNigerian Golden Age§! upon completion of this mission we will extend the §YGolden Age§! by 20 years."
+    dec1_greater_nigeria_golden_age_tt: "\nIf we are in a §YGolden Age§! upon completion of this mission we will extend the §YGolden Age§! by 20 years."
 
 
   # Democratic Path
@@ -111,7 +149,7 @@
   # Islam branch
 
     dec1_nge_shehu_polities_title: "Shehu Polities"
-    dec1_nge_shehu_polities_desc: "§TWe can bypass the requirement for §YSincretic Rituals§! by supporting the §YShehu Locals§! instead of allowing §OChristians to spread their religion upon our people§! during the §YPropogate Christianity§! mission related events.§!\n\nShehu scholars and leaders - particularly those associated with the Sokoto Caliphate founded by Usman dan Fodio are abundant in our northern territories. They hold strong influence over the region and suggest various changes to legal structure clearly in favor of Islam of which our stance on is currently uncertain."
+    dec1_nge_shehu_polities_desc: "Shehu scholars and leaders - particularly those associated with the Sokoto Caliphate founded by Usman dan Fodio are abundant in our northern territories. They hold strong influence over the region and suggest various changes to legal structure clearly in favor of Islam of which our stance on is currently uncertain.\n\n§TWe can bypass the requirement for §YSincretic Rituals§! by supporting the §YShehu Locals§! instead of allowing §OChristians to spread their religion upon our people§! during the §YPropogate Christianity§! mission related events§!"
 
     dec1_shehu_polities_hold_influence: "Shehu Polities Expand Influence"
 
@@ -120,7 +158,7 @@
   # fetishist branch
 
     dec1_nge_embrace_our_past_title: "Embrace our Past"
-    dec1_nge_embrace_our_past_desc: "The traditions of our past are far more important than Christian values or Islamic beliefs - It is obvious we are people who are one with nature, one with our own culture, one with Nigeria.\n\nWe will abandon the ideals of the west and their horse-filled armies and focus on our religious and cultural strength."
+    dec1_nge_embrace_our_past_desc: "The traditions of our past are far more important than §YChristian§! values or §GIslamic§! beliefs - It is obvious we are people who are one with nature, one with our own culture, one with @NGE §YNigeria§!.\n\nWe will abandon the ideals of the west and their horse-filled armies and focus on our religious and cultural strength."
 
     dec1_embrace_our_past: "Embrace our Past"
 

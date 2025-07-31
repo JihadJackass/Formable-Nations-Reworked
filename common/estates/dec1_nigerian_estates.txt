@@ -95,3 +95,55 @@ dec1_nge_nigerian_slave_masters = {
 
 	influence_from_dev_modifier = 1.5
 }
+
+dec1_nge_nigerian_tribes = {
+	icon = 5
+
+	trigger = {
+		tag = NGE
+		has_country_flag = dec1_NGE_tribal_crisis_set_estate
+	}
+
+	# Scaling country effects based on loyalty
+	country_modifier_happy = {
+		development_cost_modifier = -0.15 
+	}
+	country_modifier_neutral = {
+		development_cost_modifier = -0.05 
+	}
+	country_modifier_angry = {
+		development_cost_modifier = -0.15
+	}
+
+	# Modifiers from % land ownership (scaled)
+	land_ownership_modifier = {
+		development_cost_modifier = -0.10
+	}
+
+	# Influence modifiers — slave trade interest
+	base_influence = 10
+
+	# Province secession weight (for estate revolts)
+	province_independence_weight = {
+		factor = 1.0
+		modifier = {
+			factor = 1.25
+			NOT = { development = 10 }
+		}
+	}
+
+	privileges = {
+	}
+
+	# Optional: agenda stubs
+	agendas = {
+		#dec1_slave_expand_slave_trade_agenda
+		#dec1_slave_capture_slave_ports_agenda
+		#dec1_slave_increase_slave_output_agenda
+		#dec1_slave_secure_trade_routes_agenda
+	}
+
+	color = { 237 215 154 }
+
+	influence_from_dev_modifier = 1.5
+}

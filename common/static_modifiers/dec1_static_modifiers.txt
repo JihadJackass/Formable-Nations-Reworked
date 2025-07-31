@@ -73,6 +73,37 @@
 		tolerance_of_heathens_capacity = 1
 	}
 
+	dec1_nge_rise_of_christianity = {
+		yearly_corruption = 0.025
+		relation_with_same_religion = 10
+		warscore_cost_vs_other_religion = -0.10
+		relation_with_heretics = -5
+ 		relation_with_heathens = -10
+		war_taxes_cost_modifier = -0.10 
+	}
+
+	dec1_nge_rise_of_christianity_reject_clergy_war = {
+		stability_cost_modifier = -0.0225
+		relation_with_other_culture = 50
+		yearly_corruption = -0.090
+		yearly_army_professionalism = 0.075
+		army_tradition_decay = -0.10
+	}
+
+	dec1_nge_black_militia_of_christ = {
+		cavalry_shock = 3
+		infantry_shock = 1 
+		shock_damage_received = -0.10 
+		yearly_army_professionalism = 0.10
+		manpower_recovery_speed = 0.05
+	}
+
+	dec1_nge_the_new_catholic_african_crusaders = {
+		global_regiment_cost = -0.10 
+		transport_cost = -0.05
+		attrition = -2
+	}
+
 #	dec1_rule_without_parliament_unrest = {
 #		unrest = 5 
 #	}

@@ -9,7 +9,10 @@ dec1_nge_christianity_branch = {
 	generic = no
 	ai = yes
 	potential = {
-		tag = NGE
+		OR = {
+			tag = NGE
+			tag = NGX
+		}
 	}
 	has_country_shield = yes
 
@@ -61,7 +64,7 @@ dec1_nge_christianity_branch = {
 		provinces_to_highlight = {
 		}
 		trigger = {
-			religious_unity > 0.29
+			religious_unity > 0.95
 			stability > 0
 		}
 		effect = {			
@@ -88,6 +91,14 @@ dec1_nge_christianity_branch = {
 		}
 		trigger = {
 			NOT = { mission_completed = dec1_nge_nigerians_first }
+			OR = {
+				estate_influence = {
+					estate = estate_church
+					influence > 40
+				}
+				NOT = { has_estate = estate_church }
+			}
+			stability > 0
 		}
 		effect = {
 			country_event = {
@@ -100,13 +111,20 @@ dec1_nge_christianity_branch = {
 	}
 }
 
+# christian branch 
 dec1_nge_christianity_branching = {
 	slot = 1
 	generic = no
 	ai = yes
 	potential = {
-		tag = NGE
-		NOT = { has_country_flag = dec1_nge_established_stance_on_christianity } # TODO: apply to event
+		OR = {
+			tag = NGE
+			tag = NGX
+		}
+		hidden_trigger = { 
+			NOT = { has_country_flag = dec1_nge_fully_supported_christian_clergy }
+			NOT = { has_country_flag = dec1_nge_secret_papal_crusader_path }
+		}
 	}
 	has_country_shield = no
 
@@ -122,6 +140,8 @@ dec1_nge_christianity_branching = {
 				tooltip = dec1_nge_christian_branching_1_tt 
 				always = no 
 			} 
+			NOT = { has_country_flag = dec1_nge_fully_supported_christian_clergy }
+			NOT = { has_country_flag = dec1_nge_secret_papal_crusader_path }
 		}
 		effect = {
 
@@ -132,6 +152,163 @@ dec1_nge_christianity_branching = {
 	}
 }
 
+# christian branch - black militia of christ takes over
+dec1_nge_christianity_branching_holy_order = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		OR = {
+			tag = NGE
+			tag = NGX
+		}
+		has_country_flag = dec1_nge_secret_papal_crusader_path
+	}
+	has_country_shield = no
+
+	# rise of the Militia Christi Nigra
+	dec1_nge_christian_branching_2 = {
+		icon = mission_teutonic_knights
+		position = 7
+		required_missions = { dec1_nge_christianity_first }
+		completed_by = 1505.1.1
+		provinces_to_highlight = {
+		}
+		trigger = {
+		}
+		effect = {
+			add_ruler_personality = conqueror_personality 
+			add_country_modifier = {
+				name = dec1_nge_black_militia_of_christ
+				duration = -1
+			}
+			add_idea = religious_tradition
+			add_adm_power = 400
+		}
+		ai_weight = {
+			factor = 500
+		}
+	}	
+
+	dec1_nge_christian_branching_4 = {
+		icon = mission_teutonic_knights
+		position = 8
+		required_missions = { dec1_nge_christian_branching_2 }
+		completed_by = 1505.1.1
+		provinces_to_highlight = {
+		}
+		trigger = {
+			OR = {
+				is_defender_of_faith = yes
+				AND = {
+					religion = catholic
+					alliance_with = PAP
+				}
+			}
+		}
+		effect = {
+			change_tag = NGX
+			add_legitimacy = 15
+			add_prestige = 10
+			add_country_modifier = {
+				name = dec1_nge_the_new_catholic_african_crusaders
+				duration = -1
+			}
+			custom_tooltip = dec1_nge_crusader_mission_clear
+			hidden_effect = {
+				swap_non_generic_missions = yes
+			}
+		}
+		ai_weight = {
+			factor = 500
+		}
+	}
+}
+
+# christian branch - clergy
+dec1_nge_christianity_branching_clergy = {
+	slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = NGE
+		has_country_flag = dec1_nge_fully_supported_christian_clergy
+	}
+	has_country_shield = no
+
+	# clergy
+	dec1_nge_christian_branching_3 = {
+		icon = eastern_catholicization
+		position = 7
+		required_missions = { dec1_nge_christianity_first }
+		completed_by = 1505.1.1
+		provinces_to_highlight = {
+		}
+		trigger = {
+			has_country_flag = dec1_nge_fully_supported_christian_clergy
+			num_of_owned_provinces_with = {
+				value = 8
+				religion = catholic
+				is_overseas = no
+			}
+			estate_influence = {
+				estate = estate_church
+				influence < 35
+			}
+		}
+		effect = {
+			PAP = {
+				add_papal_influence = 10
+				add_prestige = 5
+			}
+			add_prestige = 10
+			random_owned_province = {
+				change_religion = catholic
+			}
+			add_corruption = 1
+			add_prestige = -3
+			# Crusades of Africa
+			country_event = { 
+				id = dec1_country_events.207
+				days = 5
+			}
+		}
+
+		ai_weight = {
+			factor = 500
+		}
+	}
+	
+	# Papal authority
+	dec1_nge_christian_branching_5 = {
+		icon = mission_crusade_for_varna
+		position = 8
+		required_missions = { dec1_nge_christian_branching_3 }
+		completed_by = 1505.1.1
+		provinces_to_highlight = {
+		}
+		trigger = {
+			all_owned_province = {
+				religion = catholic
+			}
+		}
+		effect = {
+			change_technology_group = western
+			add_papal_influence = 20
+			add_reform_desire = -0.5
+			add_estate_influence_modifier = {
+				estate = estate_church
+				influence = 10
+				duration = 12400
+			}
+		}
+
+		ai_weight = {
+			factor = 500
+		}
+	}	
+}
+
 # Nigerian Nationalist path (for authoritarian strongman type path)
 dec1_nge_nigerian_nationalism_branch = {
 	slot = 2
@@ -139,6 +316,7 @@ dec1_nge_nigerian_nationalism_branch = {
 	ai = yes
 	potential = {
 		tag = NGE
+		NOT = { tag = NGX }
 	}
 	has_country_shield = yes
 
@@ -163,13 +341,13 @@ dec1_nge_nigerian_nationalism_branch = {
 					}
 					mission_completed = west_africa_unite_home_region
 					OR = {
-						AND = {
-							NOT = { mission_completed = dec1_nge_christianity_first }
-							has_country_flag = dec1_nge_full_christian_support
-						}
 						custom_trigger_tooltip = {
 							tooltip = dec1_NGE_democratic_realism_path_tt
 							has_country_flag = dec1_NGE_democratic_realism_embraced
+						}
+						AND = {
+							NOT = { mission_completed = dec1_nge_christianity_first }
+							has_country_flag = dec1_nge_full_christian_support
 						}
 					}
 				}
@@ -210,7 +388,7 @@ dec1_nge_nigerian_nationalism_branch = {
 					AND = {
 						has_opinion = {
 							who = NGE
-							value > 99
+							value > 100
 						}		
 						capital_scope = {
 							continent = africa
@@ -569,7 +747,11 @@ dec1_nge_nigerian_nationalism_branch = {
 			legitimacy > 90
 			OR = {
 				in_golden_age = yes 
-				total_development = 225 
+				total_development = 180 
+				num_of_owned_provinces_with = { 
+					value = 25 
+					is_overseas = no
+				}
 			}
 		}
 		effect = {
@@ -597,6 +779,7 @@ dec1_nge_democratic_monarchism_branch = {
 	ai = yes
 	potential = {
 		tag = NGE
+		NOT = { tag = NGX }
 	}
 	has_country_shield = yes
 
@@ -606,6 +789,7 @@ dec1_nge_democratic_monarchism_branch = {
 		#required_missions = { west_africa_unite_home_region }
 		completed_by = 1505.1.1
 		provinces_to_highlight = {
+			owned_by = NGE
 		}
 		trigger = {
 			custom_trigger_tooltip = { 
@@ -626,6 +810,26 @@ dec1_nge_democratic_monarchism_branch = {
 			factor = 500
 		}
 	}
+
+	dec1_nge_rise_of_the_parliament = { #
+		icon = mission_empire
+		position = 7
+		required_missions = { dec1_nge_democratic_realism }
+		completed_by = 1505.1.1
+		provinces_to_highlight = {
+			owned_by = NGE
+		}
+		trigger = {
+
+		}
+		effect = {
+			add_legitimacy = 20
+			add_government_reform = parliamentary_republic_reform 
+		}
+		ai_weight = {
+			factor = 500
+		}
+	}
 }
 
 # Islam path
@@ -635,6 +839,7 @@ dec1_nge_islam_branch = {
 	ai = yes
 	potential = {
 		tag = NGE
+		NOT = { tag = NGX }
 	}
 	has_country_shield = yes
 
@@ -716,6 +921,7 @@ dec1_nge_fetishist_branch = {
 	ai = yes
 	potential = {
 		tag = NGE
+		NOT = { tag = NGX }
 	}
 	has_country_shield = yes
 
@@ -749,6 +955,7 @@ dec1_nge_slave_trade_path_branch = {
 	ai = yes
 	potential = {
 		tag = NGE
+		NOT = { tag = NGX }
 	}
 	has_country_shield = yes
 
@@ -764,7 +971,7 @@ dec1_nge_slave_trade_path_branch = {
 			NOT = { mission_completed = africa_slave_trade }
 			current_income_balance = 2 
 			years_of_income = 1.2
-			slaves > 2
+			slaves > 3
 		}
 		effect = {
 			if = {
@@ -798,7 +1005,7 @@ dec1_nge_slave_trade_path_branch = {
 				production_leader = {
 					trade_goods = slaves
 				}
-				slaves > 3
+				slaves > 4
 			}
 		}
 		effect = {
@@ -828,7 +1035,7 @@ dec1_nge_slave_trade_path_branch = {
 				production_leader = {
 					trade_goods = slaves
 				}
-				slaves = 4
+				slaves = 5
 			}
 		}
 		effect = {
@@ -864,7 +1071,7 @@ dec1_nge_slave_trade_path_branch = {
 				production_leader = {
 					trade_goods = slaves
 				}
-				slaves > 5
+				slaves > 6
 			}
 		}
 		effect = {

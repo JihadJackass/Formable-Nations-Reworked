@@ -882,6 +882,7 @@ namespace = dec1_country_events
 		# MISSION EVENTS - dec1_country_events.200
 
 		# Propogation of Christianity
+		# dec1_country_events.200
 		country_event = {
 			id = dec1_country_events.200
 			title = "dec1_country_events.200.t"
@@ -971,8 +972,8 @@ namespace = dec1_country_events
 
 		}
 
-		# Random event for nigeria tribal conflict which can fire within 10 years of nigeria forming
-		# STARTING EVENT for nigeria tribal crisis
+		# Random event for nigeria tribal conflict 
+		# dec1_country_events.201
 
 		country_event = {
 			id = dec1_country_events.201
@@ -1005,13 +1006,13 @@ namespace = dec1_country_events
 
 		}
 
-		# handling of tribal crisis resolution event
+		# handling of tribal crisis resolution event 202
 
 		country_event = {
 			id = dec1_country_events.202
 			title = "dec1_country_events.202.t"
 			desc = "dec1_country_events.202.d"
-			picture =     BABBLING_BAFFOON_eventPicture
+			picture = BABBLING_BAFFOON_eventPicture
 
 			fire_only_once = yes
 
@@ -1036,7 +1037,13 @@ namespace = dec1_country_events
 				capital_scope = {
 					add_unrest = 5
 				}
-				tribal_rebels = 2
+				random_owned_province = {
+					limit = {
+						NOT = { is_capital = yes }
+						NOT = { has_port = yes }
+					}
+					tribal_rebels = 2
+				}
 				set_country_flag = dec1_NGE_tribal_crisis_set_force
 			}
 
@@ -1045,36 +1052,244 @@ namespace = dec1_country_events
 				name = "dec1_country_events.202.b"
 				ai_chance = { factor = 30 }
 				add_prestige = -5
-				random_owned_province = {
-					if = {
-						limit = {
-							NOT = {
-								OR = {
-									has_port = yes
-									is_capital = yes
-									trade_goods = slaves
-								}
-							}
-						}
-						create_vassal = NUP  # TODO: rework
+				every_owned_province = {
+					limit = {
+						NOT = { is_capital = yes }
+						NOT = { trade_goods = slaves }
 					}
+					add_local_autonomy = 25
 				}
-				set_country_flag = dec1_NGE_tribal_crisis_set_autonomy
 			}
 
 			# grant local tribes full rights as an estate
 			option = {
 				name = "dec1_country_events.202.c"
 				ai_chance = { factor = 15 }
-				add_prestige = -5
+				add_prestige = -10
+				every_owned_province = {
+					limit = {
+						NOT = { is_capital = yes }
+					}
+					add_local_autonomy = 30
+				}
+				custom_tooltip = dec1_nge_tribal_estate_rights
 				set_country_flag = dec1_NGE_tribal_crisis_set_estate
 			}
 
 		}
 
-		# end event for nigeria tribal crisis
+		# course of identity
+		# dec1_country_events.203
+		country_event = {
+			id = dec1_country_events.203
+			title = "dec1_country_events.203.t"
+			desc = "dec1_country_events.203.d"
+			picture =     AFRICAN_CATHOLIC_eventPicture
 
-		# Handling the Shehu Polities
+			fire_only_once = yes
+			is_triggered_only = yes
+
+			# christian path
+			option = {	
+				name = "dec1_country_events.203.a"
+				ai_chance = { factor = 80 }
+				set_country_flag = dec1_nge_fully_supported_christian_clergy
+				change_religion = catholic
+				capital_scope = {
+					change_religion = catholic
+				}
+				every_owned_province = {
+					limit = {
+						NOT = { religion = catholic }
+					}
+					add_unrest = 2
+				}
+				add_country_modifier = {
+					name = dec1_nge_rise_of_christianity
+					duration = 365
+				}
+				add_legitimacy = 5
+				hidden_effect = {
+					swap_non_generic_missions = yes
+				}
+			}
+
+			# hidden nigerian crusader state path, byzantium either must exist or be allied to the pope, pope must have 150 opinion, must not be protestant
+			# Militia Christi Nigra path  "Black Militia of Christ"
+			option = {
+				name = "dec1_country_events.203.b"
+				ai_chance = { factor = 20 }
+				highlight = yes
+				country_event = {
+					id = dec1_country_events.204
+				}
+			}
+
+		}
+
+		# Rise of the Militia Christi Nigra
+		# dec1_country_events.204	
+		country_event = {
+			id = dec1_country_events.204
+			title = "dec1_country_events.204.t"
+			desc = "dec1_country_events.204.d"
+			picture = KNIGHTS_eventPicture
+
+			fire_only_once = yes
+			is_triggered_only = yes
+
+			# Rise of black militia
+			option = {	
+				name = "dec1_country_events.204.a"
+				ai_chance = { factor = 100 }
+				set_country_flag = dec1_nge_secret_papal_crusader_path
+				define_consort = {
+					country_of_origin = PAP
+					religion = catholic
+					culture = PAP
+				}
+				hidden_effect = {
+					swap_non_generic_missions = yes
+				}
+			}
+
+		}
+
+		# start of the nigeia crisis
+		# dec1_country_events.205
+
+		country_event = {
+			id = dec1_country_events.205
+			title = "dec1_country_events.205.t"
+			desc = "dec1_country_events.205.d"
+			picture = muslimgfx_ANGRY_MOB_eventPicture
+
+			fire_only_once = yes
+			is_triggered_only = yes
+
+			# Start of the crisis
+			option = {
+				name = "dec1_country_events.205.a"
+				ai_chance = { factor = 100 }
+			}
+
+		}		
+
+
+		# end event for nigeria tribal crisis 206
+
+		country_event = {
+			id = dec1_country_events.206
+			title = "dec1_country_events.206.t"
+			desc = "dec1_country_events.206.d"
+			picture = muslimgfx_REFORM_eventPicture
+
+			fire_only_once = yes
+			is_triggered_only = yes
+
+			# Start of the crisis
+			option = {
+				name = "dec1_country_events.206.a"
+				ai_chance = { factor = 100 }
+			}
+
+		}	
+
+		# Crusade for Africa - 207
+
+		country_event = {
+			id = dec1_country_events.207
+			title = "dec1_country_events.207.t"
+			desc = "dec1_country_events.207.d"
+			picture = CRUSADER_HORDE_eventPicture
+
+			major = yes
+			fire_only_once = yes
+			is_triggered_only = yes
+
+			# for christ!
+			option = {
+				name = "dec1_country_events.207.a"
+				ai_chance = { factor = 63 }
+				add_estate_loyalty = {
+					estate = estate_church
+					loyalty = 25
+				}
+				add_estate_influence_modifier = {
+					estate = estate_church
+					influence = 5
+					duration = 2400
+				}
+
+				every_neighbor_country = {
+					limit = {
+						NOT = { religion = catholic }
+					}
+					ROOT = {
+						add_casus_belli = {
+							target = PREV        # PREV = the neighbor country in this scope
+							type = cb_crusade
+							months = 24
+						}
+					}
+				}
+			}
+
+			# reject clergy war demands
+			option = {
+				name = "dec1_country_events.207.b"
+				ai_chance = { factor = 37 }
+				add_stability = -1
+				add_prestige = 15
+				add_ruler_personality = righteous_personality 
+				add_estate_influence_modifier = {
+					estate = estate_church
+					influence = -10
+					duration = -1
+				}
+				add_estate_loyalty = {
+					estate = estate_church
+					loyalty = -20
+				}
+				add_country_modifier = {
+					name = dec1_nge_rise_of_christianity_reject_clergy_war
+					duration = -1
+				}
+			}
+
+		}	
+
+		# Tribes raid the capital
+		# dec1_country_events.208
+		country_event = {
+			id = dec1_country_events.208
+			title = "dec1_country_events.208.t"
+			desc = "dec1_country_events.208.d"
+			picture = MOSSI_CAVALRY_eventPicture
+
+			fire_only_once = yes
+			is_triggered_only = yes
+
+			# attack them
+			option = {
+				name = "dec1_country_events.208.a"
+				ai_chance = { factor = 90 }
+				add_stability = -1
+				capital_scope = {
+					tribal_rebels = 8
+				}
+			}
+			
+			# We have an idea..
+			option = {
+				name = "dec1_country_events.208.b"
+				ai_chance = { factor = 10 }
+				add_government_reform = tribe_becomes_horde_reform 
+			}
+
+		}	
+
+		# Handling the Shehu Polities 210
 		country_event = {
 			id = dec1_country_events.210
 			title = "dec1_country_events.210.t"

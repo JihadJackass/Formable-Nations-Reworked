@@ -141,6 +141,8 @@
       dec1_country_events.201.d: "Many groups of local tribals have gathered to oppose our unificaiton of the Nigerian region into a single polity which they feel threatens their way of life and are actively leading campaigns against at both the civilian and military level to various degrees."
       dec1_country_events.201.a: "We must resolve this soon.."
 
+      dec1_NGE_tribal_crisis_set_force: "Has used force against the Tribal Groups"
+
       # handle tribal crisis
       dec1_country_events.202: "Nigerian Tribal Disaster"
       dec1_country_events.202.t: "Nigerian Tribal Disaster"
@@ -148,6 +150,47 @@
       dec1_country_events.202.a: "We will resolve this with force."
       dec1_country_events.202.b: "Partial Autonomy is acceptable."
       dec1_country_events.202.c: "Recognize their rights and provide them lands."
+
+      dec1_country_events.203: "Christainity upon Nigeria"
+      dec1_country_events.203.t: "Christainity upon Nigeria"
+      dec1_country_events.203.d: "Our course of identity has clearly shown Christianity to be the dominant religion in our nation as of late due to both our choices and the constant influx of Christans from Europe."
+      dec1_country_events.203.a: "Proclaim Christianity as the Dominant Religion"
+      dec1_country_events.203.b: "Establish Militia Christi Nigra"
+
+      # hidden christan holy order of nigeria event
+
+      dec1_country_events.204: "Rise of the Militia Christi Nigra"
+      dec1_country_events.204.t: "Rise of the Militia Christi Nigra"
+      dec1_country_events.204.d: ""
+      dec1_country_events.204.a: "Transfer rulership to the Militia Christi Nigra"
+      dec1_country_events.203.b: "Secure Papal Donations"
+
+      # start of nigeria crisis
+      dec1_country_events.205: "Nigerian Tribal Disaster"
+      dec1_country_events.205.t: "Nigerian Tribal Disaster"
+      dec1_country_events.205.d: "We now have to deal with this conflict of rising tribal groups - they are now directly raiding our trade routes and have gathered many to their side."
+      dec1_country_events.205.a: "A serious problem.. Not good."
+
+      # end of nigeria crisis
+      dec1_country_events.206: "End of the Tribal Conflict in Nigeria"
+      dec1_country_events.206.t: "End of the Tribal Conflict in Nigeria"
+      dec1_country_events.206.d: "Regardless of our choice - it is a good thing to see the conflict upon our lands resolved so that we may focus on exterior threats."
+      dec1_country_events.206.a: "Oya! Oya! Nigeria lives on."
+
+      # crusade for africa 207
+      dec1_country_events.207: "African Crusade"
+      dec1_country_events.207.t: "African Crusade"
+      dec1_country_events.207.d: "The Holy War for West Africa is upon us! The Christian Clergy have demanded that we go to war in the name of Christ so that we may establish local influence of the Holy See!"
+      dec1_country_events.207.a: "For Christ! Deus Vult!"
+      dec1_country_events.207.b: "We do not have capacity to do this."
+
+      # tribals attack the capital
+      dec1_country_events.208: "Tribals Attack the Capital"
+      dec1_country_events.208.t: "Tribals Attack the Capital"
+      dec1_country_events.208.d: "The tribal groups in which we are in conflict with have suddenly nearly encircled the capital and performed night raids with cavalry and various strong men - we have been put up against the wall and have a dire decision on how to handle these men though conflict seems the most likely outcome."
+      dec1_country_events.208.a: "We must attack them!"
+      dec1_country_events.208.b: "...What if they are right?"
+
 
     # Russia
 
