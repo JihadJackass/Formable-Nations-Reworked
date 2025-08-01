@@ -25,6 +25,7 @@ country_decisions = {
 				tag = KNY
 				tag = ABY
 				tag = PAP
+				tag = NGX
 			}
 			OR = {
 				ai = no

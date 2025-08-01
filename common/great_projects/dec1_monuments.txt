@@ -2,7 +2,7 @@
 
 nge_statue_of_ruler = {
 	start = 1147 #Benin
-	date = -2000.01.01
+	date = 9999.01.01
 	time = { months = 0	}
 	build_cost = 0
 	can_be_moved = no
@@ -11,6 +11,7 @@ nge_statue_of_ruler = {
 	type = monument
 
 	build_trigger = {
+
 	}
 
 	on_built = {
@@ -20,6 +21,7 @@ nge_statue_of_ruler = {
 	}
 
 	can_use_modifiers_trigger = {
+		
 	}
 
 	can_upgrade_trigger = {

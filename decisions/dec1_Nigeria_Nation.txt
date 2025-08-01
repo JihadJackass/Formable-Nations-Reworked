@@ -45,12 +45,44 @@ country_decisions = {
 			}
 		}
 		allow = {
-
+			adm_tech = 5
+			NOT = { exists = NGE }
+			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
+				limit = {
+					has_global_flag = dec1_subject_formable_nations_enabled
+				}
+				OR = {
+					is_subject = yes
+					is_subject = no
+				}
+			}
+			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
+				limit = {
+					NOT = {
+						has_global_flag = dec1_subject_formable_nations_enabled
+					}
+				}
+				is_subject = no
+			}
+			is_at_war = no
+			benin_area = {
+				type = all
+				owned_by = ROOT
+			}
+			lower_niger_area = {
+				type = all
+				owned_by = ROOT
+			}
+			owns_core_province = 2293
+			owns_core_province = 1154
+			owns_core_province = 2281
+			#owns_core_province = 1161
 		}
 	 	effect = {
 			change_tag = NGE # Country TAG
 			set_country_flag = formed_nigeria_flag # Country Formation Flag
 			custom_tooltip = form_nigeria_tt_2 # New Missions
+			1161 = { add_core = NGE }
 			custom_tooltip = dec1_decisions_blank
 			NGE = { # Capital change and bonuses
 				set_capital = 1147
@@ -138,6 +170,9 @@ country_decisions = {
 		#major = yes
 		potential = {
 			tag = NGE
+			NOT = { 
+				2290 = { has_province_flag = dec1_nge_lagos_settled }
+			}
 		}
 		provinces_to_highlight = {
 			OR = {
@@ -153,6 +188,9 @@ country_decisions = {
 			treasury > 250
 		}
 	 	effect = {
+			hidden_effect = {
+				2290 = { set_province_flag = dec1_nge_lagos_settled }
+			}
 			add_treasury = -250
 			add_prestige = 5
 			2290 = {

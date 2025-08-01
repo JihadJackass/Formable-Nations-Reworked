@@ -725,6 +725,12 @@ dec1_nge_nigerian_nationalism_branch = {
 				add_legitimacy = 10
 				add_absolutism = 5
 			}
+			hidden_effect = {
+				capital_scope = {
+					set_province_flag = dec1_nge_statue_of_ruler_built
+				} 
+				set_country_flag = dec1_nge_statue_of_ruler_built
+			}
 			add_great_project = {
 				type = nge_statue_of_ruler
 				instant = no 
