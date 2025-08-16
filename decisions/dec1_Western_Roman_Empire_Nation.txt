@@ -21,7 +21,6 @@ country_decisions = {
 				tag = WRE
 				tag = ERP
 				tag = ROM
-				tag = ROP
 				tag = HLR
 				tag = PAP
 				tag = EUR
