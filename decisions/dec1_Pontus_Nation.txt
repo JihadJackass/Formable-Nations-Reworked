@@ -174,10 +174,12 @@ country_decisions = {
 			is_colonial_nation = no
 			tag = FEO
 			NOT = {
-				has_global_flag = dec1_historical_nations_only
-				has_country_flag = formed_pontus_flag
-				exists = PON
-				tag = PON
+				OR = {
+					has_global_flag = dec1_historical_nations_only
+					has_country_flag = formed_pontus_flag
+					exists = PON
+					tag = PON
+				}
 			}
 			OR = {
 				ai = no

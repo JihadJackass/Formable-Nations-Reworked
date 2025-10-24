@@ -1,10 +1,12 @@
 country_decisions = {
 
+	# Kingdom of Algeria (Pre-modern)
 	dec1_algiers_nation = {
 		major = yes
 		potential = {
 			is_former_colonial_nation = no
 			is_colonial_nation = no
+			primary_culture = algerian
 			NOT = {
 				has_country_flag = formed_algiers_flag
 				has_reform = celestial_empire
@@ -15,22 +17,13 @@ country_decisions = {
 				tag = HLR
 				tag = MGH
 			}
-			OR = {
-				primary_culture = algerian
-				primary_culture = berber
-			}
 		}
 		provinces_to_highlight = {
 			OR = {
-					# Algiers
-				province_id = 338
-				province_id = 2461
-				province_id = 337
+				# Algiers
+				province_id = 336
+				province_id = 2465
 				province_id = 4562
-				province_id = 2459
-				province_id = 2458
-				province_id = 350
-				province_id = 2456
 			}
 			OR = {
 				NOT = { owned_by = ROOT }
@@ -176,4 +169,9 @@ country_decisions = {
 		}
 		ai_importance = 200
 	}
+
+	# Modern Algeria
+	# dec1_algiers_modern_nation = {	 }
+
+	# TODO: establish Algeria as Spain
 }

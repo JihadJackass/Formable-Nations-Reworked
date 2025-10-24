@@ -18,6 +18,13 @@
       dec1_events.2.d: "The Holy Roman Empire has been strengthened by the formation of the new state of [From.GetName] which has remained loyal to our Empire and supported Emperor $EMPERORNAME$. We have gained much prestige and stability within the empire due to the strengthening of our Empire!"
       dec1_events.2.a: "Excellent!"
 
+    # Customs Missions - New Missions and Objectives Event
+
+      dec1_events.3.t: "New Missions & Objectives"
+      dec1_events.3.d: "Our state is going through a range of changes that is rapidly reforming our government and political objectives. Unless we invest our time in these goals; they will remain the same without any progress to our power projection.\n\nDeveloper Note: §RNew Missions are not included yet!§!"
+      dec1_events.3.a: "Yes, Please!"
+      dec1_events.3.b: "No, we cannot abandon our roots."
+
     # Holy Roman Empire - Our Place in the Empire - [From.GetName] has left the empire
 
       dec1_events.4.t: "[From.GetName] has left the Empire!"
@@ -25,12 +32,25 @@
       dec1_events.4.a: "Traitors aren't our problem."
       dec1_events.4.b: "This cannot stand! To War!"
 
-    # Customs Missions - New Missions and Objectives Event
+    # Nation Formed Announcement Event
 
-      dec1_events.3.t: "New Missions & Objectives"
-      dec1_events.3.d: "Our state is going through a range of changes that is rapidly reforming our government and political objectives. Unless we invest our time in these goals; they will remain the same without any progress to our power projection.\n\nDeveloper Note: §RNew Missions are not included yet!§!"
-      dec1_events.3.a: "Yes, Please!"
-      dec1_events.3.b: "No, we cannot abandon our roots."
+      dec1_events.5.t: "[From.GetName] Proclaimed!"
+      dec1_events.5.d: "It is on this day that word has reached us from the [From.GetAdjective] region which have officially proclaimed that the [From.GovernmentName} ruled by the [From.GetTitle] of [From.GetName] has been established and that those with stretegic interests in the region be wary of their new claims and position!"
+      dec1_events.5.a: "An interesting development."   
+
+  #######################################
+  # FORMABLE UNLOCK EVENTS LOCALISATION #
+  #######################################
+
+      dec1_formable_unlock_events.1.t: "Rise of Numidian Thought"
+      dec1_formable_unlock_events.1.d: "As of lately many of our educated populace and scholars have preached about the possible restoration of Numidia as both our state and tradition through the so-called rightful path compared to our current one - We struggle to find the logic in this movement, and while perhaps they may have reasonable points it calls into question the purpose of this action overall."
+      dec1_formable_unlock_events.1.a: "An unacceptable movement."
+      dec1_formable_unlock_events.1.b: "Perhaps they are correct in their thinking."
+
+      dec1_formable_unlock_events.1.t: "Rise of Garamantian Thought"
+      dec1_formable_unlock_events.1.d: "As of lately many of our educated populace and scholars have preached about the possible restoration of Garamantia as both our state and tradition through the so-called rightful path compared to our current one - We struggle to find the logic in this movement, and while perhaps they may have reasonable points it calls into question the purpose of this action overall."
+      dec1_formable_unlock_events.1.a: "An unacceptable movement."
+      dec1_formable_unlock_events.1.b: "Perhaps they are correct in their thinking."
 
   ################################
   # DISASTER EVENTS LOCALISATION #
@@ -161,7 +181,7 @@
 
       dec1_country_events.204: "Rise of the Militia Christi Nigra"
       dec1_country_events.204.t: "Rise of the Militia Christi Nigra"
-      dec1_country_events.204.d: ""
+      dec1_country_events.204.d: "With the rise of the Catholic clergy as the dominant polity within our realm dominated from the Holy See of Rome. Various local groups have decided to join our newly establish Christian order and are seeking to abolish the existance of non-Christian populace within our borders."
       dec1_country_events.204.a: "Transfer rulership to the Militia Christi Nigra"
       dec1_country_events.203.b: "Secure Papal Donations"
 

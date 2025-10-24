@@ -14,15 +14,17 @@ country_decisions = {
 				}
 			}
 			NOT = {
-				has_country_flag = formed_akkadian_empire
-				has_reform = celestial_empire
-				exists = AKD
-				tag = AKD
-				tag = HLR
-				tag = PAP
-				tag = TUR
-				tag = ARB
-				tag = EGY
+				OR = {
+					has_country_flag = formed_akkadian_empire
+					has_reform = celestial_empire
+					exists = AKD
+					tag = AKD
+					tag = HLR
+					tag = PAP
+					tag = TUR
+					tag = ARB
+					tag = EGY
+				}
 			}
 			OR = {
 				ai = no

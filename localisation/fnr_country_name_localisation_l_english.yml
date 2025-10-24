@@ -7,47 +7,70 @@
     # Nigeria - Greater Nigeria
 
       dec1_greater_nigeria_name: "Greater Nigeria"
+      dec1_greater_nigeria_name_ADJ: "Greater Nigerian"
       dec1_greater_nigeria_short_name: "Great Nigeria"
+      dec1_greater_nigeria_short_name_ADJ: "Great Nigerian"
 
     # Finland - Greater Finland
 
       dec1_greater_finland_name: "Greater Finland"
+      dec1_greater_finland_name_ADJ: "Greater Finland"
       dec1_greater_finland_short_name: "Greater Finland"
+      dec1_greater_finland_short_name_ADJ: "Great Finnish"
 
     # Armenian Empire - Greater Armenia
 
       dec1_greater_armenia_name: "Greater Armenia"
+      dec1_greater_armenia_name_ADJ: "Greater Armenia"
       dec1_greater_armenia_short_name: "Greater Armenia"
+      dec1_greater_armenia_short_name_ADJ: "Greater Armenian"
 
     # Carolingian Empire - Francia
 
       dec1_carolingian_empire_francia_name: "Francia"
+      dec1_carolingian_empire_francia_name_ADJ: "Francia"
       dec1_carolingian_empire_francia_short_name: "Francia"
+      dec1_carolingian_empire_francia_short_name_ADJ: "Francian"
 
     # Taiping - Heavenly Kingdom
 
       dec1_taiping_heavenly_kingdom_name: "Heavenly Kingdom"
+      dec1_taiping_heavenly_kingdom_name_ADJ: "Heavenly Kingdom"
       dec1_taiping_heavenly_kingdom_short_name: "Heavenly Kingdom"
+      dec1_taiping_heavenly_kingdom_short_name_ADJ: "Heavenly"
 
     # Greater German Reich
 
       dec1_greater_german_reich_name: "Greater German Reich"
+      dec1_greater_german_reich_name_ADJ: "Greater German Reich"
       dec1_greater_german_reich_short_name: "Greater German Reich"
+      dec1_greater_german_reich_short_name_ADJ: "German Reich"
 
     # Iberian Union - Iberian Empire
 
       dec1_iberian_empire_name: "Iberian Empire"
+      dec1_iberian_empire_name_ADJ: "Iberian Empire"
       dec1_iberian_empire_name_short: "Iberia"
+      dec1_iberian_empire_name_short_ADJ: "Iberian"
 
     # Sri Lanka
 
       dec1_proclaim_sri_lanka_name: "Sri Lanka"
+      dec1_proclaim_sri_lanka_name_ADJ: "Sri Lanka"
+      dec1_proclaim_sri_lanka_name_short: "Sri Lanka"
+      dec1_proclaim_sri_lanka_name_short_adj: "Sri Lankan"
 
     # Incan Empire
 
       dec1_inca_empire_name: "Incan Empire"
+      dec1_inca_empire_name_ADJ: "Incan Empire"
+      dec1_inca_empire_name_short: "Incan Empire"
+      dec1_inca_empire_name_short_ADJ: "Incan"
 
     # Aksumite
 
       dec1_aksumite_empire_name: "Aksumite Empire"
+      dec1_aksumite_empire_name_ADJ: "Aksumite Empire"
+      dec1_aksumite_empire_name_short: "Aksumite Empire"
+      dec1_aksumite_empire_name_short_ADJ: "Aksumite"
 

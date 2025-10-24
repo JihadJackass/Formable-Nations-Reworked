@@ -1,64 +1,105 @@
 country_decisions = {
 
+	# Roman Republic Check System
+	# - If the nation is a successor state, they must complete a decision-event tree in which the conflicts between the Latins and Greeks are either resolved or worsened
+	# - If the nation is in Italy, they must follow a proper path depending 
+	# (If they are Venice OR Genoa, they must form Italy, and then Roman Republic for example)
+	# - If they are NOT a successor state, OR a claimant to the Roman title, then they must control a reasonable portion of Italy and MUST own Rome and could result in a more uniquly named roman restoration (NOT roman republic).
+	# - Nations such as Naples are significantly more difficult due to their advantageous starting position
+	# - Eastern and Western Roman Empires can NOT establish the Roman Republic
+
 	dec1_restore_roman_republic_nation = {
 		major = yes
 		potential = {
 			is_former_colonial_nation = no
 			is_colonial_nation = no
-			any_owned_province = {
-				area = lazio_area
-			}
 			NOT = {
 				has_global_flag = dec1_historical_nations_only
 				has_country_flag = restored_roman_republic_flag
 				exists = ROP
 				exists = ROM
-				tag = ROM
-				tag = ROP
-				tag = HLR
-				tag = PAP
-				tag = EUR
-				tag = KOG
-				tag = WRE
-				tag = JGE
+				tag = ROM # Rome
+				tag = ROP # Roman Republic
+				tag = HLR # HRE
+				tag = PAP # Papal States
+				tag = EUR # EU
+				tag = KOG # Kingdom of God
+				tag = WRE # Western Roman Empire
+				tag = ERE # Eastern Roman Empire
+				tag = JGE # Jagiellonian
 			}
 			OR = {
-				religion_group = christian
-				religion_group = pagan
-				primary_culture = greek
-			}
-			OR = {
-				ai = no
-				AND = {
-					ai = yes
+				AND = { # Successor States
+					OR = {
+						tag = RUS
+						tag = TRE
+						tag = BYZ
+					}
 					any_owned_province = {
-						area = lazio_area # AI Just needs province in lazio area (rome)
+						area = lazio_area
 					}
 				}
+				AND = { # Italians
+				 	OR = {
+						culture_group = latin
+						capital_scope = { # Must have at least a capital in Italy
+							AND = {
+								region = italy_region
+								ROOT = {
+									any_owned_province = {
+										region = italy_region
+									}
+								}
+							}
+						}
+						if = { # Venice Check, must form Italy first with at least 35 provinces
+							limit = {
+								ITA = { 
+									exists = yes
+									OR = {
+										is_or_was_tag = { tag = VEN } 
+										is_or_was_tag = { tag = GEN } 
+									}
+								}
+								num_of_owned_provinces_with = {
+									value = 32
+									region = italy_region
+									is_overseas = no
+								}
+							}
+							# TODO: unique venice roman republic
+							NOT = { has_country_flag = restored_roman_republic_flag }
+							NOT = { has_country_flag = restored_roman_republic_as_italian_venice_flag }
+						}
+					}
+					any_owned_province = {
+						area = lazio_area
+					}					
+				}
+				AND = { # Non-Successor State requirements
+					NOT = {
+						OR = {
+							culture_group = latin
+							religion = catholic
+							OR = {
+								tag = RUS
+								tag = TRE
+								tag = BYZ
+								tag = VEN
+								tag = GEN
+							}
+						}
+					}
+					num_of_owned_provinces_with = {
+						value = 42
+						region = italy_region
+						is_overseas = no
+					}
+					any_owned_province = {
+						area = lazio_area
+					}						
+				}
 			}
-		}
-		provinces_to_highlight = {
-			OR = {
-				province_id = 118
-				province_id = 2976
-				province_id = 119
-				province_id = 120
-				province_id = 121
-				province_id = 2985
-				province_id = 2983
-				province_id = 1934
-				province_id = 1933
-				province_id = 122
-				province_id = 2984
-				province_id = 123
-				province_id = 2977
-				province_id = 2978
-				province_id = 116
-				province_id = 115
-				province_id = 117
-			}
-			NOT = { owned_by = ROOT }
-			NOT = { is_core = ROOT }
 		}
 		allow = {
 			adm_tech = 10
@@ -104,6 +145,9 @@ country_decisions = {
 			}
 		}
 		effect = {
+			# TODO: venice unique formation
+			# TODO: successor formation
+			# TODO: non-successor formation
 			change_tag = ROP # Country TAG
 			set_country_flag = restored_roman_republic_flag # Country Formation Flag
 			custom_tooltip = form_roman_republic_tt_2 # New Missions
@@ -184,4 +228,6 @@ country_decisions = {
 		}
 		ai_importance = 300
 	}
+
+	# TODO: unique papal restoration of the Roman Republic (Can become Napoleonic Roman Republic)
 }

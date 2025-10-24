@@ -249,4 +249,20 @@ namespace = dec1_events
 		}
 	}
 
+	# Nation Formed Announcement Event
+	country_event = {
+		id = dec1_events.5
+		title = "dec1_events.5.t"
+		desc = "dec1_events.5.d"
+		picture = HRE_eventPicture
+
+		is_triggered_only = yes
+
+		major = yes
+
+		option = {
+			name = "dec1_events.5.a" # Interesting developments.
+
+		}
+	}	
 #

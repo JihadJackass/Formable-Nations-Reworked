@@ -7,6 +7,16 @@ country_decisions = {
 			is_colonial_nation = no
 			technology_group = muslim
 			religion_group = muslim
+			government_rank = 2
+			# Must own a province in both Iberia and North Africa
+			AND = {
+				any_owned_province = {
+					region = maghreb_region
+				}
+				any_owned_province = {
+					region = iberia_region
+				}
+			}
 			NOT = {
 				has_global_flag = dec1_historical_nations_only
 				has_country_flag = formed_maghrebia_flag

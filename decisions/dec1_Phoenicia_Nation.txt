@@ -94,8 +94,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			adm_tech = 15
-			NOT = { exists = CTG }
+			NOT = { exists = PCA }
 			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
 				limit = {
 					has_global_flag = dec1_subject_formable_nations_enabled
@@ -118,6 +117,7 @@ country_decisions = {
 				culture_group = maghrebi
 				culture_group = iberian
 			}
+			# TODO: add a trigger for if you become an OPM along the phonecian colonies
 			custom_trigger_tooltip = {
 				tooltip = form_carthage_tt_1
 				# Carthage Cores
@@ -162,7 +162,7 @@ country_decisions = {
 			}
 		}
 	 	effect = {
-			change_tag = CTG # Country TAG
+			change_tag = PCA # Country TAG
 			set_country_flag = formed_carthage_flag # Country Formation Flag
 			custom_tooltip = form_carthage_tt_2 # New Missions
 			custom_tooltip = form_carthage_tt_3 # Region/Area Claims
@@ -179,7 +179,7 @@ country_decisions = {
 				}
 			}
 			custom_tooltip = dec1_decisions_blank
-			CTG = { # Capital change and bonuses
+			PCA = { # Capital change and bonuses
 				set_capital = 341 # Carthage
 				341 = {
 					rename_capital = "Carthage"

@@ -1,6 +1,4 @@
------------- THEODORO ------------
-
-IF THEODORO CAPTURES CANDAR THEY CAN FORM PONTUS AND GAIN EMPIRE RANK
+- Add decisions to every formable which allows you to establish the nation as a subject, or to recognize their cores which will allow you to do the borders as you desire.
 
 ------------ PEOPLES REPUBLIC OF CHINA ------------
 
@@ -55,7 +53,7 @@ Mongolia tooltip issue
 Stateless Society issue (should only be for specific tags)
 Great Yuan Issue
 take_capital_support_rebels_desc / mandate, etc, desc arent working
-Hungary formed romania
+
 Make most formables require a capital in the area (mexico can form all french formables?)
 
 ------------------------

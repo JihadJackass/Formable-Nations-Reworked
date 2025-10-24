@@ -10,6 +10,9 @@ country_decisions = {
 			is_former_colonial_nation = no
 			is_colonial_nation = no
 			religion_group = muslim
+			any_owned_province = {
+				region = iberia_region
+			}
 			NOT = {
 				has_country_flag = formed_andalusian_flag
 				exists = ADU

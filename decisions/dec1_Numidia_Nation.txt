@@ -5,6 +5,7 @@ country_decisions = {
 		potential = {
 			is_former_colonial_nation = no
 			is_colonial_nation = no
+			has_country_flag = dec1_rise_of_numidia
 			NOT = {
 				has_global_flag = dec1_historical_nations_only
 				has_country_flag = formed_numidia_flag
@@ -161,4 +162,8 @@ country_decisions = {
 		}
 		ai_importance = 200 # Ancient Kingdom, Less Desirable
 	}
+
+	# TODO: Establish Numidia as a minor subject
+
+	# TODO: Recognize Numidian Cores
 }

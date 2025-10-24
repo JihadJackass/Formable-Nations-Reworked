@@ -11,35 +11,54 @@ country_decisions = {
 				primary_culture = tunisian
 			}
 			NOT = {
-				has_global_flag = dec1_historical_nations_only
-				has_country_flag = formed_garamantia_flag
-				exists = GMM
-				tag = GMM
-				tag = NMD
-				tag = PAP
-				tag = HLR
-				tag = MGH
-				tag = TUN
+				OR = {
+					has_global_flag = dec1_historical_nations_only
+					has_country_flag = formed_garamantia_flag
+					has_country_flag = dec1_rise_of_garamantia
+					exists = GMM
+					tag = GMM
+					tag = NMD
+					tag = PAP
+					tag = HLR
+					tag = MGH
+					tag = TUN
+				}
 			}
 		}
 		provinces_to_highlight = {
 			area = north_saharan_area
-		}
-		allow = {
-			north_saharan_area = {
-				type = all
-				owned_by = ROOT
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
 			}
 		}
-		effect = {
+		allow = {
+			NOT = { exists = CTG }
+			is_at_war = no
+			AND = {
+				any_owned_province = {
+					if = {
+						limit = { 
+							area = north_saharan_area
+						}
+					}
+					is_capital = yes
+				}
+				north_saharan_area = {
+					type = all
+					owned_by = ROOT
+				}
+			}
+		}
+	 	effect = {
 			change_tag = GMM # Country TAG
 			set_country_flag = formed_garamantia_flag # Country Formation Flag
 			custom_tooltip = form_garamantia_tt_2 # New Missions
-			#custom_tooltip = form_numidia_tt_3 # Region/Area Claims
-			change_religion = catholic
-			set_ruler_religion = catholic
-			north_saharan_area = { change_religion = catholic }
-			high_plains_area = { change_religion = catholic }
+			change_religion = shamanism
+			set_ruler_religion = shamanism
+			capital_scope = { change_religion = shamanism }
+			north_saharan_area = { random_province = { change_religion = shamanism } }
+			high_plains_area = { random_province = { change_religion = shamanism } }
 			custom_tooltip = dec1_decisions_blank
 			GMM = { # Capital change and bonuses
 				set_capital = 2472
@@ -91,31 +110,12 @@ country_decisions = {
 					}
 				}
 			}
-			# Custom Ideas check and change
-			if = {
-				limit = {
-					has_custom_ideas = no
-		#			NOT = { has_idea_group = GMA_ideas }
-				}
-				country_event = { id = ideagroups.1 }
-			}
-			# Custom Missions check and change
-			country_event = { id = dec1_events.3 }
-			custom_tooltip = dec1_decisions_blank
-			# National Ability
-		#	add_country_modifier = {
-		#		name = dec1_restore_numidia
-		#		duration = 49275
-		#	}
-			# Increased Centralization
-			add_country_modifier = {
-				name = dec1_increased_centralization
-				duration = -1
-			}
 		}
 		ai_will_do = {
 			factor = 1
 		}
-		ai_importance = 200 # Ancient Kingdom, Less Desirable
+		ai_importance = 100
 	}
+
+	# establish old ways TODO
 }

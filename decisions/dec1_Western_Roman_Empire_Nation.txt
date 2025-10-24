@@ -13,7 +13,10 @@ country_decisions = {
 		potential = {
 			is_former_colonial_nation = no
 			is_colonial_nation = no
-			tag = ROP
+			OR = {
+				tag = ROP
+				tag = ITA
+			}
 			NOT = {
 				has_global_flag = dec1_historical_nations_only
 				has_country_flag = western_roman_empire_flag

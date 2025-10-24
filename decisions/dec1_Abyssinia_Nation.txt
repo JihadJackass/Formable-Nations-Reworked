@@ -6,15 +6,17 @@ country_decisions = {
 			is_former_colonial_nation = no
 			is_colonial_nation = no
 			NOT = {
-				has_country_flag = formed_abyssinia_flag
-				exists = ABY
-				tag = ABY
-				tag = AKS
-				tag = PNT
-				tag = RHO
-				tag = SOM
-				tag = PAP
-				tag = PNT
+				OR = {
+					has_country_flag = formed_abyssinia_flag
+					exists = ABY
+					tag = ABY
+					tag = AKS
+					tag = PNT
+					tag = RHO
+					tag = SOM
+					tag = PAP
+					tag = PNT
+				}
 			}
 			OR = {
 				primary_culture = amhara

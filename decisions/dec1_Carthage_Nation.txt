@@ -5,6 +5,7 @@ country_decisions = {
 		potential = {
 			is_former_colonial_nation = no
 			is_colonial_nation = no
+			tag = PCA
 			NOT = {
 				has_global_flag = dec1_historical_nations_only
 				has_country_flag = formed_carthage_flag
@@ -93,7 +94,7 @@ country_decisions = {
 			}
 		}
 		allow = {
-			adm_tech = 15
+			adm_tech = 5
 			NOT = { exists = CTG }
 			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
 				limit = {

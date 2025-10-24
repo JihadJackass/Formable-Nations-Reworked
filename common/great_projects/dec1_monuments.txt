@@ -11,7 +11,6 @@ nge_statue_of_ruler = {
 	type = monument
 
 	build_trigger = {
-
 	}
 
 	on_built = {
@@ -21,13 +20,20 @@ nge_statue_of_ruler = {
 	}
 
 	can_use_modifiers_trigger = {
-		
+		OR = {
+			tag = NGE
+			tag = NGX
+		}
 	}
 
 	can_upgrade_trigger = {
 	}
 
 	keep_trigger = {
+		OR = {
+			tag = NGE
+			tag = NGX
+		}
 	}
 
 	tier_0 = {
@@ -59,7 +65,7 @@ nge_statue_of_ruler = {
 		area_modifier = {
 		}
 		country_modifiers = {
-			monthly_reform_progress = 0.98
+			monthly_reform_progress = 0.05
 		}
 		on_upgraded = {
 		}
@@ -78,7 +84,7 @@ nge_statue_of_ruler = {
 		}
 		country_modifiers = {
 			land_morale = 0.0050
-			monthly_reform_progress = 0.165
+			monthly_reform_progress = 0.15
 		}
 		on_upgraded = {
 		}
@@ -86,10 +92,10 @@ nge_statue_of_ruler = {
 
 	tier_3 = {
 		upgrade_time = {
-			months = 480
+			months = 340
 		}
 		cost_to_upgrade = {
-			factor = 5000
+			factor = 6500
 		}
 		province_modifiers = {
 		}
@@ -97,7 +103,7 @@ nge_statue_of_ruler = {
 		}
 		country_modifiers = {
 			land_morale = 0.075
-			monthly_reform_progress = 0.385
+			monthly_reform_progress = 0.25
 		}
 		on_upgraded = {
 		}

@@ -41,7 +41,7 @@
 	dec1_nge_propogate_christianity_temp_missionary = {
 		missionaries = 1 
 		colonists = 1
-		global_missionary_strength = 0.25
+		global_missionary_strength = 0.50
 	}
 
 	dec1_nge_fetishist_traditions = {
@@ -66,6 +66,8 @@
 
 	dec1_shehu_polities_hold_influence = {
 		enforce_religion_cost = -0.35
+		infantry_shock = 1
+		cavalry_shock = 1
 	}
 
 	dec1_nge_democratic_realist_ideas = {
@@ -75,12 +77,24 @@
 	}
 
 	dec1_nge_rise_of_christianity = {
+		religious_unity = 0.10
 		yearly_corruption = 0.025
 		relation_with_same_religion = 10
 		warscore_cost_vs_other_religion = -0.10
 		relation_with_heretics = -5
  		relation_with_heathens = -10
 		war_taxes_cost_modifier = -0.10 
+
+	}
+
+	dec1_nge_rise_of_militia_christi = {
+		religious_unity = 0.15
+		yearly_corruption = 0.010
+		warscore_cost_vs_other_religion = -0.10
+		relation_with_heretics = -20
+ 		relation_with_heathens = -30
+		war_taxes_cost_modifier = -0.20 
+		global_missionary_strength = 0.20
 	}
 
 	dec1_nge_rise_of_christianity_reject_clergy_war = {

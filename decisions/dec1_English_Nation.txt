@@ -1,6 +1,6 @@
 country_decisions = {
 
-	dec1_english_nation = {
+	dec1_english_nation  = {
 		major = yes
 		potential = {
 			is_former_colonial_nation = no
@@ -34,67 +34,13 @@ country_decisions = {
 				}
 			}
 		}
-		provinces_to_highlight = {
-			OR = {
-					# London
-				province_id = 236
-				province_id = 235
-				province_id = 4371
-				province_id = 237
-					# East Anglia
-				province_id = 238
-				province_id = 1860
-				province_id = 4370
-					# Wessex
-				province_id = 234
-				province_id = 4374
-				province_id = 4130
-				province_id = 4373
-				province_id = 233
-					# West Midlands
-				province_id = 239
-				province_id = 240
-				province_id = 4372
-				province_id = 4375
-				province_id = 244
-					# East Midlands
-				province_id = 243
-				province_id = 4376
-				province_id = 1861
-					# Yorkshire
-				province_id = 245
-				province_id = 4367
-				province_id = 4368
-			}
-			OR = {
-				NOT = { owned_by = ROOT }
-				NOT = { is_core = ROOT }
-			}
-		}
+
 		allow = {
 			adm_tech = 10
 			NOT = { exists = ENG }
 			is_at_war = no
-
-			if = { # If Subject Formables is enabled, then you can form as either Subject or NOT
-				limit = {
-					has_global_flag = dec1_subject_formable_nations_enabled
-				}
-				OR = {
-					is_subject = yes
-					is_subject = no
-				}
-			}
-			if = { # If Subject Formables is not enabled, then you need to NOT be a subject
-				limit = {
-					NOT = {
-						has_global_flag = dec1_subject_formable_nations_enabled
-					}
-				}
-				is_subject = no
-			}
-			is_free_or_tributary_trigger = no
 		}
+
 		effect = {
 			change_tag = ENG # Country TAG
 			set_country_flag = formed_england_flag # Country Formation Flag
@@ -135,7 +81,7 @@ country_decisions = {
 							}
 						change_government = monarchy
 					}
-					add_government_reform = autocracy_reform
+					add_government_reform = english_parliamentary_republic_government
 					# Government Rank change
 					if = {
 						limit = {
@@ -169,14 +115,7 @@ country_decisions = {
 				}
 			}
 		}
-		ai_will_do = {
-			factor = 1
-			modifier = { # Scottish AI refuses to subject itself to English
-				tag = SCO
-				factor = 0
-			}
-		}
-		ai_importance = 200
+
 	}
 
 }

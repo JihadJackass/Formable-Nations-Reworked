@@ -1,0 +1,89 @@
+namespace = dec1_formable_unlock_events
+
+	# index
+
+		# Rise of Numidia - dec1_country_events.1
+
+		country_event = {
+			id = dec1_formable_unlock_events.1
+			title = "dec1_formable_unlock_events.1.t"
+			desc = "dec1_formable_unlock_events.1.d"
+			picture = CULTURE_eventPicture
+
+			mean_time_to_happen = {
+				months = 24
+
+				modifier = {
+					factor = -100
+					is_at_war = yes
+				}
+			}
+
+			trigger = {
+				primary_culture = berber
+				is_at_war = no
+			}
+
+			# Unacceptable proposal
+			option = {
+				name = "dec1_formable_unlock_events.1.a"
+				ai_chance = { factor = 90 }
+				add_prestige = 2
+				random_owned_province = { add_core = NMD }
+			}
+
+			# Support this movement
+			option = {
+				name = "dec1_formable_unlock_events.1.b"
+				ai_chance = { factor = 10 }
+				set_country_flag = dec1_rise_of_numidia
+				add_prestige = 5
+				custom_tooltip = dec1_rise_of_numidia_tt
+				random_owned_province = { add_core = NMD }
+				random_owned_province = { add_core = NMD }
+			}
+		}
+
+		# Rise of Garamantes
+
+		country_event = {
+			id = dec1_formable_unlock_events.2
+			title = "dec1_formable_unlock_events.2.t"
+			desc = "dec1_formable_unlock_events.2.d"
+			picture = CULTURE_eventPicture
+
+			mean_time_to_happen = {
+				months = 24
+
+				modifier = {
+					factor = -100
+					is_at_war = yes
+				}
+			}
+
+			trigger = {
+				primary_culture = berber
+				is_at_war = no
+			}
+
+			# Unacceptable proposal
+			option = {
+				name = "dec1_formable_unlock_events.2.a"
+				ai_chance = { factor = 90 }
+				random_owned_province = { add_core = GMM }
+				add_prestige = 2
+			}
+
+			# Support this movement
+			option = {
+				name = "dec1_formable_unlock_events.2.b"
+				ai_chance = { factor = 10 }
+				set_country_flag = dec1_rise_of_garamantia
+				add_prestige = 5
+				custom_tooltip = dec1_rise_of_garamantia_tt
+				random_owned_province = { add_core = GMM }
+				random_owned_province = { add_core = GMM }
+			}
+		}
+
+# End of file

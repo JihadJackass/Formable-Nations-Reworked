@@ -64,7 +64,7 @@ dec1_nge_christianity_branch = {
 		provinces_to_highlight = {
 		}
 		trigger = {
-			religious_unity > 0.95
+			religious_unity > 0.65
 			stability > 0
 		}
 		effect = {			
@@ -74,7 +74,14 @@ dec1_nge_christianity_branch = {
 			}
 			add_country_modifier = { 
 				name = dec1_nge_propogate_christianity_temp_missionary
-				duration = 180
+				duration = 730
+			}
+			random_owned_province = {
+				limit = {
+					NOT = { is_capital = yes }
+					has_port = yes 
+				}
+				change_religion = catholic
 			}
 		}
 		ai_weight = {
@@ -183,6 +190,15 @@ dec1_nge_christianity_branching_holy_order = {
 				duration = -1
 			}
 			add_idea = religious_tradition
+			custom_tooltip = dec1_nge_black_militia_missionaries
+			hidden_effect = {
+				random_owned_province = {
+					change_religion = catholic
+				}
+				random_owned_province = {
+					change_religion = catholic
+				}
+			}
 			add_adm_power = 400
 		}
 		ai_weight = {
@@ -199,10 +215,18 @@ dec1_nge_christianity_branching_holy_order = {
 		}
 		trigger = {
 			OR = {
-				is_defender_of_faith = yes
 				AND = {
-					religion = catholic
-					alliance_with = PAP
+					is_defender_of_faith = yes
+					AND = {
+						religion = catholic
+						alliance_with = PAP
+					}
+				}
+				AND = {
+					all_owned_province = {
+						religion = catholic
+					}
+					religious_unity = 0.60
 				}
 			}
 		}
@@ -747,9 +771,10 @@ dec1_nge_nigerian_nationalism_branch = {
 		required_missions = { dec1_nge_foundations_of_greater_nigeria }
 		completed_by = 1505.1.1
 		provinces_to_highlight = {
-			owned_by = NGE
+			owned_by = NGES
 		}
 		trigger = {
+			NOT = { mission_completed = dec1_nge_christian_branching_4 }
 			legitimacy > 90
 			OR = {
 				in_golden_age = yes 
